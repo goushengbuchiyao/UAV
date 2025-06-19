@@ -1,0 +1,2 @@
+common/px_uav_msgs:communication:uav_control
+-DCATKIN_DEVEL_PREFIX=/home/px/UAV_SDK/devel -DCMAKE_INSTALL_PREFIX=/home/px/UAV_SDK/install -G Unix Makefiles

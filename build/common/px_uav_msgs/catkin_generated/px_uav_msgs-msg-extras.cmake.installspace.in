@@ -1,0 +1,2 @@
+set(px_uav_msgs_MESSAGE_FILES "msg/UAVState.msg;msg/MultiUAVState.msg;msg/UAVCommand.msg;msg/UAVControlState.msg;msg/UAVSetup.msg;msg/TextInfo.msg;msg/GlobalAruco.msg;msg/UGVState.msg;msg/UGVCommand.msg;msg/MultiUGVState.msg;msg/PositionReference.msg;msg/StationCommand.msg;msg/SwarmCommand.msg;msg/FormationAssign.msg;msg/OffsetPose.msg;msg/GPSData.msg;msg/LinktrackNode2.msg;msg/LinktrackNodeframe2.msg;msg/ParamSettings.msg")
+set(px_uav_msgs_SERVICE_FILES "")
