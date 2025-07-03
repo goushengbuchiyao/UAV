@@ -1533,121 +1533,173 @@ geographic_msgs_generate_messages_eus/fast:
 .PHONY : geographic_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named joy_node
+# Target rules for targets named mqtt_bridge_generate_messages
 
 # Build rule for target.
-joy_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 joy_node
-.PHONY : joy_node
+mqtt_bridge_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages
+.PHONY : mqtt_bridge_generate_messages
 
 # fast build rule for target.
-joy_node/fast:
-	$(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/build
-.PHONY : joy_node/fast
+mqtt_bridge_generate_messages/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/build
+.PHONY : mqtt_bridge_generate_messages/fast
 
 #=============================================================================
-# Target rules for targets named tf_generate_messages_lisp
+# Target rules for targets named mqtt_bridge_gennodejs
 
 # Build rule for target.
-tf_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_lisp
-.PHONY : tf_generate_messages_lisp
+mqtt_bridge_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_gennodejs
+.PHONY : mqtt_bridge_gennodejs
 
 # fast build rule for target.
-tf_generate_messages_lisp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_lisp.dir/build.make uav_control/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
+mqtt_bridge_gennodejs/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/build
+.PHONY : mqtt_bridge_gennodejs/fast
 
 #=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_lisp
+# Target rules for targets named mqtt_bridge_generate_messages_cpp
 
 # Build rule for target.
-trajectory_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_lisp
-.PHONY : trajectory_msgs_generate_messages_lisp
+mqtt_bridge_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_cpp
+.PHONY : mqtt_bridge_generate_messages_cpp
 
 # fast build rule for target.
-trajectory_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make uav_control/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
-.PHONY : trajectory_msgs_generate_messages_lisp/fast
+mqtt_bridge_generate_messages_cpp/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/build
+.PHONY : mqtt_bridge_generate_messages_cpp/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_generate_messages
+# Target rules for targets named mqtt_bridge_gencpp
 
 # Build rule for target.
-uav_control_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages
-.PHONY : uav_control_generate_messages
+mqtt_bridge_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_gencpp
+.PHONY : mqtt_bridge_gencpp
 
 # fast build rule for target.
-uav_control_generate_messages/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages.dir/build
-.PHONY : uav_control_generate_messages/fast
+mqtt_bridge_gencpp/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build
+.PHONY : mqtt_bridge_gencpp/fast
 
 #=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_cpp
+# Target rules for targets named mqtt_bridge_generate_messages_lisp
 
 # Build rule for target.
-trajectory_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_cpp
-.PHONY : trajectory_msgs_generate_messages_cpp
+mqtt_bridge_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_lisp
+.PHONY : mqtt_bridge_generate_messages_lisp
 
 # fast build rule for target.
-trajectory_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
-.PHONY : trajectory_msgs_generate_messages_cpp/fast
+mqtt_bridge_generate_messages_lisp/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/build
+.PHONY : mqtt_bridge_generate_messages_lisp/fast
 
 #=============================================================================
-# Target rules for targets named uav_command_pub
+# Target rules for targets named mqtt_bridge_generate_messages_eus
 
 # Build rule for target.
-uav_command_pub: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_command_pub
-.PHONY : uav_command_pub
+mqtt_bridge_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_eus
+.PHONY : mqtt_bridge_generate_messages_eus
 
 # fast build rule for target.
-uav_command_pub/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/build
-.PHONY : uav_command_pub/fast
+mqtt_bridge_generate_messages_eus/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/build
+.PHONY : mqtt_bridge_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named tf_generate_messages_cpp
+# Target rules for targets named mqtt_bridge_geneus
 
 # Build rule for target.
-tf_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_cpp
-.PHONY : tf_generate_messages_cpp
+mqtt_bridge_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_geneus
+.PHONY : mqtt_bridge_geneus
 
 # fast build rule for target.
-tf_generate_messages_cpp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
+mqtt_bridge_geneus/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/build
+.PHONY : mqtt_bridge_geneus/fast
 
 #=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_py
+# Target rules for targets named mqtt_bridge_genlisp
 
 # Build rule for target.
-diagnostic_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_py
-.PHONY : diagnostic_msgs_generate_messages_py
+mqtt_bridge_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_genlisp
+.PHONY : mqtt_bridge_genlisp
 
 # fast build rule for target.
-diagnostic_msgs_generate_messages_py/fast:
-	$(MAKE) -f uav_control/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build.make uav_control/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build
-.PHONY : diagnostic_msgs_generate_messages_py/fast
+mqtt_bridge_genlisp/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/build
+.PHONY : mqtt_bridge_genlisp/fast
 
 #=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_lisp
+# Target rules for targets named mqtt_bridge_generate_messages_py
 
 # Build rule for target.
-diagnostic_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_lisp
-.PHONY : diagnostic_msgs_generate_messages_lisp
+mqtt_bridge_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_py
+.PHONY : mqtt_bridge_generate_messages_py
 
 # fast build rule for target.
-diagnostic_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build.make uav_control/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build
-.PHONY : diagnostic_msgs_generate_messages_lisp/fast
+mqtt_bridge_generate_messages_py/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/build
+.PHONY : mqtt_bridge_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named mqtt_bridge_genpy
+
+# Build rule for target.
+mqtt_bridge_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_genpy
+.PHONY : mqtt_bridge_genpy
+
+# fast build rule for target.
+mqtt_bridge_genpy/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/build
+.PHONY : mqtt_bridge_genpy/fast
+
+#=============================================================================
+# Target rules for targets named mqtt_bridge_node
+
+# Build rule for target.
+mqtt_bridge_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_node
+.PHONY : mqtt_bridge_node
+
+# fast build rule for target.
+mqtt_bridge_node/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build
+.PHONY : mqtt_bridge_node/fast
+
+#=============================================================================
+# Target rules for targets named mqtt_bridge_generate_messages_nodejs
+
+# Build rule for target.
+mqtt_bridge_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_nodejs
+.PHONY : mqtt_bridge_generate_messages_nodejs
+
+# fast build rule for target.
+mqtt_bridge_generate_messages_nodejs/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/build
+.PHONY : mqtt_bridge_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named diagnostic_msgs_generate_messages_cpp
+
+# Build rule for target.
+diagnostic_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_cpp
+.PHONY : diagnostic_msgs_generate_messages_cpp
+
+# fast build rule for target.
+diagnostic_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build
+.PHONY : diagnostic_msgs_generate_messages_cpp/fast
 
 #=============================================================================
 # Target rules for targets named diagnostic_msgs_generate_messages_eus
@@ -1659,8 +1711,125 @@ diagnostic_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 diagnostic_msgs_generate_messages_eus/fast:
-	$(MAKE) -f uav_control/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build.make uav_control/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build
 .PHONY : diagnostic_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named diagnostic_msgs_generate_messages_nodejs
+
+# Build rule for target.
+diagnostic_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_nodejs
+.PHONY : diagnostic_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+diagnostic_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build
+.PHONY : diagnostic_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_nodejs
+
+# Build rule for target.
+trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named diagnostic_msgs_generate_messages_lisp
+
+# Build rule for target.
+diagnostic_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_lisp
+.PHONY : diagnostic_msgs_generate_messages_lisp
+
+# fast build rule for target.
+diagnostic_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build
+.PHONY : diagnostic_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named diagnostic_msgs_generate_messages_py
+
+# Build rule for target.
+diagnostic_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_py
+.PHONY : diagnostic_msgs_generate_messages_py
+
+# fast build rule for target.
+diagnostic_msgs_generate_messages_py/fast:
+	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build
+.PHONY : diagnostic_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_cpp
+
+# Build rule for target.
+trajectory_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_cpp
+.PHONY : trajectory_msgs_generate_messages_cpp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
+.PHONY : trajectory_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_eus
+
+# Build rule for target.
+trajectory_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_eus
+.PHONY : trajectory_msgs_generate_messages_eus
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_eus/fast:
+	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+.PHONY : trajectory_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_lisp
+
+# Build rule for target.
+trajectory_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_lisp
+.PHONY : trajectory_msgs_generate_messages_lisp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
+.PHONY : trajectory_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_py
+
+# Build rule for target.
+trajectory_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_py
+.PHONY : trajectory_msgs_generate_messages_py
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_py/fast:
+	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+.PHONY : trajectory_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named joy_node
+
+# Build rule for target.
+joy_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 joy_node
+.PHONY : joy_node
+
+# fast build rule for target.
+joy_node/fast:
+	$(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/build
+.PHONY : joy_node/fast
 
 #=============================================================================
 # Target rules for targets named rc_test
@@ -1676,17 +1845,147 @@ rc_test/fast:
 .PHONY : rc_test/fast
 
 #=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_py
+# Target rules for targets named uav_command_pub
 
 # Build rule for target.
-trajectory_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_py
-.PHONY : trajectory_msgs_generate_messages_py
+uav_command_pub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_command_pub
+.PHONY : uav_command_pub
 
 # fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	$(MAKE) -f uav_control/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make uav_control/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
+uav_command_pub/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/build
+.PHONY : uav_command_pub/fast
+
+#=============================================================================
+# Target rules for targets named uav_estimator
+
+# Build rule for target.
+uav_estimator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_estimator
+.PHONY : uav_estimator
+
+# fast build rule for target.
+uav_estimator/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/build
+.PHONY : uav_estimator/fast
+
+#=============================================================================
+# Target rules for targets named uav_controller
+
+# Build rule for target.
+uav_controller: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_controller
+.PHONY : uav_controller
+
+# fast build rule for target.
+uav_controller/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/build
+.PHONY : uav_controller/fast
+
+#=============================================================================
+# Target rules for targets named uav_control_generate_messages_py
+
+# Build rule for target.
+uav_control_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_py
+.PHONY : uav_control_generate_messages_py
+
+# fast build rule for target.
+uav_control_generate_messages_py/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build
+.PHONY : uav_control_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named uav_control_gennodejs
+
+# Build rule for target.
+uav_control_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_gennodejs
+.PHONY : uav_control_gennodejs
+
+# fast build rule for target.
+uav_control_gennodejs/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_gennodejs.dir/build.make uav_control/CMakeFiles/uav_control_gennodejs.dir/build
+.PHONY : uav_control_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_cpp
+
+# Build rule for target.
+tf_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_cpp
+.PHONY : tf_generate_messages_cpp
+
+# fast build rule for target.
+tf_generate_messages_cpp/fast:
+	$(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/tf_generate_messages_cpp.dir/build
+.PHONY : tf_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_lisp
+
+# Build rule for target.
+tf_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_lisp
+.PHONY : tf_generate_messages_lisp
+
+# fast build rule for target.
+tf_generate_messages_lisp/fast:
+	$(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_lisp.dir/build.make uav_control/CMakeFiles/tf_generate_messages_lisp.dir/build
+.PHONY : tf_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_eus
+
+# Build rule for target.
+tf_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_eus
+.PHONY : tf_generate_messages_eus
+
+# fast build rule for target.
+tf_generate_messages_eus/fast:
+	$(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_eus.dir/build.make uav_control/CMakeFiles/tf_generate_messages_eus.dir/build
+.PHONY : tf_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_py
+
+# Build rule for target.
+tf_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_py
+.PHONY : tf_generate_messages_py
+
+# fast build rule for target.
+tf_generate_messages_py/fast:
+	$(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_py.dir/build.make uav_control/CMakeFiles/tf_generate_messages_py.dir/build
+.PHONY : tf_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named uav_control_generate_messages
+
+# Build rule for target.
+uav_control_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages
+.PHONY : uav_control_generate_messages
+
+# fast build rule for target.
+uav_control_generate_messages/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages.dir/build
+.PHONY : uav_control_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named uav_control_geneus
+
+# Build rule for target.
+uav_control_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_geneus
+.PHONY : uav_control_geneus
+
+# fast build rule for target.
+uav_control_geneus/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_geneus.dir/build.make uav_control/CMakeFiles/uav_control_geneus.dir/build
+.PHONY : uav_control_geneus/fast
 
 #=============================================================================
 # Target rules for targets named tf_generate_messages_nodejs
@@ -1715,69 +2014,43 @@ uav_control_generate_messages_lisp/fast:
 .PHONY : uav_control_generate_messages_lisp/fast
 
 #=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_eus
+# Target rules for targets named uav_control_generate_messages_nodejs
 
 # Build rule for target.
-trajectory_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_eus
-.PHONY : trajectory_msgs_generate_messages_eus
+uav_control_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_nodejs
+.PHONY : uav_control_generate_messages_nodejs
 
 # fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	$(MAKE) -f uav_control/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make uav_control/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
+uav_control_generate_messages_nodejs/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build
+.PHONY : uav_control_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_nodejs
+# Target rules for targets named uav_control_main
 
 # Build rule for target.
-trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
-.PHONY : trajectory_msgs_generate_messages_nodejs
+uav_control_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_main
+.PHONY : uav_control_main
 
 # fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f uav_control/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make uav_control/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+uav_control_main/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/build
+.PHONY : uav_control_main/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_generate_messages_cpp
+# Target rules for targets named uav_control_genpy
 
 # Build rule for target.
-uav_control_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_cpp
-.PHONY : uav_control_generate_messages_cpp
+uav_control_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_genpy
+.PHONY : uav_control_genpy
 
 # fast build rule for target.
-uav_control_generate_messages_cpp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build
-.PHONY : uav_control_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named uav_control_genlisp
-
-# Build rule for target.
-uav_control_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_genlisp
-.PHONY : uav_control_genlisp
-
-# fast build rule for target.
-uav_control_genlisp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_genlisp.dir/build.make uav_control/CMakeFiles/uav_control_genlisp.dir/build
-.PHONY : uav_control_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_nodejs
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_nodejs
-.PHONY : diagnostic_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f uav_control/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build.make uav_control/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build
-.PHONY : diagnostic_msgs_generate_messages_nodejs/fast
+uav_control_genpy/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_genpy.dir/build.make uav_control/CMakeFiles/uav_control_genpy.dir/build
+.PHONY : uav_control_genpy/fast
 
 #=============================================================================
 # Target rules for targets named uav_control_gencpp
@@ -1806,147 +2079,30 @@ uav_control_generate_messages_eus/fast:
 .PHONY : uav_control_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_genpy
+# Target rules for targets named uav_control_generate_messages_cpp
 
 # Build rule for target.
-uav_control_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_genpy
-.PHONY : uav_control_genpy
+uav_control_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_cpp
+.PHONY : uav_control_generate_messages_cpp
 
 # fast build rule for target.
-uav_control_genpy/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_genpy.dir/build.make uav_control/CMakeFiles/uav_control_genpy.dir/build
-.PHONY : uav_control_genpy/fast
+uav_control_generate_messages_cpp/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build
+.PHONY : uav_control_generate_messages_cpp/fast
 
 #=============================================================================
-# Target rules for targets named tf_generate_messages_py
+# Target rules for targets named uav_control_genlisp
 
 # Build rule for target.
-tf_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_py
-.PHONY : tf_generate_messages_py
+uav_control_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_genlisp
+.PHONY : uav_control_genlisp
 
 # fast build rule for target.
-tf_generate_messages_py/fast:
-	$(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_py.dir/build.make uav_control/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named uav_control_main
-
-# Build rule for target.
-uav_control_main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_main
-.PHONY : uav_control_main
-
-# fast build rule for target.
-uav_control_main/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/build
-.PHONY : uav_control_main/fast
-
-#=============================================================================
-# Target rules for targets named uav_control_gennodejs
-
-# Build rule for target.
-uav_control_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_gennodejs
-.PHONY : uav_control_gennodejs
-
-# fast build rule for target.
-uav_control_gennodejs/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_gennodejs.dir/build.make uav_control/CMakeFiles/uav_control_gennodejs.dir/build
-.PHONY : uav_control_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named uav_control_generate_messages_py
-
-# Build rule for target.
-uav_control_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_py
-.PHONY : uav_control_generate_messages_py
-
-# fast build rule for target.
-uav_control_generate_messages_py/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build
-.PHONY : uav_control_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named uav_control_geneus
-
-# Build rule for target.
-uav_control_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_geneus
-.PHONY : uav_control_geneus
-
-# fast build rule for target.
-uav_control_geneus/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_geneus.dir/build.make uav_control/CMakeFiles/uav_control_geneus.dir/build
-.PHONY : uav_control_geneus/fast
-
-#=============================================================================
-# Target rules for targets named uav_controller
-
-# Build rule for target.
-uav_controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_controller
-.PHONY : uav_controller
-
-# fast build rule for target.
-uav_controller/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/build
-.PHONY : uav_controller/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_eus
-
-# Build rule for target.
-tf_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_eus
-.PHONY : tf_generate_messages_eus
-
-# fast build rule for target.
-tf_generate_messages_eus/fast:
-	$(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_eus.dir/build.make uav_control/CMakeFiles/tf_generate_messages_eus.dir/build
-.PHONY : tf_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_cpp
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_cpp
-.PHONY : diagnostic_msgs_generate_messages_cpp
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build
-.PHONY : diagnostic_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named uav_control_generate_messages_nodejs
-
-# Build rule for target.
-uav_control_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_nodejs
-.PHONY : uav_control_generate_messages_nodejs
-
-# fast build rule for target.
-uav_control_generate_messages_nodejs/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build
-.PHONY : uav_control_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named uav_estimator
-
-# Build rule for target.
-uav_estimator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_estimator
-.PHONY : uav_estimator
-
-# fast build rule for target.
-uav_estimator/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/build
-.PHONY : uav_estimator/fast
+uav_control_genlisp/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_genlisp.dir/build.make uav_control/CMakeFiles/uav_control_genlisp.dir/build
+.PHONY : uav_control_genlisp/fast
 
 # Help Target
 help:
@@ -2066,38 +2222,50 @@ help:
 	@echo "... geographic_msgs_generate_messages_cpp"
 	@echo "... _px_uav_msgs_generate_messages_check_deps_UAVCommand"
 	@echo "... geographic_msgs_generate_messages_eus"
-	@echo "... joy_node"
-	@echo "... tf_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_lisp"
-	@echo "... uav_control_generate_messages"
-	@echo "... trajectory_msgs_generate_messages_cpp"
-	@echo "... uav_command_pub"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... diagnostic_msgs_generate_messages_py"
-	@echo "... diagnostic_msgs_generate_messages_lisp"
+	@echo "... mqtt_bridge_generate_messages"
+	@echo "... mqtt_bridge_gennodejs"
+	@echo "... mqtt_bridge_generate_messages_cpp"
+	@echo "... mqtt_bridge_gencpp"
+	@echo "... mqtt_bridge_generate_messages_lisp"
+	@echo "... mqtt_bridge_generate_messages_eus"
+	@echo "... mqtt_bridge_geneus"
+	@echo "... mqtt_bridge_genlisp"
+	@echo "... mqtt_bridge_generate_messages_py"
+	@echo "... mqtt_bridge_genpy"
+	@echo "... mqtt_bridge_node"
+	@echo "... mqtt_bridge_generate_messages_nodejs"
+	@echo "... diagnostic_msgs_generate_messages_cpp"
 	@echo "... diagnostic_msgs_generate_messages_eus"
-	@echo "... rc_test"
+	@echo "... diagnostic_msgs_generate_messages_nodejs"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
+	@echo "... diagnostic_msgs_generate_messages_lisp"
+	@echo "... diagnostic_msgs_generate_messages_py"
+	@echo "... trajectory_msgs_generate_messages_cpp"
+	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... trajectory_msgs_generate_messages_py"
+	@echo "... joy_node"
+	@echo "... rc_test"
+	@echo "... uav_command_pub"
+	@echo "... uav_estimator"
+	@echo "... uav_controller"
+	@echo "... uav_control_generate_messages_py"
+	@echo "... uav_control_gennodejs"
+	@echo "... tf_generate_messages_cpp"
+	@echo "... tf_generate_messages_lisp"
+	@echo "... tf_generate_messages_eus"
+	@echo "... tf_generate_messages_py"
+	@echo "... uav_control_generate_messages"
+	@echo "... uav_control_geneus"
 	@echo "... tf_generate_messages_nodejs"
 	@echo "... uav_control_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
-	@echo "... uav_control_generate_messages_cpp"
-	@echo "... uav_control_genlisp"
-	@echo "... diagnostic_msgs_generate_messages_nodejs"
+	@echo "... uav_control_generate_messages_nodejs"
+	@echo "... uav_control_main"
+	@echo "... uav_control_genpy"
 	@echo "... uav_control_gencpp"
 	@echo "... uav_control_generate_messages_eus"
-	@echo "... uav_control_genpy"
-	@echo "... tf_generate_messages_py"
-	@echo "... uav_control_main"
-	@echo "... uav_control_gennodejs"
-	@echo "... uav_control_generate_messages_py"
-	@echo "... uav_control_geneus"
-	@echo "... uav_controller"
-	@echo "... tf_generate_messages_eus"
-	@echo "... diagnostic_msgs_generate_messages_cpp"
-	@echo "... uav_control_generate_messages_nodejs"
-	@echo "... uav_estimator"
+	@echo "... uav_control_generate_messages_cpp"
+	@echo "... uav_control_genlisp"
 .PHONY : help
 
 

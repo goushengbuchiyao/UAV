@@ -11,6 +11,7 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
+let geometry_msgs = _finder('geometry_msgs');
 let std_msgs = _finder('std_msgs');
 
 //-----------------------------------------------------------
@@ -24,6 +25,13 @@ class UAVControlState {
       this.control_state = null;
       this.pos_controller = null;
       this.failsafe = null;
+      this.mode = null;
+      this.position = null;
+      this.velocity = null;
+      this.yaw = null;
+      this.takeoff = null;
+      this.land = null;
+      this.emergency = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -56,6 +64,48 @@ class UAVControlState {
       else {
         this.failsafe = false;
       }
+      if (initObj.hasOwnProperty('mode')) {
+        this.mode = initObj.mode
+      }
+      else {
+        this.mode = '';
+      }
+      if (initObj.hasOwnProperty('position')) {
+        this.position = initObj.position
+      }
+      else {
+        this.position = new geometry_msgs.msg.Point();
+      }
+      if (initObj.hasOwnProperty('velocity')) {
+        this.velocity = initObj.velocity
+      }
+      else {
+        this.velocity = new geometry_msgs.msg.Vector3();
+      }
+      if (initObj.hasOwnProperty('yaw')) {
+        this.yaw = initObj.yaw
+      }
+      else {
+        this.yaw = 0.0;
+      }
+      if (initObj.hasOwnProperty('takeoff')) {
+        this.takeoff = initObj.takeoff
+      }
+      else {
+        this.takeoff = false;
+      }
+      if (initObj.hasOwnProperty('land')) {
+        this.land = initObj.land
+      }
+      else {
+        this.land = false;
+      }
+      if (initObj.hasOwnProperty('emergency')) {
+        this.emergency = initObj.emergency
+      }
+      else {
+        this.emergency = false;
+      }
     }
   }
 
@@ -71,6 +121,20 @@ class UAVControlState {
     bufferOffset = _serializer.uint8(obj.pos_controller, buffer, bufferOffset);
     // Serialize message field [failsafe]
     bufferOffset = _serializer.bool(obj.failsafe, buffer, bufferOffset);
+    // Serialize message field [mode]
+    bufferOffset = _serializer.string(obj.mode, buffer, bufferOffset);
+    // Serialize message field [position]
+    bufferOffset = geometry_msgs.msg.Point.serialize(obj.position, buffer, bufferOffset);
+    // Serialize message field [velocity]
+    bufferOffset = geometry_msgs.msg.Vector3.serialize(obj.velocity, buffer, bufferOffset);
+    // Serialize message field [yaw]
+    bufferOffset = _serializer.float64(obj.yaw, buffer, bufferOffset);
+    // Serialize message field [takeoff]
+    bufferOffset = _serializer.bool(obj.takeoff, buffer, bufferOffset);
+    // Serialize message field [land]
+    bufferOffset = _serializer.bool(obj.land, buffer, bufferOffset);
+    // Serialize message field [emergency]
+    bufferOffset = _serializer.bool(obj.emergency, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -88,13 +152,28 @@ class UAVControlState {
     data.pos_controller = _deserializer.uint8(buffer, bufferOffset);
     // Deserialize message field [failsafe]
     data.failsafe = _deserializer.bool(buffer, bufferOffset);
+    // Deserialize message field [mode]
+    data.mode = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [position]
+    data.position = geometry_msgs.msg.Point.deserialize(buffer, bufferOffset);
+    // Deserialize message field [velocity]
+    data.velocity = geometry_msgs.msg.Vector3.deserialize(buffer, bufferOffset);
+    // Deserialize message field [yaw]
+    data.yaw = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [takeoff]
+    data.takeoff = _deserializer.bool(buffer, bufferOffset);
+    // Deserialize message field [land]
+    data.land = _deserializer.bool(buffer, bufferOffset);
+    // Deserialize message field [emergency]
+    data.emergency = _deserializer.bool(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    return length + 4;
+    length += _getByteLength(object.mode);
+    return length + 67;
   }
 
   static datatype() {
@@ -104,7 +183,7 @@ class UAVControlState {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '2f696ea290ca1c1f46b8e82d115caeea';
+    return 'e659c63b910cf2a272d26e1d4b516070';
   }
 
   static messageDefinition() {
@@ -134,6 +213,13 @@ class UAVControlState {
     # 无人机安全保护触发标志量
     bool failsafe
     
+    string mode
+    geometry_msgs/Point position
+    geometry_msgs/Vector3 velocity
+    float64 yaw
+    bool takeoff
+    bool land
+    bool emergency
     ================================================================================
     MSG: std_msgs/Header
     # Standard metadata for higher-level stamped data types.
@@ -150,6 +236,25 @@ class UAVControlState {
     #Frame this data is associated with
     string frame_id
     
+    ================================================================================
+    MSG: geometry_msgs/Point
+    # This contains the position of a point in free space
+    float64 x
+    float64 y
+    float64 z
+    
+    ================================================================================
+    MSG: geometry_msgs/Vector3
+    # This represents a vector in free space. 
+    # It is only meant to represent a direction. Therefore, it does not
+    # make sense to apply a translation to it (e.g., when applying a 
+    # generic rigid transformation to a Vector3, tf2 will only apply the
+    # rotation). If you want your data to be translatable too, use the
+    # geometry_msgs/Point message instead.
+    
+    float64 x
+    float64 y
+    float64 z
     `;
   }
 
@@ -192,6 +297,55 @@ class UAVControlState {
     }
     else {
       resolved.failsafe = false
+    }
+
+    if (msg.mode !== undefined) {
+      resolved.mode = msg.mode;
+    }
+    else {
+      resolved.mode = ''
+    }
+
+    if (msg.position !== undefined) {
+      resolved.position = geometry_msgs.msg.Point.Resolve(msg.position)
+    }
+    else {
+      resolved.position = new geometry_msgs.msg.Point()
+    }
+
+    if (msg.velocity !== undefined) {
+      resolved.velocity = geometry_msgs.msg.Vector3.Resolve(msg.velocity)
+    }
+    else {
+      resolved.velocity = new geometry_msgs.msg.Vector3()
+    }
+
+    if (msg.yaw !== undefined) {
+      resolved.yaw = msg.yaw;
+    }
+    else {
+      resolved.yaw = 0.0
+    }
+
+    if (msg.takeoff !== undefined) {
+      resolved.takeoff = msg.takeoff;
+    }
+    else {
+      resolved.takeoff = false
+    }
+
+    if (msg.land !== undefined) {
+      resolved.land = msg.land;
+    }
+    else {
+      resolved.land = false
+    }
+
+    if (msg.emergency !== undefined) {
+      resolved.emergency = msg.emergency;
+    }
+    else {
+      resolved.emergency = false
     }
 
     return resolved;

@@ -16,6 +16,8 @@
 #include <ros/message_operations.h>
 
 #include <std_msgs/Header.h>
+#include <geometry_msgs/Point.h>
+#include <geometry_msgs/Vector3.h>
 
 namespace px_uav_msgs
 {
@@ -29,14 +31,28 @@ struct UAVControlState_
     , uav_id(0)
     , control_state(0)
     , pos_controller(0)
-    , failsafe(false)  {
+    , failsafe(false)
+    , mode()
+    , position()
+    , velocity()
+    , yaw(0.0)
+    , takeoff(false)
+    , land(false)
+    , emergency(false)  {
     }
   UAVControlState_(const ContainerAllocator& _alloc)
     : header(_alloc)
     , uav_id(0)
     , control_state(0)
     , pos_controller(0)
-    , failsafe(false)  {
+    , failsafe(false)
+    , mode(_alloc)
+    , position(_alloc)
+    , velocity(_alloc)
+    , yaw(0.0)
+    , takeoff(false)
+    , land(false)
+    , emergency(false)  {
   (void)_alloc;
     }
 
@@ -56,6 +72,27 @@ struct UAVControlState_
 
    typedef uint8_t _failsafe_type;
   _failsafe_type failsafe;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _mode_type;
+  _mode_type mode;
+
+   typedef  ::geometry_msgs::Point_<ContainerAllocator>  _position_type;
+  _position_type position;
+
+   typedef  ::geometry_msgs::Vector3_<ContainerAllocator>  _velocity_type;
+  _velocity_type velocity;
+
+   typedef double _yaw_type;
+  _yaw_type yaw;
+
+   typedef uint8_t _takeoff_type;
+  _takeoff_type takeoff;
+
+   typedef uint8_t _land_type;
+  _land_type land;
+
+   typedef uint8_t _emergency_type;
+  _emergency_type emergency;
 
 
 
@@ -142,7 +179,14 @@ bool operator==(const ::px_uav_msgs::UAVControlState_<ContainerAllocator1> & lhs
     lhs.uav_id == rhs.uav_id &&
     lhs.control_state == rhs.control_state &&
     lhs.pos_controller == rhs.pos_controller &&
-    lhs.failsafe == rhs.failsafe;
+    lhs.failsafe == rhs.failsafe &&
+    lhs.mode == rhs.mode &&
+    lhs.position == rhs.position &&
+    lhs.velocity == rhs.velocity &&
+    lhs.yaw == rhs.yaw &&
+    lhs.takeoff == rhs.takeoff &&
+    lhs.land == rhs.land &&
+    lhs.emergency == rhs.emergency;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -199,12 +243,12 @@ struct MD5Sum< ::px_uav_msgs::UAVControlState_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "2f696ea290ca1c1f46b8e82d115caeea";
+    return "e659c63b910cf2a272d26e1d4b516070";
   }
 
   static const char* value(const ::px_uav_msgs::UAVControlState_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x2f696ea290ca1c1fULL;
-  static const uint64_t static_value2 = 0x46b8e82d115caeeaULL;
+  static const uint64_t static_value1 = 0xe659c63b910cf2a2ULL;
+  static const uint64_t static_value2 = 0x72d26e1d4b516070ULL;
 };
 
 template<class ContainerAllocator>
@@ -247,6 +291,13 @@ struct Definition< ::px_uav_msgs::UAVControlState_<ContainerAllocator> >
 "# 无人机安全保护触发标志量\n"
 "bool failsafe\n"
 "\n"
+"string mode\n"
+"geometry_msgs/Point position\n"
+"geometry_msgs/Vector3 velocity\n"
+"float64 yaw\n"
+"bool takeoff\n"
+"bool land\n"
+"bool emergency\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
 "# Standard metadata for higher-level stamped data types.\n"
@@ -262,6 +313,26 @@ struct Definition< ::px_uav_msgs::UAVControlState_<ContainerAllocator> >
 "time stamp\n"
 "#Frame this data is associated with\n"
 "string frame_id\n"
+"\n"
+"================================================================================\n"
+"MSG: geometry_msgs/Point\n"
+"# This contains the position of a point in free space\n"
+"float64 x\n"
+"float64 y\n"
+"float64 z\n"
+"\n"
+"================================================================================\n"
+"MSG: geometry_msgs/Vector3\n"
+"# This represents a vector in free space. \n"
+"# It is only meant to represent a direction. Therefore, it does not\n"
+"# make sense to apply a translation to it (e.g., when applying a \n"
+"# generic rigid transformation to a Vector3, tf2 will only apply the\n"
+"# rotation). If you want your data to be translatable too, use the\n"
+"# geometry_msgs/Point message instead.\n"
+"\n"
+"float64 x\n"
+"float64 y\n"
+"float64 z\n"
 ;
   }
 
@@ -285,6 +356,13 @@ namespace serialization
       stream.next(m.control_state);
       stream.next(m.pos_controller);
       stream.next(m.failsafe);
+      stream.next(m.mode);
+      stream.next(m.position);
+      stream.next(m.velocity);
+      stream.next(m.yaw);
+      stream.next(m.takeoff);
+      stream.next(m.land);
+      stream.next(m.emergency);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -323,6 +401,34 @@ struct Printer< ::px_uav_msgs::UAVControlState_<ContainerAllocator> >
       s << std::endl;
     s << indent << "failsafe: ";
     Printer<uint8_t>::stream(s, indent + "  ", v.failsafe);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "mode: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.mode);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "position: ";
+    Printer< ::geometry_msgs::Point_<ContainerAllocator> >::stream(s, indent + "  ", v.position);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "velocity: ";
+    Printer< ::geometry_msgs::Vector3_<ContainerAllocator> >::stream(s, indent + "  ", v.velocity);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "yaw: ";
+    Printer<double>::stream(s, indent + "  ", v.yaw);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "takeoff: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.takeoff);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "land: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.land);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "emergency: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.emergency);
   }
 };
 

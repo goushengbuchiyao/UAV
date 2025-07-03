@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 include common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_StationCommand.dir/progress.make
 
 common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_StationCommand:
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg geometry_msgs/Quaternion:geometry_msgs/Point:std_msgs/Header:geometry_msgs/Pose:geometry_msgs/PoseStamped
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg geometry_msgs/PoseStamped:std_msgs/Header:geometry_msgs/Point:geometry_msgs/Pose:geometry_msgs/Quaternion
 
 _px_uav_msgs_generate_messages_check_deps_StationCommand: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_StationCommand
 _px_uav_msgs_generate_messages_check_deps_StationCommand: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_StationCommand.dir/build.make

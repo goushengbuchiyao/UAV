@@ -7,4 +7,6 @@
 subdirs("gtest")
 subdirs("common/px_uav_msgs")
 subdirs("communication")
+subdirs("mqtt_bridge")
+subdirs("simulator")
 subdirs("uav_control")

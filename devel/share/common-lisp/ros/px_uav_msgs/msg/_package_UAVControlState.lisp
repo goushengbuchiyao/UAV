@@ -9,4 +9,18 @@
           POS_CONTROLLER
           FAILSAFE-VAL
           FAILSAFE
+          MODE-VAL
+          MODE
+          POSITION-VAL
+          POSITION
+          VELOCITY-VAL
+          VELOCITY
+          YAW-VAL
+          YAW
+          TAKEOFF-VAL
+          TAKEOFF
+          LAND-VAL
+          LAND
+          EMERGENCY-VAL
+          EMERGENCY
 ))

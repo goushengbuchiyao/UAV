@@ -21,3 +21,11 @@ uint8 NE=3
 
 # 无人机安全保护触发标志量
 bool failsafe
+
+string mode
+geometry_msgs/Point position
+geometry_msgs/Vector3 velocity
+float64 yaw
+bool takeoff
+bool land
+bool emergency

@@ -148,6 +148,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/px/UAV_SDK/build/gtest/cmake_install.cmake")
   include("/home/px/UAV_SDK/build/common/px_uav_msgs/cmake_install.cmake")
   include("/home/px/UAV_SDK/build/communication/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/mqtt_bridge/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/simulator/cmake_install.cmake")
   include("/home/px/UAV_SDK/build/uav_control/cmake_install.cmake")
 
 endif()

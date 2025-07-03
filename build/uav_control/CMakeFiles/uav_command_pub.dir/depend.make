@@ -14,6 +14,7 @@ uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o: /opt/ros
 uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o: /opt/ros/noetic/include/geometry_msgs/Pose.h
 uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o: /opt/ros/noetic/include/geometry_msgs/PoseStamped.h
 uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o: /opt/ros/noetic/include/geometry_msgs/Quaternion.h
+uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o: /opt/ros/noetic/include/geometry_msgs/Vector3.h
 uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o: /opt/ros/noetic/include/mavros_msgs/CommandBool.h
 uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o: /opt/ros/noetic/include/mavros_msgs/CommandBoolRequest.h
 uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o: /opt/ros/noetic/include/mavros_msgs/CommandBoolResponse.h

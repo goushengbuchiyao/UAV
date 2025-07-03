@@ -1,0 +1,14 @@
+<launch>
+  <!-- MQTT桥接节点 -->
+  <node name="mqtt_bridge_node" pkg="mqtt_bridge" type="mqtt_bridge_node" output="screen">
+    <!-- MQTT服务器配置 -->
+    <param name="server_address" value="mqtts://de80ed56.ala.cn-hangzhou.emqxsl.cn:8883" />
+    <param name="client_id" value="ros_uav_client" />
+    <param name="username" value="px_uav" />
+    <param name="password" value="Wcnm1111!" />
+    
+    <!-- CA证书路径，需要根据实际情况修改 -->
+    <param name="ca_cert_path" value="$(find mqtt_bridge)/config/emqxsl-ca.crt" />
+  </node>
+</launch>
+  

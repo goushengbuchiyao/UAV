@@ -59,6 +59,10 @@ ros/message_operations.h
 -
 std_msgs/Header.h
 -
+geometry_msgs/Point.h
+-
+geometry_msgs/Vector3.h
+-
 
 /home/px/UAV_SDK/devel/include/px_uav_msgs/UAVSetup.h
 string
@@ -219,6 +223,22 @@ geometry_msgs/Pose.h
 -
 
 /opt/ros/noetic/include/geometry_msgs/Quaternion.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/opt/ros/noetic/include/geometry_msgs/Vector3.h
 string
 -
 vector

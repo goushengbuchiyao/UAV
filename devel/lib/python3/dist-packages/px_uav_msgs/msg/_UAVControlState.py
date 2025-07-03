@@ -6,10 +6,11 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
+import geometry_msgs.msg
 import std_msgs.msg
 
 class UAVControlState(genpy.Message):
-  _md5sum = "2f696ea290ca1c1f46b8e82d115caeea"
+  _md5sum = "e659c63b910cf2a272d26e1d4b516070"
   _type = "px_uav_msgs/UAVControlState"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """std_msgs/Header header
@@ -36,6 +37,13 @@ uint8 NE=3
 # 无人机安全保护触发标志量
 bool failsafe
 
+string mode
+geometry_msgs/Point position
+geometry_msgs/Vector3 velocity
+float64 yaw
+bool takeoff
+bool land
+bool emergency
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -51,7 +59,26 @@ uint32 seq
 time stamp
 #Frame this data is associated with
 string frame_id
-"""
+
+================================================================================
+MSG: geometry_msgs/Point
+# This contains the position of a point in free space
+float64 x
+float64 y
+float64 z
+
+================================================================================
+MSG: geometry_msgs/Vector3
+# This represents a vector in free space. 
+# It is only meant to represent a direction. Therefore, it does not
+# make sense to apply a translation to it (e.g., when applying a 
+# generic rigid transformation to a Vector3, tf2 will only apply the
+# rotation). If you want your data to be translatable too, use the
+# geometry_msgs/Point message instead.
+
+float64 x
+float64 y
+float64 z"""
   # Pseudo-constants
   INIT = 0
   RC_POS_CONTROL = 1
@@ -62,8 +89,8 @@ string frame_id
   UDE = 2
   NE = 3
 
-  __slots__ = ['header','uav_id','control_state','pos_controller','failsafe']
-  _slot_types = ['std_msgs/Header','uint8','uint8','uint8','bool']
+  __slots__ = ['header','uav_id','control_state','pos_controller','failsafe','mode','position','velocity','yaw','takeoff','land','emergency']
+  _slot_types = ['std_msgs/Header','uint8','uint8','uint8','bool','string','geometry_msgs/Point','geometry_msgs/Vector3','float64','bool','bool','bool']
 
   def __init__(self, *args, **kwds):
     """
@@ -73,7 +100,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,uav_id,control_state,pos_controller,failsafe
+       header,uav_id,control_state,pos_controller,failsafe,mode,position,velocity,yaw,takeoff,land,emergency
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -92,12 +119,33 @@ string frame_id
         self.pos_controller = 0
       if self.failsafe is None:
         self.failsafe = False
+      if self.mode is None:
+        self.mode = ''
+      if self.position is None:
+        self.position = geometry_msgs.msg.Point()
+      if self.velocity is None:
+        self.velocity = geometry_msgs.msg.Vector3()
+      if self.yaw is None:
+        self.yaw = 0.
+      if self.takeoff is None:
+        self.takeoff = False
+      if self.land is None:
+        self.land = False
+      if self.emergency is None:
+        self.emergency = False
     else:
       self.header = std_msgs.msg.Header()
       self.uav_id = 0
       self.control_state = 0
       self.pos_controller = 0
       self.failsafe = False
+      self.mode = ''
+      self.position = geometry_msgs.msg.Point()
+      self.velocity = geometry_msgs.msg.Vector3()
+      self.yaw = 0.
+      self.takeoff = False
+      self.land = False
+      self.emergency = False
 
   def _get_types(self):
     """
@@ -121,6 +169,14 @@ string frame_id
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
       buff.write(_get_struct_4B().pack(_x.uav_id, _x.control_state, _x.pos_controller, _x.failsafe))
+      _x = self.mode
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_7d3B().pack(_x.position.x, _x.position.y, _x.position.z, _x.velocity.x, _x.velocity.y, _x.velocity.z, _x.yaw, _x.takeoff, _x.land, _x.emergency))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -134,6 +190,10 @@ string frame_id
     try:
       if self.header is None:
         self.header = std_msgs.msg.Header()
+      if self.position is None:
+        self.position = geometry_msgs.msg.Point()
+      if self.velocity is None:
+        self.velocity = geometry_msgs.msg.Vector3()
       end = 0
       _x = self
       start = end
@@ -153,6 +213,22 @@ string frame_id
       end += 4
       (_x.uav_id, _x.control_state, _x.pos_controller, _x.failsafe,) = _get_struct_4B().unpack(str[start:end])
       self.failsafe = bool(self.failsafe)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.mode = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.mode = str[start:end]
+      _x = self
+      start = end
+      end += 59
+      (_x.position.x, _x.position.y, _x.position.z, _x.velocity.x, _x.velocity.y, _x.velocity.z, _x.yaw, _x.takeoff, _x.land, _x.emergency,) = _get_struct_7d3B().unpack(str[start:end])
+      self.takeoff = bool(self.takeoff)
+      self.land = bool(self.land)
+      self.emergency = bool(self.emergency)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -175,6 +251,14 @@ string frame_id
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
       buff.write(_get_struct_4B().pack(_x.uav_id, _x.control_state, _x.pos_controller, _x.failsafe))
+      _x = self.mode
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self
+      buff.write(_get_struct_7d3B().pack(_x.position.x, _x.position.y, _x.position.z, _x.velocity.x, _x.velocity.y, _x.velocity.z, _x.yaw, _x.takeoff, _x.land, _x.emergency))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -189,6 +273,10 @@ string frame_id
     try:
       if self.header is None:
         self.header = std_msgs.msg.Header()
+      if self.position is None:
+        self.position = geometry_msgs.msg.Point()
+      if self.velocity is None:
+        self.velocity = geometry_msgs.msg.Vector3()
       end = 0
       _x = self
       start = end
@@ -208,6 +296,22 @@ string frame_id
       end += 4
       (_x.uav_id, _x.control_state, _x.pos_controller, _x.failsafe,) = _get_struct_4B().unpack(str[start:end])
       self.failsafe = bool(self.failsafe)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.mode = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.mode = str[start:end]
+      _x = self
+      start = end
+      end += 59
+      (_x.position.x, _x.position.y, _x.position.z, _x.velocity.x, _x.velocity.y, _x.velocity.z, _x.yaw, _x.takeoff, _x.land, _x.emergency,) = _get_struct_7d3B().unpack(str[start:end])
+      self.takeoff = bool(self.takeoff)
+      self.land = bool(self.land)
+      self.emergency = bool(self.emergency)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -228,3 +332,9 @@ def _get_struct_4B():
     if _struct_4B is None:
         _struct_4B = struct.Struct("<4B")
     return _struct_4B
+_struct_7d3B = None
+def _get_struct_7d3B():
+    global _struct_7d3B
+    if _struct_7d3B is None:
+        _struct_7d3B = struct.Struct("<7d3B")
+    return _struct_7d3B

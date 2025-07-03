@@ -10,6 +10,8 @@
 
 (in-package "ROS")
 ;;//! \htmlinclude UAVControlState.msg.html
+(if (not (find-package "GEOMETRY_MSGS"))
+  (ros::roseus-add-msgs "geometry_msgs"))
 (if (not (find-package "STD_MSGS"))
   (ros::roseus-add-msgs "std_msgs"))
 
@@ -53,7 +55,7 @@
 
 (defclass px_uav_msgs::UAVControlState
   :super ros::object
-  :slots (_header _uav_id _control_state _pos_controller _failsafe ))
+  :slots (_header _uav_id _control_state _pos_controller _failsafe _mode _position _velocity _yaw _takeoff _land _emergency ))
 
 (defmethod px_uav_msgs::UAVControlState
   (:init
@@ -63,6 +65,13 @@
     ((:control_state __control_state) 0)
     ((:pos_controller __pos_controller) 0)
     ((:failsafe __failsafe) nil)
+    ((:mode __mode) "")
+    ((:position __position) (instance geometry_msgs::Point :init))
+    ((:velocity __velocity) (instance geometry_msgs::Vector3 :init))
+    ((:yaw __yaw) 0.0)
+    ((:takeoff __takeoff) nil)
+    ((:land __land) nil)
+    ((:emergency __emergency) nil)
     )
    (send-super :init)
    (setq _header __header)
@@ -70,6 +79,13 @@
    (setq _control_state (round __control_state))
    (setq _pos_controller (round __pos_controller))
    (setq _failsafe __failsafe)
+   (setq _mode (string __mode))
+   (setq _position __position)
+   (setq _velocity __velocity)
+   (setq _yaw (float __yaw))
+   (setq _takeoff __takeoff)
+   (setq _land __land)
+   (setq _emergency __emergency)
    self)
   (:header
    (&rest __header)
@@ -90,6 +106,35 @@
   (:failsafe
    (&optional (__failsafe :null))
    (if (not (eq __failsafe :null)) (setq _failsafe __failsafe)) _failsafe)
+  (:mode
+   (&optional __mode)
+   (if __mode (setq _mode __mode)) _mode)
+  (:position
+   (&rest __position)
+   (if (keywordp (car __position))
+       (send* _position __position)
+     (progn
+       (if __position (setq _position (car __position)))
+       _position)))
+  (:velocity
+   (&rest __velocity)
+   (if (keywordp (car __velocity))
+       (send* _velocity __velocity)
+     (progn
+       (if __velocity (setq _velocity (car __velocity)))
+       _velocity)))
+  (:yaw
+   (&optional __yaw)
+   (if __yaw (setq _yaw __yaw)) _yaw)
+  (:takeoff
+   (&optional (__takeoff :null))
+   (if (not (eq __takeoff :null)) (setq _takeoff __takeoff)) _takeoff)
+  (:land
+   (&optional (__land :null))
+   (if (not (eq __land :null)) (setq _land __land)) _land)
+  (:emergency
+   (&optional (__emergency :null))
+   (if (not (eq __emergency :null)) (setq _emergency __emergency)) _emergency)
   (:serialization-length
    ()
    (+
@@ -102,6 +147,20 @@
     ;; uint8 _pos_controller
     1
     ;; bool _failsafe
+    1
+    ;; string _mode
+    4 (length _mode)
+    ;; geometry_msgs/Point _position
+    (send _position :serialization-length)
+    ;; geometry_msgs/Vector3 _velocity
+    (send _velocity :serialization-length)
+    ;; float64 _yaw
+    8
+    ;; bool _takeoff
+    1
+    ;; bool _land
+    1
+    ;; bool _emergency
     1
     ))
   (:serialize
@@ -118,6 +177,20 @@
        (write-byte _pos_controller s)
      ;; bool _failsafe
        (if _failsafe (write-byte -1 s) (write-byte 0 s))
+     ;; string _mode
+       (write-long (length _mode) s) (princ _mode s)
+     ;; geometry_msgs/Point _position
+       (send _position :serialize s)
+     ;; geometry_msgs/Vector3 _velocity
+       (send _velocity :serialize s)
+     ;; float64 _yaw
+       (sys::poke _yaw (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; bool _takeoff
+       (if _takeoff (write-byte -1 s) (write-byte 0 s))
+     ;; bool _land
+       (if _land (write-byte -1 s) (write-byte 0 s))
+     ;; bool _emergency
+       (if _emergency (write-byte -1 s) (write-byte 0 s))
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -132,11 +205,25 @@
      (setq _pos_controller (sys::peek buf ptr- :char)) (incf ptr- 1)
    ;; bool _failsafe
      (setq _failsafe (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
+   ;; string _mode
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _mode (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; geometry_msgs/Point _position
+     (send _position :deserialize buf ptr-) (incf ptr- (send _position :serialization-length))
+   ;; geometry_msgs/Vector3 _velocity
+     (send _velocity :deserialize buf ptr-) (incf ptr- (send _velocity :serialization-length))
+   ;; float64 _yaw
+     (setq _yaw (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; bool _takeoff
+     (setq _takeoff (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
+   ;; bool _land
+     (setq _land (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
+   ;; bool _emergency
+     (setq _emergency (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
    ;;
    self)
   )
 
-(setf (get px_uav_msgs::UAVControlState :md5sum-) "2f696ea290ca1c1f46b8e82d115caeea")
+(setf (get px_uav_msgs::UAVControlState :md5sum-) "e659c63b910cf2a272d26e1d4b516070")
 (setf (get px_uav_msgs::UAVControlState :datatype-) "px_uav_msgs/UAVControlState")
 (setf (get px_uav_msgs::UAVControlState :definition-)
       "std_msgs/Header header
@@ -163,6 +250,13 @@ uint8 NE=3
 # 无人机安全保护触发标志量
 bool failsafe
 
+string mode
+geometry_msgs/Point position
+geometry_msgs/Vector3 velocity
+float64 yaw
+bool takeoff
+bool land
+bool emergency
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -179,10 +273,29 @@ time stamp
 #Frame this data is associated with
 string frame_id
 
+================================================================================
+MSG: geometry_msgs/Point
+# This contains the position of a point in free space
+float64 x
+float64 y
+float64 z
+
+================================================================================
+MSG: geometry_msgs/Vector3
+# This represents a vector in free space. 
+# It is only meant to represent a direction. Therefore, it does not
+# make sense to apply a translation to it (e.g., when applying a 
+# generic rigid transformation to a Vector3, tf2 will only apply the
+# rotation). If you want your data to be translatable too, use the
+# geometry_msgs/Point message instead.
+
+float64 x
+float64 y
+float64 z
 ")
 
 
 
-(provide :px_uav_msgs/UAVControlState "2f696ea290ca1c1f46b8e82d115caeea")
+(provide :px_uav_msgs/UAVControlState "e659c63b910cf2a272d26e1d4b516070")
 
 
