@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("common/px_uav_msgs")
+subdirs("aruco_detection")
 subdirs("communication")
 subdirs("mqtt_bridge")
 subdirs("simulator")

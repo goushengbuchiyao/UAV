@@ -1,0 +1,6 @@
+<launch>
+    <!-- 设置不使用模拟时间 -->
+    <param name="/use_sim_time" value="false"/>
+    <!-- 启动你的 ArUco 检测节点 -->
+    <node pkg="aruco_detection" type="aruco_detection" name="aruco_detection" output="screen"/>
+</launch>

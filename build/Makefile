@@ -1533,6 +1533,19 @@ geographic_msgs_generate_messages_eus/fast:
 .PHONY : geographic_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named aruco_detection
+
+# Build rule for target.
+aruco_detection: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_detection
+.PHONY : aruco_detection
+
+# fast build rule for target.
+aruco_detection/fast:
+	$(MAKE) -f aruco_detection/CMakeFiles/aruco_detection.dir/build.make aruco_detection/CMakeFiles/aruco_detection.dir/build
+.PHONY : aruco_detection/fast
+
+#=============================================================================
 # Target rules for targets named mqtt_bridge_generate_messages
 
 # Build rule for target.
@@ -2222,6 +2235,7 @@ help:
 	@echo "... geographic_msgs_generate_messages_cpp"
 	@echo "... _px_uav_msgs_generate_messages_check_deps_UAVCommand"
 	@echo "... geographic_msgs_generate_messages_eus"
+	@echo "... aruco_detection"
 	@echo "... mqtt_bridge_generate_messages"
 	@echo "... mqtt_bridge_gennodejs"
 	@echo "... mqtt_bridge_generate_messages_cpp"

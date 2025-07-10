@@ -138,6 +138,14 @@
 /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_cpp.dir
 /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVCommand.dir
 /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_eus.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/install/strip.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/install/local.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/install.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/list_install_components.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/rebuild_cache.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/edit_cache.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/test.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection.dir
 /home/px/UAV_SDK/build/communication/CMakeFiles/install/strip.dir
 /home/px/UAV_SDK/build/communication/CMakeFiles/install/local.dir
 /home/px/UAV_SDK/build/communication/CMakeFiles/install.dir
