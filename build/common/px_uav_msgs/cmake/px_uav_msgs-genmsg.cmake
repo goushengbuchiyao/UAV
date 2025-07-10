@@ -19,12 +19,12 @@ add_custom_target(px_uav_msgs_generate_messages ALL)
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg" NAME_WE)
 add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg" "geometry_msgs/Quaternion:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg" "std_msgs/Header:geometry_msgs/Quaternion"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg" NAME_WE)
 add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg" "geometry_msgs/Quaternion:px_uav_msgs/UAVState:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg" "px_uav_msgs/UAVState:std_msgs/Header:geometry_msgs/Quaternion"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg" NAME_WE)
@@ -34,7 +34,7 @@ add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg" NAME_WE)
 add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg" "std_msgs/Header:geometry_msgs/Point:geometry_msgs/Vector3"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg" "geometry_msgs/Point:std_msgs/Header:geometry_msgs/Vector3"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg" NAME_WE)
@@ -49,12 +49,12 @@ add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg" NAME_WE)
 add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg" "std_msgs/Header:px_uav_msgs/ArucoInfo"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg" "px_uav_msgs/ArucoInfo:std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg" NAME_WE)
 add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg" "geometry_msgs/Quaternion:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg" "std_msgs/Header:geometry_msgs/Quaternion"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg" NAME_WE)
@@ -64,7 +64,7 @@ add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg" NAME_WE)
 add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg" "geometry_msgs/Quaternion:std_msgs/Header:px_uav_msgs/UGVState"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg" "px_uav_msgs/UGVState:std_msgs/Header:geometry_msgs/Quaternion"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg" NAME_WE)
@@ -74,12 +74,12 @@ add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg" NAME_WE)
 add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg" "geometry_msgs/Pose:geometry_msgs/Quaternion:std_msgs/Header:geometry_msgs/PoseStamped:geometry_msgs/Point"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg" "geometry_msgs/PoseStamped:geometry_msgs/Quaternion:std_msgs/Header:geometry_msgs/Pose:geometry_msgs/Point"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg" NAME_WE)
 add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg" "std_msgs/Header:geometry_msgs/Point"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "px_uav_msgs" "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg" "geometry_msgs/Point:std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg" NAME_WE)
@@ -121,13 +121,13 @@ add_custom_target(_px_uav_msgs_generate_messages_check_deps_${_filename}
 _generate_msg_cpp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_cpp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_cpp(px_uav_msgs
@@ -139,7 +139,7 @@ _generate_msg_cpp(px_uav_msgs
 _generate_msg_cpp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_cpp(px_uav_msgs
@@ -157,13 +157,13 @@ _generate_msg_cpp(px_uav_msgs
 _generate_msg_cpp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_cpp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_cpp(px_uav_msgs
@@ -175,7 +175,7 @@ _generate_msg_cpp(px_uav_msgs
 _generate_msg_cpp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_cpp(px_uav_msgs
@@ -187,13 +187,13 @@ _generate_msg_cpp(px_uav_msgs
 _generate_msg_cpp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_cpp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_cpp(px_uav_msgs
@@ -298,13 +298,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS px_uav_msgs_generate_messages_cpp)
 _generate_msg_eus(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_eus(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_eus(px_uav_msgs
@@ -316,7 +316,7 @@ _generate_msg_eus(px_uav_msgs
 _generate_msg_eus(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_eus(px_uav_msgs
@@ -334,13 +334,13 @@ _generate_msg_eus(px_uav_msgs
 _generate_msg_eus(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_eus(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_eus(px_uav_msgs
@@ -352,7 +352,7 @@ _generate_msg_eus(px_uav_msgs
 _generate_msg_eus(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_eus(px_uav_msgs
@@ -364,13 +364,13 @@ _generate_msg_eus(px_uav_msgs
 _generate_msg_eus(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_eus(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_eus(px_uav_msgs
@@ -475,13 +475,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS px_uav_msgs_generate_messages_eus)
 _generate_msg_lisp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_lisp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_lisp(px_uav_msgs
@@ -493,7 +493,7 @@ _generate_msg_lisp(px_uav_msgs
 _generate_msg_lisp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_lisp(px_uav_msgs
@@ -511,13 +511,13 @@ _generate_msg_lisp(px_uav_msgs
 _generate_msg_lisp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_lisp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_lisp(px_uav_msgs
@@ -529,7 +529,7 @@ _generate_msg_lisp(px_uav_msgs
 _generate_msg_lisp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_lisp(px_uav_msgs
@@ -541,13 +541,13 @@ _generate_msg_lisp(px_uav_msgs
 _generate_msg_lisp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_lisp(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_lisp(px_uav_msgs
@@ -652,13 +652,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS px_uav_msgs_generate_messages_lisp)
 _generate_msg_nodejs(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_nodejs(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_nodejs(px_uav_msgs
@@ -670,7 +670,7 @@ _generate_msg_nodejs(px_uav_msgs
 _generate_msg_nodejs(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_nodejs(px_uav_msgs
@@ -688,13 +688,13 @@ _generate_msg_nodejs(px_uav_msgs
 _generate_msg_nodejs(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_nodejs(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_nodejs(px_uav_msgs
@@ -706,7 +706,7 @@ _generate_msg_nodejs(px_uav_msgs
 _generate_msg_nodejs(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_nodejs(px_uav_msgs
@@ -718,13 +718,13 @@ _generate_msg_nodejs(px_uav_msgs
 _generate_msg_nodejs(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_nodejs(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_nodejs(px_uav_msgs
@@ -829,13 +829,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS px_uav_msgs_generate_messages_nodej
 _generate_msg_py(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_py(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_py(px_uav_msgs
@@ -847,7 +847,7 @@ _generate_msg_py(px_uav_msgs
 _generate_msg_py(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_py(px_uav_msgs
@@ -865,13 +865,13 @@ _generate_msg_py(px_uav_msgs
 _generate_msg_py(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_py(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_py(px_uav_msgs
@@ -883,7 +883,7 @@ _generate_msg_py(px_uav_msgs
 _generate_msg_py(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
+  "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_py(px_uav_msgs
@@ -895,13 +895,13 @@ _generate_msg_py(px_uav_msgs
 _generate_msg_py(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_py(px_uav_msgs
   "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/px_uav_msgs
 )
 _generate_msg_py(px_uav_msgs

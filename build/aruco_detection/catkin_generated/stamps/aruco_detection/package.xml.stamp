@@ -65,6 +65,9 @@
   <exec_depend>roscpp</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
 
+  <build_depend>px_uav_msgs</build_depend>
+  <exec_depend>px_uav_msgs</exec_depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

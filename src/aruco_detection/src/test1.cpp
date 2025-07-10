@@ -59,9 +59,11 @@ public:
                 for (size_t i = 0; i < ids.size(); ++i) {
                     cv::aruco::drawDetectedMarkers(cv_ptr->image, corners, ids);
                     cv::aruco::drawAxis(cv_ptr->image, cameraMatrix, distCoeffs, rvecs[i], tvecs[i], markerLength * 0.5);
-
-                    // 在终端输出标记检测信息和世界坐标
-                    ROS_INFO("Detected ArUco Marker: ID=%d, Center World Coordinates=(%.2f, %.2f, %.2f)", 
+                    // 在终端输出标记检测信息和旋转向量
+                    ROS_INFO("Detected ArUco Marker: ID=%d,  rvecs=(%.2f, %.2f, %.2f)", 
+                             ids[i], rvecs[i][0], rvecs[i][1], rvecs[i][2]);
+                    // 在终端输出标记检测信息和平移向量
+                    ROS_INFO("Detected ArUco Marker: ID=%d, tvecs=(%.2f, %.2f, %.2f)", 
                              ids[i], tvecs[i][0], tvecs[i][1], tvecs[i][2]);
                 }
             }

@@ -1533,6 +1533,19 @@ geographic_msgs_generate_messages_eus/fast:
 .PHONY : geographic_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named aruco_landing_controller
+
+# Build rule for target.
+aruco_landing_controller: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_landing_controller
+.PHONY : aruco_landing_controller
+
+# fast build rule for target.
+aruco_landing_controller/fast:
+	$(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller.dir/build
+.PHONY : aruco_landing_controller/fast
+
+#=============================================================================
 # Target rules for targets named aruco_detection
 
 # Build rule for target.
@@ -1544,6 +1557,19 @@ aruco_detection: cmake_check_build_system
 aruco_detection/fast:
 	$(MAKE) -f aruco_detection/CMakeFiles/aruco_detection.dir/build.make aruco_detection/CMakeFiles/aruco_detection.dir/build
 .PHONY : aruco_detection/fast
+
+#=============================================================================
+# Target rules for targets named aruco_detection_generate_messages
+
+# Build rule for target.
+aruco_detection_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_detection_generate_messages
+.PHONY : aruco_detection_generate_messages
+
+# fast build rule for target.
+aruco_detection_generate_messages/fast:
+	$(MAKE) -f aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/build.make aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/build
+.PHONY : aruco_detection_generate_messages/fast
 
 #=============================================================================
 # Target rules for targets named mqtt_bridge_generate_messages
@@ -2235,7 +2261,9 @@ help:
 	@echo "... geographic_msgs_generate_messages_cpp"
 	@echo "... _px_uav_msgs_generate_messages_check_deps_UAVCommand"
 	@echo "... geographic_msgs_generate_messages_eus"
+	@echo "... aruco_landing_controller"
 	@echo "... aruco_detection"
+	@echo "... aruco_detection_generate_messages"
 	@echo "... mqtt_bridge_generate_messages"
 	@echo "... mqtt_bridge_gennodejs"
 	@echo "... mqtt_bridge_generate_messages_cpp"

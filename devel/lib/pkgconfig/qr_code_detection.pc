@@ -1,8 +1,0 @@
-prefix=/home/px/UAV_SDK/devel
-
-Name: qr_code_detection
-Description: Description of qr_code_detection
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: roscpp sensor_msgs cv_bridge image_transport std_msgs

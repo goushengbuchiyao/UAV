@@ -12,14 +12,20 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   cv_bridge
   image_transport
+  px_uav_msgs
 )
-
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  geometry_msgs
+  px_uav_msgs
+)
 find_package(OpenCV REQUIRED)
 
 find_package(Eigen3 REQUIRED)
 
 catkin_package(
-  CATKIN_DEPENDS roscpp sensor_msgs cv_bridge image_transport
+  CATKIN_DEPENDS roscpp sensor_msgs cv_bridge image_transport px_uav_msgs
 )
 
 include_directories(
@@ -33,4 +39,10 @@ target_link_libraries(aruco_detection
   ${catkin_LIBRARIES}
   ${OpenCV_LIBS}
   ${EIGEN3_INCLUDE_DIRS}
+)
+
+add_executable(aruco_landing_controller src/aruco_landing_controller.cpp)
+add_dependencies(aruco_landing_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(aruco_landing_controller
+  ${catkin_LIBRARIES}
 )

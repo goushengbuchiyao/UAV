@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+aruco_detection/CMakeFiles/aruco_landing_controller.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_detection/CMakeFiles/aruco_landing_controller.dir/rule
+.PHONY : aruco_detection/CMakeFiles/aruco_landing_controller.dir/rule
+
+# Convenience name for target.
+aruco_landing_controller: aruco_detection/CMakeFiles/aruco_landing_controller.dir/rule
+
+.PHONY : aruco_landing_controller
+
+# fast build rule for target.
+aruco_landing_controller/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller.dir/build
+.PHONY : aruco_landing_controller/fast
+
+# Convenience name for target.
 aruco_detection/CMakeFiles/aruco_detection.dir/rule:
 	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_detection/CMakeFiles/aruco_detection.dir/rule
 .PHONY : aruco_detection/CMakeFiles/aruco_detection.dir/rule
@@ -181,6 +196,21 @@ aruco_detection: aruco_detection/CMakeFiles/aruco_detection.dir/rule
 aruco_detection/fast:
 	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_detection.dir/build.make aruco_detection/CMakeFiles/aruco_detection.dir/build
 .PHONY : aruco_detection/fast
+
+# Convenience name for target.
+aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/rule
+.PHONY : aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/rule
+
+# Convenience name for target.
+aruco_detection_generate_messages: aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/rule
+
+.PHONY : aruco_detection_generate_messages
+
+# fast build rule for target.
+aruco_detection_generate_messages/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/build.make aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/build
+.PHONY : aruco_detection_generate_messages/fast
 
 src/aruco_detection.o: src/aruco_detection.cpp.o
 
@@ -209,6 +239,33 @@ src/aruco_detection.cpp.s:
 	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_detection.dir/build.make aruco_detection/CMakeFiles/aruco_detection.dir/src/aruco_detection.cpp.s
 .PHONY : src/aruco_detection.cpp.s
 
+src/aruco_landing_controller.o: src/aruco_landing_controller.cpp.o
+
+.PHONY : src/aruco_landing_controller.o
+
+# target to build an object file
+src/aruco_landing_controller.cpp.o:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller.dir/src/aruco_landing_controller.cpp.o
+.PHONY : src/aruco_landing_controller.cpp.o
+
+src/aruco_landing_controller.i: src/aruco_landing_controller.cpp.i
+
+.PHONY : src/aruco_landing_controller.i
+
+# target to preprocess a source file
+src/aruco_landing_controller.cpp.i:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller.dir/src/aruco_landing_controller.cpp.i
+.PHONY : src/aruco_landing_controller.cpp.i
+
+src/aruco_landing_controller.s: src/aruco_landing_controller.cpp.s
+
+.PHONY : src/aruco_landing_controller.s
+
+# target to generate assembly for a file
+src/aruco_landing_controller.cpp.s:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller.dir/src/aruco_landing_controller.cpp.s
+.PHONY : src/aruco_landing_controller.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,10 +279,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... aruco_landing_controller"
 	@echo "... aruco_detection"
+	@echo "... aruco_detection_generate_messages"
 	@echo "... src/aruco_detection.o"
 	@echo "... src/aruco_detection.i"
 	@echo "... src/aruco_detection.s"
+	@echo "... src/aruco_landing_controller.o"
+	@echo "... src/aruco_landing_controller.i"
+	@echo "... src/aruco_landing_controller.s"
 .PHONY : help
 
 

@@ -187,7 +187,7 @@ foreach(t ${aruco_detection_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "roscpp;sensor_msgs;cv_bridge;image_transport")
+set(depends "roscpp;sensor_msgs;cv_bridge;image_transport;px_uav_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -216,7 +216,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(aruco_detection_EXPORTED_TARGETS ${${aruco_detection_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "aruco_detection-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${aruco_detection_DIR}/${extra})
