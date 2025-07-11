@@ -21,7 +21,7 @@ private:
     // 畸变系数
     cv::Mat distCoeffs;
     // ArUco 标记的尺寸（单位：米）
-    float markerLength = 0.8; 
+    float markerLength = 0.1; 
     // 无人机相对于 ENU 坐标系的旋转矩阵
     Eigen::Matrix3d R_drone_to_enu;
     // 无人机相对于 ENU 坐标系的平移向量
@@ -84,6 +84,8 @@ public:
             msg->pose.position.x,
             msg->pose.position.y,
             msg->pose.position.z;
+        ROS_INFO("Drone Pose: ENU Coordinates=(%.2f, %.2f, %.2f)", 
+                 t_drone_to_enu[0], t_drone_to_enu[1], t_drone_to_enu[2]);
     }
 
     void imageCallback(const sensor_msgs::ImageConstPtr& msg) {
@@ -126,32 +128,40 @@ public:
                         tvecs[i][1],
                         tvecs[i][2]
                     );
+                    // 在终端输出标记检测信息和旋转向量
+                    ROS_INFO("Detected ArUco Marker: ID=%d,  rvecs=(%.2f, %.2f, %.2f)", 
+                             ids[i], rvecs[i][0], rvecs[i][1], rvecs[i][2]);
+                    // 在终端输出标记检测信息和平移向量
+                    ROS_INFO("Detected ArUco Marker: ID=%d, tvecs=(%.2f, %.2f, %.2f)", 
+                             ids[i], tvecs[i][0], tvecs[i][1], tvecs[i][2]);
 
                     // 先将相机坐标系下的坐标转换到无人机坐标系
                     Eigen::Vector3d t_drone_marker = R_camera_to_drone * t_camera_marker + t_camera_to_drone;
+                    ROS_INFO("Detected ArUco Marker: ID=%d, UAV Coordinates=(%.2f, %.2f, %.2f)",
+                             ids[i], t_drone_marker[0], t_drone_marker[1], t_drone_marker[2]);
 
                     // 再将无人机坐标系下的坐标转换到 ENU 坐标系
-                    Eigen::Vector3d t_enu_marker = R_drone_to_enu * t_drone_marker + t_drone_to_enu;
+                    // Eigen::Vector3d t_enu_marker = R_drone_to_enu * t_drone_marker + t_drone_to_enu;
 
-                    // 新增：创建 PoseStamped 消息
+                    // 创建 PoseStamped 消息
                     geometry_msgs::PoseStamped aruco_land_msg;
                     aruco_land_msg.header.stamp = ros::Time::now();
                     aruco_land_msg.header.frame_id = "enu";
-                    aruco_land_msg.pose.position.x = t_enu_marker[0];
-                    aruco_land_msg.pose.position.y = t_enu_marker[1];
-                    aruco_land_msg.pose.position.z = t_enu_marker[2];
-                    // 假设姿态为单位四元数，可根据实际情况修改
-                    aruco_land_msg.pose.orientation.w = 1.0;
-                    aruco_land_msg.pose.orientation.x = 0.0;
-                    aruco_land_msg.pose.orientation.y = 0.0;
-                    aruco_land_msg.pose.orientation.z = 0.0;
+                    aruco_land_msg.pose.position.x = t_drone_marker[0];
+                    aruco_land_msg.pose.position.y = t_drone_marker[1];
+                    aruco_land_msg.pose.position.z = t_drone_marker[2];
+                    // // 假设姿态为单位四元数，可根据实际情况修改
+                    // aruco_land_msg.pose.orientation.w = 1.0;
+                    // aruco_land_msg.pose.orientation.x = 0.0;
+                    // aruco_land_msg.pose.orientation.y = 0.0;
+                    // aruco_land_msg.pose.orientation.z = 0.0;
 
-                    // 新增：发布 ENU 坐标消息
+                    //发布 坐标消息
                     aruco_land_pub_.publish(aruco_land_msg);
 
                     // 在终端输出标记检测信息和 ENU 坐标系下的坐标
-                    ROS_INFO("Detected ArUco Marker: ID=%d, ENU Coordinates=(%.2f, %.2f, %.2f)",
-                             ids[i], t_enu_marker[0], t_enu_marker[1], t_enu_marker[2]);
+                    // ROS_INFO("Detected ArUco Marker: ID=%d, ENU Coordinates=(%.2f, %.2f, %.2f)",
+                            //  ids[i], t_enu_marker[0], t_enu_marker[1], t_enu_marker[2]);
                 }
             }
 

@@ -27,6 +27,10 @@ private:
     const int ARMING_RETRY_TIMES = 3;
     // 切换 LAND 模式的高度
     const double LAND_MODE_ALTITUDE = 0.3; 
+    // 降落时每次高度递减的步长
+    const double DESCENT_STEP = 0.05; 
+    // 最小降落高度
+    const double MIN_ALTITUDE = 0.0; 
 
 public:
     ArucoLandingController() {
@@ -121,6 +125,8 @@ public:
 
         double xy_error = std::hypot(target_x - current_x, target_y - current_y);
         double z_error = std::abs(target_z - current_z);
+        ROS_DEBUG("Target pos: (%.2f, %.2f, %.2f), Current pos: (%.2f, %.2f, %.2f), xy_error=%.3f, z_error=%.3f",
+        target_x, target_y, target_z, current_x, current_y, current_z, xy_error, z_error);
 
         return xy_error < POSITION_ERROR_THRESHOLD && z_error < ALTITUDE_ERROR_THRESHOLD;
     }
@@ -128,28 +134,14 @@ public:
     void mainLoop() {
         ros::Rate rate(20.0);
 
-        // 在切换模式前先发送一段时间的指令
-        for(int i = 100; ros::ok() && i > 0; --i){
-            sendPositionSetpoint(0, 0, 0, 0);
-            ros::spinOnce();
-            rate.sleep();
-        }
-
         while (ros::ok()) {
             if (new_aruco_pose_received_) {
                 new_aruco_pose_received_ = false;
 
-                double target_x = aruco_pose_.pose.position.x;
-                double target_y = aruco_pose_.pose.position.y;
-                double target_z = 2.0; 
+                double target_x = aruco_pose_.pose.position.x*0.8;
+                double target_y = aruco_pose_.pose.position.y*0.8;
+                double target_z = uav_state_.position[2]; // 从当前高度开始
                 double target_yaw = 0.0;
-
-                // 确保无人机已经解锁
-                if (!uav_state_.armed) {
-                    if (!armDisarm(true)) {
-                        continue;
-                    }
-                }
 
                 // 切换到 OFFBOARD 模式
                 if (uav_state_.mode != "OFFBOARD") {
@@ -157,74 +149,30 @@ public:
                         continue;
                     }
                 }
+                ROS_INFO("========================================================");
+                // 先飞到指定的 x, y 位置
+                sendPositionSetpoint(target_x, target_y, target_z, target_yaw);
+                ROS_INFO("Descending to height: %.2f", target_z);
 
-                double current_z = uav_state_.position[2];
-                if (current_z < LAND_MODE_ALTITUDE) {
-                    // 高度小于 0.3m，直接进入 LAND 模式
-                    ROS_INFO("Current altitude is below %.2f m, switching to LAND mode directly", LAND_MODE_ALTITUDE);
-                    if (!setMode("LAND")) {
-                        ROS_ERROR("Failed to switch to LAND mode");
-                        continue;
+                // 开始降落
+                while (ros::ok() && target_z > MIN_ALTITUDE) {
+                    target_z -= DESCENT_STEP;
+                    if (target_z < MIN_ALTITUDE) {
+                        target_z = MIN_ALTITUDE;
                     }
-                } else {
-                    // 发送位置设定值，移动到二维码上方
+                    ROS_INFO("Descending to height: %.2f", target_z);
                     sendPositionSetpoint(target_x, target_y, target_z, target_yaw);
-                    
-                    // 等待无人机到达指定位置
-                    int max_wait_iterations = 100;
-                    int wait_count = 0;
-                    while (wait_count < max_wait_iterations && !isAtPosition(target_x, target_y, target_z)) {
-                        sendPositionSetpoint(target_x, target_y, target_z, target_yaw); // 持续发送指令
-                        ros::spinOnce();
-                        rate.sleep();
-                        wait_count++;
-                    }
-
-                    if (wait_count >= max_wait_iterations) {
-                        ROS_ERROR("Timed out waiting to reach the target position above the marker");
-                        continue;
-                    }
-
-                    // 开始降落
-                    target_z = LAND_MODE_ALTITUDE; 
-                    sendPositionSetpoint(target_x, target_y, target_z, target_yaw);
-                    
-                    // 等待到达 0.3 米高度
-                    wait_count = 0;
-                    while (wait_count < max_wait_iterations && !isAtPosition(target_x, target_y, target_z)) {
-                        sendPositionSetpoint(target_x, target_y, target_z, target_yaw); // 持续发送指令
-                        ros::spinOnce();
-                        rate.sleep();
-                        wait_count++;
-                    }
-
-                    if (wait_count >= max_wait_iterations) {
-                        ROS_ERROR("Timed out waiting to reach 0.3m above the marker");
-                        continue;
-                    }
-                    
-                    // 切换到 LAND 模式
-                    if (!setMode("LAND")) {
-                        ROS_ERROR("Failed to switch to LAND mode");
-                        continue;
-                    }
-                }
-
-                // 等待飞控完成降落
-                while (ros::ok() && uav_state_.armed) {
                     ros::spinOnce();
                     rate.sleep();
+                    
                 }
 
-                // 确保上锁
+                // 降落完成后尝试上锁
                 if (uav_state_.armed) {
                     if (!armDisarm(false)) {
                         ROS_ERROR("Failed to disarm the vehicle after landing");
                     }
                 }
-
-                // 完成降落流程，跳出循环
-                break;
             }
 
             ros::spinOnce();

@@ -4,6 +4,7 @@
 #include <sensor_msgs/image_encodings.h>
 #include <opencv2/opencv.hpp>
 #include <opencv2/aruco.hpp>
+#include <eigen3/Eigen/Dense>
 
 class ARQRDetector {
 private:
@@ -17,7 +18,9 @@ private:
     // 畸变系数
     cv::Mat distCoeffs;
     // ArUco 标记的尺寸（单位：米）
-    float markerLength = 0.8; 
+    float markerLength = 0.1; 
+    // 相机相对于无人机坐标系的旋转矩阵（绕 x 轴旋转 180 度）
+    Eigen::Matrix3d R_camera_to_drone;
 
 public:
     ARQRDetector() : it_(nh_) {
@@ -46,6 +49,24 @@ public:
             parameters->adaptiveThreshWinSizeMin = 3;
             parameters->adaptiveThreshWinSizeMax = 33;
             parameters->adaptiveThreshWinSizeStep = 2;
+
+            // 从 fpv_cam.sdf 文件中提取的相机内参
+            double focalLength = 277.191356;
+            double Cx = 320.5;
+            double Cy = 240.5;
+            double distortionK1 = 0.0;
+            double distortionK2 = 0.0;
+            double distortionK3 = 0.0;
+            double distortionT1 = 0.0;
+            double distortionT2 = 0.0;
+
+            // 初始化相机内参矩阵
+            cameraMatrix = (cv::Mat_<double>(3, 3) << focalLength, 0, Cx, 0, focalLength, Cy, 0, 0, 1);
+            // 初始化畸变系数
+            distCoeffs = (cv::Mat_<double>(5, 1) << distortionK1, distortionK2, distortionT1, distortionT2, distortionK3);
+
+            // 初始化相机到无人机的旋转矩阵（绕 x 轴旋转 180 度）
+
 
             // 检测 ArUco 标记
             cv::aruco::detectMarkers(cv_ptr->image, dictionary_, corners, ids, parameters);
