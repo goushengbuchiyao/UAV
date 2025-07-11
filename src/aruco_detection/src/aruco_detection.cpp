@@ -21,7 +21,7 @@ private:
     // 畸变系数
     cv::Mat distCoeffs;
     // ArUco 标记的尺寸（单位：米）
-    float markerLength = 0.8; 
+    float markerLength = 0.1; 
     // 无人机相对于 ENU 坐标系的旋转矩阵
     Eigen::Matrix3d R_drone_to_enu;
     // 无人机相对于 ENU 坐标系的平移向量
