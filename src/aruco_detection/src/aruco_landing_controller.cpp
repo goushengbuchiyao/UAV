@@ -11,10 +11,12 @@ private:
     ros::NodeHandle nh_;
     ros::Subscriber aruco_pose_sub_;
     ros::Subscriber uav_state_sub_;
+    ros::Subscriber mavros_pose_sub_;
     ros::Publisher setpoint_raw_local_pub_;
     ros::ServiceClient arming_client_;
     ros::ServiceClient set_mode_client_;
 
+    geometry_msgs::PoseStamped mavros_pose_;
     px_uav_msgs::UAVState uav_state_;
     geometry_msgs::PoseStamped aruco_pose_;
     bool new_aruco_pose_received_ = false;
@@ -25,10 +27,9 @@ private:
     const double ALTITUDE_ERROR_THRESHOLD = 0.1; 
     // 上锁重试次数
     const int ARMING_RETRY_TIMES = 3;
-    // 切换 LAND 模式的高度
-    const double LAND_MODE_ALTITUDE = 0.3; 
+
     // 降落时每次高度递减的步长
-    const double DESCENT_STEP = 0.05; 
+    const double DESCENT_STEP = 0.3; 
     // 最小降落高度
     const double MIN_ALTITUDE = 0.0; 
 
@@ -40,6 +41,9 @@ public:
         uav_state_sub_ = nh_.subscribe<px_uav_msgs::UAVState>(
             "/uav1/px_uav/state", 1,
             &ArucoLandingController::uavStateCallback, this);
+        mavros_pose_sub_ = nh_.subscribe<geometry_msgs::PoseStamped>(
+            "/uav1/mavros/local_position/pose", 1,
+            &ArucoLandingController::mavrosPoseCallback, this);
         setpoint_raw_local_pub_ = nh_.advertise<mavros_msgs::PositionTarget>(
             "/uav1/mavros/setpoint_raw/local", 1);
         arming_client_ = nh_.serviceClient<mavros_msgs::CommandBool>(
@@ -47,7 +51,9 @@ public:
         set_mode_client_ = nh_.serviceClient<mavros_msgs::SetMode>(
             "/uav1/mavros/set_mode");
     }
-
+    void mavrosPoseCallback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
+        mavros_pose_ = *msg;
+    }
     void arucoPoseCallback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
         aruco_pose_ = *msg;
         new_aruco_pose_received_ = true;
@@ -119,9 +125,9 @@ public:
 
     // 判断无人机是否到达指定位置
     bool isAtPosition(double target_x, double target_y, double target_z) {
-        double current_x = uav_state_.position[0];
-        double current_y = uav_state_.position[1];
-        double current_z = uav_state_.position[2];
+        double current_x = mavros_pose_.pose.position.x;
+        double current_y = mavros_pose_.pose.position.y;
+        double current_z = mavros_pose_.pose.position.z;
 
         double xy_error = std::hypot(target_x - current_x, target_y - current_y);
         double z_error = std::abs(target_z - current_z);
@@ -138,9 +144,9 @@ public:
             if (new_aruco_pose_received_) {
                 new_aruco_pose_received_ = false;
 
-                double target_x = aruco_pose_.pose.position.x*0.8;
-                double target_y = aruco_pose_.pose.position.y*0.8;
-                double target_z = uav_state_.position[2]; // 从当前高度开始
+                double target_x = aruco_pose_.pose.position.x;
+                double target_y = aruco_pose_.pose.position.y;
+                double target_z = mavros_pose_.pose.position.z; // 从当前高度开始
                 double target_yaw = 0.0;
 
                 // 切换到 OFFBOARD 模式
@@ -149,22 +155,45 @@ public:
                         continue;
                     }
                 }
+
                 ROS_INFO("========================================================");
                 // 先飞到指定的 x, y 位置
                 sendPositionSetpoint(target_x, target_y, target_z, target_yaw);
-                ROS_INFO("Descending to height: %.2f", target_z);
+                
 
                 // 开始降落
-                while (ros::ok() && target_z > MIN_ALTITUDE) {
+                while (ros::ok() && target_z >= MIN_ALTITUDE) {
+                    // 检查当前高度是否小于等于 0
+                    if (mavros_pose_.pose.position.z <= 0.2){
+                        break;  // 如果高度小于等于 0，则停止降落
+                    }
+                    double target_x = aruco_pose_.pose.position.x;
+                    double target_y = aruco_pose_.pose.position.y;
+                    double target_z = mavros_pose_.pose.position.z;
+                    // ROS_INFO("Descending to height: %.2f", target_z);
                     target_z -= DESCENT_STEP;
                     if (target_z < MIN_ALTITUDE) {
                         target_z = MIN_ALTITUDE;
                     }
+                    ROS_INFO("===========================landing=============================");
                     ROS_INFO("Descending to height: %.2f", target_z);
+                    ROS_INFO("Current UAV Pose: (%.2f, %.2f, %.2f)",
+                             mavros_pose_.pose.position.x,
+                             mavros_pose_.pose.position.y,
+                             mavros_pose_.pose.position.z);
+                    ROS_INFO("Target ArUco Pose: (%.2f, %.2f, %.2f)",
+                             target_x, target_y, target_z);
+                    // 发送位置设定点
                     sendPositionSetpoint(target_x, target_y, target_z, target_yaw);
                     ros::spinOnce();
                     rate.sleep();
                     
+                }
+                // 切换到 LAND 模式
+                if (setMode("AUTO.LAND")) {
+                    ROS_INFO("Switched to AUTO.LAND mode");
+                } else {
+                    ROS_ERROR("Failed to switch to AUTO.LAND mode");
                 }
 
                 // 降落完成后尝试上锁
