@@ -55,7 +55,11 @@ public:
     void mavrosPoseCallback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
         mavros_pose_ = *msg;
     }
+<<<<<<< HEAD:src/aruco_detection/src/aruco_landing_controller_once.cpp
     void arucoPoseCallback(const px_uav_msgs::TargetsInFrame::ConstPtr& msg) {
+=======
+    void arucoPoseCallback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
+>>>>>>> fd5729b7abdf8e67000e384c931b8b349a92b806:src/aruco_detection/src/aruco_landing_controller.cpp
         aruco_pose_ = *msg;
         new_aruco_pose_received_ = true;
     }
@@ -141,6 +145,7 @@ public:
     void mainLoop() {
         ros::Rate rate(20.0);
 
+<<<<<<< HEAD:src/aruco_detection/src/aruco_landing_controller_once.cpp
         // while (ros::ok()) {
         //     if (new_aruco_pose_received_) {
         //         new_aruco_pose_received_ = false;
@@ -208,6 +213,75 @@ public:
         //     ros::spinOnce();
         //     rate.sleep();
         // }
+=======
+        while (ros::ok()) {
+            if (new_aruco_pose_received_) {
+                new_aruco_pose_received_ = false;
+
+                double target_x = aruco_pose_.pose.position.x;
+                double target_y = aruco_pose_.pose.position.y;
+                double target_z = mavros_pose_.pose.position.z; // 从当前高度开始
+                double target_yaw = 0.0;
+
+                // 切换到 OFFBOARD 模式
+                if (uav_state_.mode != "OFFBOARD") {
+                    if (!setMode("OFFBOARD")) {
+                        continue;
+                    }
+                }
+
+                ROS_INFO("========================================================");
+                // 先飞到指定的 x, y 位置
+                sendPositionSetpoint(target_x, target_y, target_z, target_yaw);
+                
+
+                // 开始降落
+                while (ros::ok() && target_z >= MIN_ALTITUDE) {
+                    // 检查当前高度是否小于等于 0
+                    if (mavros_pose_.pose.position.z <= 0.2){
+                        break;  // 如果高度小于等于 0，则停止降落
+                    }
+                    double target_x = aruco_pose_.pose.position.x;
+                    double target_y = aruco_pose_.pose.position.y;
+                    double target_z = mavros_pose_.pose.position.z;
+                    // ROS_INFO("Descending to height: %.2f", target_z);
+                    target_z -= DESCENT_STEP;
+                    if (target_z < MIN_ALTITUDE) {
+                        target_z = MIN_ALTITUDE;
+                    }
+                    ROS_INFO("===========================landing=============================");
+                    ROS_INFO("Descending to height: %.2f", target_z);
+                    ROS_INFO("Current UAV Pose: (%.2f, %.2f, %.2f)",
+                             mavros_pose_.pose.position.x,
+                             mavros_pose_.pose.position.y,
+                             mavros_pose_.pose.position.z);
+                    ROS_INFO("Target ArUco Pose: (%.2f, %.2f, %.2f)",
+                             target_x, target_y, target_z);
+                    // 发送位置设定点
+                    sendPositionSetpoint(target_x, target_y, target_z, target_yaw);
+                    ros::spinOnce();
+                    rate.sleep();
+                    
+                }
+                // 切换到 LAND 模式
+                if (setMode("AUTO.LAND")) {
+                    ROS_INFO("Switched to AUTO.LAND mode");
+                } else {
+                    ROS_ERROR("Failed to switch to AUTO.LAND mode");
+                }
+
+                // 降落完成后尝试上锁
+                if (uav_state_.armed) {
+                    if (!armDisarm(false)) {
+                        ROS_ERROR("Failed to disarm the vehicle after landing");
+                    }
+                }
+            }
+
+            ros::spinOnce();
+            rate.sleep();
+        }
+>>>>>>> fd5729b7abdf8e67000e384c931b8b349a92b806:src/aruco_detection/src/aruco_landing_controller.cpp
     }
 };
 
