@@ -324,6 +324,45 @@ px_uav_msgs_generate_messages_cpp/fast:
 .PHONY : px_uav_msgs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named _px_uav_msgs_generate_messages_check_deps_TargetsInFrame
+
+# Build rule for target.
+_px_uav_msgs_generate_messages_check_deps_TargetsInFrame: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _px_uav_msgs_generate_messages_check_deps_TargetsInFrame
+.PHONY : _px_uav_msgs_generate_messages_check_deps_TargetsInFrame
+
+# fast build rule for target.
+_px_uav_msgs_generate_messages_check_deps_TargetsInFrame/fast:
+	$(MAKE) -f common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/build.make common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/build
+.PHONY : _px_uav_msgs_generate_messages_check_deps_TargetsInFrame/fast
+
+#=============================================================================
+# Target rules for targets named _px_uav_msgs_generate_messages_check_deps_Target
+
+# Build rule for target.
+_px_uav_msgs_generate_messages_check_deps_Target: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _px_uav_msgs_generate_messages_check_deps_Target
+.PHONY : _px_uav_msgs_generate_messages_check_deps_Target
+
+# fast build rule for target.
+_px_uav_msgs_generate_messages_check_deps_Target/fast:
+	$(MAKE) -f common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_Target.dir/build.make common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_Target.dir/build
+.PHONY : _px_uav_msgs_generate_messages_check_deps_Target/fast
+
+#=============================================================================
+# Target rules for targets named _px_uav_msgs_generate_messages_check_deps_ROI
+
+# Build rule for target.
+_px_uav_msgs_generate_messages_check_deps_ROI: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _px_uav_msgs_generate_messages_check_deps_ROI
+.PHONY : _px_uav_msgs_generate_messages_check_deps_ROI
+
+# fast build rule for target.
+_px_uav_msgs_generate_messages_check_deps_ROI/fast:
+	$(MAKE) -f common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/build.make common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/build
+.PHONY : _px_uav_msgs_generate_messages_check_deps_ROI/fast
+
+#=============================================================================
 # Target rules for targets named _px_uav_msgs_generate_messages_check_deps_ParamSettings
 
 # Build rule for target.
@@ -1533,30 +1572,43 @@ geographic_msgs_generate_messages_eus/fast:
 .PHONY : geographic_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named aruco_landing_controller
+# Target rules for targets named aruco_landing_controller_once
 
 # Build rule for target.
-aruco_landing_controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 aruco_landing_controller
-.PHONY : aruco_landing_controller
+aruco_landing_controller_once: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_landing_controller_once
+.PHONY : aruco_landing_controller_once
 
 # fast build rule for target.
-aruco_landing_controller/fast:
-	$(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller.dir/build
-.PHONY : aruco_landing_controller/fast
+aruco_landing_controller_once/fast:
+	$(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller_once.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller_once.dir/build
+.PHONY : aruco_landing_controller_once/fast
 
 #=============================================================================
-# Target rules for targets named aruco_detection
+# Target rules for targets named aruco_detection_once
 
 # Build rule for target.
-aruco_detection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 aruco_detection
-.PHONY : aruco_detection
+aruco_detection_once: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_detection_once
+.PHONY : aruco_detection_once
 
 # fast build rule for target.
-aruco_detection/fast:
-	$(MAKE) -f aruco_detection/CMakeFiles/aruco_detection.dir/build.make aruco_detection/CMakeFiles/aruco_detection.dir/build
-.PHONY : aruco_detection/fast
+aruco_detection_once/fast:
+	$(MAKE) -f aruco_detection/CMakeFiles/aruco_detection_once.dir/build.make aruco_detection/CMakeFiles/aruco_detection_once.dir/build
+.PHONY : aruco_detection_once/fast
+
+#=============================================================================
+# Target rules for targets named aruco_detection_nested
+
+# Build rule for target.
+aruco_detection_nested: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_detection_nested
+.PHONY : aruco_detection_nested
+
+# fast build rule for target.
+aruco_detection_nested/fast:
+	$(MAKE) -f aruco_detection/CMakeFiles/aruco_detection_nested.dir/build.make aruco_detection/CMakeFiles/aruco_detection_nested.dir/build
+.PHONY : aruco_detection_nested/fast
 
 #=============================================================================
 # Target rules for targets named aruco_detection_generate_messages
@@ -2168,6 +2220,9 @@ help:
 	@echo "... px_uav_msgs_generate_messages_py"
 	@echo "... px_uav_msgs_generate_messages_lisp"
 	@echo "... px_uav_msgs_generate_messages_cpp"
+	@echo "... _px_uav_msgs_generate_messages_check_deps_TargetsInFrame"
+	@echo "... _px_uav_msgs_generate_messages_check_deps_Target"
+	@echo "... _px_uav_msgs_generate_messages_check_deps_ROI"
 	@echo "... _px_uav_msgs_generate_messages_check_deps_ParamSettings"
 	@echo "... _px_uav_msgs_generate_messages_check_deps_LinktrackNode2"
 	@echo "... _px_uav_msgs_generate_messages_check_deps_GPSData"
@@ -2261,8 +2316,9 @@ help:
 	@echo "... geographic_msgs_generate_messages_cpp"
 	@echo "... _px_uav_msgs_generate_messages_check_deps_UAVCommand"
 	@echo "... geographic_msgs_generate_messages_eus"
-	@echo "... aruco_landing_controller"
-	@echo "... aruco_detection"
+	@echo "... aruco_landing_controller_once"
+	@echo "... aruco_detection_once"
+	@echo "... aruco_detection_nested"
 	@echo "... aruco_detection_generate_messages"
 	@echo "... mqtt_bridge_generate_messages"
 	@echo "... mqtt_bridge_gennodejs"

@@ -42,6 +42,9 @@
 /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir
 /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir
 /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_cpp.dir
+/home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir
+/home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_Target.dir
+/home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir
 /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/install/strip.dir
 /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ParamSettings.dir
 /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_LinktrackNode2.dir
@@ -145,8 +148,9 @@
 /home/px/UAV_SDK/build/aruco_detection/CMakeFiles/rebuild_cache.dir
 /home/px/UAV_SDK/build/aruco_detection/CMakeFiles/edit_cache.dir
 /home/px/UAV_SDK/build/aruco_detection/CMakeFiles/test.dir
-/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_landing_controller.dir
-/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_landing_controller_once.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection_once.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection_nested.dir
 /home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir
 /home/px/UAV_SDK/build/communication/CMakeFiles/install/strip.dir
 /home/px/UAV_SDK/build/communication/CMakeFiles/install/local.dir

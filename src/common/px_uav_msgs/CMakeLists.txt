@@ -105,9 +105,9 @@ add_message_files(
   ParamSettings.msg
 
   #spirecv-ros msg
-  # ROI.msg
-  # Target.msg
-  # TargetsInFrame.msg
+  ROI.msg
+  Target.msg
+  TargetsInFrame.msg
   # StartScript.msg
 
   #livox mid360 msg

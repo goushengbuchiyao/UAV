@@ -58,6 +58,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg"
     "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg"
     "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg"
+    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg"
+    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg"
+    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg"
     )
 endif()
 

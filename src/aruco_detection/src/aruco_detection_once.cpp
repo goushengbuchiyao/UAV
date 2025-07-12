@@ -6,14 +6,14 @@
 #include <opencv2/aruco.hpp>
 #include <eigen3/Eigen/Dense>
 #include <geometry_msgs/PoseStamped.h>
-
+#include <px_uav_msgs/TargetsInFrame.h>
 class ARQRDetector {
 private:
     ros::NodeHandle nh_;
     image_transport::ImageTransport it_;
     image_transport::Subscriber image_sub_;
     image_transport::Publisher image_pub_;
-    // 新增：发布 ENU 坐标的发布器
+    // ArUco 坐标的发布器
     ros::Publisher aruco_land_pub_; 
     cv::Ptr<cv::aruco::Dictionary> dictionary_;
     // 相机内参矩阵
@@ -39,8 +39,8 @@ public:
         image_sub_ = it_.subscribe("/iris/usb_cam/image_raw", 1, &ARQRDetector::imageCallback, this);
         // 发布检测结果图像话题
         image_pub_ = it_.advertise("/ar_qr_detection/result", 1);
-        // 新增：初始化 ENU 坐标发布器
-        aruco_land_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/ar_qr_detection/aruco_land_pose", 1); 
+        // 初始化坐标发布器
+        aruco_land_pub_ = nh_.advertise<px_uav_msgs::TargetsInFrame>("/ar_qr_detection/aruco_land_pose", 1); 
         // 获取 ArUco 字典
         dictionary_ = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_1000);
 
@@ -66,7 +66,7 @@ public:
                              0, sin(theta), cos(theta);
 
         // 订阅无人机位姿话题
-        drone_pose_sub = nh_.subscribe("uav1/mavros/local_position/pose", 1, &ARQRDetector::dronePoseCallback, this);
+        drone_pose_sub = nh_.subscribe("/uav1/mavros/local_position/pose", 1, &ARQRDetector::dronePoseCallback, this);
     }
 
     void dronePoseCallback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
@@ -116,7 +116,7 @@ public:
             if (ids.size() > 0) {
                 // 估计标记的位姿
                 cv::aruco::estimatePoseSingleMarkers(corners, markerLength, cameraMatrix, distCoeffs, rvecs, tvecs);
-
+                px_uav_msgs::TargetsInFrame aruco_land_msg;
                 // 在图像上绘制检测到的标记和坐标轴
                 for (size_t i = 0; i < ids.size(); ++i) {
                     cv::aruco::drawDetectedMarkers(cv_ptr->image, corners, ids);
@@ -128,6 +128,7 @@ public:
                         tvecs[i][1],
                         tvecs[i][2]
                     );
+
                     // 在终端输出标记检测信息和旋转向量
                     ROS_INFO("Detected ArUco Marker: ID=%d,  rvecs=(%.2f, %.2f, %.2f)", 
                              ids[i], rvecs[i][0], rvecs[i][1], rvecs[i][2]);
@@ -136,20 +137,27 @@ public:
                              ids[i], tvecs[i][0], tvecs[i][1], tvecs[i][2]);
 
                     // 先将相机坐标系下的坐标转换到无人机坐标系
-                    Eigen::Vector3d t_drone_marker = R_camera_to_drone * t_camera_marker + t_camera_to_drone;
+                    // Eigen::Vector3d t_drone_marker = R_camera_to_drone * t_camera_marker + t_camera_to_drone;
+                    Eigen::Vector3d t_drone_marker = t_camera_marker + t_camera_to_drone;
                     ROS_INFO("Detected ArUco Marker: ID=%d, UAV Coordinates=(%.2f, %.2f, %.2f)",
-                             ids[i], t_drone_marker[0], t_drone_marker[1], t_drone_marker[2]);
-
+                             ids[i], t_drone_marker[0], t_drone_marker[1], t_drone_marker[2]);      
                     // 再将无人机坐标系下的坐标转换到 ENU 坐标系
                     // Eigen::Vector3d t_enu_marker = R_drone_to_enu * t_drone_marker + t_drone_to_enu;
 
-                    // 创建 PoseStamped 消息
-                    geometry_msgs::PoseStamped aruco_land_msg;
+                    // 创建 PoseStamped 消息 
+                    
                     aruco_land_msg.header.stamp = ros::Time::now();
-                    aruco_land_msg.header.frame_id = "enu";
-                    aruco_land_msg.pose.position.x = t_drone_marker[0];
-                    aruco_land_msg.pose.position.y = t_drone_marker[1];
-                    aruco_land_msg.pose.position.z = t_drone_marker[2];
+                    aruco_land_msg.header.frame_id = "cam";
+
+                     // 确保 targets 数组有足够的空间
+                    if (aruco_land_msg.targets.size() <= i) {
+                        aruco_land_msg.targets.resize(i + 1);
+                    }
+                    aruco_land_msg.targets[i].tracked_id = ids[i]; // 添加标记 ID
+                    aruco_land_msg.targets[i].px = t_drone_marker[0];
+                    aruco_land_msg.targets[i].py = t_drone_marker[1];
+                    aruco_land_msg.targets[i].pz = t_drone_marker[2];
+                    aruco_land_msg.targets[i].yaw_a = 0.0;
                     // // 假设姿态为单位四元数，可根据实际情况修改
                     // aruco_land_msg.pose.orientation.w = 1.0;
                     // aruco_land_msg.pose.orientation.x = 0.0;

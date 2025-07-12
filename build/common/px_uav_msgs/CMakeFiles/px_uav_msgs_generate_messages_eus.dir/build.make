@@ -72,21 +72,24 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SD
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/LinktrackNode2.l
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/LinktrackNodeframe2.l
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/ParamSettings.l
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/ROI.l
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/Target.l
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/TargetsInFrame.l
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/manifest.l
 
 
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UAVState.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UAVState.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UAVState.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UAVState.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UAVState.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from px_uav_msgs/UAVState.msg"
 	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
 
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUAVState.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUAVState.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUAVState.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUAVState.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUAVState.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUAVState.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from px_uav_msgs/MultiUAVState.msg"
 	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
 
@@ -118,15 +121,15 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SD
 
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/GlobalAruco.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/GlobalAruco.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/GlobalAruco.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/GlobalAruco.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/GlobalAruco.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from px_uav_msgs/GlobalAruco.msg"
 	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
 
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UGVState.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UGVState.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UGVState.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UGVState.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/UGVState.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from px_uav_msgs/UGVState.msg"
 	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
 
@@ -138,9 +141,9 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SD
 
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUGVState.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUGVState.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUGVState.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUGVState.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUGVState.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/MultiUGVState.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating EusLisp code from px_uav_msgs/MultiUGVState.msg"
 	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
 
@@ -152,11 +155,11 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SD
 
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/StationCommand.l: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating EusLisp code from px_uav_msgs/StationCommand.msg"
 	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
 
@@ -199,8 +202,26 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus: /home/px/UAV_SD
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating EusLisp code from px_uav_msgs/ParamSettings.msg"
 	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
 
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/ROI.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/ROI.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating EusLisp code from px_uav_msgs/ROI.msg"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
+
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/Target.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/Target.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating EusLisp code from px_uav_msgs/Target.msg"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
+
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/TargetsInFrame.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/TargetsInFrame.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/TargetsInFrame.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/TargetsInFrame.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/TargetsInFrame.l: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating EusLisp code from px_uav_msgs/TargetsInFrame.msg"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg
+
 /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating EusLisp manifest code for px_uav_msgs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating EusLisp manifest code for px_uav_msgs"
 	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs px_uav_msgs geometry_msgs sensor_msgs std_msgs
 
 px_uav_msgs_generate_messages_eus: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus
@@ -223,6 +244,9 @@ px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_ua
 px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/LinktrackNode2.l
 px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/LinktrackNodeframe2.l
 px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/ParamSettings.l
+px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/ROI.l
+px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/Target.l
+px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/msg/TargetsInFrame.l
 px_uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs/manifest.l
 px_uav_msgs_generate_messages_eus: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus.dir/build.make
 

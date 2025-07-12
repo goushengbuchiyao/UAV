@@ -8,8 +8,11 @@ from ._MultiUGVState import *
 from ._OffsetPose import *
 from ._ParamSettings import *
 from ._PositionReference import *
+from ._ROI import *
 from ._StationCommand import *
 from ._SwarmCommand import *
+from ._Target import *
+from ._TargetsInFrame import *
 from ._TextInfo import *
 from ._UAVCommand import *
 from ._UAVControlState import *
