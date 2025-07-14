@@ -20,6 +20,7 @@ aruco_detection/CMakeFiles/aruco_detection_once.dir/src/aruco_detection_once.cpp
 aruco_detection/CMakeFiles/aruco_detection_once.dir/src/aruco_detection_once.cpp.o: /opt/ros/noetic/include/image_transport/single_subscriber_publisher.h
 aruco_detection/CMakeFiles/aruco_detection_once.dir/src/aruco_detection_once.cpp.o: /opt/ros/noetic/include/image_transport/subscriber.h
 aruco_detection/CMakeFiles/aruco_detection_once.dir/src/aruco_detection_once.cpp.o: /opt/ros/noetic/include/image_transport/transport_hints.h
+aruco_detection/CMakeFiles/aruco_detection_once.dir/src/aruco_detection_once.cpp.o: /opt/ros/noetic/include/mavros_msgs/State.h
 aruco_detection/CMakeFiles/aruco_detection_once.dir/src/aruco_detection_once.cpp.o: /opt/ros/noetic/include/ros/advertise_options.h
 aruco_detection/CMakeFiles/aruco_detection_once.dir/src/aruco_detection_once.cpp.o: /opt/ros/noetic/include/ros/advertise_service_options.h
 aruco_detection/CMakeFiles/aruco_detection_once.dir/src/aruco_detection_once.cpp.o: /opt/ros/noetic/include/ros/assert.h

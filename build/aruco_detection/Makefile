@@ -213,6 +213,21 @@ aruco_detection_nested/fast:
 .PHONY : aruco_detection_nested/fast
 
 # Convenience name for target.
+aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/rule
+.PHONY : aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/rule
+
+# Convenience name for target.
+aruco_landing_controller_nested: aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/rule
+
+.PHONY : aruco_landing_controller_nested
+
+# fast build rule for target.
+aruco_landing_controller_nested/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/build
+.PHONY : aruco_landing_controller_nested/fast
+
+# Convenience name for target.
 aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/rule:
 	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/rule
 .PHONY : aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/rule
@@ -281,6 +296,33 @@ src/aruco_detection_once.cpp.s:
 	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_detection_once.dir/build.make aruco_detection/CMakeFiles/aruco_detection_once.dir/src/aruco_detection_once.cpp.s
 .PHONY : src/aruco_detection_once.cpp.s
 
+src/aruco_landing_controller_nested.o: src/aruco_landing_controller_nested.cpp.o
+
+.PHONY : src/aruco_landing_controller_nested.o
+
+# target to build an object file
+src/aruco_landing_controller_nested.cpp.o:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/src/aruco_landing_controller_nested.cpp.o
+.PHONY : src/aruco_landing_controller_nested.cpp.o
+
+src/aruco_landing_controller_nested.i: src/aruco_landing_controller_nested.cpp.i
+
+.PHONY : src/aruco_landing_controller_nested.i
+
+# target to preprocess a source file
+src/aruco_landing_controller_nested.cpp.i:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/src/aruco_landing_controller_nested.cpp.i
+.PHONY : src/aruco_landing_controller_nested.cpp.i
+
+src/aruco_landing_controller_nested.s: src/aruco_landing_controller_nested.cpp.s
+
+.PHONY : src/aruco_landing_controller_nested.s
+
+# target to generate assembly for a file
+src/aruco_landing_controller_nested.cpp.s:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/src/aruco_landing_controller_nested.cpp.s
+.PHONY : src/aruco_landing_controller_nested.cpp.s
+
 src/aruco_landing_controller_once.o: src/aruco_landing_controller_once.cpp.o
 
 .PHONY : src/aruco_landing_controller_once.o
@@ -324,6 +366,7 @@ help:
 	@echo "... aruco_landing_controller_once"
 	@echo "... aruco_detection_once"
 	@echo "... aruco_detection_nested"
+	@echo "... aruco_landing_controller_nested"
 	@echo "... aruco_detection_generate_messages"
 	@echo "... src/aruco_detection_nested.o"
 	@echo "... src/aruco_detection_nested.i"
@@ -331,6 +374,9 @@ help:
 	@echo "... src/aruco_detection_once.o"
 	@echo "... src/aruco_detection_once.i"
 	@echo "... src/aruco_detection_once.s"
+	@echo "... src/aruco_landing_controller_nested.o"
+	@echo "... src/aruco_landing_controller_nested.i"
+	@echo "... src/aruco_landing_controller_nested.s"
 	@echo "... src/aruco_landing_controller_once.o"
 	@echo "... src/aruco_landing_controller_once.i"
 	@echo "... src/aruco_landing_controller_once.s"

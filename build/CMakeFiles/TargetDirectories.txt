@@ -151,6 +151,7 @@
 /home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_landing_controller_once.dir
 /home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection_once.dir
 /home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection_nested.dir
+/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir
 /home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir
 /home/px/UAV_SDK/build/communication/CMakeFiles/install/strip.dir
 /home/px/UAV_SDK/build/communication/CMakeFiles/install/local.dir

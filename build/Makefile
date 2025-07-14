@@ -1611,6 +1611,19 @@ aruco_detection_nested/fast:
 .PHONY : aruco_detection_nested/fast
 
 #=============================================================================
+# Target rules for targets named aruco_landing_controller_nested
+
+# Build rule for target.
+aruco_landing_controller_nested: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aruco_landing_controller_nested
+.PHONY : aruco_landing_controller_nested
+
+# fast build rule for target.
+aruco_landing_controller_nested/fast:
+	$(MAKE) -f aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/build.make aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/build
+.PHONY : aruco_landing_controller_nested/fast
+
+#=============================================================================
 # Target rules for targets named aruco_detection_generate_messages
 
 # Build rule for target.
@@ -2319,6 +2332,7 @@ help:
 	@echo "... aruco_landing_controller_once"
 	@echo "... aruco_detection_once"
 	@echo "... aruco_detection_nested"
+	@echo "... aruco_landing_controller_nested"
 	@echo "... aruco_detection_generate_messages"
 	@echo "... mqtt_bridge_generate_messages"
 	@echo "... mqtt_bridge_gennodejs"

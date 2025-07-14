@@ -7,6 +7,7 @@
 #include <eigen3/Eigen/Dense>
 #include <geometry_msgs/PoseStamped.h>
 #include <px_uav_msgs/TargetsInFrame.h>
+#include <mavros_msgs/State.h>
 
 class ARQRDetector {
 private:
@@ -21,8 +22,8 @@ private:
     cv::Mat cameraMatrix;
     // 畸变系数
     cv::Mat distCoeffs;
-    // ArUco 标记的尺寸（单位：米）
-    float markerLength = 0.1; 
+    // // ArUco 标记的尺寸（单位：米）
+    // float markerLength = 0.1; 
     // // 无人机相对于 ENU 坐标系的旋转矩阵
     // Eigen::Matrix3d R_drone_to_enu;
     // // 无人机相对于 ENU 坐标系的平移向量
@@ -38,6 +39,10 @@ private:
     float outerMarkerLength = 0.1; 
     // ArUco 内层标记的尺寸（单位：米）
     float innerMarkerLength = 0.01; 
+    // 订阅飞机状态话题的订阅者
+    ros::Subscriber state_sub; 
+    // 飞机当前状态
+    mavros_msgs::State current_state; 
 
 public:
     ARQRDetector() : it_(nh_) {
@@ -73,6 +78,8 @@ public:
 
         // 订阅无人机位姿话题
         drone_pose_sub = nh_.subscribe("/uav1/mavros/local_position/pose", 1, &ARQRDetector::dronePoseCallback, this);
+        state_sub = nh_.subscribe("/uav1/mavros/state", 1, &ARQRDetector::stateCallback, this); 
+
     }
 
     void dronePoseCallback(const geometry_msgs::PoseStamped::ConstPtr& msg) {
@@ -91,7 +98,15 @@ public:
             msg->pose.position.y,
             msg->pose.position.z;
     }
-
+     // 飞机状态回调函数
+    void stateCallback(const mavros_msgs::State::ConstPtr& msg) {
+        current_state = *msg;
+        // 检查飞机是否上锁
+        if (!current_state.armed) { 
+            ROS_INFO("Vehicle is disarmed, shutting down...");
+            ros::shutdown();
+        }
+    }
     void imageCallback(const sensor_msgs::ImageConstPtr& msg) {
         try {
             // 将 ROS 图像消息转换为 OpenCV 图像
@@ -115,6 +130,11 @@ public:
 
             // 检测 ArUco 标记
             cv::aruco::detectMarkers(cv_ptr->image, dictionary_, corners, ids, parameters);
+
+            if (ids.empty()){
+                ROS_INFO("No arucos are deteted!!!");
+            }else{
+                
             std::vector<cv::Vec3d> out_rvecs, out_tvecs, in_rvecs, in_tvecs;
 
 
@@ -134,10 +154,11 @@ public:
                 } else if (ids[i] == 1) {
                     innerMarkerFound = true;
                     innerIndex = i;
-                }
+                } 
             }
 
             if (outerMarkerFound) {
+                
                 // 估计外层标记的位姿
                 cv::aruco::estimatePoseSingleMarkers(std::vector<std::vector<cv::Point2f>>{corners[outerIndex]}, outerMarkerLength, cameraMatrix, distCoeffs, out_rvecs, out_tvecs);
 
@@ -166,7 +187,7 @@ public:
                 aruco_land_msg.targets[outerIndex].yaw_a = 0.0;
 
                 // 在终端输出外层标记检测信息
-                ROS_INFO("Detected Outer ArUco Marker: ID=%d, ENU Coordinates=(%.2f, %.2f, %.2f)",
+                ROS_INFO("Detected Outer ArUco Marker: ID=%d, UAV Coordinates=(%.2f, %.2f, %.2f)",
                          ids[outerIndex], t_drone_outer[0], t_drone_outer[1], t_drone_outer[2]);
             }
 
@@ -189,7 +210,9 @@ public:
                 Eigen::Vector3d t_drone_inner = R_camera_to_drone * t_camera_inner + t_camera_to_drone;
 
                 // 确保 targets 数组有足够的空间
-                
+                if (aruco_land_msg.targets.size() <= ids.size()) {
+                    aruco_land_msg.targets.resize(ids.size());
+                }
                 aruco_land_msg.targets[innerIndex].tracked_id = ids[innerIndex]; // 添加标记 ID
                 aruco_land_msg.targets[innerIndex].px = t_drone_inner[0];
                 aruco_land_msg.targets[innerIndex].py = t_drone_inner[1];
@@ -197,23 +220,24 @@ public:
                 aruco_land_msg.targets[innerIndex].yaw_a = 0.0;
 
                 // 在终端输出内层标记检测信息
-                ROS_INFO("Detected Inner ArUco Marker: ID=%d, ENU Coordinates=(%.2f, %.2f, %.2f)",
+                ROS_INFO("Detected Inner ArUco Marker: ID=%d, UAV Coordinates=(%.2f, %.2f, %.2f)",
                          ids[innerIndex], t_drone_inner[0], t_drone_inner[1], t_drone_inner[2]);
             }
 
             // 发布机体系坐标消息
             if (outerMarkerFound || innerMarkerFound) {
                 aruco_land_pub_.publish(aruco_land_msg);
+                // 发布处理后的图像
+                image_pub_.publish(cv_ptr->toImageMsg());
+
+                // 显示处理后的图像
+                cv::namedWindow("AR QR Detection Result", cv::WINDOW_NORMAL);
+                cv::resizeWindow("AR QR Detection Result", 800, 600);
+                cv::imshow("AR QR Detection Result", cv_ptr->image);
+                cv::waitKey(1); // 等待 1 毫秒，用于处理窗口事件
             }
-
-            // 发布处理后的图像
-            image_pub_.publish(cv_ptr->toImageMsg());
-
-            // 显示处理后的图像
-            cv::namedWindow("AR QR Detection Result", cv::WINDOW_NORMAL);
-            cv::resizeWindow("AR QR Detection Result", 800, 600);
-            cv::imshow("AR QR Detection Result", cv_ptr->image);
-            cv::waitKey(1); // 等待 1 毫秒，用于处理窗口事件
+            
+            }
 
         } catch (cv_bridge::Exception& e) {
             ROS_ERROR("cv_bridge exception: %s", e.what());

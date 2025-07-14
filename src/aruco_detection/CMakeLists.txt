@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport
   px_uav_msgs
+  mavros_msgs
 )
 generate_messages(
   DEPENDENCIES
@@ -57,6 +58,11 @@ target_link_libraries(aruco_landing_controller_once
   ${catkin_LIBRARIES}
 )
 
+add_executable(aruco_landing_controller_nested src/aruco_landing_controller_nested.cpp)
+add_dependencies(aruco_landing_controller_nested ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(aruco_landing_controller_nested
+  ${catkin_LIBRARIES}
+)
 # add_executable(aruco_code_tracker src/aruco_land.cpp)
 # add_dependencies(aruco_code_tracker ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 # target_link_libraries(aruco_code_tracker
