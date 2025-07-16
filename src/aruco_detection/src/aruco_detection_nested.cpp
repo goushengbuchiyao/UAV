@@ -8,7 +8,8 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <px_uav_msgs/TargetsInFrame.h>
 #include <mavros_msgs/State.h>
-
+#include <yaml-cpp/yaml.h>
+#include <ros/package.h>
 class ARQRDetector {
 private:
     ros::NodeHandle nh_;
@@ -46,6 +47,14 @@ private:
 
 public:
     ARQRDetector() : it_(nh_) {
+
+        // Load parameters from YAML file
+        std::string pkg_path = ros::package::getPath("aruco_detection");
+        std::string yaml_path = pkg_path + "/config/aruco_cam_params.yaml";
+        YAML::Node config = YAML::LoadFile(yaml_path);
+        outerMarkerLength = config["outerMarkerLength"].as<float>();
+        innerMarkerLength = config["innerMarkerLength"].as<float>();
+
         // 订阅图像话题
         image_sub_ = it_.subscribe("/iris/usb_cam/image_raw", 1, &ARQRDetector::imageCallback, this);
         // 发布检测结果图像话题
@@ -55,15 +64,15 @@ public:
         // 获取 ArUco 字典
         dictionary_ = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_1000);
 
-        // 从 fpv_cam.sdf 文件中提取的相机内参
-        double focalLength = 277.191356;
-        double Cx = 320.5;
-        double Cy = 240.5;
-        double distortionK1 = 0.0;
-        double distortionK2 = 0.0;
-        double distortionK3 = 0.0;
-        double distortionT1 = 0.0;
-        double distortionT2 = 0.0;
+        // Camera parameters
+        double focalLength = config["camera"]["focalLength"].as<double>();
+        double Cx = config["camera"]["Cx"].as<double>();
+        double Cy = config["camera"]["Cy"].as<double>();
+        double distortionK1 = config["camera"]["distortion"]["k1"].as<double>();
+        double distortionK2 = config["camera"]["distortion"]["k2"].as<double>();
+        double distortionK3 = config["camera"]["distortion"]["k3"].as<double>();
+        double distortionT1 = config["camera"]["distortion"]["t1"].as<double>();
+        double distortionT2 = config["camera"]["distortion"]["t2"].as<double>();
 
         // 初始化相机内参矩阵
         cameraMatrix = (cv::Mat_<double>(3, 3) << focalLength, 0, Cx, 0, focalLength, Cy, 0, 0, 1);

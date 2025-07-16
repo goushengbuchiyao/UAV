@@ -22,7 +22,7 @@ generate_messages(
   px_uav_msgs
 )
 find_package(OpenCV REQUIRED)
-
+find_package(yaml-cpp REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 catkin_package(
@@ -42,6 +42,7 @@ target_link_libraries(aruco_detection_nested
   ${catkin_LIBRARIES}
   ${OpenCV_LIBS}
   ${EIGEN3_INCLUDE_DIRS}
+  yaml-cpp
 )
 
 add_executable(aruco_detection_once src/aruco_detection_once.cpp)

@@ -1,0 +1,12 @@
+outerMarkerLength: 0.1
+innerMarkerLength: 0.01
+camera:
+  focalLength: 277.191356
+  Cx: 320.5
+  Cy: 240.5
+  distortion:
+    k1: 0.0
+    k2: 0.0
+    k3: 0.0
+    t1: 0.0
+    t2: 0.0
