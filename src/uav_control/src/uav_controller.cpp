@@ -1,30 +1,46 @@
 #include "uav_controller.h"
 
+/**
+ * 构造函数，初始化无人机控制器
+ * @param nh ROS节点句柄
+ */
 UAV_controller::UAV_controller(ros::NodeHandle &nh) : nh(nh)
 {
     // 【参数】无人机编号，从1开始编号
+    // 从ROS参数服务器获取无人机编号，若未设置则默认为1
     nh.param<int>("uav_id", uav_id, 1);
     // 【变量】无人机名字
+    // 根据无人机编号生成无人机名字
     uav_name = "/uav" + std::to_string(uav_id);
     // 【变量】节点名字
+    // 根据无人机编号生成节点名字
     node_name = "[uav_controller_uav" + std::to_string(uav_id) + "]";
     // 【参数】是否仿真模式
+    // 从ROS参数服务器获取是否为仿真模式，若未设置则默认为true
     nh.param<bool>("sim_mode", sim_mode, true);
     // 【参数】控制器标志位,具体说明见CONTOLLER_FLAG说明
+    // 从ROS参数服务器获取位置控制器类型，若未设置则默认为0
     nh.param<int>("control/pos_controller", pos_controller, 0);
     // 【参数】使用外部控制器的控制指令，直接发送至PX4，这种方式依赖外部控制器的稳定性，需要小心！
+    // 从ROS参数服务器获取是否启用外部控制，若未设置则默认为false
     nh.param<bool>("control/enable_external_control", enable_external_control, false);
     // 【参数】起飞高度
+    // 从ROS参数服务器获取起飞高度，若未设置则默认为1.0
     nh.param<float>("control/Takeoff_height", Takeoff_height, 1.0);
     // 【参数】降落时自动上锁高度
+    // 从ROS参数服务器获取降落时自动上锁的高度，若未设置则默认为0.2
     nh.param<float>("control/Disarm_height", Disarm_height, 0.2);
     // 【参数】降落速度
+    // 从ROS参数服务器获取降落速度，若未设置则默认为0.2
     nh.param<float>("control/Land_speed", Land_speed, 0.2);
     // 【参数】command模式下水平速度
+    // 从ROS参数服务器获取command模式下的水平速度，若未设置则默认为1.0
     nh.param<double>("control/COMMAND_MPC_XY_VEL_MAX", COMMAND_MPC_XY_VEL_MAX, 1.0);
     // 【参数】command模式下水平加速度
+    // 从ROS参数服务器获取command模式下的水平加速度，若未设置则默认为2.0
     nh.param<double>("control/COMMAND_MPC_ACC_HOR", COMMAND_MPC_ACC_HOR, 2.0);
     // 【参数】地理围栏
+    // 从ROS参数服务器获取地理围栏的边界值，若未设置则使用默认值
     nh.param<float>("geo_fence/x_min", uav_geo_fence.x_min, -100.0);
     nh.param<float>("geo_fence/x_max", uav_geo_fence.x_max, 100.0);
     nh.param<float>("geo_fence/y_min", uav_geo_fence.y_min, -100.0);
@@ -32,78 +48,99 @@ UAV_controller::UAV_controller(ros::NodeHandle &nh) : nh(nh)
     nh.param<float>("geo_fence/z_min", uav_geo_fence.z_min, -100.0);
     nh.param<float>("geo_fence/z_max", uav_geo_fence.z_max, 100.0);
     // 【参数】定位源px4参数设置
+    // 从ROS参数服务器获取是否启用PX4参数加载，若未设置则默认为false
     bool enable_px4_params_load = false;
     nh.param<bool>("enable_px4_params_load", enable_px4_params_load, false);
+    // 从ROS参数服务器获取是否重启PX4并重置EKF，若未设置则默认为false
     nh.param<bool>("reboot_px4_set_reset_ekf", reboot_px4_set_reset_ekf, false);
+    // 从ROS参数服务器获取PX4的最大偏航角速度，若未设置则默认为100.0
     nh.param<double>("px4_params/MC_YAWRATE_MAX", mc_yawrate_max, 100.0);
+    // 从ROS参数服务器获取PX4的最大水平速度，若未设置则默认为1.0
     nh.param<double>("px4_params/MPC_XY_VEL_MAX", mpc_xy_vel_max, 1.0);
+    // 从ROS参数服务器获取PX4的水平加速度，若未设置则默认为2.0
     nh.param<double>("px4_params/MPC_ACC_HOR", mpc_acc_hor, 2.0);
+    // 从ROS参数服务器获取PX4的手动速度，若未设置则默认为1.0
     nh.param<double>("px4_params/MPC_VEL_MANUAL", mpc_vel_manual, 1.0);
 
+    // 从ROS参数服务器获取PX4的参数
     px4_params = get_px4_params(nh);
 
     // 【函数】打印参数
+    // 调用打印参数的函数，输出当前的参数设置
     printf_param();
+    // 输出节点初始化信息
     cout << GREEN << node_name << " init! " << TAIL << endl;
 
+    // 根据位置控制器类型选择相应的控制器并初始化
     if (pos_controller == POS_CONTOLLER::PX4_ORIGIN)
     {
+        // 使用PX4原生控制器
         cout << GREEN << node_name << " Using the PX4 original controller... " << TAIL << endl;
     }
     else if (pos_controller == POS_CONTOLLER::PID)
     {
         // 【控制器】PID控制器初始化
+        // 初始化PID位置控制器
         pos_controller_pid.init(nh);
         cout << YELLOW << node_name << " Using the PID controller... " << TAIL << endl;
     }
     else if (pos_controller == POS_CONTOLLER::UDE)
     {
         // 【控制器】UDE控制器初始化
+        // 初始化UDE位置控制器
         pos_controller_ude.init(nh);
         cout << YELLOW << node_name << " Using the UDE controller... " << TAIL << endl;
     }
     else if (pos_controller == POS_CONTOLLER::NE)
     {
         // 【控制器】NE控制器初始化
+        // 初始化NE位置控制器
         pos_controller_ne.init(nh);
         cout << YELLOW << node_name << " Using the NE controller... " << TAIL << endl;
     }
     else
     {
+        // 若位置控制器参数错误，重置为PX4原生控制器
         pos_controller = POS_CONTOLLER::PX4_ORIGIN;
         cout << YELLOW << node_name << " wrong pos_controller param, reset to PX4_ORIGIN! " << TAIL << endl;
     }
 
     // 【订阅】无人机控制指令(用于COMMAND_CONTROL模式)
+    // 订阅无人机控制指令话题，回调函数为uav_cmd_cb
     uav_cmd_sub =
         nh.subscribe<px_uav_msgs::UAVCommand>("/uav" + std::to_string(uav_id) + "/px_uav/command",
                                                   1,
                                                   &UAV_controller::uav_cmd_cb, this);
 
     // 【订阅】无人机状态信息
+    // 订阅无人机状态信息话题，回调函数为uav_state_cb
     uav_state_sub = nh.subscribe<px_uav_msgs::UAVState>("/uav" + std::to_string(uav_id) + "/px_uav/state",
                                                             1,
                                                             &UAV_controller::uav_state_cb, this);
 
     // 【订阅】无人机设置指令
+    // 订阅无人机设置指令话题，回调函数为uav_setup_cb
     uav_setup_sub =
         nh.subscribe<px_uav_msgs::UAVSetup>("/uav" + std::to_string(uav_id) + "/px_uav/setup",
                                                 1,
                                                 &UAV_controller::uav_setup_cb, this);
 
     // 【订阅】PX4中无人机的位置/速度/加速度设定值 坐标系:ENU系
+    // 订阅PX4中无人机的位置/速度/加速度设定值话题，回调函数为px4_pos_target_cb
     px4_position_target_sub =
         nh.subscribe<mavros_msgs::PositionTarget>("/uav" + std::to_string(uav_id) + "/mavros/setpoint_raw/target_local",
                                                   1,
                                                   &UAV_controller::px4_pos_target_cb, this);
 
     // 【订阅】PX4中无人机的姿态设定值 坐标系:ENU系
+    // 订阅PX4中无人机的姿态设定值话题，回调函数为px4_att_target_cb
     px4_attitude_target_sub =
         nh.subscribe<mavros_msgs::AttitudeTarget>("/uav" + std::to_string(uav_id) + "/mavros/setpoint_raw/target_attitude",
                                                   1,
                                                   &UAV_controller::px4_att_target_cb, this);
 
     // 【订阅】PX4遥控器数据
+    // 根据是否为仿真模式选择不同的遥控器数据话题
     string rc_topic_name;
     if (sim_mode)
     {
@@ -113,107 +150,142 @@ UAV_controller::UAV_controller(ros::NodeHandle &nh) : nh(nh)
     {
         rc_topic_name = "/uav" + std::to_string(uav_id) + "/mavros/rc/in";
     }
+    // 订阅PX4遥控器数据话题，回调函数为px4_rc_cb
     px4_rc_sub =
         nh.subscribe<mavros_msgs::RCIn>(rc_topic_name,
                                         1,
                                         &UAV_controller::px4_rc_cb, this);
 
     // 【订阅】GPS位置偏移数据(用于户外多机飞行)
+    // 订阅GPS位置偏移数据话题，回调函数为offset_pose_cb
     offset_pose_sub =
         nh.subscribe<px_uav_msgs::OffsetPose>("/uav" + std::to_string(uav_id) + "/px_uav/offset_pose",
                                                   1,
                                                   &UAV_controller::offset_pose_cb, this);
 
     // 【订阅】地面站修改ROS参数
+    // 订阅地面站修改ROS参数话题，回调函数为param_set_cb
     ros_param_set_sub = 
         nh.subscribe<px_uav_msgs::ParamSettings>("/uav" + std::to_string(uav_id) + "/px_uav/param_settings",
                                                   1,
                                                   &UAV_controller::param_set_cb, this);
 
     // 【发布】位置/速度/加速度期望值 坐标系:ENU系
+    // 发布位置/速度/加速度期望值话题
     px4_setpoint_raw_local_pub =
         nh.advertise<mavros_msgs::PositionTarget>("/uav" + std::to_string(uav_id) + "/mavros/setpoint_raw/local", 1);
 
     // 【发布】经纬度以及高度位置 坐标系:WGS84坐标系
+    // 发布经纬度以及高度位置话题
     px4_setpoint_raw_global_pub =
         nh.advertise<mavros_msgs::GlobalPositionTarget>("/uav" + std::to_string(uav_id) + "/mavros/setpoint_raw/global", 1);
 
     // 【发布】姿态期望值
+    // 发布姿态期望值话题
     px4_setpoint_raw_attitude_pub =
         nh.advertise<mavros_msgs::AttitudeTarget>("/uav" + std::to_string(uav_id) + "/mavros/setpoint_raw/attitude", 1);
 
     // 【发布】控制状态（监控用）
+    // 发布控制状态话题
     uav_control_state_pub =
         nh.advertise<px_uav_msgs::UAVControlState>("/uav" + std::to_string(uav_id) + "/px_uav/control_state", 1);
 
     // 【发布】运行状态信息(本节点 -> 通信节点 -> 地面站)
+    // 发布运行状态信息话题
     ground_station_info_pub = nh.advertise<px_uav_msgs::TextInfo>("/uav" + std::to_string(uav_id) + "/px_uav/text_info", 1);
 
     // 【发布】触发绝对悬停后，向其他程序发布停止控制状态(本节点 -> 其他循环发送控制指令程序)
+    // 发布停止控制状态话题
     stop_control_state_pub = nh.advertise<std_msgs::Bool>("/uav" + std::to_string(uav_id) + "/px_uav/stop_control_state", 1);
 
     // 【发布】通过mavlink发送 SERIAL_CONTROL(126)
+    // 发布通过mavlink发送SERIAL_CONTROL消息话题
     serial_control_pub = nh.advertise<mavros_msgs::Mavlink>("/uav" + std::to_string(uav_id) + "/mavlink/to", 10);
 
     // 【服务】解锁/上锁
+    // 创建解锁/上锁服务客户端
     px4_arming_client = nh.serviceClient<mavros_msgs::CommandBool>("/uav" + std::to_string(uav_id) + "/mavros/cmd/arming");
 
     // 【服务】修改系统模式
+    // 创建修改系统模式服务客户端
     px4_set_mode_client = nh.serviceClient<mavros_msgs::SetMode>("/uav" + std::to_string(uav_id) + "/mavros/set_mode");
 
     // 【服务】紧急上锁服务(KILL)
+    // 创建紧急上锁服务客户端
     px4_emergency_client = nh.serviceClient<mavros_msgs::CommandLong>("/uav" + std::to_string(uav_id) + "/mavros/cmd/command");
 
     // 【服务】重启PX4飞控
+    // 创建重启PX4飞控服务客户端
     px4_reboot_client = nh.serviceClient<mavros_msgs::CommandLong>("/uav" + std::to_string(uav_id) + "/mavros/cmd/command");
 
     // 【服务】PX4参数获取服务
+    // 创建PX4参数获取服务客户端
     this->px4_param_get_client = nh.serviceClient<mavros_msgs::ParamGet>("/uav" + std::to_string(uav_id) + "/mavros/param/get");
     // 【服务】PX4参数设置服务
+    // 创建PX4参数设置服务客户端
     this->px4_param_set_client = nh.serviceClient<mavros_msgs::ParamSet>("/uav" + std::to_string(uav_id) + "/mavros/param/set");
 
+    // 创建定时器，定时调用sendStationTextInfo函数
     this->ground_station_info_timer = nh.createTimer(ros::Duration(0.1), &UAV_controller::sendStationTextInfo, this);
 
+    // 若启用PX4参数加载，则创建定时器定时检查PX4定位源
     if (enable_px4_params_load)
     {
         last_check_px4_location_source_time = ros::Time::now();
         this->check_px4_location_source_timer = nh.createTimer(ros::Duration(1), &UAV_controller::timercb_check_px4_location_source, this);
     }
 
+    // 初始化控制状态为INIT
     control_state = CONTROL_STATE::INIT;
+    // 初始化故障安全标志为false
     uav_control_state.failsafe = false;
 
     // 初始化命令
+    // 设置初始命令为初始位置悬停
     uav_command.Agent_CMD = px_uav_msgs::UAVCommand::Init_Pos_Hover;
+    // 初始化期望位置
     uav_command.position_ref[0] = 0;
     uav_command.position_ref[1] = 0;
     uav_command.position_ref[2] = 0.0;
+    // 初始化期望偏航角
     uav_command.yaw_ref = 0;
 
+    // 初始化期望位置、速度和加速度为零
     pos_des << 0.0, 0.0, 0.0;
     vel_des << 0.0, 0.0, 0.0;
     acc_des << 0.0, 0.0, 0.0;
+    // 初始化快速降落标志为false
     quick_land = false;
+    // 初始化设置降落期望标志为false
     set_landing_des = false;
 
+    // 初始化位置偏移为零
     offset_pose.x = 0.0;
     offset_pose.y = 0.0;
 
+    // 初始化无人机位置、速度和姿态为零
     uav_pos.setZero();
     uav_vel.setZero();
     u_att.setZero();
 
+    // 初始化遥控器输入
     rc_input.init();
 
+    // 初始化文本信息
     text_info.MessageType = px_uav_msgs::TextInfo::INFO;
     text_info.Message = node_name + " init.";
 }
 
+/**
+ * 主循环函数，处理不同控制状态，进行安全检查并发送控制指令
+ */
 void UAV_controller::mainloop()
 {
+    // 若当前控制状态为RC_POS_CONTROL或COMMAND_CONTROL
     if (control_state == CONTROL_STATE::RC_POS_CONTROL || control_state == CONTROL_STATE::COMMAND_CONTROL)
     {
         // 安全检查 - 包括地理围栏、定位有效性检查
+        // 调用安全检查函数，返回安全标志
         int safety_flag = check_failsafe();
 
         if (safety_flag == -1)
@@ -249,6 +321,7 @@ void UAV_controller::mainloop()
         }
         else
         {
+            // 安全检查通过，故障安全标志置为false
             uav_control_state.failsafe = false;
         }
 
@@ -260,6 +333,7 @@ void UAV_controller::mainloop()
         }
     }
 
+    // 根据当前控制状态执行不同的操作
     switch (control_state)
     {
     case CONTROL_STATE::INIT:
@@ -284,10 +358,15 @@ void UAV_controller::mainloop()
 
     case CONTROL_STATE::RC_POS_CONTROL:
 
+        // 根据遥控器输入设置悬停位置
         set_hover_pose_with_rc();
+        // 设置期望位置为悬停位置
         pos_des = Hover_position;
+        // 设置期望速度为零
         vel_des << 0.0, 0.0, 0.0;
+        // 设置期望加速度为零
         acc_des << 0.0, 0.0, 0.0;
+        // 设置期望偏航角为悬停偏航角
         yaw_des = Hover_yaw;
         break;
 
@@ -361,6 +440,7 @@ void UAV_controller::mainloop()
         break;
     }
 
+    // 记录上一次的控制状态
     last_control_state = control_state;
 
     // 发布控制器状态
@@ -396,14 +476,23 @@ void UAV_controller::mainloop()
     }
 }
 
+/**
+ * 根据选择的位置控制器计算期望姿态和油门
+ * @return 包含期望姿态和油门的四元数
+ */
 Eigen::Vector4d UAV_controller::get_cmd_from_controller()
 {
     // 期望值
     Desired_State desired_state;
+    // 设置期望位置
     desired_state.pos = pos_des;
+    // 设置期望速度
     desired_state.vel = vel_des;
+    // 设置期望加速度
     desired_state.acc = acc_des;
+    // 设置期望偏航角
     desired_state.yaw = yaw_des;
+    // 将期望偏航角转换为四元数
     desired_state.q = geometry_utils::yaw_to_quaternion(yaw_des);
     // 计算
     if (pos_controller == POS_CONTOLLER::PID)
@@ -438,6 +527,10 @@ Eigen::Vector4d UAV_controller::get_cmd_from_controller()
     }
 }
 
+// 根据里程计数据设置悬停位置
+/**
+ * 根据当前位置和偏航角设置悬停位置
+ */
 void UAV_controller::set_hover_pose_with_odom()
 {
     // 设定悬停点
@@ -446,15 +539,24 @@ void UAV_controller::set_hover_pose_with_odom()
     Hover_position[2] = uav_pos[2];
     Hover_yaw = uav_yaw;
 
+    // 记录设置悬停位置的时间
     last_set_hover_pose_time = ros::Time::now();
 }
 
+// 根据遥控器输入设置悬停位置
+/**
+ * 根据遥控器输入更新悬停位置和偏航角
+ */
 void UAV_controller::set_hover_pose_with_rc()
 {
+    // 获取当前时间
     ros::Time now = ros::Time::now();
+    // 计算时间间隔
     double delta_t = (now - last_set_hover_pose_time).toSec();
+    // 更新上次设置悬停位置的时间
     last_set_hover_pose_time = now;
 
+    // 定义最大水平速度、最大垂直速度和最大偏航角速度
     double max_vel_xy = 1.5;
     double max_vel_z = 1.3;
     double max_vel_yaw = 1.5;
@@ -471,6 +573,10 @@ void UAV_controller::set_hover_pose_with_rc()
         Hover_position(2) = 0.2;
 }
 
+// 根据控制命令设置期望值
+/**
+ * 根据控制指令设置期望值（适用于PX4原生控制器）
+ */
 void UAV_controller::set_command_des()
 {
     if (uav_command.Agent_CMD == px_uav_msgs::UAVCommand::Init_Pos_Hover)
@@ -496,7 +602,7 @@ void UAV_controller::set_command_des()
         acc_des << 0.0, 0.0, 0.0;
         yaw_des = Hover_yaw;
     }
-    else if (uav_command.Agent_CMD == px_uav_msgs::UAVCommand::Land)
+        else if (uav_command.Agent_CMD == px_uav_msgs::UAVCommand::Land)
     {
         // 【Land】 降落，直接使用LAND_CONTROL
         control_state = CONTROL_STATE::LAND_CONTROL;
@@ -647,6 +753,10 @@ void UAV_controller::set_command_des()
     uav_command_last = uav_command;
 }
 
+// 为内置位置环控制器设置期望状态
+/**
+ * 根据控制指令设置期望值（适用于自定义位置控制器）
+ */
 void UAV_controller::set_command_des_for_pos_controller()
 {
     if (uav_command.Agent_CMD == px_uav_msgs::UAVCommand::Init_Pos_Hover)
@@ -713,6 +823,11 @@ void UAV_controller::set_command_des_for_pos_controller()
     uav_command_last = uav_command;
 }
 
+// 处理无人机命令回调函数
+/**
+ * 无人机控制指令回调函数
+ * @param msg 接收到的控制指令消息
+ */
 void UAV_controller::uav_cmd_cb(const px_uav_msgs::UAVCommand::ConstPtr &msg)
 {
     if (control_state != CONTROL_STATE::COMMAND_CONTROL)
@@ -750,6 +865,9 @@ void UAV_controller::uav_cmd_cb(const px_uav_msgs::UAVCommand::ConstPtr &msg)
     uav_command = *msg;
 }
 
+/**
+ * 将位置控制指令发送到PX4原生位置环控制器
+ */
 void UAV_controller::send_pos_cmd_to_px4_original_controller()
 {
     // RC_POS_CONTROL
@@ -851,6 +969,10 @@ void UAV_controller::send_pos_cmd_to_px4_original_controller()
     }
 }
 
+/**
+ * 无人机状态信息回调函数
+ * @param msg 接收到的状态信息消息
+ */
 void UAV_controller::uav_state_cb(const px_uav_msgs::UAVState::ConstPtr &msg)
 {
     uav_state = *msg;
@@ -879,6 +1001,10 @@ void UAV_controller::uav_state_cb(const px_uav_msgs::UAVState::ConstPtr &msg)
     uav_state_last = uav_state;
 }
 
+/**
+ * PX4遥控器数据回调函数
+ * @param msg 接收到的遥控器数据消息
+ */
 void UAV_controller::px4_rc_cb(const mavros_msgs::RCIn::ConstPtr &msg)
 {
     // 调用外部函数对遥控器数据进行处理，具体见rc_data.h，此时rc_input中的状态已更新
@@ -1029,6 +1155,10 @@ void UAV_controller::px4_rc_cb(const mavros_msgs::RCIn::ConstPtr &msg)
     }
 }
 
+/**
+ * 安全检查函数，包括地理围栏、定位有效性和遥控器连接检查
+ * @return 安全标志：-1(断开连接)、1(超出围栏)、2(odom失效)、3(遥控器断开)、其他(无问题)
+ */
 int UAV_controller::check_failsafe()
 {
     // 一般不会出现，除非发送了重启飞控指令，或者飞控连接线物理断裂
@@ -1063,6 +1193,10 @@ int UAV_controller::check_failsafe()
     }
 }
 
+/**
+ * 无人机设置指令回调函数
+ * @param msg 接收到的设置指令消息
+ */
 void UAV_controller::uav_setup_cb(const px_uav_msgs::UAVSetup::ConstPtr &msg)
 {
     if (msg->cmd == px_uav_msgs::UAVSetup::ARMING)
@@ -1092,6 +1226,9 @@ void UAV_controller::uav_setup_cb(const px_uav_msgs::UAVSetup::ConstPtr &msg)
     }
 }
 
+/**
+ * 发送空闲指令，保持无人机稳定
+ */
 void UAV_controller::send_idle_cmd()
 {
     mavros_msgs::PositionTarget pos_setpoint;
@@ -1102,6 +1239,11 @@ void UAV_controller::send_idle_cmd()
 }
 
 // 发送位置期望值至飞控（输入: 期望xyz,期望yaw）
+/**
+ * 发送位置设定点指令
+ * @param pos_sp 目标位置
+ * @param yaw_sp 目标偏航角
+ */
 void UAV_controller::send_pos_setpoint(const Eigen::Vector3d &pos_sp, float yaw_sp)
 {
     mavros_msgs::PositionTarget pos_setpoint;
@@ -1127,6 +1269,11 @@ void UAV_controller::send_pos_setpoint(const Eigen::Vector3d &pos_sp, float yaw_
 }
 
 //发送速度期望值至飞控（输入: 期望vxvyvz,期望yaw）
+/**
+ * 发送速度设定点指令
+ * @param vel_sp 目标速度
+ * @param yaw_sp 目标偏航角
+ */
 void UAV_controller::send_vel_setpoint(const Eigen::Vector3d &vel_sp, float yaw_sp)
 {
 
@@ -1387,9 +1534,12 @@ void UAV_controller::send_vel_setpoint(const Eigen::Vector3d &vel_sp, float yaw_
 
 }
 
-
-
 // 发送速度期望值至飞控（输入: 期望vxvyvz,期望yaw_rate）
+/**
+ * 发送速度和偏航角速度设定点指令
+ * @param vel_sp 目标速度
+ * @param yaw_rate_sp 目标偏航角速度
+ */
 void UAV_controller::send_vel_setpoint_yaw_rate(const Eigen::Vector3d &vel_sp, float yaw_rate_sp)
 {
     mavros_msgs::PositionTarget pos_setpoint;
@@ -1402,6 +1552,12 @@ void UAV_controller::send_vel_setpoint_yaw_rate(const Eigen::Vector3d &vel_sp, f
     px4_setpoint_raw_local_pub.publish(pos_setpoint);
 }
 
+/**
+ * 发送水平速度和垂直位置设定点指令
+ * @param pos_sp 目标垂直位置
+ * @param vel_sp 目标水平速度
+ * @param yaw_sp 目标偏航角
+ */
 void UAV_controller::send_vel_xy_pos_z_setpoint(const Eigen::Vector3d &pos_sp, const Eigen::Vector3d &vel_sp, float yaw_sp)
 {
     mavros_msgs::PositionTarget pos_setpoint;
@@ -1416,6 +1572,12 @@ void UAV_controller::send_vel_xy_pos_z_setpoint(const Eigen::Vector3d &pos_sp, c
     px4_setpoint_raw_local_pub.publish(pos_setpoint);
 }
 
+/**
+ * 发送水平速度、垂直位置和偏航角速度设定点指令
+ * @param pos_sp 目标垂直位置
+ * @param vel_sp 目标水平速度
+ * @param yaw_rate_sp 目标偏航角速度
+ */
 void UAV_controller::send_vel_xy_pos_z_setpoint_yaw_rate(const Eigen::Vector3d &pos_sp, const Eigen::Vector3d &vel_sp, float yaw_rate_sp)
 {
     mavros_msgs::PositionTarget pos_setpoint;
@@ -1430,6 +1592,12 @@ void UAV_controller::send_vel_xy_pos_z_setpoint_yaw_rate(const Eigen::Vector3d &
     px4_setpoint_raw_local_pub.publish(pos_setpoint);
 }
 
+/**
+ * 发送位置和速度设定点指令
+ * @param pos_sp 目标位置
+ * @param vel_sp 目标速度
+ * @param yaw_sp 目标偏航角
+ */
 void UAV_controller::send_pos_vel_xyz_setpoint(const Eigen::Vector3d &pos_sp, const Eigen::Vector3d &vel_sp, float yaw_sp)
 {
     mavros_msgs::PositionTarget pos_setpoint;
@@ -1448,6 +1616,11 @@ void UAV_controller::send_pos_vel_xyz_setpoint(const Eigen::Vector3d &pos_sp, co
 }
 
 // 发送加速度期望值至飞控（输入: 期望axayaz,期望yaw）
+/**
+ * 发送加速度设定点指令
+ * @param accel_sp 目标加速度
+ * @param yaw_sp 目标偏航角
+ */
 void UAV_controller::send_acc_xyz_setpoint(const Eigen::Vector3d &accel_sp, float yaw_sp)
 {
     mavros_msgs::PositionTarget pos_setpoint;
@@ -1461,6 +1634,10 @@ void UAV_controller::send_acc_xyz_setpoint(const Eigen::Vector3d &accel_sp, floa
 }
 
 // 发送角度期望值至飞控（输入: 期望角度-四元数,期望推力）
+/**
+ * 发送姿态设定点指令
+ * @param u_att 包含期望姿态和油门的四元数
+ */
 void UAV_controller::send_attitude_setpoint(Eigen::Vector4d &u_att)
 {
     mavros_msgs::AttitudeTarget att_setpoint;
@@ -1483,6 +1660,11 @@ void UAV_controller::send_attitude_setpoint(Eigen::Vector4d &u_att)
 }
 
 // 发送经纬度以及高度期望值至飞控(输入,期望lat/lon/alt,期望yaw)
+/**
+ * 发送全球位置设定点指令
+ * @param global_pos_sp 目标经纬度和高度
+ * @param yaw_sp 目标偏航角
+ */
 void UAV_controller::send_global_setpoint(const Eigen::Vector3d &global_pos_sp, float yaw_sp)
 {
     mavros_msgs::GlobalPositionTarget global_setpoint;
@@ -1503,12 +1685,21 @@ void UAV_controller::send_global_setpoint(const Eigen::Vector3d &global_pos_sp, 
 
 // 【坐标系旋转函数】- 机体系到enu系
 // body_frame是机体系,enu_frame是惯性系，yaw_angle是当前偏航角[rad]
+/**
+ * 坐标旋转函数，将机体坐标系下的向量转换为ENU坐标系下的向量
+ * @param yaw_angle 偏航角
+ * @param body_frame 机体坐标系下的向量
+ * @param enu_frame ENU坐标系下的向量
+ */
 void UAV_controller::rotation_yaw(double yaw_angle, float body_frame[2], float enu_frame[2])
 {
     enu_frame[0] = body_frame[0] * cos(yaw_angle) - body_frame[1] * sin(yaw_angle);
     enu_frame[1] = body_frame[0] * sin(yaw_angle) + body_frame[1] * cos(yaw_angle);
 }
 
+/**
+ * 打印当前控制状态信息
+ */
 void UAV_controller::printf_control_state()
 {
     cout << GREEN << ">>>>>>>>>>>>>>>>>>>> UAV [" << uav_id << "] Controller  <<<<<<<<<<<<<<<<<<" << TAIL << endl;
@@ -1684,6 +1875,9 @@ void UAV_controller::printf_control_state()
     }
 }
 
+/**
+ * 打印无人机控制器参数信息
+ */
 void UAV_controller::printf_param()
 {
     cout << GREEN << ">>>>>>>>>>>>>>>> UAV controller Param <<<<<<<<<<<<<<<<" << TAIL << endl;
@@ -1699,6 +1893,7 @@ void UAV_controller::printf_param()
     cout << GREEN << "geo_fence_y : " << uav_geo_fence.y_min << " [m]  to  " << uav_geo_fence.y_max << " [m]" << TAIL << endl;
     cout << GREEN << "geo_fence_z : " << uav_geo_fence.z_min << " [m]  to  " << uav_geo_fence.z_max << " [m]" << TAIL << endl;
 }
+
 
 void UAV_controller::px4_pos_target_cb(const mavros_msgs::PositionTarget::ConstPtr &msg)
 {
@@ -1814,6 +2009,10 @@ void UAV_controller::param_set_cb(const px_uav_msgs::ParamSettings::ConstPtr &ms
  * |false（上锁指令）    |     无人机正在上锁，上锁成功  |   无人机已经上锁        |
  * -----------------------------------------------------------------------|
  */
+/**
+ * 解锁/上锁无人机
+ * @param on_or_off true为解锁，false为上锁
+ */
 void UAV_controller::arm_disarm_func(bool on_or_off)
 {
     mavros_msgs::CommandBool arm_cmd;
@@ -1865,6 +2064,10 @@ void UAV_controller::arm_disarm_func(bool on_or_off)
     }
 }
 
+/**
+ * 修改无人机系统模式
+ * @param mode 目标模式名称
+ */
 void UAV_controller::set_px4_mode_func(string mode)
 {
     mavros_msgs::SetMode mode_cmd;
@@ -1872,6 +2075,9 @@ void UAV_controller::set_px4_mode_func(string mode)
     px4_set_mode_client.call(mode_cmd);
 }
 
+/**
+ * 启用紧急上锁功能
+ */
 void UAV_controller::enable_emergency_func()
 {
     mavros_msgs::CommandLong emergency_srv;
@@ -1891,6 +2097,9 @@ void UAV_controller::enable_emergency_func()
     this->text_info.Message = "send kill cmd: force disarmed!";
 }
 
+/**
+ * 重启PX4飞控
+ */
 void UAV_controller::reboot_PX4()
 {
     if(!reboot_px4_set_reset_ekf)
@@ -1936,6 +2145,10 @@ void UAV_controller::reboot_PX4()
 }
 
 // 向地面发送反馈信息,如果重复,将不会发送
+/**
+ * 定时器回调函数，定期发送运行状态信息到地面站
+ * @param e 定时器事件
+ */
 void UAV_controller::sendStationTextInfo(const ros::TimerEvent &e)
 {
     if (this->text_info.Message == this->last_text_info.Message)
@@ -1951,6 +2164,11 @@ void UAV_controller::sendStationTextInfo(const ros::TimerEvent &e)
     }
 }
 
+/**
+ * 从ROS参数服务器获取PX4参数
+ * @param nh ROS节点句柄
+ * @return 包含PX4参数的映射表
+ */
 std::unordered_map<std::string, std::string> UAV_controller::get_px4_params(ros::NodeHandle &nh)
 {
     ParamManager param_manager(nh);
@@ -1958,6 +2176,10 @@ std::unordered_map<std::string, std::string> UAV_controller::get_px4_params(ros:
 }
 
 // 检查当前定位源下飞控参数设置是否正确，不正确将进行修改，正确就停止该定时器
+/**
+ * 定时器回调函数，定期检查PX4定位源参数设置
+ * @param e 定时器事件
+ */
 void UAV_controller::timercb_check_px4_location_source(const ros::TimerEvent &e)
 {
     // 如果PX4未连接或者解锁，则退出不进行修改，防止出现意外
@@ -2083,6 +2305,12 @@ void UAV_controller::timercb_check_px4_location_source(const ros::TimerEvent &e)
     }
 }
 
+/**
+ * 设置PX4整数参数
+ * @param param_id 参数ID
+ * @param param_value 参数值
+ * @return 设置成功返回true，失败返回false
+ */
 bool UAV_controller::px4_param_set(std::string param_id, int64_t param_value)
 {
     // 获取并记录飞控当前的参数值
@@ -2132,6 +2360,12 @@ bool UAV_controller::px4_param_set(std::string param_id, int64_t param_value)
     return true;
 }
 
+/**
+ * 设置PX4浮点参数
+ * @param param_id 参数ID
+ * @param param_value 参数值
+ * @return 设置成功返回true，失败返回false
+ */
 bool UAV_controller::px4_param_set(std::string param_id, double param_value)
 {
     // 获取并记录飞控当前的参数值
@@ -2181,6 +2415,10 @@ bool UAV_controller::px4_param_set(std::string param_id, double param_value)
     return true;
 }
 
+/**
+ * 通过Mavlink发送SERIAL_CONTROL消息
+ * @param cmd 要发送的命令字符串
+ */
 void UAV_controller::send_serial_control(const std::string &cmd)
 {
     if (cmd.empty())
