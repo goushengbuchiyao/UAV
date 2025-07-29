@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/px/UAV_SDK/devel/share/roseus/ros/uav_control/manifest.l"
+  "/home/px4/UAV_SDK/devel/share/roseus/ros/uav_control/manifest.l"
   "CMakeFiles/uav_control_generate_messages_eus"
 )
 

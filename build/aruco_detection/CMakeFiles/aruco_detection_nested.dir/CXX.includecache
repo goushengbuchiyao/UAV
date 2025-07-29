@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/px/UAV_SDK/devel/include/px_uav_msgs/ROI.h
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/ROI.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/px_uav_msgs/Target.h
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/Target.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/px_uav_msgs/TargetsInFrame.h
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/TargetsInFrame.h
 string
 -
 vector
@@ -60,7 +60,7 @@ px_uav_msgs/Target.h
 px_uav_msgs/ROI.h
 -
 
-/home/px/UAV_SDK/src/aruco_detection/src/aruco_detection_nested.cpp
+/home/px4/UAV_SDK/src/aruco_detection/src/aruco_detection_nested.cpp
 ros/ros.h
 -
 image_transport/image_transport.h
@@ -80,6 +80,10 @@ geometry_msgs/PoseStamped.h
 px_uav_msgs/TargetsInFrame.h
 -
 mavros_msgs/State.h
+-
+yaml-cpp/yaml.h
+-
+ros/package.h
 -
 
 /opt/ros/noetic/include/cv_bridge/cv_bridge.h
@@ -552,6 +556,16 @@ common.h
 boost/bind/bind.hpp
 -
 xmlrpcpp/XmlRpcValue.h
+-
+
+/opt/ros/noetic/include/ros/package.h
+string
+-
+utility
+-
+vector
+-
+map
 -
 
 /opt/ros/noetic/include/ros/param.h

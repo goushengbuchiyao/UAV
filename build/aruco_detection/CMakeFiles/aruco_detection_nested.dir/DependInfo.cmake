@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/px/UAV_SDK/src/aruco_detection/src/aruco_detection_nested.cpp" "/home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection_nested.dir/src/aruco_detection_nested.cpp.o"
+  "/home/px4/UAV_SDK/src/aruco_detection/src/aruco_detection_nested.cpp" "/home/px4/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection_nested.dir/src/aruco_detection_nested.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,8 +17,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/px/UAV_SDK/src/aruco_detection/include"
-  "/home/px/UAV_SDK/devel/include"
+  "/home/px4/UAV_SDK/src/aruco_detection/include"
+  "/home/px4/UAV_SDK/devel/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/opencv4"

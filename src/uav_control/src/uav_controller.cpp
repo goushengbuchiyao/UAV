@@ -281,8 +281,8 @@ UAV_controller::UAV_controller(ros::NodeHandle &nh) : nh(nh)
  */
 void UAV_controller::mainloop()
 {
-    // 若当前控制状态为RC_POS_CONTROL或COMMAND_CONTROL
-    if (control_state == CONTROL_STATE::RC_POS_CONTROL || control_state == CONTROL_STATE::COMMAND_CONTROL)
+    // 若当前控制状态为COMMAND_CONTROL
+    if (control_state == CONTROL_STATE::COMMAND_CONTROL)
     {
         // 安全检查 - 包括地理围栏、定位有效性检查
         // 调用安全检查函数，返回安全标志
@@ -356,19 +356,19 @@ void UAV_controller::mainloop()
         }
         break;
 
-    case CONTROL_STATE::RC_POS_CONTROL:
+    // case CONTROL_STATE::RC_POS_CONTROL:
 
-        // 根据遥控器输入设置悬停位置
-        set_hover_pose_with_rc();
-        // 设置期望位置为悬停位置
-        pos_des = Hover_position;
-        // 设置期望速度为零
-        vel_des << 0.0, 0.0, 0.0;
-        // 设置期望加速度为零
-        acc_des << 0.0, 0.0, 0.0;
-        // 设置期望偏航角为悬停偏航角
-        yaw_des = Hover_yaw;
-        break;
+    //     // 根据遥控器输入设置悬停位置
+    //     set_hover_pose_with_rc();
+    //     // 设置期望位置为悬停位置
+    //     pos_des = Hover_position;
+    //     // 设置期望速度为零
+    //     vel_des << 0.0, 0.0, 0.0;
+    //     // 设置期望加速度为零
+    //     acc_des << 0.0, 0.0, 0.0;
+    //     // 设置期望偏航角为悬停偏航角
+    //     yaw_des = Hover_yaw;
+    //     break;
 
     case CONTROL_STATE::COMMAND_CONTROL:
 
@@ -870,14 +870,14 @@ void UAV_controller::uav_cmd_cb(const px_uav_msgs::UAVCommand::ConstPtr &msg)
  */
 void UAV_controller::send_pos_cmd_to_px4_original_controller()
 {
-    // RC_POS_CONTROL
-    if (control_state == CONTROL_STATE::RC_POS_CONTROL)
-    {
-        send_pos_setpoint(pos_des, yaw_des);
-        vel_control = false;
-        yaw_control = false;
-        return;
-    }
+    // // RC_POS_CONTROL
+    // if (control_state == CONTROL_STATE::RC_POS_CONTROL)
+    // {
+    //     send_pos_setpoint(pos_des, yaw_des);
+    //     vel_control = false;
+    //     yaw_control = false;
+    //     return;
+    // }
 
     if (control_state == CONTROL_STATE::LAND_CONTROL && uav_state.mode == "OFFBOARD")
     {
@@ -1043,9 +1043,8 @@ void UAV_controller::px4_rc_cb(const mavros_msgs::RCIn::ConstPtr &msg)
         return;
     }
 
-    // 自动降落，条件: 必须在RC_POS_CONTROL或者COMMAND_CONTROL模式才可以触发
-    bool if_in_hover_or_command_mode =
-        control_state == CONTROL_STATE::RC_POS_CONTROL || control_state == CONTROL_STATE::COMMAND_CONTROL;
+    // 自动降落，条件: 必须在COMMAND_CONTROL模式才可以触发
+    bool if_in_hover_or_command_mode = control_state == CONTROL_STATE::COMMAND_CONTROL;
     if (rc_input.toggle_land && if_in_hover_or_command_mode)
     {
         rc_input.toggle_land = false;
@@ -1077,26 +1076,26 @@ void UAV_controller::px4_rc_cb(const mavros_msgs::RCIn::ConstPtr &msg)
             ROS_INFO("Parameter 'MPC_VEL_MANUAL' set success: %f", mpc_vel_manual);
         }
 
-        if (rc_input.enter_rc_pos_control)
-        {
-            rc_input.enter_rc_pos_control = false;
-            // odom失效，拒绝进入
-            if (!uav_state.odom_valid)
-            {
-                this->text_info.MessageType = px_uav_msgs::TextInfo::ERROR;
-                this->text_info.Message = "Reject RC_POS_CONTROL. Odom invalid!";
-                cout << RED << node_name << " Reject RC_POS_CONTROL. Odom invalid! " << TAIL << endl;
-                return;
-            }
-            // 切换至RC_POS_CONTROL
-            control_state = CONTROL_STATE::RC_POS_CONTROL;
-            // 初始化默认的UAVCommand
-            uav_command.Agent_CMD = px_uav_msgs::UAVCommand::Init_Pos_Hover;
-            // 进入RC_POS_CONTROL，需设置初始悬停点
-            set_hover_pose_with_odom();
-            cout << GREEN << node_name << " Switch to RC_POS_CONTROL" << TAIL << endl;
-            return;
-        }
+        // if (rc_input.enter_rc_pos_control)
+        // {
+        //     rc_input.enter_rc_pos_control = false;
+        //     // odom失效，拒绝进入
+        //     if (!uav_state.odom_valid)
+        //     {
+        //         this->text_info.MessageType = px_uav_msgs::TextInfo::ERROR;
+        //         this->text_info.Message = "Reject RC_POS_CONTROL. Odom invalid!";
+        //         cout << RED << node_name << " Reject RC_POS_CONTROL. Odom invalid! " << TAIL << endl;
+        //         return;
+        //     }
+        //     // 切换至RC_POS_CONTROL
+        //     control_state = CONTROL_STATE::RC_POS_CONTROL;
+        //     // 初始化默认的UAVCommand
+        //     uav_command.Agent_CMD = px_uav_msgs::UAVCommand::Init_Pos_Hover;
+        //     // 进入RC_POS_CONTROL，需设置初始悬停点
+        //     set_hover_pose_with_odom();
+        //     cout << GREEN << node_name << " Switch to RC_POS_CONTROL" << TAIL << endl;
+        //     return;
+        // }
 
         return;
     }
@@ -1115,37 +1114,38 @@ void UAV_controller::px4_rc_cb(const mavros_msgs::RCIn::ConstPtr &msg)
         ROS_INFO("Parameter 'MPC_VEL_MANUAL' set success: %f", mpc_vel_manual);
     }
 
-    // 收到进入RC_POS_CONTROL指令，且不在RC_POS_CONTROL模式时
-    if (rc_input.enter_rc_pos_control && control_state != CONTROL_STATE::RC_POS_CONTROL)
-    {
-        rc_input.enter_rc_pos_control = false;
-        // odom失效，拒绝进入
-        if (!uav_state.odom_valid)
-        {
-            this->text_info.MessageType = px_uav_msgs::TextInfo::ERROR;
-            this->text_info.Message = "Reject RC_POS_CONTROL. Odom invalid!";
-            cout << RED << node_name << " Reject RC_POS_CONTROL. Odom invalid! " << TAIL << endl;
-            return;
-        }
-        // 切换至RC_POS_CONTROL
-        control_state = CONTROL_STATE::RC_POS_CONTROL;
-        // 初始化默认的UAVCommand
-        uav_command.Agent_CMD = px_uav_msgs::UAVCommand::Init_Pos_Hover;
-        // 进入RC_POS_CONTROL，需设置初始悬停点
-        set_hover_pose_with_odom();
-        cout << GREEN << node_name << " Switch to RC_POS_CONTROL" << TAIL << endl;
-        return;
-    }
+    // // 收到进入RC_POS_CONTROL指令，且不在RC_POS_CONTROL模式时
+    // if (rc_input.enter_rc_pos_control && control_state != CONTROL_STATE::RC_POS_CONTROL)
+    // {
+    //     rc_input.enter_rc_pos_control = false;
+    //     // odom失效，拒绝进入
+    //     if (!uav_state.odom_valid)
+    //     {
+    //         this->text_info.MessageType = px_uav_msgs::TextInfo::ERROR;
+    //         this->text_info.Message = "Reject RC_POS_CONTROL. Odom invalid!";
+    //         cout << RED << node_name << " Reject RC_POS_CONTROL. Odom invalid! " << TAIL << endl;
+    //         return;
+    //     }
+    //     // 切换至RC_POS_CONTROL
+    //     control_state = CONTROL_STATE::RC_POS_CONTROL;
+    //     // 初始化默认的UAVCommand
+    //     uav_command.Agent_CMD = px_uav_msgs::UAVCommand::Init_Pos_Hover;
+    //     // 进入RC_POS_CONTROL，需设置初始悬停点
+    //     set_hover_pose_with_odom();
+    //     cout << GREEN << node_name << " Switch to RC_POS_CONTROL" << TAIL << endl;
+    //     return;
+    // }
 
-    // 必须从RC_POS_CONTROL模式切入（确保odom和offboard模式正常）
-    if (rc_input.enter_command_control && control_state == CONTROL_STATE::RC_POS_CONTROL && uav_state.mode == "OFFBOARD")
+    // 收到进入COMMAND_CONTROL指令（确保odom和offboard模式正常）
+    if (rc_input.enter_command_control  && uav_state.mode == "OFFBOARD")
     {
         // 标志位重置
         rc_input.enter_command_control = false;
         // 切换至COMMAND_CONTROL
         control_state = CONTROL_STATE::COMMAND_CONTROL;
         // 初始化默认的UAVCommand
-        uav_command.Agent_CMD = px_uav_msgs::UAVCommand::Init_Pos_Hover;
+        // uav_command.Agent_CMD = px_uav_msgs::UAVCommand::Init_Pos_Hover;
+        uav_command.Agent_CMD = px_uav_msgs::UAVCommand::Current_Pos_Hover;
         cout << GREEN << node_name << " Switch to COMMAND_CONTROL" << TAIL << endl;
         px4_param_set("MPC_XY_VEL_MAX",COMMAND_MPC_XY_VEL_MAX);
         px4_param_set("MPC_ACC_HOR",COMMAND_MPC_ACC_HOR);
@@ -1276,7 +1276,6 @@ void UAV_controller::send_pos_setpoint(const Eigen::Vector3d &pos_sp, float yaw_
  */
 void UAV_controller::send_vel_setpoint(const Eigen::Vector3d &vel_sp, float yaw_sp)
 {
-
 
     int zero_count = 0;
     for (int i = 0; i < 3; ++i) {
@@ -1722,10 +1721,10 @@ void UAV_controller::printf_control_state()
         cout << GREEN << "CONTROL_STATE: [ INIT ] " << TAIL << endl;
         break;
 
-    case CONTROL_STATE::RC_POS_CONTROL:
-        cout << GREEN << "CONTROL_STATE: [ RC_POS_CONTROL ] " << TAIL << endl;
-        cout << GREEN << "Hover_Pos [X Y Z] : " << Hover_position[0] << " [ m ] " << Hover_position[1] << " [ m ] " << Hover_position[2] << " [ m ] " << TAIL << endl;
-        break;
+    // case CONTROL_STATE::RC_POS_CONTROL:
+    //     cout << GREEN << "CONTROL_STATE: [ RC_POS_CONTROL ] " << TAIL << endl;
+    //     cout << GREEN << "Hover_Pos [X Y Z] : " << Hover_position[0] << " [ m ] " << Hover_position[1] << " [ m ] " << Hover_position[2] << " [ m ] " << TAIL << endl;
+    //     break;
 
     case CONTROL_STATE::COMMAND_CONTROL:
         cout << GREEN << "CONTROL_STATE: [ COMMAND_CONTROL ] " << TAIL << endl;

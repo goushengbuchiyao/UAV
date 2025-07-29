@@ -12,7 +12,7 @@
         <param name="sim_mode" value="$(arg sim_mode)" />
 		<param name="flag_printf" value="$(arg flag_printf)" />
         <param name="control/enable_external_control" value="$(arg control/enable_external_control)" />
-		<rosparam command="load" file="$(find prometheus_airsim)/launch/uav_control_indoor_mid360_airsim.yaml" />
+		<rosparam command="load" file="$(find uavcontrol)/launch/uav_control_outdoor_simulation_conf.yaml.yaml" />
         <!-- <rosparam command="load" file="$(find prometheus_uav_control)/launch/sensor_tf_offset_mid360.yaml" /> -->
 	</node>
 

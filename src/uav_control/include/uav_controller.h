@@ -104,9 +104,9 @@ public:
     enum CONTROL_STATE
     {
         INIT = 0,               // 初始模式      
-        RC_POS_CONTROL = 1,     // 悬停状态
-        COMMAND_CONTROL = 2,    // 指令控制
-        LAND_CONTROL = 3        // 降落
+        // RC_POS_CONTROL = 1,     // 悬停状态
+        COMMAND_CONTROL = 1,    // 指令控制
+        LAND_CONTROL = 2        // 降落
     };
     CONTROL_STATE control_state;
     CONTROL_STATE last_control_state;
