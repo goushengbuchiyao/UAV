@@ -15,10 +15,10 @@ public:
 
     double ch[4];     // 1-4通道数值: roll pitch yaw thrust
     double channel_5; // 通道5（二段） - 解锁无人机
-    double channel_6; // 通道6（三段） - 切换RC_POS_CONTROL/切换COMMAND_CONTROL
+    double channel_6; // 通道6（三段） - 切换INIT/切换COMMAND_CONTROL
     double channel_7; // 通道7（二段） - 紧急上锁
     double channel_8; // 通道8（二段） - 切换LAND_CONTROL，自动降落
-    double channel_9; 
+    double channel_9;  
     double last_channel_5;
     double last_channel_6;
     double last_channel_7;
@@ -118,7 +118,6 @@ void RC_Input::handle_rc_data(mavros_msgs::RCInConstPtr pMsg)
 {
     msg = *pMsg;
     rcv_stamp = ros::Time::now();
-
     if( msg.channels[0]< 1100 && msg.channels[1]<1100 && msg.channels[2]< 1100 && msg.channels[3]>1900)
     {
         toggle_reboot = true;
@@ -195,7 +194,8 @@ void RC_Input::handle_rc_data(mavros_msgs::RCInConstPtr pMsg)
     }
 
     // 判断通道6 - channel_6_threshold_value_1 （0.25） channel_6_threshold_value_2 （0.75）
-    if ((fabs(channel_6 - last_channel_6) > 0.4 ) && channel_6 <= channel_6_threshold_value)
+    // 目前真机中会出现-1 -0.006 0.494 0.994三个值
+    if ((fabs(channel_6 - last_channel_6) > 0.4 ) && channel_6 < channel_6_threshold_value)
     {
         enter_init = true;
         // enter_rc_pos_control = false;
@@ -207,7 +207,7 @@ void RC_Input::handle_rc_data(mavros_msgs::RCInConstPtr pMsg)
     //     enter_rc_pos_control = true;
     //     enter_command_control = false;
     // }
-    else if ((fabs(channel_6 - last_channel_6) > 0.4 ) && channel_6 > channel_6_threshold_value)
+    else if ((fabs(channel_6 - last_channel_6) > 0.4 ) && channel_6 >= channel_6_threshold_value)
     {
         enter_init = false;
         // enter_rc_pos_control = false;   

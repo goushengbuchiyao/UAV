@@ -16,8 +16,8 @@ UAV_controller::UAV_controller(ros::NodeHandle &nh) : nh(nh)
     // 根据无人机编号生成节点名字
     node_name = "[uav_controller_uav" + std::to_string(uav_id) + "]";
     // 【参数】是否仿真模式
-    // 从ROS参数服务器获取是否为仿真模式，若未设置则默认为true
-    nh.param<bool>("sim_mode", sim_mode, true);
+    // 从ROS参数服务器获取是否为仿真模式，若未设置则默认为false
+    nh.param<bool>("sim_mode", sim_mode, false);
     // 【参数】控制器标志位,具体说明见CONTOLLER_FLAG说明
     // 从ROS参数服务器获取位置控制器类型，若未设置则默认为0
     nh.param<int>("control/pos_controller", pos_controller, 0);
@@ -1009,7 +1009,6 @@ void UAV_controller::px4_rc_cb(const mavros_msgs::RCIn::ConstPtr &msg)
 {
     // 调用外部函数对遥控器数据进行处理，具体见rc_data.h，此时rc_input中的状态已更新
     rc_input.handle_rc_data(msg);
-
     // 重启PX4飞控，条件: 无人机已上锁
     if (rc_input.toggle_reboot && !uav_state.armed)
     {
@@ -1137,7 +1136,7 @@ void UAV_controller::px4_rc_cb(const mavros_msgs::RCIn::ConstPtr &msg)
     // }
 
     // 收到进入COMMAND_CONTROL指令（确保odom和offboard模式正常）
-    if (rc_input.enter_command_control  && uav_state.mode == "OFFBOARD")
+    if (rc_input.enter_command_control)
     {
         // 标志位重置
         rc_input.enter_command_control = false;
@@ -1701,6 +1700,10 @@ void UAV_controller::rotation_yaw(double yaw_angle, float body_frame[2], float e
  */
 void UAV_controller::printf_control_state()
 {
+
+    // ROS_INFO("Received RC data: %f last_channel_6", rc_input.last_channel_6 );  
+    // ROS_INFO("Received RC data: %f channel_6", rc_input.channel_6 );  
+    // ROS_INFO("Received RC data: %s enter_command_control", rc_input.enter_command_control ? "true" : "false");  
     cout << GREEN << ">>>>>>>>>>>>>>>>>>>> UAV [" << uav_id << "] Controller  <<<<<<<<<<<<<<<<<<" << TAIL << endl;
 
     // 固定的浮点显示

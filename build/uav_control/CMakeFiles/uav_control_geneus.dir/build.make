@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 
 # Utility rule file for uav_control_geneus.
 
@@ -63,10 +63,10 @@ uav_control/CMakeFiles/uav_control_geneus.dir/build: uav_control_geneus
 .PHONY : uav_control/CMakeFiles/uav_control_geneus.dir/build
 
 uav_control/CMakeFiles/uav_control_geneus.dir/clean:
-	cd /home/px4/UAV_SDK/build/uav_control && $(CMAKE_COMMAND) -P CMakeFiles/uav_control_geneus.dir/cmake_clean.cmake
+	cd /home/px/UAV_SDK/build/uav_control && $(CMAKE_COMMAND) -P CMakeFiles/uav_control_geneus.dir/cmake_clean.cmake
 .PHONY : uav_control/CMakeFiles/uav_control_geneus.dir/clean
 
 uav_control/CMakeFiles/uav_control_geneus.dir/depend:
-	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/uav_control /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/uav_control /home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_geneus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/uav_control /home/px/UAV_SDK/build /home/px/UAV_SDK/build/uav_control /home/px/UAV_SDK/build/uav_control/CMakeFiles/uav_control_geneus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uav_control/CMakeFiles/uav_control_geneus.dir/depend
 

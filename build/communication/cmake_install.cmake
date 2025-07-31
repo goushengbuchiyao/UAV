@@ -1,8 +1,8 @@
-# Install script for directory: /home/px4/UAV_SDK/src/communication
+# Install script for directory: /home/px/UAV_SDK/src/communication
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/px4/UAV_SDK/install")
+  set(CMAKE_INSTALL_PREFIX "/home/px/UAV_SDK/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px4/UAV_SDK/build/communication/catkin_generated/installspace/communication.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px/UAV_SDK/build/communication/catkin_generated/installspace/communication.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/communication/cmake" TYPE FILE FILES
-    "/home/px4/UAV_SDK/build/communication/catkin_generated/installspace/communicationConfig.cmake"
-    "/home/px4/UAV_SDK/build/communication/catkin_generated/installspace/communicationConfig-version.cmake"
+    "/home/px/UAV_SDK/build/communication/catkin_generated/installspace/communicationConfig.cmake"
+    "/home/px/UAV_SDK/build/communication/catkin_generated/installspace/communicationConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/communication" TYPE FILE FILES "/home/px4/UAV_SDK/src/communication/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/communication" TYPE FILE FILES "/home/px/UAV_SDK/src/communication/package.xml")
 endif()
 

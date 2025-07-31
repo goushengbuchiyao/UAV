@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h
+/home/px/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h
 string
 -
 vector
@@ -28,7 +28,7 @@ geometry_msgs/Point.h
 geometry_msgs/Vector3.h
 -
 
-/home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVState.h
+/home/px/UAV_SDK/devel/include/px_uav_msgs/UAVState.h
 string
 -
 vector
@@ -48,7 +48,7 @@ std_msgs/Header.h
 geometry_msgs/Quaternion.h
 -
 
-/home/px4/UAV_SDK/src/mqtt_bridge/include/mqtt_client.h
+/home/px/UAV_SDK/src/mqtt_bridge/include/mqtt_client.h
 ros/ros.h
 -
 mqtt/async_client.h
@@ -70,21 +70,21 @@ vector
 functional
 -
 
-/home/px4/UAV_SDK/src/mqtt_bridge/src/mqtt_bridge_node.cpp
+/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_bridge_node.cpp
 ros/ros.h
-/home/px4/UAV_SDK/src/mqtt_bridge/src/ros/ros.h
+/home/px/UAV_SDK/src/mqtt_bridge/src/ros/ros.h
 mqtt_client.h
-/home/px4/UAV_SDK/src/mqtt_bridge/src/mqtt_client.h
+/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.h
 px_uav_msgs/UAVState.h
-/home/px4/UAV_SDK/src/mqtt_bridge/src/px_uav_msgs/UAVState.h
+/home/px/UAV_SDK/src/mqtt_bridge/src/px_uav_msgs/UAVState.h
 px_uav_msgs/UAVControlState.h
-/home/px4/UAV_SDK/src/mqtt_bridge/src/px_uav_msgs/UAVControlState.h
+/home/px/UAV_SDK/src/mqtt_bridge/src/px_uav_msgs/UAVControlState.h
 jsoncpp/json/json.h
 -
 
-/home/px4/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp
+/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp
 mqtt_client.h
-/home/px4/UAV_SDK/src/mqtt_bridge/src/mqtt_client.h
+/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.h
 ros/ros.h
 -
 

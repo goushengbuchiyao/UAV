@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/px4/UAV_SDK/devel/lib/uav_control/uav_command_pub"
-  "/home/px4/UAV_SDK/devel/lib/uav_control/uav_command_pub.pdb"
+  "/home/px/UAV_SDK/devel/lib/uav_control/uav_command_pub"
+  "/home/px/UAV_SDK/devel/lib/uav_control/uav_command_pub.pdb"
   "CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o"
 )
 

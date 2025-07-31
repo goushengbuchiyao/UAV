@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/px4/UAV_SDK/src/uav_control/utils/joy_node.cpp
+/home/px/UAV_SDK/src/uav_control/utils/joy_node.cpp
 memory
 -
 string

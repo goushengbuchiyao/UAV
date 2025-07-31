@@ -43,233 +43,233 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 
 # Utility rule file for px_uav_msgs_generate_messages_py.
 
 # Include the progress variables for this target.
 include common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/progress.make
 
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py
 
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG px_uav_msgs/UAVState"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG px_uav_msgs/UAVState"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG px_uav_msgs/MultiUAVState"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG px_uav_msgs/MultiUAVState"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG px_uav_msgs/UAVCommand"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG px_uav_msgs/UAVCommand"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG px_uav_msgs/UAVControlState"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG px_uav_msgs/UAVControlState"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG px_uav_msgs/UAVSetup"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG px_uav_msgs/UAVSetup"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python from MSG px_uav_msgs/TextInfo"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python from MSG px_uav_msgs/TextInfo"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python from MSG px_uav_msgs/GlobalAruco"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python from MSG px_uav_msgs/GlobalAruco"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python from MSG px_uav_msgs/UGVState"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python from MSG px_uav_msgs/UGVState"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python from MSG px_uav_msgs/UGVCommand"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python from MSG px_uav_msgs/UGVCommand"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Python from MSG px_uav_msgs/MultiUGVState"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Python from MSG px_uav_msgs/MultiUGVState"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Python from MSG px_uav_msgs/PositionReference"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Python from MSG px_uav_msgs/PositionReference"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating Python from MSG px_uav_msgs/StationCommand"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating Python from MSG px_uav_msgs/StationCommand"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating Python from MSG px_uav_msgs/SwarmCommand"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating Python from MSG px_uav_msgs/SwarmCommand"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating Python from MSG px_uav_msgs/FormationAssign"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating Python from MSG px_uav_msgs/FormationAssign"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating Python from MSG px_uav_msgs/OffsetPose"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating Python from MSG px_uav_msgs/OffsetPose"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating Python from MSG px_uav_msgs/GPSData"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating Python from MSG px_uav_msgs/GPSData"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Python from MSG px_uav_msgs/LinktrackNode2"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Python from MSG px_uav_msgs/LinktrackNode2"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Python from MSG px_uav_msgs/LinktrackNodeframe2"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Python from MSG px_uav_msgs/LinktrackNodeframe2"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Python from MSG px_uav_msgs/ParamSettings"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Python from MSG px_uav_msgs/ParamSettings"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Python from MSG px_uav_msgs/ROI"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Python from MSG px_uav_msgs/ROI"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Python from MSG px_uav_msgs/Target"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Python from MSG px_uav_msgs/Target"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Python from MSG px_uav_msgs/TargetsInFrame"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Python from MSG px_uav_msgs/TargetsInFrame"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg
 
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py
-/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Python msg __init__.py for px_uav_msgs"
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg --initpy
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py
+/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating Python msg __init__.py for px_uav_msgs"
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg --initpy
 
 px_uav_msgs_generate_messages_py: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py
-px_uav_msgs_generate_messages_py: /home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVState.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUAVState.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVCommand.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVControlState.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UAVSetup.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TextInfo.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GlobalAruco.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVState.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_UGVCommand.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_MultiUGVState.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_PositionReference.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_StationCommand.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_SwarmCommand.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_FormationAssign.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_OffsetPose.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_GPSData.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNode2.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_LinktrackNodeframe2.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ParamSettings.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_ROI.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_Target.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/_TargetsInFrame.py
+px_uav_msgs_generate_messages_py: /home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs/msg/__init__.py
 px_uav_msgs_generate_messages_py: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/build.make
 
 .PHONY : px_uav_msgs_generate_messages_py
@@ -280,10 +280,10 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/build: px_uav
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/build
 
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/clean:
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/px_uav_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/px_uav_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/clean
 
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/depend:
-	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/common/px_uav_msgs /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/common/px_uav_msgs /home/px4/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/common/px_uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/common/px_uav_msgs /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/depend
 

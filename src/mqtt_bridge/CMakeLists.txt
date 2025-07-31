@@ -55,7 +55,7 @@ add_executable(mqtt_bridge_node src/mqtt_bridge_node.cpp src/mqtt_client.cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(mqtt_bridge_node
   ${catkin_LIBRARIES}
-  PahoMqttCpp::paho-mqttpp3
+  PahoMqttCpp::paho-mqttpp3-shared
   PahoMqttCpp::paho-mqtt3as
   ${OPENSSL_LIBRARIES}
   ${JSONCPP_LIBRARIES}  

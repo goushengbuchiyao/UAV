@@ -94,7 +94,7 @@ private:
 
   diagnostic_updater::Updater diagnostic_;
 
-  typedef std::unique_ptr<DIR, decltype(&closedir)> dir_ptr;
+  typedef std::unique_ptr<DIR, decltype(&closedir) > dir_ptr;
 
   float convert_joy_units(float data)
   {

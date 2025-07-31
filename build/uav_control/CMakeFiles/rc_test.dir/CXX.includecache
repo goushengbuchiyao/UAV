@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/px4/UAV_SDK/src/common/include/printf_utils.h
+/home/px/UAV_SDK/src/common/include/printf_utils.h
 string
 -
 iostream
@@ -18,19 +18,19 @@ chrono
 ctime
 -
 
-/home/px4/UAV_SDK/src/uav_control/include/rc_input.h
+/home/px/UAV_SDK/src/uav_control/include/rc_input.h
 ros/ros.h
 -
 mavros_msgs/RCIn.h
 -
 printf_utils.h
-/home/px4/UAV_SDK/src/uav_control/include/printf_utils.h
+/home/px/UAV_SDK/src/uav_control/include/printf_utils.h
 
-/home/px4/UAV_SDK/src/uav_control/utils/rc_test.cpp
+/home/px/UAV_SDK/src/uav_control/utils/rc_test.cpp
 ros/ros.h
 -
 rc_input.h
-/home/px4/UAV_SDK/src/uav_control/utils/rc_input.h
+/home/px/UAV_SDK/src/uav_control/utils/rc_input.h
 mavros_msgs/RCIn.h
 -
 

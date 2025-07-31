@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/px4/UAV_SDK/devel/lib/libuav_estimator.pdb"
-  "/home/px4/UAV_SDK/devel/lib/libuav_estimator.so"
+  "/home/px/UAV_SDK/devel/lib/libuav_estimator.pdb"
+  "/home/px/UAV_SDK/devel/lib/libuav_estimator.so"
   "CMakeFiles/uav_estimator.dir/src/uav_estimator.cpp.o"
 )
 
