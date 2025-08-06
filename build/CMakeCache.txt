@@ -441,6 +441,9 @@ diagnostic_updater_DIR:PATH=/opt/ros/noetic/share/diagnostic_updater/cmake
 //The directory containing a CMake configuration file for eigen_conversions.
 eigen_conversions_DIR:PATH=/opt/ros/noetic/share/eigen_conversions/cmake
 
+//The directory containing a CMake configuration file for filesystem.
+filesystem_DIR:PATH=filesystem_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/noetic/share/gencpp/cmake
 
@@ -514,6 +517,9 @@ gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 //The directory containing a CMake configuration file for image_transport.
 image_transport_DIR:PATH=/opt/ros/noetic/share/image_transport/cmake
 
+//The directory containing a CMake configuration file for jsoncpp.
+jsoncpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/jsoncpp
+
 //Path to a library.
 lib:FILEPATH=/usr/lib/liborocos-kdl.so
 
@@ -544,8 +550,23 @@ mqtt_bridge_BINARY_DIR:STATIC=/home/px/UAV_SDK/build/mqtt_bridge
 //Value Computed by CMake
 mqtt_bridge_SOURCE_DIR:STATIC=/home/px/UAV_SDK/src/mqtt_bridge
 
+//Value Computed by CMake
+mqtt_camera_interface_BINARY_DIR:STATIC=/home/px/UAV_SDK/build/mqtt_camera_interface
+
+//Value Computed by CMake
+mqtt_camera_interface_SOURCE_DIR:STATIC=/home/px/UAV_SDK/src/mqtt_camera_interface
+
+//Value Computed by CMake
+mqtt_ros_bridge_BINARY_DIR:STATIC=/home/px/UAV_SDK/build/mqtt_ros_bridge
+
+//Value Computed by CMake
+mqtt_ros_bridge_SOURCE_DIR:STATIC=/home/px/UAV_SDK/src/mqtt_ros_bridge
+
 //The directory containing a CMake configuration file for nav_msgs.
 nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
+
+//The directory containing a CMake configuration file for nlohmann_json.
+nlohmann_json_DIR:PATH=nlohmann_json_DIR-NOTFOUND
 
 //Path to a library.
 pkgcfg_lib_JSONCPP_jsoncpp:FILEPATH=/usr/lib/x86_64-linux-gnu/libjsoncpp.so
@@ -805,7 +826,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -913,6 +934,31 @@ OPENSSL_CRYPTO_LIBRARY-ADVANCED:INTERNAL=1
 OPENSSL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENSSL_SSL_LIBRARY
 OPENSSL_SSL_LIBRARY-ADVANCED:INTERNAL=1
+PAHO_MQTTPP3_CFLAGS:INTERNAL=
+PAHO_MQTTPP3_CFLAGS_I:INTERNAL=
+PAHO_MQTTPP3_CFLAGS_OTHER:INTERNAL=
+PAHO_MQTTPP3_FOUND:INTERNAL=
+PAHO_MQTTPP3_INCLUDEDIR:INTERNAL=
+PAHO_MQTTPP3_LIBDIR:INTERNAL=
+PAHO_MQTTPP3_LIBS:INTERNAL=
+PAHO_MQTTPP3_LIBS_L:INTERNAL=
+PAHO_MQTTPP3_LIBS_OTHER:INTERNAL=
+PAHO_MQTTPP3_LIBS_PATHS:INTERNAL=
+PAHO_MQTTPP3_MODULE_NAME:INTERNAL=
+PAHO_MQTTPP3_PREFIX:INTERNAL=
+PAHO_MQTTPP3_STATIC_CFLAGS:INTERNAL=
+PAHO_MQTTPP3_STATIC_CFLAGS_I:INTERNAL=
+PAHO_MQTTPP3_STATIC_CFLAGS_OTHER:INTERNAL=
+PAHO_MQTTPP3_STATIC_LIBDIR:INTERNAL=
+PAHO_MQTTPP3_STATIC_LIBS:INTERNAL=
+PAHO_MQTTPP3_STATIC_LIBS_L:INTERNAL=
+PAHO_MQTTPP3_STATIC_LIBS_OTHER:INTERNAL=
+PAHO_MQTTPP3_STATIC_LIBS_PATHS:INTERNAL=
+PAHO_MQTTPP3_VERSION:INTERNAL=
+PAHO_MQTTPP3_paho-mqttpp3_INCLUDEDIR:INTERNAL=
+PAHO_MQTTPP3_paho-mqttpp3_LIBDIR:INTERNAL=
+PAHO_MQTTPP3_paho-mqttpp3_PREFIX:INTERNAL=
+PAHO_MQTTPP3_paho-mqttpp3_VERSION:INTERNAL=
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE

@@ -3,16 +3,110 @@
 #include "px_uav_msgs/UAVState.h"
 #include "px_uav_msgs/UAVControlState.h"
 #include <jsoncpp/json/json.h>
-
+#include "uav_state_publisher.h"
+#include <openssl/hmac.h>
+#include <openssl/sha.h>
+#include <boost/filesystem.hpp>
 // 全局变量，用于存储MQTT客户端
 std::shared_ptr<mqtt_bridge::MqttClient> mqtt_client;
 ros::Publisher control_pub;
+struct MqttConfig {
+  std::string server_address;
+  std::string client_id;
+  std::string username;
+  std::string password;
+  std::string ca_cert_path;
+  int qos = 1;
+  int reconnect_interval = 5; // 初始重连间隔（秒）
+};
+
+// 从参数服务器加载配置
+MqttConfig loadMqttConfig(ros::NodeHandle& nh) {
+  MqttConfig cfg;
+  // 读取参数，强制检查必要参数
+  if (!nh.getParam("server_address", cfg.server_address) || cfg.server_address.empty()) {
+    ROS_FATAL("Missing required parameter: server_address");
+    throw std::runtime_error("Missing server_address");
+  }
+  nh.param("client_id", cfg.client_id, std::string("ros_uav_client_") + std::to_string(getpid())); // 自动生成唯一ID
+  nh.param("username", cfg.username, std::string());
+  nh.param("password", cfg.password, std::string());
+  
+  if (!nh.getParam("ca_cert_path", cfg.ca_cert_path) || cfg.ca_cert_path.empty()) {
+    ROS_FATAL("Missing required parameter: ca_cert_path");
+    throw std::runtime_error("Missing ca_cert_path");
+  }
+  // 检查CA证书文件是否存在
+  if (!boost::filesystem::exists(cfg.ca_cert_path)) {
+    ROS_FATAL_STREAM("CA certificate file not found: " << cfg.ca_cert_path);
+    throw std::runtime_error("CA cert file not found");
+  }
+  
+  nh.param("qos", cfg.qos, 1);
+  nh.param("reconnect_interval", cfg.reconnect_interval, 5);
+  return cfg;
+}
 
 // MQTT消息回调函数
-void mqttMessageCallback(const std::string& topic, const std::string& payload) {
+// 添加验签函数
+bool verifySignature(const std::string& payload, const std::string& signature, const std::string& secret_key) {
+  unsigned char digest[SHA256_DIGEST_LENGTH];
+  HMAC_CTX* ctx = HMAC_CTX_new();
+  HMAC_Init_ex(ctx, secret_key.c_str(), secret_key.length(), EVP_sha256(), NULL);
+  HMAC_Update(ctx, (unsigned char*)payload.c_str(), payload.length());
+  unsigned int len = SHA256_DIGEST_LENGTH;
+  HMAC_Final(ctx, digest, &len);
+  HMAC_CTX_free(ctx);
+  
+  std::string computed_signature;
+  for (int i = 0; i < len; ++i) {
+    char buf[3];
+    sprintf(buf, "%02x", digest[i]);
+    computed_signature += buf;
+  }
+  
+  return computed_signature == signature;
+}
+
+// 修改MQTT消息回调
+void mqttMessageCallback(const std::string& topic, const std::string& payload, ros::NodeHandle& nh) {
   ROS_INFO_STREAM("Received MQTT message on topic: " << topic);
   
-  // 检查是否是控制指令主题
+  // 获取密钥
+  std::string secret_key;
+  if (!nh.getParam("signature_secret_key", secret_key) || secret_key.empty()) {
+    ROS_ERROR("Signature secret key not configured");
+    return;
+  }
+  
+  // 解析消息和签名
+  Json::Reader reader;
+  Json::Value root;
+  if (!reader.parse(payload, root)) {
+    ROS_ERROR("Failed to parse MQTT message");
+    return;
+  }
+  
+  std::string data = root["data"].asString();
+  std::string signature = root["signature"].asString();
+  
+  // 验签
+  if (!verifySignature(data, signature, secret_key)) {
+    ROS_ERROR("Message signature verification failed");
+    // 记录日志并有限重试
+    static int retry_count = 0;
+    
+    if (retry_count < 3) {
+      retry_count++;
+      ROS_WARN_STREAM("Retrying message processing (attempt " << retry_count << "/3)");
+      // 重新入队或延迟处理
+      return;
+    }
+    retry_count = 0;
+    return;
+  }
+  
+  // 验签通过，继续处理
   if (topic == "uav/control") {
     try {
       // 解析JSON消息
@@ -112,76 +206,49 @@ void statusCallback(const px_uav_msgs::UAVState::ConstPtr& msg) {
   }
 }
 
-int main(int argc, char **argv) {
-  // 初始化ROS节点
-  ros::init(argc, argv, "mqtt_bridge_node");
-  ros::NodeHandle nh("~");
-  
-  // 读取MQTT配置参数
-  std::string server_address = "mqtts://de80ed56.ala.cn-hangzhou.emqxsl.cn:8883";
-  std::string client_id = "ros_uav_client";
-  std::string username = "px_uav";
-  std::string password = "Wcnm1111!";
-  std::string ca_cert_path = "config/emqxsl-ca.crt"; // CA证书路径
-  
-  // 从参数服务器读取配置（如果有）
-  nh.param<std::string>("server_address", server_address, server_address);
-  nh.param<std::string>("client_id", client_id, client_id);
-  nh.param<std::string>("username", username, username);
-  nh.param<std::string>("password", password, password);
-  nh.param<std::string>("ca_cert_path", ca_cert_path, ca_cert_path);
-  
-  // 检查CA证书路径
-  if (ca_cert_path.empty()) {
-    ROS_ERROR("CA certificate path is required for TLS connection");
-    return -1;
-  }
-  
-  // 创建MQTT客户端
-  mqtt_client = std::make_shared<mqtt_bridge::MqttClient>(
-    server_address, client_id, username, password, ca_cert_path);
-  
-  // 设置消息回调
-  mqtt_client->setMessageCallback(mqttMessageCallback);
-  
-  // 连接到MQTT服务器
-  if (!mqtt_client->connect()) {
-    ROS_ERROR("Failed to connect to MQTT server, exiting");
-    return -1;
-  }
-  
-  // 订阅控制主题
-  mqtt_client->subscribe("uav/control");
-  
-  // 创建ROS发布者和订阅者
-  control_pub = nh.advertise<px_uav_msgs::UAVControlState>("/uav/control", 10);
-  ros::Subscriber status_sub = nh.subscribe("/uav/status", 10, statusCallback);
-  
-  // 设置循环频率
-  ros::Rate rate(10); // 10Hz
-  
-  // 主循环
-  while (ros::ok()) {
-    // 处理ROS回调
-    ros::spinOnce();
+int main(int argc, char**argv) {
+    ros::init(argc, argv, "mqtt_bridge");
+    ros::NodeHandle nh("~");
     
-    // 检查MQTT连接状态
-    if (!mqtt_client->isConnected()) {
-      ROS_WARN("MQTT connection lost, attempting to reconnect");
-      if (!mqtt_client->connect()) {
-        ROS_ERROR("Failed to reconnect to MQTT server");
-      } else {
-        // 重新订阅主题
-        mqtt_client->subscribe("uav/control");
-      }
+    try {
+        // 加载MQTT配置
+        MqttConfig cfg = loadMqttConfig(nh);
+        
+        // 创建MQTT客户端
+       mqtt_client = std::make_shared<mqtt_bridge::MqttClient>(
+        cfg.server_address, cfg.client_id, cfg.username, cfg.password, cfg.ca_cert_path, cfg.qos, nh);
+        // 连接MQTT服务器
+        if (!mqtt_client->connect()) {
+            ROS_ERROR_STREAM("Failed to connect to MQTT server at " << cfg.server_address 
+                            << ". Check server address, port, CA certificate, and network connectivity.");
+        }
+        
+        // 创建并启动UAV状态发布器
+        UAVStatePublisher state_publisher(nh, *mqtt_client);
+        
+        // 连接状态回调
+        mqtt_client->setConnectionCallback([](bool connected) {
+            if (connected) {
+                ROS_INFO("MQTT connected, starting to publish UAV state");
+            } else {
+                ROS_WARN("MQTT disconnected");
+            }
+        });
+        
+        // 消息回调
+        mqtt_client->setMessageCallback([](const std::string& topic, const std::string& payload, ros::NodeHandle& nh) {
+            mqttMessageCallback(topic, payload, nh);
+        });
+        
+        
+        ros::spin();
+        
+        // 断开连接
+        mqtt_client->disconnect();
+    } catch (const std::exception& e) {
+        ROS_FATAL("Fatal error: %s", e.what());
+        return 1;
     }
     
-    rate.sleep();
-  }
-  
-  // 断开MQTT连接
-  mqtt_client->disconnect();
-  
-  return 0;
+    return 0;
 }
-  

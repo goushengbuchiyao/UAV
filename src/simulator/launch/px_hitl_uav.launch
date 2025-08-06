@@ -12,7 +12,8 @@
     <!-- vehicle model and world -->
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
-    <arg name="iris_fpv_cam" default="iris_fpv_cam"/>
+    <!-- <arg name="iris_fpv_cam" default="iris_fpv_cam"/> -->
+    <arg name="iris_hitl" default="iris_hitl"/>
     <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/hitl_iris.world"/>
     <!-- <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/$(arg vehicle)/$(arg vehicle).sdf"/> -->
 
@@ -52,7 +53,7 @@
         <arg name="vehicle" value="$(arg vehicle)"/>
         <!-- <arg name="sdf" value="$(arg sdf)"/> -->
 
-        <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/$(arg iris_fpv_cam)/$(arg iris_fpv_cam).sdf"/>
+        <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/$(arg iris_hitl)/$(arg iris_hitl).sdf"/>
         <arg name="gui" value="$(arg gui)"/>
         <arg name="interactive" value="$(arg interactive)"/>
         <arg name="debug" value="$(arg debug)"/>

@@ -401,6 +401,33 @@ src/mqtt_client.cpp.s:
 	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.s
 .PHONY : src/mqtt_client.cpp.s
 
+src/uav_state_publisher.o: src/uav_state_publisher.cpp.o
+
+.PHONY : src/uav_state_publisher.o
+
+# target to build an object file
+src/uav_state_publisher.cpp.o:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o
+.PHONY : src/uav_state_publisher.cpp.o
+
+src/uav_state_publisher.i: src/uav_state_publisher.cpp.i
+
+.PHONY : src/uav_state_publisher.i
+
+# target to preprocess a source file
+src/uav_state_publisher.cpp.i:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.i
+.PHONY : src/uav_state_publisher.cpp.i
+
+src/uav_state_publisher.s: src/uav_state_publisher.cpp.s
+
+.PHONY : src/uav_state_publisher.s
+
+# target to generate assembly for a file
+src/uav_state_publisher.cpp.s:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.s
+.PHONY : src/uav_state_publisher.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -432,6 +459,9 @@ help:
 	@echo "... src/mqtt_client.o"
 	@echo "... src/mqtt_client.i"
 	@echo "... src/mqtt_client.s"
+	@echo "... src/uav_state_publisher.o"
+	@echo "... src/uav_state_publisher.i"
+	@echo "... src/uav_state_publisher.s"
 .PHONY : help
 
 

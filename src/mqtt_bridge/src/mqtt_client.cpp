@@ -8,7 +8,8 @@ MqttClient::MqttClient(const std::string& server_address,
                        const std::string& username,
                        const std::string& password,
                        const std::string& ca_cert_path,
-                       int qos)
+                       int qos,
+                       ros::NodeHandle nh)
   : client_id_(client_id), 
     connected_(false),
     callback_(*this) {
@@ -79,7 +80,38 @@ void MqttClient::disconnect() {
   }
 }
 
+void MqttClient::attemptReconnect() {
+  if (reconnecting_ || connected_) return;
+  reconnecting_ = true;
+  
+  std::thread([this]() {
+    int interval = reconnect_interval_;
+    while (!connected_ && ros::ok()) {
+      ROS_INFO_STREAM("Attempting to reconnect (interval: " << interval << "s)");
+      if (connect()) {
+        reconnecting_ = false;
+        interval = reconnect_interval_; // 重置间隔
+        if (conn_callback_) conn_callback_(true);
+        return;
+      }
+      // 指数退避（最大间隔60秒）
+      std::this_thread::sleep_for(std::chrono::seconds(interval));
+      interval = std::min(interval * 2, 60);
+    }
+    reconnecting_ = false;
+  }).detach();
+}
+
+// 在connection_lost中触发重连
+void MqttClient::Callback::connection_lost(const std::string& cause) {
+  ROS_WARN_STREAM("MQTT connection lost: " << cause);
+  parent_.connected_ = false;
+  if (parent_.conn_callback_) parent_.conn_callback_(false);
+  parent_.attemptReconnect(); // 自动重连
+}
+
 bool MqttClient::publish(const std::string& topic, const std::string& payload, int qos, bool retain) {
+  ROS_INFO_STREAM("Publishing MQTT message: topic=" << topic << ", size=" << payload.size());
   if (!connected_) {
     ROS_WARN("Cannot publish: Not connected to MQTT server");
     return false;
@@ -97,7 +129,15 @@ bool MqttClient::publish(const std::string& topic, const std::string& payload, i
     
     return true;
   } catch (const mqtt::exception& exc) {
-    ROS_ERROR_STREAM("MQTT publish exception: " << exc.what());
+    ROS_ERROR_STREAM("MQTT publish exception: " << exc.what() << ", topic=" << topic);
+    // 添加重试逻辑
+    if (retry_count_ < max_retries_) {
+      retry_count_++;
+      ROS_WARN_STREAM("Retrying publish (attempt " << retry_count_ << "/" << max_retries_ << ")");
+      std::this_thread::sleep_for(std::chrono::milliseconds(retry_interval_));
+      return publish(topic, payload, qos, retain);
+    }
+    retry_count_ = 0;
     return false;
   }
 }
@@ -123,27 +163,20 @@ bool MqttClient::subscribe(const std::string& topic, int qos) {
   }
 }
 
-void MqttClient::setMessageCallback(const MessageCallback& callback) {
-  message_callback_ = callback;
+void mqtt_bridge::MqttClient::setMessageCallback(const MessageCallback& callback) {
+    message_callback_ = callback;
 }
 
 bool MqttClient::isConnected() const {
   return connected_;
 }
 
-// 回调类实现
-void MqttClient::Callback::connection_lost(const std::string& cause) {
-  ROS_WARN_STREAM("MQTT connection lost: " << cause);
-  parent_.connected_ = false;
-  
-  // 可以在这里实现重连逻辑
-}
 
-void MqttClient::Callback::message_arrived(mqtt::const_message_ptr msg) {
+void mqtt_bridge::MqttClient::Callback::message_arrived(mqtt::const_message_ptr msg) {
   ROS_DEBUG_STREAM("MQTT message arrived: " << msg->get_topic() << " - " << msg->to_string());
   
   if (parent_.message_callback_) {
-    parent_.message_callback_(msg->get_topic(), msg->to_string());
+    parent_.message_callback_(msg->get_topic(), msg->to_string(), parent_.nh_);
   }
 }
 
@@ -151,5 +184,35 @@ void MqttClient::Callback::delivery_complete(mqtt::delivery_token_ptr token) {
   ROS_DEBUG("MQTT delivery complete");
 }
 
+void MqttClient::enqueueMessage(const std::string& topic, const std::string& payload, int qos, bool retain) {
+  std::lock_guard<std::mutex> lock(queue_mutex_);
+  message_queue_.emplace(topic, payload, qos, retain);
+  queue_condition_.notify_one();
+}
+
+void MqttClient::startWorkerThread() {
+  worker_running_ = true;
+  worker_thread_ = std::thread([this]() {
+    while (worker_running_) {
+      std::tuple<std::string, std::string, int, bool> msg;
+      {
+        std::unique_lock<std::mutex> lock(queue_mutex_);
+        queue_condition_.wait(lock, [this]() { return !message_queue_.empty() || !worker_running_; });
+        if (!worker_running_) break;
+        msg = std::move(message_queue_.front());
+        message_queue_.pop();
+      }
+      // 实际发送消息
+      publish(std::get<0>(msg), std::get<1>(msg), std::get<2>(msg), std::get<3>(msg));
+    }
+  });
+}
+
+void MqttClient::stopWorkerThread() {
+  worker_running_ = false;
+  queue_condition_.notify_one();
+  if (worker_thread_.joinable()) {
+    worker_thread_.join();
+  }
+}
 } // namespace mqtt_bridge
-  

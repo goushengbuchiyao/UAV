@@ -1793,6 +1793,45 @@ mqtt_bridge_generate_messages_nodejs/fast:
 .PHONY : mqtt_bridge_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named mqtt_camera_node
+
+# Build rule for target.
+mqtt_camera_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_node
+.PHONY : mqtt_camera_node
+
+# fast build rule for target.
+mqtt_camera_node/fast:
+	$(MAKE) -f mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build.make mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build
+.PHONY : mqtt_camera_node/fast
+
+#=============================================================================
+# Target rules for targets named mqtt_ros_bridge_node
+
+# Build rule for target.
+mqtt_ros_bridge_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_ros_bridge_node
+.PHONY : mqtt_ros_bridge_node
+
+# fast build rule for target.
+mqtt_ros_bridge_node/fast:
+	$(MAKE) -f mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge_node.dir/build.make mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge_node.dir/build
+.PHONY : mqtt_ros_bridge_node/fast
+
+#=============================================================================
+# Target rules for targets named mqtt_ros_bridge
+
+# Build rule for target.
+mqtt_ros_bridge: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_ros_bridge
+.PHONY : mqtt_ros_bridge
+
+# fast build rule for target.
+mqtt_ros_bridge/fast:
+	$(MAKE) -f mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge.dir/build.make mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge.dir/build
+.PHONY : mqtt_ros_bridge/fast
+
+#=============================================================================
 # Target rules for targets named diagnostic_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -2346,6 +2385,9 @@ help:
 	@echo "... mqtt_bridge_genpy"
 	@echo "... mqtt_bridge_node"
 	@echo "... mqtt_bridge_generate_messages_nodejs"
+	@echo "... mqtt_camera_node"
+	@echo "... mqtt_ros_bridge_node"
+	@echo "... mqtt_ros_bridge"
 	@echo "... diagnostic_msgs_generate_messages_cpp"
 	@echo "... diagnostic_msgs_generate_messages_eus"
 	@echo "... diagnostic_msgs_generate_messages_nodejs"

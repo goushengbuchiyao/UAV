@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_bridge_node.cpp" "/home/px/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.o"
   "/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp" "/home/px/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o"
+  "/home/px/UAV_SDK/src/mqtt_bridge/src/uav_state_publisher.cpp" "/home/px/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -1,0 +1,8 @@
+prefix=/home/px/UAV_SDK/install
+
+Name: mqtt_ros_bridge
+Description: Description of mqtt_ros_bridge
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lmqtt_ros_bridge
+Requires: roscpp std_msgs mavros_msgs sensor_msgs geometry_msgs nav_msgs
