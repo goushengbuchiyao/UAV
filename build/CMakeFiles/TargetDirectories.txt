@@ -187,15 +187,6 @@
 /home/px/UAV_SDK/build/mqtt_camera_interface/CMakeFiles/test.dir
 /home/px/UAV_SDK/build/mqtt_camera_interface/CMakeFiles/install/strip.dir
 /home/px/UAV_SDK/build/mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir
-/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/install/strip.dir
-/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/install/local.dir
-/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/install.dir
-/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/list_install_components.dir
-/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/rebuild_cache.dir
-/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/edit_cache.dir
-/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/test.dir
-/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge_node.dir
-/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge.dir
 /home/px/UAV_SDK/build/simulator/CMakeFiles/install/local.dir
 /home/px/UAV_SDK/build/simulator/CMakeFiles/install.dir
 /home/px/UAV_SDK/build/simulator/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir

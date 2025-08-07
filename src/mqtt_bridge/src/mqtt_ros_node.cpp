@@ -32,7 +32,6 @@ bool MQTTROSNode::init() {
     mqtt_client_->setConnectionCallback(
         std::bind(&MQTTROSNode::handleConnectionStatus, this, std::placeholders::_1)
     );
-
     // 连接到MQTT服务器
     if (!mqtt_client_->connect()) {
         ROS_ERROR("Failed to connect to MQTT server");
@@ -44,7 +43,7 @@ bool MQTTROSNode::init() {
         if (!mqtt_client_->subscribe(mqtt_subscribe_topic_)) {
             ROS_WARN("Failed to subscribe to MQTT topic: %s", mqtt_subscribe_topic_.c_str());
         } else {
-            ROS_INFO("Subscribed to MQTT topic: %s", mqtt_subscribe_topic_.c_str());
+            ROS_INFO("Successfully subscribed to MQTT topic: %s. Waiting for JSON data...", mqtt_subscribe_topic_.c_str());
         }
     }
 
@@ -80,10 +79,10 @@ bool MQTTROSNode::loadParameters() {
     nh_.param<int>("mqtt/reconnect_interval", mqtt_reconnect_interval_, 5000);
     
     // 主题映射配置
-    nh_.param<std::string>("topics/mqtt_subscribe", mqtt_subscribe_topic_, "uav/control/command");
-    nh_.param<std::string>("topics/mqtt_publish", mqtt_publish_topic_, "uav/sensor/data");
-    nh_.param<std::string>("topics/ros_publish", ros_publish_topic_, "mqtt/data");
-    nh_.param<std::string>("topics/ros_subscribe", ros_subscribe_topic_, "ros/command");
+    nh_.param<std::string>("topics/mqtt_subscribe", mqtt_subscribe_topic_, "uav1/mqtt/uavcontrol/command");
+    nh_.param<std::string>("topics/mqtt_publish", mqtt_publish_topic_, "uav1/mqtt/state");
+    nh_.param<std::string>("topics/ros_publish", ros_publish_topic_, "uav1/ros/state");
+    nh_.param<std::string>("topics/ros_subscribe", ros_subscribe_topic_, "uav1/ros/uavcontrol/command");
 
     ROS_INFO("Loaded MQTT parameters:");
     ROS_INFO("  Server URI: %s:%d", mqtt_server_uri_.c_str(), mqtt_port_);
@@ -95,7 +94,9 @@ bool MQTTROSNode::loadParameters() {
 }
 
 void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string& payload) {
-    ROS_DEBUG("Received MQTT message on topic %s: %s", topic.c_str(), payload.c_str());
+    ROS_INFO("Received MQTT message on topic %s: %s", topic.c_str(), payload.c_str());
+    
+    // 解析JSON数据（假设payload是JSON格式）+++
     
     // 将MQTT消息发布到ROS
     std_msgs::String msg;
@@ -109,6 +110,8 @@ void MQTTROSNode::handleROSMessage(const std_msgs::String::ConstPtr& msg) {
         return;
     }
     
+    // 将ros消息转换为MQTT消息+++
+
     ROS_DEBUG("Publishing ROS message to MQTT topic %s: %s", 
               mqtt_publish_topic_.c_str(), msg->data.c_str());
     

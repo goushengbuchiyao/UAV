@@ -20,16 +20,24 @@ void MQTTClient::Callback::connection_lost(const std::string& cause) {
     client_.tryReconnect();
 }
 
+// void MQTTClient::Callback::message_arrived(mqtt::const_message_ptr msg) {
+//     if (client_.message_callback_) {
+//         client_.message_callback_(msg->get_topic(), msg->to_string());
+//     }
+// }
 void MQTTClient::Callback::message_arrived(mqtt::const_message_ptr msg) {
+    std::cout << "[DEBUG] Raw MQTT message received: Topic=" << msg->get_topic() << ", Payload=" << msg->to_string() << std::endl;
     if (client_.message_callback_) {
         client_.message_callback_(msg->get_topic(), msg->to_string());
+    } else {
+        std::cout << "[DEBUG] No message callback set!" << std::endl;
     }
 }
 
 void MQTTClient::Callback::delivery_complete(mqtt::delivery_token_ptr token) {}
 
 void MQTTClient::Callback::on_failure(const mqtt::token& tok) {
-    std::cout << "MQTT operation failed, message id: " << tok.get_message_id() << std::endl;
+    std::cout << "MQTT operation failed: " << tok.get_message_id() << std::endl;
     
     if (tok.get_type() == mqtt::token::CONNECT) {
         client_.connected_ = false;
@@ -95,11 +103,49 @@ MQTTClient::~MQTTClient() {
 
 bool MQTTClient::connect() {
     try {
-        std::cout << "Connecting to MQTT server: " << server_uri_ << std::endl;
+        // std::cout << "Connecting to MQTT server: " << client_->get_server_uri() << std::endl;
+        // std::cout << "keep_alive_interval: " << conn_opts_.get_keep_alive_interval().count() << "S" << std::endl;
+        // std::cout << "username: " << (conn_opts_.get_user_name().empty() ? "no set" : conn_opts_.get_user_name()) << std::endl;
+        // std::cout << "password: " << (conn_opts_.get_password_str().empty() ? "no set" : conn_opts_.get_password_str()) << std::endl;
+        // std::cout << "ca_path: " << conn_opts_.get_ssl_options().get_trust_store() << std::endl;
+
+    //     client_->connect(conn_opts_, nullptr, *callback_);
+    //     if (client_->is_connected()) {
+    //         std::cout << "Connect MQTT server success!!!" << std::endl;
+    //         return true;
+    //     } else {
+    //         std::cout << "Connect MQTT server failed!!!" << std::endl;
+    //         // return false;
+    //     }   
+    // } catch (const mqtt::exception& e) {
+    //     std::cout << "=====================" << std::endl;
+    //     std::cerr << "Connect failed: " << e.get_error_str() << " " << e.what() << std::endl;
+    //     std::cout << "=====================" << std::endl;
+    //     return false;
+    // }
+        
+        // 异步连接不立即检查状态，依赖回调更新连接状态
         client_->connect(conn_opts_, nullptr, *callback_);
+        
+        // 等待连接完成（最多10秒）
+        int wait_seconds = 10;
+        std::cout << "Waiting for connection to complete... (max " << wait_seconds << "s)" << std::endl;
+        for (int i = 0; i < wait_seconds; ++i) {
+            if (connected_) {
+                std::cout << "Connect MQTT server success!!!" << std::endl;
+                return true;
+            }
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
+        
+        // 超时仍未连接成功
+        std::cout << "Connect MQTT server timed out after " << wait_seconds << " seconds" << std::endl;
         return true;
     } catch (const mqtt::exception& e) {
-        std::cerr << "Connect failed: " << e.what() << std::endl;
+        std::cout << "=====================" << std::endl;
+        std::cerr << "Connect failed: " << e.get_error_str() << " (" << e.get_reason_code() << ")" << std::endl;
+        std::cerr << "Error details: " << e.what() << std::endl;
+        std::cout << "=====================" << std::endl;
         return false;
     }
 }
@@ -147,13 +193,30 @@ bool MQTTClient::subscribe(const std::string& topic, int qos) {
     
     try {
         std::cout << "Subscribing to topic: " << topic << " with QoS " << qos << std::endl;
-        client_->subscribe(topic, qos)->wait();
+        std::cout << "++++++++++++++++++++++" << std::endl;
+        client_->subscribe(topic, qos);
         return true;
     } catch (const mqtt::exception& e) {
         std::cerr << "Subscribe failed: " << e.what() << std::endl;
         return false;
     }
 }
+// bool MQTTClient::subscribe(const std::string& topic, int qos) {
+//     if (!connected_) {
+//         std::cerr << "Cannot subscribe, not connected to MQTT server" << std::endl;
+//         return false;
+//     }
+//     try {
+//         std::cout << "[DEBUG] Subscribing to topic: " << topic << " with QoS " << qos << std::endl;
+//         auto tok = client_->subscribe(topic, qos);
+//         tok->wait(); // 等待订阅完成
+//         std::cout << "[DEBUG] Subscribe result: " << tok->get_return_code() << std::endl;
+//         return true;
+//     } catch (const mqtt::exception& e) {
+//         std::cerr << "Subscribe failed: " << e.what() << std::endl;
+//         return false;
+//     }
+// }
 
 bool MQTTClient::unsubscribe(const std::string& topic) {
     if (!connected_) {

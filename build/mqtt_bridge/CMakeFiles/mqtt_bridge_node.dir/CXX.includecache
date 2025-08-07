@@ -32,6 +32,18 @@ string
 memory
 -
 
+/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp
+mqtt_client.h
+-
+mqtt/exception.h
+-
+iostream
+-
+chrono
+-
+thread
+-
+
 /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_ros_node.cpp
 mqtt_ros_node.h
 -

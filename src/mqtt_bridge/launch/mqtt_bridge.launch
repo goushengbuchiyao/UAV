@@ -1,5 +1,6 @@
 <launch>
     <!-- MQTT-ROS桥接节点 -->
+    <arg name="uav_id" default="1"/>
     <node name="mqtt_ros_bridge" pkg="mqtt_bridge" type="mqtt_bridge_node" output="screen">
         <!-- MQTT服务器配置 -->
         <param name="mqtt/server_uri" value="mqtts://de80ed56.ala.cn-hangzhou.emqxsl.cn" />
@@ -12,11 +13,11 @@
         
         <!-- 主题映射配置 -->
         <!-- MQTT订阅主题 -> ROS发布主题 -->
-        <param name="topics/mqtt_subscribe" value="uav/sensor/data" />
-        <param name="topics/ros_publish" value="mqtt/sensor_data" />
+        <param name="topics/mqtt_subscribe" value="uav$(arg uav_id)/mqtt/uavcontrol/command" />
+        <param name="topics/ros_publish" value="uav$(arg uav_id)/ros/state" />
         
         <!-- ROS订阅主题 -> MQTT发布主题 -->
-        <param name="topics/ros_subscribe" value="ros/control_command" />
-        <param name="topics/mqtt_publish" value="uav/control/command" />
+        <param name="topics/ros_subscribe" value="uav$(arg uav_id)/ros/uavcontrol/command" />
+        <param name="topics/mqtt_publish" value="uav$(arg uav_id)/mqtt/state" />
     </node>
 </launch>

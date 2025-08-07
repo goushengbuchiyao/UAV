@@ -151,7 +151,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/px/UAV_SDK/build/communication/cmake_install.cmake")
   include("/home/px/UAV_SDK/build/mqtt_bridge/cmake_install.cmake")
   include("/home/px/UAV_SDK/build/mqtt_camera_interface/cmake_install.cmake")
-  include("/home/px/UAV_SDK/build/mqtt_ros_bridge/cmake_install.cmake")
   include("/home/px/UAV_SDK/build/simulator/cmake_install.cmake")
   include("/home/px/UAV_SDK/build/uav_control/cmake_install.cmake")
 
