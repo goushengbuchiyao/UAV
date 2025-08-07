@@ -46,8 +46,8 @@ set(JSONCPP_INCLUDE_DIR "/usr/include/jsoncpp")
 include_directories(
   ${catkin_INCLUDE_DIRS}
   ${PROJECT_SOURCE_DIR}/include
-  ${PAHO_MQTT_CPP_INCLUDE_DIRS}
-  ${OPENSSL_INCLUDE_DIR}
+  # ${PAHO_MQTT_CPP_INCLUDE_DIRS}
+  # ${OPENSSL_INCLUDE_DIR}
   ${JSONCPP_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
 )
@@ -64,7 +64,7 @@ add_executable(mqtt_bridge_node
 ## Specify libraries to link a library or executable target against
 target_link_libraries(mqtt_bridge_node
   ${catkin_LIBRARIES}
-  PahoMqttCpp::paho-mqttpp3-shared
+  PahoMqttCpp::paho-mqttpp3
   PahoMqttCpp::paho-mqtt3as
   ${OPENSSL_LIBRARIES}
   ${JSONCPP_LIBRARIES}  

@@ -352,45 +352,27 @@ src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
-<<<<<<< HEAD
-src/mqtt_bridge_node.cpp.o:
-	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.o
-.PHONY : src/mqtt_bridge_node.cpp.o
-=======
 src/main.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
->>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
 
 src/main.i: src/main.cpp.i
 
 .PHONY : src/main.i
 
 # target to preprocess a source file
-<<<<<<< HEAD
-src/mqtt_bridge_node.cpp.i:
-	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.i
-.PHONY : src/mqtt_bridge_node.cpp.i
-=======
 src/main.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
->>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
 
 src/main.s: src/main.cpp.s
 
 .PHONY : src/main.s
 
 # target to generate assembly for a file
-<<<<<<< HEAD
-src/mqtt_bridge_node.cpp.s:
-	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.s
-.PHONY : src/mqtt_bridge_node.cpp.s
-=======
 src/main.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
->>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
 
 src/mqtt_client.o: src/mqtt_client.cpp.o
 
@@ -424,45 +406,27 @@ src/mqtt_ros_node.o: src/mqtt_ros_node.cpp.o
 .PHONY : src/mqtt_ros_node.o
 
 # target to build an object file
-<<<<<<< HEAD
-src/uav_state_publisher.cpp.o:
-	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o
-.PHONY : src/uav_state_publisher.cpp.o
-=======
 src/mqtt_ros_node.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o
 .PHONY : src/mqtt_ros_node.cpp.o
->>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
 
 src/mqtt_ros_node.i: src/mqtt_ros_node.cpp.i
 
 .PHONY : src/mqtt_ros_node.i
 
 # target to preprocess a source file
-<<<<<<< HEAD
-src/uav_state_publisher.cpp.i:
-	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.i
-.PHONY : src/uav_state_publisher.cpp.i
-=======
 src/mqtt_ros_node.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.i
 .PHONY : src/mqtt_ros_node.cpp.i
->>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
 
 src/mqtt_ros_node.s: src/mqtt_ros_node.cpp.s
 
 .PHONY : src/mqtt_ros_node.s
 
 # target to generate assembly for a file
-<<<<<<< HEAD
-src/uav_state_publisher.cpp.s:
-	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.s
-.PHONY : src/uav_state_publisher.cpp.s
-=======
 src/mqtt_ros_node.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.s
 .PHONY : src/mqtt_ros_node.cpp.s
->>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
 
 # Help Target
 help:

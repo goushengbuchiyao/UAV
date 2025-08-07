@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-aruco_detection:common/px_uav_msgs:communication:mqtt_bridge:mqtt_camera_interface:mqtt_ros_bridge:simulator:uav_control
--DCATKIN_DEVEL_PREFIX=/home/px4/UAV_SDK/devel -DCMAKE_INSTALL_PREFIX=/home/px4/UAV_SDK/install -G Unix Makefiles
-=======
 aruco_detection:common/px_uav_msgs:communication:mqtt_bridge:mqtt_camera_interface:simulator:uav_control
--DCATKIN_DEVEL_PREFIX=/home/px/UAV_SDK/devel -DCMAKE_INSTALL_PREFIX=/home/px/UAV_SDK/install -G Unix Makefiles
->>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
+-DCATKIN_DEVEL_PREFIX=/home/px4/UAV_SDK/devel -DCMAKE_INSTALL_PREFIX=/home/px4/UAV_SDK/install -G Unix Makefiles

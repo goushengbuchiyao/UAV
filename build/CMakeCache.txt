@@ -577,12 +577,6 @@ mqtt_camera_interface_BINARY_DIR:STATIC=/home/px4/UAV_SDK/build/mqtt_camera_inte
 //Value Computed by CMake
 mqtt_camera_interface_SOURCE_DIR:STATIC=/home/px4/UAV_SDK/src/mqtt_camera_interface
 
-//Value Computed by CMake
-mqtt_ros_bridge_BINARY_DIR:STATIC=/home/px4/UAV_SDK/build/mqtt_ros_bridge
-
-//Value Computed by CMake
-mqtt_ros_bridge_SOURCE_DIR:STATIC=/home/px4/UAV_SDK/src/mqtt_ros_bridge
-
 //The directory containing a CMake configuration file for nav_msgs.
 nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
 

@@ -54,11 +54,7 @@ CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 include common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_GlobalAruco.dir/progress.make
 
 common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_GlobalAruco:
-<<<<<<< HEAD
 	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg px_uav_msgs/ArucoInfo:std_msgs/Header
-=======
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg std_msgs/Header:px_uav_msgs/ArucoInfo
->>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
 
 _px_uav_msgs_generate_messages_check_deps_GlobalAruco: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_GlobalAruco
 _px_uav_msgs_generate_messages_check_deps_GlobalAruco: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_GlobalAruco.dir/build.make

@@ -131,16 +131,25 @@ bool MQTTClient::connect() {
         int wait_seconds = 10;
         std::cout << "Waiting for connection to complete... (max " << wait_seconds << "s)" << std::endl;
         for (int i = 0; i < wait_seconds; ++i) {
-            if (connected_) {
+            std::cout << "Connect MQTT server, try " << i << " times" << std::endl;
+            if (client_->is_connected()) {
                 std::cout << "Connect MQTT server success!!!" << std::endl;
-                return true;
+                break;
             }
             std::this_thread::sleep_for(std::chrono::seconds(1));
         }
-        
+    
+        if (client_->is_connected()) {
+            std::cout << "Connect MQTT server success!!!" << std::endl;
+            return true;
+        } else {
+            std::cout << "Connect MQTT server failed!!!" << std::endl;
+            std::cout << "Connect MQTT server timed out after " << wait_seconds << " seconds" << std::endl;
+            // return false;
+        }   
         // 超时仍未连接成功
-        std::cout << "Connect MQTT server timed out after " << wait_seconds << " seconds" << std::endl;
-        return true;
+        
+        // return true;
     } catch (const mqtt::exception& e) {
         std::cout << "=====================" << std::endl;
         std::cerr << "Connect failed: " << e.get_error_str() << " (" << e.get_reason_code() << ")" << std::endl;

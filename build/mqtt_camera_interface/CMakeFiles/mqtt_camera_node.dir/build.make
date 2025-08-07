@@ -96,6 +96,7 @@ mqtt_camera_node_EXTERNAL_OBJECTS =
 /home/px4/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
 /home/px4/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
 /home/px4/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/px4/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node: /usr/local/lib/libpaho-mqttpp3.so.1.4.0
 /home/px4/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node: /usr/local/lib/libpaho-mqtt3as.so.1.3.13
 /home/px4/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node: /usr/lib/x86_64-linux-gnu/libssl.so
 /home/px4/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node: /usr/lib/x86_64-linux-gnu/libcrypto.so

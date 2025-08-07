@@ -4,8 +4,9 @@
     <node name="mqtt_ros_bridge" pkg="mqtt_bridge" type="mqtt_bridge_node" output="screen">
         <!-- MQTT服务器配置 -->
         <param name="mqtt/server_uri" value="mqtts://de80ed56.ala.cn-hangzhou.emqxsl.cn" />
-        <param name="mqtt/client_id" value="uav_mqtt_bridge" />
-        <param name="mqtt/ca_path" value="/home/px/UAV_SDK/src/mqtt_bridge/config/emqxsl-ca.crt" />
+        <param name="mqtt/client_id" value="uav1_mqtt_bridge111" />
+        <param name="mqtt/ca_path" value="$(find mqtt_bridge)/config/emqxsl-ca.crt" />
+        
         <param name="mqtt/username" value="px_uav" />
         <param name="mqtt/password" value="123456" />
         <param name="mqtt/port" value="8883" />
