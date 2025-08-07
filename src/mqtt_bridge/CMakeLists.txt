@@ -39,7 +39,7 @@ generate_messages(
 ## Declare a catkin package
 catkin_package(
   CATKIN_DEPENDS roscpp std_msgs message_runtime px_uav_msgs geometry_msgs sensor_msgs
-  DEPENDS PAHO_MQTTPP3 OpenSSL jsoncpp
+  DEPENDS PahoMqttCpp OpenSSL jsoncpp
 )
 set(JSONCPP_INCLUDE_DIR "/usr/include/jsoncpp")
 ## Specify additional locations of header files
@@ -52,9 +52,10 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 add_executable(mqtt_bridge_node
-  src/mqtt_bridge_node.cpp
+  src/main.cpp
+  src/mqtt_ros_node.cpp
   src/mqtt_client.cpp
-  src/uav_state_publisher.cpp
+  # src/uav_state_publisher.cpp
   # src/message_converter.cpp
 )
 ## Declare a C++ executable

@@ -4,9 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+<<<<<<< HEAD
   "/home/px4/UAV_SDK/src/mqtt_bridge/src/mqtt_bridge_node.cpp" "/home/px4/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.o"
   "/home/px4/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp" "/home/px4/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o"
   "/home/px4/UAV_SDK/src/mqtt_bridge/src/uav_state_publisher.cpp" "/home/px4/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o"
+=======
+  "/home/px/UAV_SDK/src/mqtt_bridge/src/main.cpp" "/home/px/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o"
+  "/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp" "/home/px/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o"
+  "/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_ros_node.cpp" "/home/px/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o"
+>>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

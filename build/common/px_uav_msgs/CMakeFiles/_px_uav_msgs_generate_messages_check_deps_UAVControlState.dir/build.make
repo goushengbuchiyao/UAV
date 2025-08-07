@@ -54,7 +54,11 @@ CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 include common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVControlState.dir/progress.make
 
 common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVControlState:
+<<<<<<< HEAD
 	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg geometry_msgs/Point:geometry_msgs/Vector3:std_msgs/Header
+=======
+	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg geometry_msgs/Point:std_msgs/Header:geometry_msgs/Vector3
+>>>>>>> 88ff8412227ae6cc5eccf581c19540e951a8f886
 
 _px_uav_msgs_generate_messages_check_deps_UAVControlState: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVControlState
 _px_uav_msgs_generate_messages_check_deps_UAVControlState: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVControlState.dir/build.make
