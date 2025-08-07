@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/px/UAV_SDK/src
-# Build directory: /home/px/UAV_SDK/build
+# Source directory: /home/px4/UAV_SDK/src
+# Build directory: /home/px4/UAV_SDK/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

@@ -1,8 +1,8 @@
-# Install script for directory: /home/px/UAV_SDK/src/common/px_uav_msgs
+# Install script for directory: /home/px4/UAV_SDK/src/common/px_uav_msgs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/px/UAV_SDK/install")
+  set(CMAKE_INSTALL_PREFIX "/home/px4/UAV_SDK/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,75 +39,75 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/px_uav_msgs/msg" TYPE FILE FILES
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg"
-    "/home/px/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg"
+    "/home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/px_uav_msgs/cmake" TYPE FILE FILES "/home/px/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgs-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/px_uav_msgs/cmake" TYPE FILE FILES "/home/px4/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgs-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/px/UAV_SDK/devel/include/px_uav_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/px4/UAV_SDK/devel/include/px_uav_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/px/UAV_SDK/devel/share/roseus/ros/px_uav_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/px4/UAV_SDK/devel/share/roseus/ros/px_uav_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/px/UAV_SDK/devel/share/common-lisp/ros/px_uav_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/px4/UAV_SDK/devel/share/common-lisp/ros/px_uav_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/px/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/px4/UAV_SDK/devel/lib/python3/dist-packages/px_uav_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgs.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px4/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgs.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/px_uav_msgs/cmake" TYPE FILE FILES "/home/px/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgs-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/px_uav_msgs/cmake" TYPE FILE FILES "/home/px4/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgs-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/px_uav_msgs/cmake" TYPE FILE FILES
-    "/home/px/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgsConfig.cmake"
-    "/home/px/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgsConfig-version.cmake"
+    "/home/px4/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgsConfig.cmake"
+    "/home/px4/UAV_SDK/build/common/px_uav_msgs/catkin_generated/installspace/px_uav_msgsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/px_uav_msgs" TYPE FILE FILES "/home/px/UAV_SDK/src/common/px_uav_msgs/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/px_uav_msgs" TYPE FILE FILES "/home/px4/UAV_SDK/src/common/px_uav_msgs/package.xml")
 endif()
 

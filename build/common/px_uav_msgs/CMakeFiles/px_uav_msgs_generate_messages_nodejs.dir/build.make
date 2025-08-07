@@ -43,205 +43,205 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 # Utility rule file for px_uav_msgs_generate_messages_nodejs.
 
 # Include the progress variables for this target.
 include common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/progress.make
 
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/OffsetPose.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GPSData.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNode2.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ParamSettings.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ROI.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/Target.js
-common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/OffsetPose.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GPSData.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNode2.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ParamSettings.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ROI.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/Target.js
+common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js
 
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from px_uav_msgs/UAVState.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from px_uav_msgs/UAVState.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from px_uav_msgs/MultiUAVState.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from px_uav_msgs/MultiUAVState.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from px_uav_msgs/UAVCommand.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from px_uav_msgs/UAVCommand.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVCommand.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from px_uav_msgs/UAVControlState.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from px_uav_msgs/UAVControlState.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from px_uav_msgs/UAVSetup.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from px_uav_msgs/UAVSetup.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVSetup.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from px_uav_msgs/TextInfo.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from px_uav_msgs/TextInfo.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TextInfo.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from px_uav_msgs/GlobalAruco.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ArucoInfo.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from px_uav_msgs/GlobalAruco.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GlobalAruco.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Javascript code from px_uav_msgs/UGVState.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Javascript code from px_uav_msgs/UGVState.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Javascript code from px_uav_msgs/UGVCommand.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Javascript code from px_uav_msgs/UGVCommand.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVCommand.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Javascript code from px_uav_msgs/MultiUGVState.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating Javascript code from px_uav_msgs/MultiUGVState.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Javascript code from px_uav_msgs/PositionReference.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating Javascript code from px_uav_msgs/PositionReference.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/PositionReference.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating Javascript code from px_uav_msgs/StationCommand.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating Javascript code from px_uav_msgs/StationCommand.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating Javascript code from px_uav_msgs/SwarmCommand.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating Javascript code from px_uav_msgs/SwarmCommand.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating Javascript code from px_uav_msgs/FormationAssign.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating Javascript code from px_uav_msgs/FormationAssign.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/FormationAssign.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/OffsetPose.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/OffsetPose.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating Javascript code from px_uav_msgs/OffsetPose.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/OffsetPose.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/OffsetPose.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating Javascript code from px_uav_msgs/OffsetPose.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/OffsetPose.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GPSData.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GPSData.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating Javascript code from px_uav_msgs/GPSData.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GPSData.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GPSData.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating Javascript code from px_uav_msgs/GPSData.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/GPSData.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNode2.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNode2.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Javascript code from px_uav_msgs/LinktrackNode2.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNode2.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNode2.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating Javascript code from px_uav_msgs/LinktrackNode2.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Javascript code from px_uav_msgs/LinktrackNodeframe2.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNode2.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating Javascript code from px_uav_msgs/LinktrackNodeframe2.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/LinktrackNodeframe2.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ParamSettings.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ParamSettings.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Javascript code from px_uav_msgs/ParamSettings.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ParamSettings.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ParamSettings.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating Javascript code from px_uav_msgs/ParamSettings.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ParamSettings.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ROI.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ROI.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Javascript code from px_uav_msgs/ROI.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ROI.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ROI.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating Javascript code from px_uav_msgs/ROI.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/Target.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/Target.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Javascript code from px_uav_msgs/Target.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/Target.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/Target.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating Javascript code from px_uav_msgs/Target.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /home/px/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
-/home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Javascript code from px_uav_msgs/TargetsInFrame.msg"
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg -Ipx_uav_msgs:/home/px/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/Target.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating Javascript code from px_uav_msgs/TargetsInFrame.msg"
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/TargetsInFrame.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg
 
 px_uav_msgs_generate_messages_nodejs: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/OffsetPose.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GPSData.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNode2.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ParamSettings.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ROI.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/Target.js
-px_uav_msgs_generate_messages_nodejs: /home/px/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVState.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUAVState.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVCommand.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVControlState.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UAVSetup.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TextInfo.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GlobalAruco.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVState.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/UGVCommand.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/MultiUGVState.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/PositionReference.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/StationCommand.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/SwarmCommand.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/FormationAssign.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/OffsetPose.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/GPSData.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNode2.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/LinktrackNodeframe2.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ParamSettings.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/ROI.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/Target.js
+px_uav_msgs_generate_messages_nodejs: /home/px4/UAV_SDK/devel/share/gennodejs/ros/px_uav_msgs/msg/TargetsInFrame.js
 px_uav_msgs_generate_messages_nodejs: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/build.make
 
 .PHONY : px_uav_msgs_generate_messages_nodejs
@@ -252,10 +252,10 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/build: px
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/build
 
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/clean
 
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/common/px_uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/common/px_uav_msgs /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/common/px_uav_msgs /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/common/px_uav_msgs /home/px4/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/depend
 

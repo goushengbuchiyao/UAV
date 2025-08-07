@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/local/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles /home/px/UAV_SDK/build/uav_control/CMakeFiles/progress.marks
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles /home/px4/UAV_SDK/build/uav_control/CMakeFiles/progress.marks
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/clean
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 uav_control/CMakeFiles/joy_node.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/joy_node.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/joy_node.dir/rule
 .PHONY : uav_control/CMakeFiles/joy_node.dir/rule
 
 # Convenience name for target.
@@ -179,12 +179,12 @@ joy_node: uav_control/CMakeFiles/joy_node.dir/rule
 
 # fast build rule for target.
 joy_node/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/build
 .PHONY : joy_node/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/rc_test.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/rc_test.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/rc_test.dir/rule
 .PHONY : uav_control/CMakeFiles/rc_test.dir/rule
 
 # Convenience name for target.
@@ -194,12 +194,12 @@ rc_test: uav_control/CMakeFiles/rc_test.dir/rule
 
 # fast build rule for target.
 rc_test/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/rc_test.dir/build.make uav_control/CMakeFiles/rc_test.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/rc_test.dir/build.make uav_control/CMakeFiles/rc_test.dir/build
 .PHONY : rc_test/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_command_pub.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_command_pub.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_command_pub.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_command_pub.dir/rule
 
 # Convenience name for target.
@@ -209,12 +209,12 @@ uav_command_pub: uav_control/CMakeFiles/uav_command_pub.dir/rule
 
 # fast build rule for target.
 uav_command_pub/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/build
 .PHONY : uav_command_pub/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_estimator.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_estimator.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_estimator.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_estimator.dir/rule
 
 # Convenience name for target.
@@ -224,12 +224,12 @@ uav_estimator: uav_control/CMakeFiles/uav_estimator.dir/rule
 
 # fast build rule for target.
 uav_estimator/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/build
 .PHONY : uav_estimator/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_controller.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_controller.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_controller.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_controller.dir/rule
 
 # Convenience name for target.
@@ -239,12 +239,12 @@ uav_controller: uav_control/CMakeFiles/uav_controller.dir/rule
 
 # fast build rule for target.
 uav_controller/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/build
 .PHONY : uav_controller/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_generate_messages_py.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_py.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_py.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -254,12 +254,12 @@ uav_control_generate_messages_py: uav_control/CMakeFiles/uav_control_generate_me
 
 # fast build rule for target.
 uav_control_generate_messages_py/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build
 .PHONY : uav_control_generate_messages_py/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_gennodejs.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_gennodejs.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_gennodejs.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_gennodejs.dir/rule
 
 # Convenience name for target.
@@ -269,12 +269,12 @@ uav_control_gennodejs: uav_control/CMakeFiles/uav_control_gennodejs.dir/rule
 
 # fast build rule for target.
 uav_control_gennodejs/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_gennodejs.dir/build.make uav_control/CMakeFiles/uav_control_gennodejs.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_gennodejs.dir/build.make uav_control/CMakeFiles/uav_control_gennodejs.dir/build
 .PHONY : uav_control_gennodejs/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/tf_generate_messages_cpp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_cpp.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_cpp.dir/rule
 .PHONY : uav_control/CMakeFiles/tf_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -284,12 +284,12 @@ tf_generate_messages_cpp: uav_control/CMakeFiles/tf_generate_messages_cpp.dir/ru
 
 # fast build rule for target.
 tf_generate_messages_cpp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/tf_generate_messages_cpp.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/tf_generate_messages_cpp.dir/build
 .PHONY : tf_generate_messages_cpp/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/tf_generate_messages_lisp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_lisp.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_lisp.dir/rule
 .PHONY : uav_control/CMakeFiles/tf_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -299,12 +299,12 @@ tf_generate_messages_lisp: uav_control/CMakeFiles/tf_generate_messages_lisp.dir/
 
 # fast build rule for target.
 tf_generate_messages_lisp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_lisp.dir/build.make uav_control/CMakeFiles/tf_generate_messages_lisp.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_lisp.dir/build.make uav_control/CMakeFiles/tf_generate_messages_lisp.dir/build
 .PHONY : tf_generate_messages_lisp/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/tf_generate_messages_eus.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_eus.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_eus.dir/rule
 .PHONY : uav_control/CMakeFiles/tf_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -314,12 +314,12 @@ tf_generate_messages_eus: uav_control/CMakeFiles/tf_generate_messages_eus.dir/ru
 
 # fast build rule for target.
 tf_generate_messages_eus/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_eus.dir/build.make uav_control/CMakeFiles/tf_generate_messages_eus.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_eus.dir/build.make uav_control/CMakeFiles/tf_generate_messages_eus.dir/build
 .PHONY : tf_generate_messages_eus/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/tf_generate_messages_py.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_py.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_py.dir/rule
 .PHONY : uav_control/CMakeFiles/tf_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -329,12 +329,12 @@ tf_generate_messages_py: uav_control/CMakeFiles/tf_generate_messages_py.dir/rule
 
 # fast build rule for target.
 tf_generate_messages_py/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_py.dir/build.make uav_control/CMakeFiles/tf_generate_messages_py.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_py.dir/build.make uav_control/CMakeFiles/tf_generate_messages_py.dir/build
 .PHONY : tf_generate_messages_py/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_generate_messages.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_generate_messages.dir/rule
 
 # Convenience name for target.
@@ -344,12 +344,12 @@ uav_control_generate_messages: uav_control/CMakeFiles/uav_control_generate_messa
 
 # fast build rule for target.
 uav_control_generate_messages/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages.dir/build
 .PHONY : uav_control_generate_messages/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_geneus.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_geneus.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_geneus.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_geneus.dir/rule
 
 # Convenience name for target.
@@ -359,12 +359,12 @@ uav_control_geneus: uav_control/CMakeFiles/uav_control_geneus.dir/rule
 
 # fast build rule for target.
 uav_control_geneus/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_geneus.dir/build.make uav_control/CMakeFiles/uav_control_geneus.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_geneus.dir/build.make uav_control/CMakeFiles/uav_control_geneus.dir/build
 .PHONY : uav_control_geneus/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/rule
 .PHONY : uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -374,12 +374,12 @@ tf_generate_messages_nodejs: uav_control/CMakeFiles/tf_generate_messages_nodejs.
 
 # fast build rule for target.
 tf_generate_messages_nodejs/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/build.make uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/build.make uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/build
 .PHONY : tf_generate_messages_nodejs/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -389,12 +389,12 @@ uav_control_generate_messages_lisp: uav_control/CMakeFiles/uav_control_generate_
 
 # fast build rule for target.
 uav_control_generate_messages_lisp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/build
 .PHONY : uav_control_generate_messages_lisp/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
@@ -404,12 +404,12 @@ uav_control_generate_messages_nodejs: uav_control/CMakeFiles/uav_control_generat
 
 # fast build rule for target.
 uav_control_generate_messages_nodejs/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build
 .PHONY : uav_control_generate_messages_nodejs/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_main.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_main.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_main.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_main.dir/rule
 
 # Convenience name for target.
@@ -419,12 +419,12 @@ uav_control_main: uav_control/CMakeFiles/uav_control_main.dir/rule
 
 # fast build rule for target.
 uav_control_main/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/build
 .PHONY : uav_control_main/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_genpy.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_genpy.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_genpy.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_genpy.dir/rule
 
 # Convenience name for target.
@@ -434,12 +434,12 @@ uav_control_genpy: uav_control/CMakeFiles/uav_control_genpy.dir/rule
 
 # fast build rule for target.
 uav_control_genpy/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_genpy.dir/build.make uav_control/CMakeFiles/uav_control_genpy.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_genpy.dir/build.make uav_control/CMakeFiles/uav_control_genpy.dir/build
 .PHONY : uav_control_genpy/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_gencpp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_gencpp.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_gencpp.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_gencpp.dir/rule
 
 # Convenience name for target.
@@ -449,12 +449,12 @@ uav_control_gencpp: uav_control/CMakeFiles/uav_control_gencpp.dir/rule
 
 # fast build rule for target.
 uav_control_gencpp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_gencpp.dir/build.make uav_control/CMakeFiles/uav_control_gencpp.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_gencpp.dir/build.make uav_control/CMakeFiles/uav_control_gencpp.dir/build
 .PHONY : uav_control_gencpp/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/rule
 
 # Convenience name for target.
@@ -464,12 +464,12 @@ uav_control_generate_messages_eus: uav_control/CMakeFiles/uav_control_generate_m
 
 # fast build rule for target.
 uav_control_generate_messages_eus/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/build
 .PHONY : uav_control_generate_messages_eus/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -479,12 +479,12 @@ uav_control_generate_messages_cpp: uav_control/CMakeFiles/uav_control_generate_m
 
 # fast build rule for target.
 uav_control_generate_messages_cpp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build
 .PHONY : uav_control_generate_messages_cpp/fast
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_genlisp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_genlisp.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_genlisp.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_genlisp.dir/rule
 
 # Convenience name for target.
@@ -494,7 +494,7 @@ uav_control_genlisp: uav_control/CMakeFiles/uav_control_genlisp.dir/rule
 
 # fast build rule for target.
 uav_control_genlisp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_genlisp.dir/build.make uav_control/CMakeFiles/uav_control_genlisp.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_genlisp.dir/build.make uav_control/CMakeFiles/uav_control_genlisp.dir/build
 .PHONY : uav_control_genlisp/fast
 
 __/communication/src/param_manager.o: __/communication/src/param_manager.cpp.o
@@ -503,7 +503,7 @@ __/communication/src/param_manager.o: __/communication/src/param_manager.cpp.o
 
 # target to build an object file
 __/communication/src/param_manager.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/__/communication/src/param_manager.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/__/communication/src/param_manager.cpp.o
 .PHONY : __/communication/src/param_manager.cpp.o
 
 __/communication/src/param_manager.i: __/communication/src/param_manager.cpp.i
@@ -512,7 +512,7 @@ __/communication/src/param_manager.i: __/communication/src/param_manager.cpp.i
 
 # target to preprocess a source file
 __/communication/src/param_manager.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/__/communication/src/param_manager.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/__/communication/src/param_manager.cpp.i
 .PHONY : __/communication/src/param_manager.cpp.i
 
 __/communication/src/param_manager.s: __/communication/src/param_manager.cpp.s
@@ -521,7 +521,7 @@ __/communication/src/param_manager.s: __/communication/src/param_manager.cpp.s
 
 # target to generate assembly for a file
 __/communication/src/param_manager.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/__/communication/src/param_manager.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/__/communication/src/param_manager.cpp.s
 .PHONY : __/communication/src/param_manager.cpp.s
 
 src/uav_control_node.o: src/uav_control_node.cpp.o
@@ -530,7 +530,7 @@ src/uav_control_node.o: src/uav_control_node.cpp.o
 
 # target to build an object file
 src/uav_control_node.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/src/uav_control_node.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/src/uav_control_node.cpp.o
 .PHONY : src/uav_control_node.cpp.o
 
 src/uav_control_node.i: src/uav_control_node.cpp.i
@@ -539,7 +539,7 @@ src/uav_control_node.i: src/uav_control_node.cpp.i
 
 # target to preprocess a source file
 src/uav_control_node.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/src/uav_control_node.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/src/uav_control_node.cpp.i
 .PHONY : src/uav_control_node.cpp.i
 
 src/uav_control_node.s: src/uav_control_node.cpp.s
@@ -548,7 +548,7 @@ src/uav_control_node.s: src/uav_control_node.cpp.s
 
 # target to generate assembly for a file
 src/uav_control_node.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/src/uav_control_node.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/src/uav_control_node.cpp.s
 .PHONY : src/uav_control_node.cpp.s
 
 src/uav_controller.o: src/uav_controller.cpp.o
@@ -557,7 +557,7 @@ src/uav_controller.o: src/uav_controller.cpp.o
 
 # target to build an object file
 src/uav_controller.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/src/uav_controller.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/src/uav_controller.cpp.o
 .PHONY : src/uav_controller.cpp.o
 
 src/uav_controller.i: src/uav_controller.cpp.i
@@ -566,7 +566,7 @@ src/uav_controller.i: src/uav_controller.cpp.i
 
 # target to preprocess a source file
 src/uav_controller.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/src/uav_controller.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/src/uav_controller.cpp.i
 .PHONY : src/uav_controller.cpp.i
 
 src/uav_controller.s: src/uav_controller.cpp.s
@@ -575,7 +575,7 @@ src/uav_controller.s: src/uav_controller.cpp.s
 
 # target to generate assembly for a file
 src/uav_controller.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/src/uav_controller.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/src/uav_controller.cpp.s
 .PHONY : src/uav_controller.cpp.s
 
 src/uav_estimator.o: src/uav_estimator.cpp.o
@@ -584,7 +584,7 @@ src/uav_estimator.o: src/uav_estimator.cpp.o
 
 # target to build an object file
 src/uav_estimator.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/src/uav_estimator.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/src/uav_estimator.cpp.o
 .PHONY : src/uav_estimator.cpp.o
 
 src/uav_estimator.i: src/uav_estimator.cpp.i
@@ -593,7 +593,7 @@ src/uav_estimator.i: src/uav_estimator.cpp.i
 
 # target to preprocess a source file
 src/uav_estimator.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/src/uav_estimator.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/src/uav_estimator.cpp.i
 .PHONY : src/uav_estimator.cpp.i
 
 src/uav_estimator.s: src/uav_estimator.cpp.s
@@ -602,7 +602,7 @@ src/uav_estimator.s: src/uav_estimator.cpp.s
 
 # target to generate assembly for a file
 src/uav_estimator.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/src/uav_estimator.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/src/uav_estimator.cpp.s
 .PHONY : src/uav_estimator.cpp.s
 
 utils/joy_node.o: utils/joy_node.cpp.o
@@ -611,7 +611,7 @@ utils/joy_node.o: utils/joy_node.cpp.o
 
 # target to build an object file
 utils/joy_node.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/utils/joy_node.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/utils/joy_node.cpp.o
 .PHONY : utils/joy_node.cpp.o
 
 utils/joy_node.i: utils/joy_node.cpp.i
@@ -620,7 +620,7 @@ utils/joy_node.i: utils/joy_node.cpp.i
 
 # target to preprocess a source file
 utils/joy_node.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/utils/joy_node.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/utils/joy_node.cpp.i
 .PHONY : utils/joy_node.cpp.i
 
 utils/joy_node.s: utils/joy_node.cpp.s
@@ -629,7 +629,7 @@ utils/joy_node.s: utils/joy_node.cpp.s
 
 # target to generate assembly for a file
 utils/joy_node.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/utils/joy_node.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/utils/joy_node.cpp.s
 .PHONY : utils/joy_node.cpp.s
 
 utils/rc_test.o: utils/rc_test.cpp.o
@@ -638,7 +638,7 @@ utils/rc_test.o: utils/rc_test.cpp.o
 
 # target to build an object file
 utils/rc_test.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/rc_test.dir/build.make uav_control/CMakeFiles/rc_test.dir/utils/rc_test.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/rc_test.dir/build.make uav_control/CMakeFiles/rc_test.dir/utils/rc_test.cpp.o
 .PHONY : utils/rc_test.cpp.o
 
 utils/rc_test.i: utils/rc_test.cpp.i
@@ -647,7 +647,7 @@ utils/rc_test.i: utils/rc_test.cpp.i
 
 # target to preprocess a source file
 utils/rc_test.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/rc_test.dir/build.make uav_control/CMakeFiles/rc_test.dir/utils/rc_test.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/rc_test.dir/build.make uav_control/CMakeFiles/rc_test.dir/utils/rc_test.cpp.i
 .PHONY : utils/rc_test.cpp.i
 
 utils/rc_test.s: utils/rc_test.cpp.s
@@ -656,7 +656,7 @@ utils/rc_test.s: utils/rc_test.cpp.s
 
 # target to generate assembly for a file
 utils/rc_test.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/rc_test.dir/build.make uav_control/CMakeFiles/rc_test.dir/utils/rc_test.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/rc_test.dir/build.make uav_control/CMakeFiles/rc_test.dir/utils/rc_test.cpp.s
 .PHONY : utils/rc_test.cpp.s
 
 utils/uav_command_pub.o: utils/uav_command_pub.cpp.o
@@ -665,7 +665,7 @@ utils/uav_command_pub.o: utils/uav_command_pub.cpp.o
 
 # target to build an object file
 utils/uav_command_pub.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.o
 .PHONY : utils/uav_command_pub.cpp.o
 
 utils/uav_command_pub.i: utils/uav_command_pub.cpp.i
@@ -674,7 +674,7 @@ utils/uav_command_pub.i: utils/uav_command_pub.cpp.i
 
 # target to preprocess a source file
 utils/uav_command_pub.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.i
 .PHONY : utils/uav_command_pub.cpp.i
 
 utils/uav_command_pub.s: utils/uav_command_pub.cpp.s
@@ -683,7 +683,7 @@ utils/uav_command_pub.s: utils/uav_command_pub.cpp.s
 
 # target to generate assembly for a file
 utils/uav_command_pub.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/utils/uav_command_pub.cpp.s
 .PHONY : utils/uav_command_pub.cpp.s
 
 # Help Target
@@ -753,6 +753,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

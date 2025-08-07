@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/px/UAV_SDK/devel/lib/libmqtt_ros_bridge.pdb"
-  "/home/px/UAV_SDK/devel/lib/libmqtt_ros_bridge.so"
+  "/home/px4/UAV_SDK/devel/lib/libmqtt_ros_bridge.pdb"
+  "/home/px4/UAV_SDK/devel/lib/libmqtt_ros_bridge.so"
   "CMakeFiles/mqtt_ros_bridge.dir/src/message_converter.cpp.o"
   "CMakeFiles/mqtt_ros_bridge.dir/src/message_validator.cpp.o"
 )

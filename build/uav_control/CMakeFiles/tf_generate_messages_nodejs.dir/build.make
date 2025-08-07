@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 # Utility rule file for tf_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/build: tf_generate_messag
 .PHONY : uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/build
 
 uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/clean:
-	cd /home/px/UAV_SDK/build/uav_control && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/px4/UAV_SDK/build/uav_control && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/clean
 
 uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/uav_control /home/px/UAV_SDK/build /home/px/UAV_SDK/build/uav_control /home/px/UAV_SDK/build/uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/uav_control /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/uav_control /home/px4/UAV_SDK/build/uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uav_control/CMakeFiles/tf_generate_messages_nodejs.dir/depend
 

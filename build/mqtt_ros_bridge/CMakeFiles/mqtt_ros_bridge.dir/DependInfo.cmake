@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/px/UAV_SDK/src/mqtt_ros_bridge/src/message_converter.cpp" "/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge.dir/src/message_converter.cpp.o"
-  "/home/px/UAV_SDK/src/mqtt_ros_bridge/src/message_validator.cpp" "/home/px/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge.dir/src/message_validator.cpp.o"
+  "/home/px4/UAV_SDK/src/mqtt_ros_bridge/src/message_converter.cpp" "/home/px4/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge.dir/src/message_converter.cpp.o"
+  "/home/px4/UAV_SDK/src/mqtt_ros_bridge/src/message_validator.cpp" "/home/px4/UAV_SDK/build/mqtt_ros_bridge/CMakeFiles/mqtt_ros_bridge.dir/src/message_validator.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -19,7 +19,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/px/UAV_SDK/src/mqtt_ros_bridge/include"
+  "/home/px4/UAV_SDK/src/mqtt_ros_bridge/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )
