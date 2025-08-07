@@ -1,47 +1,22 @@
 <launch>
-  <!-- MQTT桥接节点 -->
-  <node name="mqtt_bridge_node" pkg="mqtt_bridge" type="mqtt_bridge_node" output="screen">
-    <!-- MQTT服务器配置 -->
-    <param name="server_address" value="mqtts://de80ed56.ala.cn-hangzhou.emqxsl.cn" />
-    <param name="client_id" value="ros_uav_client" />
-    <param name="username" value="px_uav" />
-    <param name="password" value="123456" />
-    <param name="qos" value="1" />
-    <!-- MQTT连接类型 -->
-    <param name="mqtt_type" value="mqtts" />
-    <!-- MQTT端口 -->
-    <param name="port" value="8883" />
-    <!-- MQTT连接超时时间 -->
-    <param name="connect_timeout" value="5.0" />
-    <!-- MQTT重连间隔 -->
-    <param name="reconnect_interval" value="2.0" />
-    <!-- MQTT心跳间隔 -->
-    <param name="keep_alive_interval" value="60.0" />
-    <!-- MQTT消息队列大小 -->
-    <param name="queue_size" value="10" />
-    <!-- MQTT TLS配置 -->
-    <param name="tls_enabled" value="true" />
-    <param name="tls_version" value="TLSv1.2" />
-    <param name="tls_ciphers" value="ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384" />
-    <param name="tls_insecure" value="true" />
-    
-    <!-- CA证书路径，需要根据实际情况修改 -->
-    <param name="ca_cert_path" value="$(find mqtt_bridge)/config/emqxsl-ca.crt" />
-    <!-- UAV配置 -->
-    <param name="uav_name" value="/uav1" />
-    <param name="uav_state_mqtt_topic" value="uav1/flight_controller/state" />
-  </node>
+    <!-- MQTT-ROS桥接节点 -->
+    <node name="mqtt_ros_bridge" pkg="mqtt_bridge" type="mqtt_bridge_node" output="screen">
+        <!-- MQTT服务器配置 -->
+        <param name="mqtt/server_uri" value="mqtts://de80ed56.ala.cn-hangzhou.emqxsl.cn" />
+        <param name="mqtt/client_id" value="uav_mqtt_bridge" />
+        <param name="mqtt/ca_path" value="/home/px/UAV_SDK/src/mqtt_bridge/config/emqxsl-ca.crt" />
+        <param name="mqtt/username" value="px_uav" />
+        <param name="mqtt/password" value="123456" />
+        <param name="mqtt/port" value="8883" />
+        <param name="mqtt/reconnect_interval" value="5000" /> <!-- 重连间隔(毫秒) -->
+        
+        <!-- 主题映射配置 -->
+        <!-- MQTT订阅主题 -> ROS发布主题 -->
+        <param name="topics/mqtt_subscribe" value="uav/sensor/data" />
+        <param name="topics/ros_publish" value="mqtt/sensor_data" />
+        
+        <!-- ROS订阅主题 -> MQTT发布主题 -->
+        <param name="topics/ros_subscribe" value="ros/control_command" />
+        <param name="topics/mqtt_publish" value="uav/control/command" />
+    </node>
 </launch>
-
-<!-- 订阅和发布配置 -->
-  <!-- 
-  <node name="mqtt_subscriber" pkg="mqtt_bridge" type="mqtt_subscriber" output="screen">
-    <param name="topic" value="/uav/control" />
-    <param name="type" value="geometry_msgs/Twist" />
-    <param name="queue_size" value="10" />
-  </node>
-  <node name="mqtt_publisher" pkg="mqtt_bridge" type="mqtt_publisher" output="screen">
-    <param name="topic" value="/uav/state" />
-    <param name="type" value="sensor_msgs/Imu" />
-    <param name="queue_size" value="10" />
-  </node> -->

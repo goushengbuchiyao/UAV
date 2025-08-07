@@ -7,39 +7,37 @@
 #IncludeRegexTransform: 
 
 /home/px/UAV_SDK/src/mqtt_bridge/include/mqtt_client.h
-ros/ros.h
--
 mqtt/async_client.h
--
-mqtt/message.h
--
-mqtt/connect_options.h
--
-mqtt/properties.h
 -
 mqtt/ssl_options.h
 -
-memory
--
 string
--
-vector
 -
 functional
 -
-queue
+memory
 -
-mutex
--
-thread
--
-condition_variable
+atomic
 -
 
-/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp
-mqtt_client.h
-/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.h
+/home/px/UAV_SDK/src/mqtt_bridge/include/mqtt_ros_node.h
 ros/ros.h
+-
+std_msgs/String.h
+-
+mqtt_client.h
+-
+string
+-
+memory
+-
+
+/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_ros_node.cpp
+mqtt_ros_node.h
+-
+sstream
+-
+ros/console.h
 -
 
 /opt/ros/noetic/include/ros/advertise_options.h
@@ -250,6 +248,10 @@ boost/make_shared.hpp
 cstddef
 -
 memory
+-
+
+/opt/ros/noetic/include/ros/message_operations.h
+ostream
 -
 
 /opt/ros/noetic/include/ros/message_traits.h
@@ -687,6 +689,22 @@ ros/forwards.h
 /opt/ros/noetic/include/ros/ros/forwards.h
 
 /opt/ros/noetic/include/rosconsole/macros_generated.h
+
+/opt/ros/noetic/include/std_msgs/String.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
 
 /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 ros/macros.h

@@ -57,22 +57,35 @@ include mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/progress.make
 # Include the compile flags for this target's objects.
 include mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/flags.make
 
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.o: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/flags.make
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.o: /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_bridge_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.o"
-	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.o -c /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_bridge_node.cpp
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/flags.make
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /home/px/UAV_SDK/src/mqtt_bridge/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o"
+	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o -c /home/px/UAV_SDK/src/mqtt_bridge/src/main.cpp
 
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.i"
-	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_bridge_node.cpp > CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.i
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.i"
+	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/mqtt_bridge/src/main.cpp > CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.i
 
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.s"
-	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_bridge_node.cpp -o CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.s
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.s"
+	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/mqtt_bridge/src/main.cpp -o CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.s
+
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/flags.make
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_ros_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o"
+	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o -c /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_ros_node.cpp
+
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.i"
+	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_ros_node.cpp > CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.i
+
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.s"
+	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_ros_node.cpp -o CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.s
 
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/flags.make
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o: /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o"
 	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o -c /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp
 
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.i: cmake_force
@@ -83,31 +96,18 @@ mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.s"
 	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_client.cpp -o CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.s
 
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/flags.make
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o: /home/px/UAV_SDK/src/mqtt_bridge/src/uav_state_publisher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o"
-	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o -c /home/px/UAV_SDK/src/mqtt_bridge/src/uav_state_publisher.cpp
-
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.i"
-	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/mqtt_bridge/src/uav_state_publisher.cpp > CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.i
-
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.s"
-	cd /home/px/UAV_SDK/build/mqtt_bridge && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/mqtt_bridge/src/uav_state_publisher.cpp -o CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.s
-
 # Object files for target mqtt_bridge_node
 mqtt_bridge_node_OBJECTS = \
-"CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.o" \
-"CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o" \
-"CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o"
+"CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o" \
+"CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o" \
+"CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o"
 
 # External object files for target mqtt_bridge_node
 mqtt_bridge_node_EXTERNAL_OBJECTS =
 
-/home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_bridge_node.cpp.o
+/home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o
+/home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o
 /home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o
-/home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_publisher.cpp.o
 /home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make
 /home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node: /opt/ros/noetic/lib/libroscpp.so
 /home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node: /usr/lib/x86_64-linux-gnu/libpthread.so

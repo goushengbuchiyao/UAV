@@ -1,218 +1,198 @@
-#include "mqtt_client.h"
-#include <ros/ros.h>
+#include <mqtt_client.h>
+#include <mqtt/exception.h>
+#include <iostream>
+#include <chrono>
+#include <thread>
 
 namespace mqtt_bridge {
 
-MqttClient::MqttClient(const std::string& server_address, 
+MQTTClient::Callback::Callback(MQTTClient& client) : client_(client) {}
+
+void MQTTClient::Callback::connection_lost(const std::string& cause) {
+    std::cout << "Connection lost: " << cause << std::endl;
+    client_.connected_ = false;
+    
+    if (client_.connection_callback_) {
+        client_.connection_callback_(false);
+    }
+    
+    // 尝试重连
+    client_.tryReconnect();
+}
+
+void MQTTClient::Callback::message_arrived(mqtt::const_message_ptr msg) {
+    if (client_.message_callback_) {
+        client_.message_callback_(msg->get_topic(), msg->to_string());
+    }
+}
+
+void MQTTClient::Callback::delivery_complete(mqtt::delivery_token_ptr token) {}
+
+void MQTTClient::Callback::on_failure(const mqtt::token& tok) {
+    std::cout << "MQTT operation failed, message id: " << tok.get_message_id() << std::endl;
+    
+    if (tok.get_type() == mqtt::token::CONNECT) {
+        client_.connected_ = false;
+        if (client_.connection_callback_) {
+            client_.connection_callback_(false);
+        }
+        // 尝试重连
+        client_.tryReconnect();
+    }
+}
+
+void MQTTClient::Callback::on_success(const mqtt::token& tok) {
+    if (tok.get_type() == mqtt::token::CONNECT) {
+        std::cout << "Connected to MQTT server successfully" << std::endl;
+        client_.connected_ = true;
+        if (client_.connection_callback_) {
+            client_.connection_callback_(true);
+        }
+    }
+}
+
+MQTTClient::MQTTClient(const std::string& server_uri, 
                        const std::string& client_id,
+                       const std::string& ca_path,
                        const std::string& username,
                        const std::string& password,
-                       const std::string& ca_cert_path,
-                       int qos,
-                       ros::NodeHandle nh)
-  : client_id_(client_id), 
-    connected_(false),
-    callback_(*this) {
-  
-  // 创建MQTT客户端
-  client_ = std::make_unique<mqtt::async_client>(server_address, client_id);
-  
-  // 设置回调
-  client_->set_callback(callback_);
-  
-  // 配置SSL选项
-  sslOpts_ = mqtt::ssl_options_builder()
-    .trust_store(ca_cert_path)
-    .error_handler([](const std::string& msg) {
-      ROS_WARN_STREAM("MQTT SSL error: " << msg);
-    })
-    .finalize();
-  
-  // 配置连接选项
-  connOpts_ = mqtt::connect_options_builder()
-    .keep_alive_interval(std::chrono::seconds(20))
-    .clean_session(true)
-    .user_name(username)
-    .password(password)
-    .ssl(sslOpts_)
-    .finalize();
-}
-
-MqttClient::~MqttClient() {
-  disconnect();
-}
-
-bool MqttClient::connect() {
-  try {
-    // 尝试连接
-    mqtt::token_ptr conntok = client_->connect(connOpts_);
+                       int reconnect_interval)
+    : server_uri_(server_uri),
+      client_id_(client_id),
+      ca_path_(ca_path),
+      username_(username),
+      password_(password),
+      reconnect_interval_(reconnect_interval),
+      connected_(false) {
+    // 创建MQTT客户端
+    client_ = std::make_unique<mqtt::async_client>(server_uri_, client_id_);
     
-    // 等待连接完成
-    conntok->wait();
+    // 创建回调对象
+    callback_ = std::make_unique<Callback>(*this);
+    client_->set_callback(*callback_);
     
-    // 检查连接状态
-    connected_ = client_->is_connected();
+    // 配置连接选项
+    conn_opts_.set_clean_session(true);
+    conn_opts_.set_automatic_reconnect(std::chrono::seconds(1), std::chrono::seconds(30));
     
-    if (connected_) {
-      ROS_INFO("Connected to MQTT server");
-    } else {
-      ROS_ERROR("Failed to connect to MQTT server");
+    if (!username.empty()) {
+        conn_opts_.set_user_name(username);
     }
     
-    return connected_;
-  } catch (const mqtt::exception& exc) {
-    ROS_ERROR_STREAM("MQTT connection exception: " << exc.what());
-    return false;
-  }
+    if (!password.empty()) {
+        conn_opts_.set_password(password);
+    }
+    
+    // 配置SSL选项
+    mqtt::ssl_options ssl_opts;
+    ssl_opts.set_trust_store(ca_path_);
+    conn_opts_.set_ssl(ssl_opts);
 }
 
-void MqttClient::disconnect() {
-  if (connected_) {
+MQTTClient::~MQTTClient() {
+    disconnect();
+}
+
+bool MQTTClient::connect() {
     try {
-      // 断开连接
-      mqtt::token_ptr disconntok = client_->disconnect();
-      disconntok->wait();
-      connected_ = false;
-      ROS_INFO("Disconnected from MQTT server");
-    } catch (const mqtt::exception& exc) {
-      ROS_ERROR_STREAM("MQTT disconnection exception: " << exc.what());
+        std::cout << "Connecting to MQTT server: " << server_uri_ << std::endl;
+        client_->connect(conn_opts_, nullptr, *callback_);
+        return true;
+    } catch (const mqtt::exception& e) {
+        std::cerr << "Connect failed: " << e.what() << std::endl;
+        return false;
     }
-  }
 }
 
-void MqttClient::attemptReconnect() {
-  if (reconnecting_ || connected_) return;
-  reconnecting_ = true;
-  
-  std::thread([this]() {
-    int interval = reconnect_interval_;
-    while (!connected_ && ros::ok()) {
-      ROS_INFO_STREAM("Attempting to reconnect (interval: " << interval << "s)");
-      if (connect()) {
-        reconnecting_ = false;
-        interval = reconnect_interval_; // 重置间隔
-        if (conn_callback_) conn_callback_(true);
-        return;
-      }
-      // 指数退避（最大间隔60秒）
-      std::this_thread::sleep_for(std::chrono::seconds(interval));
-      interval = std::min(interval * 2, 60);
+void MQTTClient::disconnect() {
+    if (client_ && connected_) {
+        try {
+            std::cout << "Disconnecting from MQTT server..." << std::endl;
+            client_->disconnect()->wait();
+            connected_ = false;
+            if (connection_callback_) {
+                connection_callback_(false);
+            }
+            std::cout << "Disconnected" << std::endl;
+        } catch (const mqtt::exception& e) {
+            std::cerr << "Disconnect failed: " << e.what() << std::endl;
+        }
     }
-    reconnecting_ = false;
-  }).detach();
 }
 
-// 在connection_lost中触发重连
-void MqttClient::Callback::connection_lost(const std::string& cause) {
-  ROS_WARN_STREAM("MQTT connection lost: " << cause);
-  parent_.connected_ = false;
-  if (parent_.conn_callback_) parent_.conn_callback_(false);
-  parent_.attemptReconnect(); // 自动重连
-}
-
-bool MqttClient::publish(const std::string& topic, const std::string& payload, int qos, bool retain) {
-  ROS_INFO_STREAM("Publishing MQTT message: topic=" << topic << ", size=" << payload.size());
-  if (!connected_) {
-    ROS_WARN("Cannot publish: Not connected to MQTT server");
-    return false;
-  }
-  
-  try {
-    // 创建消息
-    std::shared_ptr<mqtt::message> msg = mqtt::message::create(topic, payload, qos, retain);
-    
-    // 发布消息
-    mqtt::delivery_token_ptr pubtok = client_->publish(msg);
-    
-    // 可以选择等待发布完成
-    // pubtok->wait();
-    
-    return true;
-  } catch (const mqtt::exception& exc) {
-    ROS_ERROR_STREAM("MQTT publish exception: " << exc.what() << ", topic=" << topic);
-    // 添加重试逻辑
-    if (retry_count_ < max_retries_) {
-      retry_count_++;
-      ROS_WARN_STREAM("Retrying publish (attempt " << retry_count_ << "/" << max_retries_ << ")");
-      std::this_thread::sleep_for(std::chrono::milliseconds(retry_interval_));
-      return publish(topic, payload, qos, retain);
+bool MQTTClient::publish(const std::string& topic, const std::string& payload, 
+                         int qos, bool retain) {
+    if (!connected_) {
+        std::cerr << "Cannot publish, not connected to MQTT server" << std::endl;
+        return false;
     }
-    retry_count_ = 0;
-    return false;
-  }
+    
+    try {
+        mqtt::message_ptr msg = mqtt::make_message(topic, payload);
+        msg->set_qos(qos);
+        msg->set_retained(retain);
+        client_->publish(msg)->wait_for(std::chrono::seconds(1));
+        return true;
+    } catch (const mqtt::exception& e) {
+        std::cerr << "Publish failed: " << e.what() << std::endl;
+        return false;
+    }
 }
 
-bool MqttClient::subscribe(const std::string& topic, int qos) {
-  if (!connected_) {
-    ROS_WARN("Cannot subscribe: Not connected to MQTT server");
-    return false;
-  }
-  
-  try {
-    // 订阅主题
-    mqtt::token_ptr subtok = client_->subscribe(topic, qos);
+bool MQTTClient::subscribe(const std::string& topic, int qos) {
+    if (!connected_) {
+        std::cerr << "Cannot subscribe, not connected to MQTT server" << std::endl;
+        return false;
+    }
     
-    // 等待订阅完成
-    subtok->wait();
-    
-    ROS_INFO_STREAM("Subscribed to topic: " << topic);
-    return true;
-  } catch (const mqtt::exception& exc) {
-    ROS_ERROR_STREAM("MQTT subscribe exception: " << exc.what());
-    return false;
-  }
+    try {
+        std::cout << "Subscribing to topic: " << topic << " with QoS " << qos << std::endl;
+        client_->subscribe(topic, qos)->wait();
+        return true;
+    } catch (const mqtt::exception& e) {
+        std::cerr << "Subscribe failed: " << e.what() << std::endl;
+        return false;
+    }
 }
 
-void mqtt_bridge::MqttClient::setMessageCallback(const MessageCallback& callback) {
+bool MQTTClient::unsubscribe(const std::string& topic) {
+    if (!connected_) {
+        std::cerr << "Cannot unsubscribe, not connected to MQTT server" << std::endl;
+        return false;
+    }
+    
+    try {
+        std::cout << "Unsubscribing from topic: " << topic << std::endl;
+        client_->unsubscribe(topic)->wait();
+        return true;
+    } catch (const mqtt::exception& e) {
+        std::cerr << "Unsubscribe failed: " << e.what() << std::endl;
+        return false;
+    }
+}
+
+void MQTTClient::setMessageCallback(MessageCallback callback) {
     message_callback_ = callback;
 }
 
-bool MqttClient::isConnected() const {
-  return connected_;
+void MQTTClient::setConnectionCallback(ConnectionCallback callback) {
+    connection_callback_ = callback;
 }
 
-
-void mqtt_bridge::MqttClient::Callback::message_arrived(mqtt::const_message_ptr msg) {
-  ROS_DEBUG_STREAM("MQTT message arrived: " << msg->get_topic() << " - " << msg->to_string());
-  
-  if (parent_.message_callback_) {
-    parent_.message_callback_(msg->get_topic(), msg->to_string(), parent_.nh_);
-  }
-}
-
-void MqttClient::Callback::delivery_complete(mqtt::delivery_token_ptr token) {
-  ROS_DEBUG("MQTT delivery complete");
-}
-
-void MqttClient::enqueueMessage(const std::string& topic, const std::string& payload, int qos, bool retain) {
-  std::lock_guard<std::mutex> lock(queue_mutex_);
-  message_queue_.emplace(topic, payload, qos, retain);
-  queue_condition_.notify_one();
-}
-
-void MqttClient::startWorkerThread() {
-  worker_running_ = true;
-  worker_thread_ = std::thread([this]() {
-    while (worker_running_) {
-      std::tuple<std::string, std::string, int, bool> msg;
-      {
-        std::unique_lock<std::mutex> lock(queue_mutex_);
-        queue_condition_.wait(lock, [this]() { return !message_queue_.empty() || !worker_running_; });
-        if (!worker_running_) break;
-        msg = std::move(message_queue_.front());
-        message_queue_.pop();
-      }
-      // 实际发送消息
-      publish(std::get<0>(msg), std::get<1>(msg), std::get<2>(msg), std::get<3>(msg));
+void MQTTClient::tryReconnect() {
+    if (connected_) return;
+    
+    std::cout << "Attempting to reconnect in " << reconnect_interval_ << "ms..." << std::endl;
+    
+    std::this_thread::sleep_for(std::chrono::milliseconds(reconnect_interval_));
+    
+    try {
+        client_->connect(conn_opts_, nullptr, *callback_);
+    } catch (const mqtt::exception& e) {
+        std::cerr << "Reconnect failed: " << e.what() << std::endl;
+        // 再次尝试重连
+        tryReconnect();
     }
-  });
 }
 
-void MqttClient::stopWorkerThread() {
-  worker_running_ = false;
-  queue_condition_.notify_one();
-  if (worker_thread_.joinable()) {
-    worker_thread_.join();
-  }
-}
 } // namespace mqtt_bridge
