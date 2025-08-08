@@ -6,7 +6,7 @@
 #include <mqtt_client.h>
 #include <string>
 #include <memory>
-
+#include "uav_state_collector.h"
 namespace mqtt_bridge {
 
 class MQTTROSNode {
@@ -76,6 +76,9 @@ private:
     std::string mqtt_publish_topic_;    // 要发布的MQTT主题
     std::string ros_publish_topic_;     // 要发布的ROS主题
     std::string ros_subscribe_topic_;   // 要订阅的ROS主题
+
+    // UAV状态采集器
+    std::unique_ptr<UAVStateCollector> uav_collector_;
 };
 
 } // namespace mqtt_bridge

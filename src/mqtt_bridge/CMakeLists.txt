@@ -11,17 +11,18 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   sensor_msgs
   px_uav_msgs
-
+  mavros_msgs
+  tf
 )
 
 
 ## System dependencies are found with CMake's conventions
 ## 查找 JsonCpp，使用 Config 模式
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(JSONCPP REQUIRED jsoncpp)
+# pkg_check_modules(JSONCPP REQUIRED jsoncpp)
 find_package(PahoMqttCpp REQUIRED)
 find_package(OpenSSL REQUIRED)
-
+find_package(nlohmann_json REQUIRED)
 ## Generate messages in the 'msg' folder
 # add_message_files(
 #   FILES
@@ -39,9 +40,9 @@ generate_messages(
 ## Declare a catkin package
 catkin_package(
   CATKIN_DEPENDS roscpp std_msgs message_runtime px_uav_msgs geometry_msgs sensor_msgs
-  DEPENDS PahoMqttCpp OpenSSL jsoncpp
+  DEPENDS PahoMqttCpp OpenSSL
 )
-set(JSONCPP_INCLUDE_DIR "/usr/include/jsoncpp")
+# set(JSONCPP_INCLUDE_DIR "/usr/include/jsoncpp")
 ## Specify additional locations of header files
 include_directories(
   ${catkin_INCLUDE_DIRS}
@@ -55,6 +56,7 @@ add_executable(mqtt_bridge_node
   src/main.cpp
   src/mqtt_ros_node.cpp
   src/mqtt_client.cpp
+  src/uav_state_collector.cpp
   # src/uav_state_publisher.cpp
   # src/message_converter.cpp
 )
@@ -64,8 +66,8 @@ add_executable(mqtt_bridge_node
 ## Specify libraries to link a library or executable target against
 target_link_libraries(mqtt_bridge_node
   ${catkin_LIBRARIES}
-  PahoMqttCpp::paho-mqttpp3
-  PahoMqttCpp::paho-mqtt3as
+  PahoMqttCpp::paho-mqttpp3-shared
+  # PahoMqttCpp::paho-mqtt3as
   ${OPENSSL_LIBRARIES}
   ${JSONCPP_LIBRARIES}  
   ${Boost_LIBRARIES}
@@ -73,4 +75,4 @@ target_link_libraries(mqtt_bridge_node
 
 ## Add cmake target dependencies of the executable
 add_dependencies(mqtt_bridge_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-  
+

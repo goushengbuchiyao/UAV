@@ -1,8 +1,8 @@
-# Install script for directory: /home/px4/UAV_SDK/src/uav_control
+# Install script for directory: /home/px/UAV_SDK/src/uav_control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/px4/UAV_SDK/install")
+  set(CMAKE_INSTALL_PREFIX "/home/px/UAV_SDK/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,45 +38,45 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_control/cmake" TYPE FILE FILES "/home/px4/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_control-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_control/cmake" TYPE FILE FILES "/home/px/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_control-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/px4/UAV_SDK/devel/share/roseus/ros/uav_control")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/px/UAV_SDK/devel/share/roseus/ros/uav_control")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/px4/UAV_SDK/devel/lib/python3/dist-packages/uav_control")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/px/UAV_SDK/devel/lib/python3/dist-packages/uav_control")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/px4/UAV_SDK/devel/lib/python3/dist-packages/uav_control")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/px/UAV_SDK/devel/lib/python3/dist-packages/uav_control")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px4/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_control.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_control.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_control/cmake" TYPE FILE FILES "/home/px4/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_control-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_control/cmake" TYPE FILE FILES "/home/px/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_control-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_control/cmake" TYPE FILE FILES
-    "/home/px4/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_controlConfig.cmake"
-    "/home/px4/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_controlConfig-version.cmake"
+    "/home/px/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_controlConfig.cmake"
+    "/home/px/UAV_SDK/build/uav_control/catkin_generated/installspace/uav_controlConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_control" TYPE FILE FILES "/home/px4/UAV_SDK/src/uav_control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_control" TYPE FILE FILES "/home/px/UAV_SDK/src/uav_control/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/uav_control" TYPE DIRECTORY FILES "/home/px4/UAV_SDK/src/uav_control/include/uav_control/" FILES_MATCHING REGEX "/[^/]*\\.h$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/uav_control" TYPE DIRECTORY FILES "/home/px/UAV_SDK/src/uav_control/include/uav_control/" FILES_MATCHING REGEX "/[^/]*\\.h$")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_control/launch" TYPE DIRECTORY FILES "/home/px4/UAV_SDK/src/uav_control/launch/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/uav_control/launch" TYPE DIRECTORY FILES "/home/px/UAV_SDK/src/uav_control/launch/")
 endif()
 

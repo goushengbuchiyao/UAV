@@ -1,7 +1,7 @@
 #include <mqtt_ros_node.h>
 #include <sstream>
 #include <ros/console.h>
-
+#include "uav_state_collector.h"
 namespace mqtt_bridge {
 
 MQTTROSNode::MQTTROSNode(ros::NodeHandle& nh) : nh_(nh) {}
@@ -12,7 +12,6 @@ bool MQTTROSNode::init() {
         ROS_ERROR("Failed to load parameters");
         return false;
     }
-
     // 创建MQTT客户端
     std::string server_uri = mqtt_server_uri_ + ":" + std::to_string(mqtt_port_);
     mqtt_client_ = std::make_unique<MQTTClient>(
@@ -33,40 +32,55 @@ bool MQTTROSNode::init() {
         std::bind(&MQTTROSNode::handleConnectionStatus, this, std::placeholders::_1)
     );
     // 连接到MQTT服务器
-    if (!mqtt_client_->connect()) {
-        ROS_ERROR("Failed to connect to MQTT server");
+    if (mqtt_client_->connect()) {
+        // 创建 MAVROS 数据采集器
+        UAVStateCollector::uav_collector_ = std::make_unique<UAVStateCollector>(nh_);
+        // 订阅MQTT主题
+        if (!mqtt_subscribe_topic_.empty()) {
+            if (!mqtt_client_->subscribe(mqtt_subscribe_topic_)) {
+                ROS_WARN("Failed to subscribe to MQTT topic: %s", mqtt_subscribe_topic_.c_str());
+            } else {
+                ROS_INFO("Successfully subscribed to MQTT topic: %s. Waiting for JSON data...", mqtt_subscribe_topic_.c_str());
+                // 设置ROS发布器和订阅器
+                mqtt_to_ros_pub_ = nh_.advertise<std_msgs::String>(ros_publish_topic_, 10);
+                ros_to_mqtt_sub_ = nh_.subscribe(ros_subscribe_topic_, 10, &MQTTROSNode::handleROSMessage, this);
+
+                ROS_INFO("MQTT-ROS bridge initialized successfully");
+            }
+        }
+       
+    }else {
+        ROS_ERROR("Failed to connect to MQTT server: %s", server_uri.c_str());
         return false;
     }
-
-    // 订阅MQTT主题
-    if (!mqtt_subscribe_topic_.empty()) {
-        if (!mqtt_client_->subscribe(mqtt_subscribe_topic_)) {
-            ROS_WARN("Failed to subscribe to MQTT topic: %s", mqtt_subscribe_topic_.c_str());
-        } else {
-            ROS_INFO("Successfully subscribed to MQTT topic: %s. Waiting for JSON data...", mqtt_subscribe_topic_.c_str());
-        }
-    }
-
-    // 设置ROS发布器和订阅器
-    mqtt_to_ros_pub_ = nh_.advertise<std_msgs::String>(ros_publish_topic_, 10);
-    ros_to_mqtt_sub_ = nh_.subscribe(ros_subscribe_topic_, 10, &MQTTROSNode::handleROSMessage, this);
-
-    ROS_INFO("MQTT-ROS bridge initialized successfully");
+    
     return true;
 }
 
 void MQTTROSNode::run() {
-    ros::Rate rate(10); // 10Hz
+    ros::Rate rate(2); // 2Hz 发布
     while (ros::ok()) {
         ros::spinOnce();
+
+        if (mqtt_client_ && mqtt_client_->isConnected()) {
+            std::string json_state = uav_collector_->getStateJson();
+            mqtt_client_->publish(mqtt_publish_topic_, json_state);
+        }
         rate.sleep();
     }
-    
-    // 断开MQTT连接
-    if (mqtt_client_) {
-        mqtt_client_->disconnect();
-    }
 }
+// void MQTTROSNode::run() {
+//     ros::Rate rate(10); // 10Hz
+//     while (ros::ok()) {
+//         ros::spinOnce();
+//         rate.sleep();
+//     }
+    
+//     // 断开MQTT连接
+//     if (mqtt_client_) {
+//         mqtt_client_->disconnect();
+//     }
+// }
 
 bool MQTTROSNode::loadParameters() {
     // 从参数服务器获取配置
