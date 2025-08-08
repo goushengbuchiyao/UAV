@@ -1,8 +1,8 @@
-# Install script for directory: /home/px/UAV_SDK/src/simulator
+# Install script for directory: /home/px4/UAV_SDK/src/simulator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/px/UAV_SDK/install")
+  set(CMAKE_INSTALL_PREFIX "/home/px4/UAV_SDK/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px/UAV_SDK/build/simulator/catkin_generated/installspace/simulator.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px4/UAV_SDK/build/simulator/catkin_generated/installspace/simulator.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simulator/cmake" TYPE FILE FILES
-    "/home/px/UAV_SDK/build/simulator/catkin_generated/installspace/simulatorConfig.cmake"
-    "/home/px/UAV_SDK/build/simulator/catkin_generated/installspace/simulatorConfig-version.cmake"
+    "/home/px4/UAV_SDK/build/simulator/catkin_generated/installspace/simulatorConfig.cmake"
+    "/home/px4/UAV_SDK/build/simulator/catkin_generated/installspace/simulatorConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simulator" TYPE FILE FILES "/home/px/UAV_SDK/src/simulator/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/simulator" TYPE FILE FILES "/home/px4/UAV_SDK/src/simulator/package.xml")
 endif()
 

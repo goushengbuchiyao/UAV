@@ -1,43 +1,95 @@
+// #pragma once
+
+// #include <ros/ros.h>
+// #include <mavros_msgs/State.h>
+// #include <sensor_msgs/BatteryState.h>
+// #include <sensor_msgs/NavSatFix.h>
+// #include <geometry_msgs/PoseStamped.h>
+// #include <geometry_msgs/TwistStamped.h>
+// #include <mavros_msgs/GPSRAW.h>
+// #include <nlohmann/json.hpp>
+
+// class UAVStateCollector {
+// public:
+//     explicit UAVStateCollector(ros::NodeHandle& nh);
+
+//     std::string getStateJson();
+
+// private:
+//     // 回调函数
+//     void stateCallback(const mavros_msgs::State::ConstPtr& msg);
+//     void batteryCallback(const sensor_msgs::BatteryState::ConstPtr& msg);
+//     void globalPosCallback(const sensor_msgs::NavSatFix::ConstPtr& msg);
+//     void localPosCallback(const geometry_msgs::PoseStamped::ConstPtr& msg);
+//     void velocityCallback(const geometry_msgs::TwistStamped::ConstPtr& msg);
+//     void gpsStatusCallback(const mavros_msgs::GPSRAW::ConstPtr& msg);
+
+//     // ROS 句柄和订阅器
+//     ros::Subscriber state_sub_, battery_sub_, global_pos_sub_, local_pos_sub_, velocity_sub_, gps_status_sub_;
+
+//     // 存储变量
+//     std::string flight_mode_;
+//     float battery_percent_;
+//     double latitude_, longitude_, altitude_;
+//     double enu_x_, enu_y_, enu_z_;
+//     double ned_x_, ned_y_, ned_z_;
+//     double velocity_x_, velocity_y_, velocity_z_;
+//     double roll_, pitch_, yaw_;
+//     int fix_type_, satellites_visible_;
+// };
 #pragma once
+
 #include <ros/ros.h>
 #include <mavros_msgs/State.h>
 #include <sensor_msgs/BatteryState.h>
-#include <mavros_msgs/BatteryStatus.h>
 #include <sensor_msgs/NavSatFix.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/TwistStamped.h>
 #include <mavros_msgs/GPSRAW.h>
-#include <sensor_msgs/Imu.h>
-#include <tf/tf.h>
 #include <nlohmann/json.hpp>
-#include <mutex>
+#include <geometry_msgs/QuaternionStamped.h>
 
 class UAVStateCollector {
 public:
-    UAVStateCollector(ros::NodeHandle& nh);
+    explicit UAVStateCollector(ros::NodeHandle& nh);
 
-    // 获取当前飞控数据的 JSON（线程安全）
+    std::string getFlightModeJson();
+    std::string getBatteryStatusJson();
+    std::string getGPSPositionJson();
+    std::string getLocalPositionJson();
+    std::string getNEDPositionJson();
+    std::string getVelocityJson();
+    std::string getGPSStatusJson();
+    std::string getAttitudeJson();
     std::string getStateJson();
 
 private:
-    // ROS 订阅回调
-    void stateCb(const mavros_msgs::State::ConstPtr &msg);
-    void batteryCb(const sensor_msgs::BatteryState::ConstPtr &msg);
-    void gpsCb(const sensor_msgs::NavSatFix::ConstPtr &msg);
-    void poseCb(const geometry_msgs::PoseStamped::ConstPtr &msg);
-    void velCb(const geometry_msgs::TwistStamped::ConstPtr &msg);
-    void gpsRawCb(const mavros_msgs::GPSRAW::ConstPtr &msg);
-    void imuCb(const sensor_msgs::Imu::ConstPtr &msg);
+    void stateCallback(const mavros_msgs::State::ConstPtr& msg);
+    void batteryCallback(const sensor_msgs::BatteryState::ConstPtr& msg);
+    void globalPosCallback(const sensor_msgs::NavSatFix::ConstPtr& msg);
+    void localPosCallback(const geometry_msgs::PoseStamped::ConstPtr& msg);
+    void velocityCallback(const geometry_msgs::TwistStamped::ConstPtr& msg);
+    void gpsStatusCallback(const mavros_msgs::GPSRAW::ConstPtr& msg);
+    void attitudeCallback(const geometry_msgs::QuaternionStamped::ConstPtr& msg);
 
-    ros::Subscriber sub_state_, sub_battery_, sub_gps_, sub_pose_, sub_vel_, sub_gps_raw_, sub_imu_ ;
+    ros::Subscriber state_sub_, battery_sub_, global_pos_sub_, local_pos_sub_, velocity_sub_, gps_status_sub_;
 
-    mavros_msgs::State state_;
-    sensor_msgs::BatteryState battery_;
-    sensor_msgs::NavSatFix gps_;
-    geometry_msgs::Pose pose_;
-    geometry_msgs::Twist vel_;
-    mavros_msgs::GPSRAW gps_raw_;
-    sensor_msgs::Imu imu_;
+    std::string uav_id_;
+    std::string fix_desc_;
+    std::string flight_mode_;
+    float battery_percent_ = 0.0;
+    float battery_voltage_ = 0.0;
+    float battery_current_ = 0.0;
+    int battery_remaining_capacity_ = 0;
 
-    std::mutex mtx_;
+    double latitude_ = 0.0, longitude_ = 0.0, altitude_amsl_ = 0.0, altitude_relative_ = 0.0;
+    double enu_x_ = 0.0, enu_y_ = 0.0, enu_z_ = 0.0;
+    double ned_x_ = 0.0, ned_y_ = 0.0, ned_z_ = 0.0;
+    double velocity_x_ = 0.0, velocity_y_ = 0.0, velocity_z_ = 0.0;
+    double ground_speed_ = 0.0;
+    int fix_type_ = 0, satellites_visible_ = 0;
+    float hdop_ = 0.0, vdop_ = 0.0;
+
+    double roll_ = 0.0, pitch_ = 0.0, yaw_ = 0.0;
+    double qx_ = 0.0, qy_ = 0.0, qz_ = 0.0, qw_ = 1.0;
 };

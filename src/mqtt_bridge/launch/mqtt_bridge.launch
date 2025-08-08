@@ -2,6 +2,8 @@
     <!-- MQTT-ROS桥接节点 -->
     <arg name="uav_id" default="1"/>
     <node name="mqtt_ros_bridge" pkg="mqtt_bridge" type="mqtt_bridge_node" output="screen">
+        <!-- UAV ID -->
+        <param name="uav_id" value="$(arg uav_id)"/>
         <!-- MQTT服务器配置 -->
         <param name="mqtt/server_uri" value="mqtts://de80ed56.ala.cn-hangzhou.emqxsl.cn" />
         <param name="mqtt/client_id" value="uav1_mqtt_bridge111" />

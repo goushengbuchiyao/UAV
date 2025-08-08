@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/px/UAV_SDK/src/mqtt_camera_interface/src/mqtt_camera_node.cpp" "/home/px/UAV_SDK/build/mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/src/mqtt_camera_node.cpp.o"
+  "/home/px4/UAV_SDK/src/mqtt_camera_interface/src/mqtt_camera_node.cpp" "/home/px4/UAV_SDK/build/mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/src/mqtt_camera_node.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -19,7 +19,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/usr/include/jsoncpp"
   )
 
 # Targets to which this target links.

@@ -34,7 +34,7 @@ bool MQTTROSNode::init() {
     // 连接到MQTT服务器
     if (mqtt_client_->connect()) {
         // 创建 MAVROS 数据采集器
-        UAVStateCollector::uav_collector_ = std::make_unique<UAVStateCollector>(nh_);
+        uav_collector_ = std::make_unique<UAVStateCollector>(nh_);
         // 订阅MQTT主题
         if (!mqtt_subscribe_topic_.empty()) {
             if (!mqtt_client_->subscribe(mqtt_subscribe_topic_)) {
