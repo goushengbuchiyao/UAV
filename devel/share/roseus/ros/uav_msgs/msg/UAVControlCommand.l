@@ -1,0 +1,292 @@
+;; Auto-generated. Do not edit!
+
+
+(when (boundp 'uav_msgs::UAVControlCommand)
+  (if (not (find-package "UAV_MSGS"))
+    (make-package "UAV_MSGS"))
+  (shadow 'UAVControlCommand (find-package "UAV_MSGS")))
+(unless (find-package "UAV_MSGS::UAVCONTROLCOMMAND")
+  (make-package "UAV_MSGS::UAVCONTROLCOMMAND"))
+
+(in-package "ROS")
+;;//! \htmlinclude UAVControlCommand.msg.html
+(if (not (find-package "STD_MSGS"))
+  (ros::roseus-add-msgs "std_msgs"))
+
+
+(defclass uav_msgs::UAVControlCommand
+  :super ros::object
+  :slots (_header _command_type _timestamp _target_system _takeoff _land _pos_ned _pos_global _vel_ned _rtl _hover _set_mode ))
+
+(defmethod uav_msgs::UAVControlCommand
+  (:init
+   (&key
+    ((:header __header) (instance std_msgs::Header :init))
+    ((:command_type __command_type) "")
+    ((:timestamp __timestamp) (instance ros::time :init))
+    ((:target_system __target_system) 0)
+    ((:takeoff __takeoff) (instance uav_msgs::TakeoffCommand :init))
+    ((:land __land) (instance uav_msgs::LandCommand :init))
+    ((:pos_ned __pos_ned) (instance uav_msgs::PositionControlNEDCommand :init))
+    ((:pos_global __pos_global) (instance uav_msgs::PositionControlGlobalCommand :init))
+    ((:vel_ned __vel_ned) (instance uav_msgs::VelocityControlNEDCommand :init))
+    ((:rtl __rtl) (instance uav_msgs::ReturnToLaunchCommand :init))
+    ((:hover __hover) (instance uav_msgs::HoverCommand :init))
+    ((:set_mode __set_mode) (instance uav_msgs::SetModeCommand :init))
+    )
+   (send-super :init)
+   (setq _header __header)
+   (setq _command_type (string __command_type))
+   (setq _timestamp __timestamp)
+   (setq _target_system (round __target_system))
+   (setq _takeoff __takeoff)
+   (setq _land __land)
+   (setq _pos_ned __pos_ned)
+   (setq _pos_global __pos_global)
+   (setq _vel_ned __vel_ned)
+   (setq _rtl __rtl)
+   (setq _hover __hover)
+   (setq _set_mode __set_mode)
+   self)
+  (:header
+   (&rest __header)
+   (if (keywordp (car __header))
+       (send* _header __header)
+     (progn
+       (if __header (setq _header (car __header)))
+       _header)))
+  (:command_type
+   (&optional __command_type)
+   (if __command_type (setq _command_type __command_type)) _command_type)
+  (:timestamp
+   (&optional __timestamp)
+   (if __timestamp (setq _timestamp __timestamp)) _timestamp)
+  (:target_system
+   (&optional __target_system)
+   (if __target_system (setq _target_system __target_system)) _target_system)
+  (:takeoff
+   (&rest __takeoff)
+   (if (keywordp (car __takeoff))
+       (send* _takeoff __takeoff)
+     (progn
+       (if __takeoff (setq _takeoff (car __takeoff)))
+       _takeoff)))
+  (:land
+   (&rest __land)
+   (if (keywordp (car __land))
+       (send* _land __land)
+     (progn
+       (if __land (setq _land (car __land)))
+       _land)))
+  (:pos_ned
+   (&rest __pos_ned)
+   (if (keywordp (car __pos_ned))
+       (send* _pos_ned __pos_ned)
+     (progn
+       (if __pos_ned (setq _pos_ned (car __pos_ned)))
+       _pos_ned)))
+  (:pos_global
+   (&rest __pos_global)
+   (if (keywordp (car __pos_global))
+       (send* _pos_global __pos_global)
+     (progn
+       (if __pos_global (setq _pos_global (car __pos_global)))
+       _pos_global)))
+  (:vel_ned
+   (&rest __vel_ned)
+   (if (keywordp (car __vel_ned))
+       (send* _vel_ned __vel_ned)
+     (progn
+       (if __vel_ned (setq _vel_ned (car __vel_ned)))
+       _vel_ned)))
+  (:rtl
+   (&rest __rtl)
+   (if (keywordp (car __rtl))
+       (send* _rtl __rtl)
+     (progn
+       (if __rtl (setq _rtl (car __rtl)))
+       _rtl)))
+  (:hover
+   (&rest __hover)
+   (if (keywordp (car __hover))
+       (send* _hover __hover)
+     (progn
+       (if __hover (setq _hover (car __hover)))
+       _hover)))
+  (:set_mode
+   (&rest __set_mode)
+   (if (keywordp (car __set_mode))
+       (send* _set_mode __set_mode)
+     (progn
+       (if __set_mode (setq _set_mode (car __set_mode)))
+       _set_mode)))
+  (:serialization-length
+   ()
+   (+
+    ;; std_msgs/Header _header
+    (send _header :serialization-length)
+    ;; string _command_type
+    4 (length _command_type)
+    ;; time _timestamp
+    8
+    ;; int32 _target_system
+    4
+    ;; uav_msgs/TakeoffCommand _takeoff
+    (send _takeoff :serialization-length)
+    ;; uav_msgs/LandCommand _land
+    (send _land :serialization-length)
+    ;; uav_msgs/PositionControlNEDCommand _pos_ned
+    (send _pos_ned :serialization-length)
+    ;; uav_msgs/PositionControlGlobalCommand _pos_global
+    (send _pos_global :serialization-length)
+    ;; uav_msgs/VelocityControlNEDCommand _vel_ned
+    (send _vel_ned :serialization-length)
+    ;; uav_msgs/ReturnToLaunchCommand _rtl
+    (send _rtl :serialization-length)
+    ;; uav_msgs/HoverCommand _hover
+    (send _hover :serialization-length)
+    ;; uav_msgs/SetModeCommand _set_mode
+    (send _set_mode :serialization-length)
+    ))
+  (:serialize
+   (&optional strm)
+   (let ((s (if strm strm
+              (make-string-output-stream (send self :serialization-length)))))
+     ;; std_msgs/Header _header
+       (send _header :serialize s)
+     ;; string _command_type
+       (write-long (length _command_type) s) (princ _command_type s)
+     ;; time _timestamp
+       (write-long (send _timestamp :sec) s) (write-long (send _timestamp :nsec) s)
+     ;; int32 _target_system
+       (write-long _target_system s)
+     ;; uav_msgs/TakeoffCommand _takeoff
+       (send _takeoff :serialize s)
+     ;; uav_msgs/LandCommand _land
+       (send _land :serialize s)
+     ;; uav_msgs/PositionControlNEDCommand _pos_ned
+       (send _pos_ned :serialize s)
+     ;; uav_msgs/PositionControlGlobalCommand _pos_global
+       (send _pos_global :serialize s)
+     ;; uav_msgs/VelocityControlNEDCommand _vel_ned
+       (send _vel_ned :serialize s)
+     ;; uav_msgs/ReturnToLaunchCommand _rtl
+       (send _rtl :serialize s)
+     ;; uav_msgs/HoverCommand _hover
+       (send _hover :serialize s)
+     ;; uav_msgs/SetModeCommand _set_mode
+       (send _set_mode :serialize s)
+     ;;
+     (if (null strm) (get-output-stream-string s))))
+  (:deserialize
+   (buf &optional (ptr- 0))
+   ;; std_msgs/Header _header
+     (send _header :deserialize buf ptr-) (incf ptr- (send _header :serialization-length))
+   ;; string _command_type
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _command_type (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; time _timestamp
+     (send _timestamp :sec (sys::peek buf ptr- :integer)) (incf ptr- 4)  (send _timestamp :nsec (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; int32 _target_system
+     (setq _target_system (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; uav_msgs/TakeoffCommand _takeoff
+     (send _takeoff :deserialize buf ptr-) (incf ptr- (send _takeoff :serialization-length))
+   ;; uav_msgs/LandCommand _land
+     (send _land :deserialize buf ptr-) (incf ptr- (send _land :serialization-length))
+   ;; uav_msgs/PositionControlNEDCommand _pos_ned
+     (send _pos_ned :deserialize buf ptr-) (incf ptr- (send _pos_ned :serialization-length))
+   ;; uav_msgs/PositionControlGlobalCommand _pos_global
+     (send _pos_global :deserialize buf ptr-) (incf ptr- (send _pos_global :serialization-length))
+   ;; uav_msgs/VelocityControlNEDCommand _vel_ned
+     (send _vel_ned :deserialize buf ptr-) (incf ptr- (send _vel_ned :serialization-length))
+   ;; uav_msgs/ReturnToLaunchCommand _rtl
+     (send _rtl :deserialize buf ptr-) (incf ptr- (send _rtl :serialization-length))
+   ;; uav_msgs/HoverCommand _hover
+     (send _hover :deserialize buf ptr-) (incf ptr- (send _hover :serialization-length))
+   ;; uav_msgs/SetModeCommand _set_mode
+     (send _set_mode :deserialize buf ptr-) (incf ptr- (send _set_mode :serialization-length))
+   ;;
+   self)
+  )
+
+(setf (get uav_msgs::UAVControlCommand :md5sum-) "2448e53b2e6a9e9d3b0a97d3088e8b0c")
+(setf (get uav_msgs::UAVControlCommand :datatype-) "uav_msgs/UAVControlCommand")
+(setf (get uav_msgs::UAVControlCommand :definition-)
+      "std_msgs/Header header
+
+string command_type
+time timestamp
+int32 target_system
+
+TakeoffCommand takeoff
+LandCommand land
+PositionControlNEDCommand pos_ned
+PositionControlGlobalCommand pos_global
+VelocityControlNEDCommand vel_ned
+ReturnToLaunchCommand rtl
+HoverCommand hover
+SetModeCommand set_mode
+
+================================================================================
+MSG: std_msgs/Header
+# Standard metadata for higher-level stamped data types.
+# This is generally used to communicate timestamped data 
+# in a particular coordinate frame.
+# 
+# sequence ID: consecutively increasing ID 
+uint32 seq
+#Two-integer timestamp that is expressed as:
+# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
+# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
+# time-handling sugar is provided by the client library
+time stamp
+#Frame this data is associated with
+string frame_id
+
+================================================================================
+MSG: uav_msgs/TakeoffCommand
+float64 altitude
+float64 yaw
+
+================================================================================
+MSG: uav_msgs/LandCommand
+float64 yaw
+
+================================================================================
+MSG: uav_msgs/PositionControlNEDCommand
+float64 x
+float64 y
+float64 z
+float64 yaw
+
+================================================================================
+MSG: uav_msgs/PositionControlGlobalCommand
+float64 latitude
+float64 longitude
+float64 altitude
+float64 yaw
+
+================================================================================
+MSG: uav_msgs/VelocityControlNEDCommand
+float64 vx
+float64 vy
+float64 vz
+float64 yaw_rate
+
+================================================================================
+MSG: uav_msgs/ReturnToLaunchCommand
+float64 altitude
+
+================================================================================
+MSG: uav_msgs/HoverCommand
+string mode
+================================================================================
+MSG: uav_msgs/SetModeCommand
+string mode
+
+")
+
+
+
+(provide :uav_msgs/UAVControlCommand "2448e53b2e6a9e9d3b0a97d3088e8b0c")
+
+

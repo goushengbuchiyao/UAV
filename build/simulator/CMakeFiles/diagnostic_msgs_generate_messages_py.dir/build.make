@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 
 # Utility rule file for diagnostic_msgs_generate_messages_py.
 
@@ -63,10 +63,10 @@ simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build: diagnostic_
 .PHONY : simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build
 
 simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/clean:
-	cd /home/px4/UAV_SDK/build/simulator && $(CMAKE_COMMAND) -P CMakeFiles/diagnostic_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/px/UAV_SDK/build/simulator && $(CMAKE_COMMAND) -P CMakeFiles/diagnostic_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/clean
 
 simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/depend:
-	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/simulator /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/simulator /home/px4/UAV_SDK/build/simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/simulator /home/px/UAV_SDK/build /home/px/UAV_SDK/build/simulator /home/px/UAV_SDK/build/simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/depend
 

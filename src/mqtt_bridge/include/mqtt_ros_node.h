@@ -79,6 +79,9 @@ private:
 
     // UAV状态采集器
     std::unique_ptr<UAVStateCollector> uav_collector_;
+    // UAV ID
+    std::string uav_id_;
+    
 };
 
 } // namespace mqtt_bridge

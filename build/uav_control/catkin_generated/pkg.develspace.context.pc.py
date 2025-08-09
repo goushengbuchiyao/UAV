@@ -1,8 +1,8 @@
 # generated from catkin/cmake/template/pkg.context.pc.in
 CATKIN_PACKAGE_PREFIX = ""
-PROJECT_PKG_CONFIG_INCLUDE_DIRS = "/home/px4/UAV_SDK/src/uav_control/include".split(';') if "/home/px4/UAV_SDK/src/uav_control/include" != "" else []
-PROJECT_CATKIN_DEPENDS = "message_runtime;px_uav_msgs;geometry_msgs;sensor_msgs".replace(';', ' ')
+PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
+PROJECT_CATKIN_DEPENDS = "roscpp;std_msgs;geometry_msgs;sensor_msgs;mavros_msgs;tf2;tf2_ros;uav_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "uav_control"
-PROJECT_SPACE_DIR = "/home/px4/UAV_SDK/devel"
+PROJECT_SPACE_DIR = "/home/px/UAV_SDK/devel"
 PROJECT_VERSION = "0.0.0"

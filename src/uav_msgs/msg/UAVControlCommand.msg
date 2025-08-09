@@ -1,0 +1,14 @@
+std_msgs/Header header
+
+string command_type
+time timestamp
+int32 target_system
+
+TakeoffCommand takeoff
+LandCommand land
+PositionControlNEDCommand pos_ned
+PositionControlGlobalCommand pos_global
+VelocityControlNEDCommand vel_ned
+ReturnToLaunchCommand rtl
+HoverCommand hover
+SetModeCommand set_mode

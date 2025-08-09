@@ -1,8 +1,8 @@
-# Install script for directory: /home/px4/UAV_SDK/src
+# Install script for directory: /home/px/UAV_SDK/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/px4/UAV_SDK/install")
+  set(CMAKE_INSTALL_PREFIX "/home/px/UAV_SDK/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,110 +49,111 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/px4/UAV_SDK/install/_setup_util.py")
+   "/home/px/UAV_SDK/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/px4/UAV_SDK/install" TYPE PROGRAM FILES "/home/px4/UAV_SDK/build/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/px/UAV_SDK/install" TYPE PROGRAM FILES "/home/px/UAV_SDK/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/px4/UAV_SDK/install/env.sh")
+   "/home/px/UAV_SDK/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/px4/UAV_SDK/install" TYPE PROGRAM FILES "/home/px4/UAV_SDK/build/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/px/UAV_SDK/install" TYPE PROGRAM FILES "/home/px/UAV_SDK/build/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/px4/UAV_SDK/install/setup.bash;/home/px4/UAV_SDK/install/local_setup.bash")
+   "/home/px/UAV_SDK/install/setup.bash;/home/px/UAV_SDK/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/px4/UAV_SDK/install" TYPE FILE FILES
-    "/home/px4/UAV_SDK/build/catkin_generated/installspace/setup.bash"
-    "/home/px4/UAV_SDK/build/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/px/UAV_SDK/install" TYPE FILE FILES
+    "/home/px/UAV_SDK/build/catkin_generated/installspace/setup.bash"
+    "/home/px/UAV_SDK/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/px4/UAV_SDK/install/setup.sh;/home/px4/UAV_SDK/install/local_setup.sh")
+   "/home/px/UAV_SDK/install/setup.sh;/home/px/UAV_SDK/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/px4/UAV_SDK/install" TYPE FILE FILES
-    "/home/px4/UAV_SDK/build/catkin_generated/installspace/setup.sh"
-    "/home/px4/UAV_SDK/build/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/px/UAV_SDK/install" TYPE FILE FILES
+    "/home/px/UAV_SDK/build/catkin_generated/installspace/setup.sh"
+    "/home/px/UAV_SDK/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/px4/UAV_SDK/install/setup.zsh;/home/px4/UAV_SDK/install/local_setup.zsh")
+   "/home/px/UAV_SDK/install/setup.zsh;/home/px/UAV_SDK/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/px4/UAV_SDK/install" TYPE FILE FILES
-    "/home/px4/UAV_SDK/build/catkin_generated/installspace/setup.zsh"
-    "/home/px4/UAV_SDK/build/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/px/UAV_SDK/install" TYPE FILE FILES
+    "/home/px/UAV_SDK/build/catkin_generated/installspace/setup.zsh"
+    "/home/px/UAV_SDK/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/px4/UAV_SDK/install/setup.fish;/home/px4/UAV_SDK/install/local_setup.fish")
+   "/home/px/UAV_SDK/install/setup.fish;/home/px/UAV_SDK/install/local_setup.fish")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/px4/UAV_SDK/install" TYPE FILE FILES
-    "/home/px4/UAV_SDK/build/catkin_generated/installspace/setup.fish"
-    "/home/px4/UAV_SDK/build/catkin_generated/installspace/local_setup.fish"
+file(INSTALL DESTINATION "/home/px/UAV_SDK/install" TYPE FILE FILES
+    "/home/px/UAV_SDK/build/catkin_generated/installspace/setup.fish"
+    "/home/px/UAV_SDK/build/catkin_generated/installspace/local_setup.fish"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/px4/UAV_SDK/install/.rosinstall")
+   "/home/px/UAV_SDK/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/px4/UAV_SDK/install" TYPE FILE FILES "/home/px4/UAV_SDK/build/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/px/UAV_SDK/install" TYPE FILE FILES "/home/px/UAV_SDK/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/px4/UAV_SDK/build/gtest/cmake_install.cmake")
-  include("/home/px4/UAV_SDK/build/common/px_uav_msgs/cmake_install.cmake")
-  include("/home/px4/UAV_SDK/build/aruco_detection/cmake_install.cmake")
-  include("/home/px4/UAV_SDK/build/communication/cmake_install.cmake")
-  include("/home/px4/UAV_SDK/build/mqtt_bridge/cmake_install.cmake")
-  include("/home/px4/UAV_SDK/build/mqtt_camera_interface/cmake_install.cmake")
-  include("/home/px4/UAV_SDK/build/simulator/cmake_install.cmake")
-  include("/home/px4/UAV_SDK/build/uav_control/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/gtest/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/common/px_uav_msgs/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/aruco_detection/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/communication/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/mqtt_bridge/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/mqtt_camera_interface/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/simulator/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/uav_msgs/cmake_install.cmake")
+  include("/home/px/UAV_SDK/build/uav_control/cmake_install.cmake")
 
 endif()
 
@@ -164,5 +165,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/px4/UAV_SDK/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/px/UAV_SDK/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

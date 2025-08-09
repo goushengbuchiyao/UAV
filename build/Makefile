@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles /home/px4/UAV_SDK/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles /home/px/UAV_SDK/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -2001,225 +2001,277 @@ trajectory_msgs_generate_messages_py/fast:
 .PHONY : trajectory_msgs_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named joy_node
+# Target rules for targets named uav_msgs_genpy
 
 # Build rule for target.
-joy_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 joy_node
-.PHONY : joy_node
+uav_msgs_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_genpy
+.PHONY : uav_msgs_genpy
 
 # fast build rule for target.
-joy_node/fast:
-	$(MAKE) -f uav_control/CMakeFiles/joy_node.dir/build.make uav_control/CMakeFiles/joy_node.dir/build
-.PHONY : joy_node/fast
+uav_msgs_genpy/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_genpy.dir/build.make uav_msgs/CMakeFiles/uav_msgs_genpy.dir/build
+.PHONY : uav_msgs_genpy/fast
 
 #=============================================================================
-# Target rules for targets named rc_test
+# Target rules for targets named uav_msgs_generate_messages_py
 
 # Build rule for target.
-rc_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rc_test
-.PHONY : rc_test
+uav_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages_py
+.PHONY : uav_msgs_generate_messages_py
 
 # fast build rule for target.
-rc_test/fast:
-	$(MAKE) -f uav_control/CMakeFiles/rc_test.dir/build.make uav_control/CMakeFiles/rc_test.dir/build
-.PHONY : rc_test/fast
+uav_msgs_generate_messages_py/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build
+.PHONY : uav_msgs_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named uav_command_pub
+# Target rules for targets named uav_msgs_generate_messages_nodejs
 
 # Build rule for target.
-uav_command_pub: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_command_pub
-.PHONY : uav_command_pub
+uav_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages_nodejs
+.PHONY : uav_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-uav_command_pub/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_command_pub.dir/build.make uav_control/CMakeFiles/uav_command_pub.dir/build
-.PHONY : uav_command_pub/fast
+uav_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/build
+.PHONY : uav_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_generate_messages
+# Target rules for targets named uav_msgs_generate_messages_lisp
 
 # Build rule for target.
-uav_control_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages
-.PHONY : uav_control_generate_messages
+uav_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages_lisp
+.PHONY : uav_msgs_generate_messages_lisp
 
 # fast build rule for target.
-uav_control_generate_messages/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages.dir/build
-.PHONY : uav_control_generate_messages/fast
+uav_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/build
+.PHONY : uav_msgs_generate_messages_lisp/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_geneus
+# Target rules for targets named uav_msgs_geneus
 
 # Build rule for target.
-uav_control_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_geneus
-.PHONY : uav_control_geneus
+uav_msgs_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_geneus
+.PHONY : uav_msgs_geneus
 
 # fast build rule for target.
-uav_control_geneus/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_geneus.dir/build.make uav_control/CMakeFiles/uav_control_geneus.dir/build
-.PHONY : uav_control_geneus/fast
+uav_msgs_geneus/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_geneus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_geneus.dir/build
+.PHONY : uav_msgs_geneus/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_generate_messages_lisp
+# Target rules for targets named uav_msgs_generate_messages
 
 # Build rule for target.
-uav_control_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_lisp
-.PHONY : uav_control_generate_messages_lisp
+uav_msgs_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages
+.PHONY : uav_msgs_generate_messages
 
 # fast build rule for target.
-uav_control_generate_messages_lisp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_lisp.dir/build
-.PHONY : uav_control_generate_messages_lisp/fast
+uav_msgs_generate_messages/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/build
+.PHONY : uav_msgs_generate_messages/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_generate_messages_nodejs
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_UAVControlCommand
 
 # Build rule for target.
-uav_control_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_nodejs
-.PHONY : uav_control_generate_messages_nodejs
+_uav_msgs_generate_messages_check_deps_UAVControlCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_UAVControlCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_UAVControlCommand
 
 # fast build rule for target.
-uav_control_generate_messages_nodejs/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_nodejs.dir/build
-.PHONY : uav_control_generate_messages_nodejs/fast
+_uav_msgs_generate_messages_check_deps_UAVControlCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_UAVControlCommand/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_generate_messages_eus
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_TakeoffCommand
 
 # Build rule for target.
-uav_control_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_eus
-.PHONY : uav_control_generate_messages_eus
+_uav_msgs_generate_messages_check_deps_TakeoffCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_TakeoffCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_TakeoffCommand
 
 # fast build rule for target.
-uav_control_generate_messages_eus/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_eus.dir/build
-.PHONY : uav_control_generate_messages_eus/fast
+_uav_msgs_generate_messages_check_deps_TakeoffCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_TakeoffCommand/fast
 
 #=============================================================================
-# Target rules for targets named uav_estimator
+# Target rules for targets named uav_msgs_gennodejs
 
 # Build rule for target.
-uav_estimator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_estimator
-.PHONY : uav_estimator
+uav_msgs_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_gennodejs
+.PHONY : uav_msgs_gennodejs
 
 # fast build rule for target.
-uav_estimator/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_estimator.dir/build.make uav_control/CMakeFiles/uav_estimator.dir/build
-.PHONY : uav_estimator/fast
+uav_msgs_gennodejs/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/build.make uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/build
+.PHONY : uav_msgs_gennodejs/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_generate_messages_cpp
+# Target rules for targets named uav_msgs_genlisp
 
 # Build rule for target.
-uav_control_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_cpp
-.PHONY : uav_control_generate_messages_cpp
+uav_msgs_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_genlisp
+.PHONY : uav_msgs_genlisp
 
 # fast build rule for target.
-uav_control_generate_messages_cpp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_cpp.dir/build
-.PHONY : uav_control_generate_messages_cpp/fast
+uav_msgs_genlisp/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/build
+.PHONY : uav_msgs_genlisp/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_genlisp
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand
 
 # Build rule for target.
-uav_control_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_genlisp
-.PHONY : uav_control_genlisp
+_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand
 
 # fast build rule for target.
-uav_control_genlisp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_genlisp.dir/build.make uav_control/CMakeFiles/uav_control_genlisp.dir/build
-.PHONY : uav_control_genlisp/fast
+_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_gennodejs
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand
 
 # Build rule for target.
-uav_control_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_gennodejs
-.PHONY : uav_control_gennodejs
+_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand
 
 # fast build rule for target.
-uav_control_gennodejs/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_gennodejs.dir/build.make uav_control/CMakeFiles/uav_control_gennodejs.dir/build
-.PHONY : uav_control_gennodejs/fast
+_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_generate_messages_py
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_LandCommand
 
 # Build rule for target.
-uav_control_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_generate_messages_py
-.PHONY : uav_control_generate_messages_py
+_uav_msgs_generate_messages_check_deps_LandCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_LandCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_LandCommand
 
 # fast build rule for target.
-uav_control_generate_messages_py/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build.make uav_control/CMakeFiles/uav_control_generate_messages_py.dir/build
-.PHONY : uav_control_generate_messages_py/fast
+_uav_msgs_generate_messages_check_deps_LandCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_LandCommand/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_main
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand
 
 # Build rule for target.
-uav_control_main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_main
-.PHONY : uav_control_main
+_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand
 
 # fast build rule for target.
-uav_control_main/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_main.dir/build.make uav_control/CMakeFiles/uav_control_main.dir/build
-.PHONY : uav_control_main/fast
+_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_gencpp
+# Target rules for targets named uav_msgs_generate_messages_eus
 
 # Build rule for target.
-uav_control_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_gencpp
-.PHONY : uav_control_gencpp
+uav_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages_eus
+.PHONY : uav_msgs_generate_messages_eus
 
 # fast build rule for target.
-uav_control_gencpp/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_gencpp.dir/build.make uav_control/CMakeFiles/uav_control_gencpp.dir/build
-.PHONY : uav_control_gencpp/fast
+uav_msgs_generate_messages_eus/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build
+.PHONY : uav_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named uav_control_genpy
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand
 
 # Build rule for target.
-uav_control_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_control_genpy
-.PHONY : uav_control_genpy
+_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand
 
 # fast build rule for target.
-uav_control_genpy/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_control_genpy.dir/build.make uav_control/CMakeFiles/uav_control_genpy.dir/build
-.PHONY : uav_control_genpy/fast
+_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand/fast
 
 #=============================================================================
-# Target rules for targets named uav_controller
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_HoverCommand
 
 # Build rule for target.
-uav_controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_controller
-.PHONY : uav_controller
+_uav_msgs_generate_messages_check_deps_HoverCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_HoverCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_HoverCommand
 
 # fast build rule for target.
-uav_controller/fast:
-	$(MAKE) -f uav_control/CMakeFiles/uav_controller.dir/build.make uav_control/CMakeFiles/uav_controller.dir/build
-.PHONY : uav_controller/fast
+_uav_msgs_generate_messages_check_deps_HoverCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_HoverCommand/fast
+
+#=============================================================================
+# Target rules for targets named uav_msgs_generate_messages_cpp
+
+# Build rule for target.
+uav_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages_cpp
+.PHONY : uav_msgs_generate_messages_cpp
+
+# fast build rule for target.
+uav_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build
+.PHONY : uav_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_SetModeCommand
+
+# Build rule for target.
+_uav_msgs_generate_messages_check_deps_SetModeCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_SetModeCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_SetModeCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_SetModeCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_SetModeCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_SetModeCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_SetModeCommand/fast
+
+#=============================================================================
+# Target rules for targets named uav_msgs_gencpp
+
+# Build rule for target.
+uav_msgs_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_gencpp
+.PHONY : uav_msgs_gencpp
+
+# fast build rule for target.
+uav_msgs_gencpp/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build
+.PHONY : uav_msgs_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named uav_control_node
+
+# Build rule for target.
+uav_control_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_control_node
+.PHONY : uav_control_node
+
+# fast build rule for target.
+uav_control_node/fast:
+	$(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/build
+.PHONY : uav_control_node/fast
 
 # Help Target
 help:
@@ -2375,23 +2427,27 @@ help:
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... trajectory_msgs_generate_messages_py"
-	@echo "... joy_node"
-	@echo "... rc_test"
-	@echo "... uav_command_pub"
-	@echo "... uav_control_generate_messages"
-	@echo "... uav_control_geneus"
-	@echo "... uav_control_generate_messages_lisp"
-	@echo "... uav_control_generate_messages_nodejs"
-	@echo "... uav_control_generate_messages_eus"
-	@echo "... uav_estimator"
-	@echo "... uav_control_generate_messages_cpp"
-	@echo "... uav_control_genlisp"
-	@echo "... uav_control_gennodejs"
-	@echo "... uav_control_generate_messages_py"
-	@echo "... uav_control_main"
-	@echo "... uav_control_gencpp"
-	@echo "... uav_control_genpy"
-	@echo "... uav_controller"
+	@echo "... uav_msgs_genpy"
+	@echo "... uav_msgs_generate_messages_py"
+	@echo "... uav_msgs_generate_messages_nodejs"
+	@echo "... uav_msgs_generate_messages_lisp"
+	@echo "... uav_msgs_geneus"
+	@echo "... uav_msgs_generate_messages"
+	@echo "... _uav_msgs_generate_messages_check_deps_UAVControlCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_TakeoffCommand"
+	@echo "... uav_msgs_gennodejs"
+	@echo "... uav_msgs_genlisp"
+	@echo "... _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_LandCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand"
+	@echo "... uav_msgs_generate_messages_eus"
+	@echo "... _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_HoverCommand"
+	@echo "... uav_msgs_generate_messages_cpp"
+	@echo "... _uav_msgs_generate_messages_check_deps_SetModeCommand"
+	@echo "... uav_msgs_gencpp"
+	@echo "... uav_control_node"
 .PHONY : help
 
 

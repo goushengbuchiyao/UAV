@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 
+
 ## System dependencies are found with CMake's conventions
 ## 查找 JsonCpp，使用 Config 模式
 find_package(PkgConfig REQUIRED)
@@ -34,12 +35,12 @@ generate_messages(
   geometry_msgs
   std_msgs
   sensor_msgs
-  px_uav_msgs
+
 )
 
 ## Declare a catkin package
 catkin_package(
-  CATKIN_DEPENDS roscpp std_msgs message_runtime px_uav_msgs geometry_msgs sensor_msgs
+  CATKIN_DEPENDS roscpp std_msgs message_runtime geometry_msgs sensor_msgs
   DEPENDS PahoMqttCpp OpenSSL
 )
 # set(JSONCPP_INCLUDE_DIR "/usr/include/jsoncpp")
@@ -57,6 +58,7 @@ add_executable(mqtt_bridge_node
   src/mqtt_ros_node.cpp
   src/mqtt_client.cpp
   src/uav_state_collector.cpp
+  src/uav_command_parser.cpp
   # src/uav_state_publisher.cpp
   # src/message_converter.cpp
 )
