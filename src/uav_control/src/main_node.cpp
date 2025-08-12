@@ -6,7 +6,8 @@
 #include "uav_control/setpoint_publisher.h"
 #include "uav_control/safety_monitor.h"
 #include <uav_msgs/UAVControlCommand.h> // use your top-level message package
-
+#include <chrono>
+#include <ctime>
 class UAVControlMain {
 public:
     UAVControlMain(ros::NodeHandle& nh) : nh_(nh) {
@@ -30,16 +31,17 @@ public:
     }
 
     void cmdCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg) {
-        double now = ros::Time::now().toSec();
+        auto system_now = std::chrono::system_clock::now();
+        std::chrono::duration<double> system_duration = system_now.time_since_epoch();
+        double system_timestamp = system_duration.count();
+        double now = system_timestamp;
         double msg_time = msg->timestamp.sec;
-        ROS_INFO("++++++++++++++++++++++++++++++");
-        ROS_INFO("Received command: type=%s, ts=%.1f, target=%d",
-                 msg->command_type.c_str(), msg_time, msg->target_system);
+        // ROS_INFO("Command timestamp  old: %.1f, now: %.1f", msg_time, now);
         if (std::abs(now - msg_time) > 10.0) {
             ROS_WARN("Command timestamp too old/new: now=%.1f msg=%.1f", now, msg_time);
             return;
         }
-
+        
         if (rc_monitor_.isRCOverride()) {
             ROS_WARN("RC override active -> ignore command");
             std_msgs::String ack; ack.data = "ignored:rc_override";

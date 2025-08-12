@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 # Include any dependencies generated for this target.
 include uav_control/CMakeFiles/uav_control_node.dir/depend.make
@@ -58,82 +58,82 @@ include uav_control/CMakeFiles/uav_control_node.dir/progress.make
 include uav_control/CMakeFiles/uav_control_node.dir/flags.make
 
 uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o: uav_control/CMakeFiles/uav_control_node.dir/flags.make
-uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o: /home/px/UAV_SDK/src/uav_control/src/main_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/main_node.cpp.o -c /home/px/UAV_SDK/src/uav_control/src/main_node.cpp
+uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o: /home/px4/UAV_SDK/src/uav_control/src/main_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o"
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/main_node.cpp.o -c /home/px4/UAV_SDK/src/uav_control/src/main_node.cpp
 
 uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/uav_control_node.dir/src/main_node.cpp.i"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/uav_control/src/main_node.cpp > CMakeFiles/uav_control_node.dir/src/main_node.cpp.i
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px4/UAV_SDK/src/uav_control/src/main_node.cpp > CMakeFiles/uav_control_node.dir/src/main_node.cpp.i
 
 uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/uav_control_node.dir/src/main_node.cpp.s"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/uav_control/src/main_node.cpp -o CMakeFiles/uav_control_node.dir/src/main_node.cpp.s
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px4/UAV_SDK/src/uav_control/src/main_node.cpp -o CMakeFiles/uav_control_node.dir/src/main_node.cpp.s
 
 uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o: uav_control/CMakeFiles/uav_control_node.dir/flags.make
-uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o: /home/px/UAV_SDK/src/uav_control/src/rc_monitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o -c /home/px/UAV_SDK/src/uav_control/src/rc_monitor.cpp
+uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o: /home/px4/UAV_SDK/src/uav_control/src/rc_monitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o"
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o -c /home/px4/UAV_SDK/src/uav_control/src/rc_monitor.cpp
 
 uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.i"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/uav_control/src/rc_monitor.cpp > CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.i
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px4/UAV_SDK/src/uav_control/src/rc_monitor.cpp > CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.i
 
 uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.s"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/uav_control/src/rc_monitor.cpp -o CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.s
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px4/UAV_SDK/src/uav_control/src/rc_monitor.cpp -o CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.s
 
 uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o: uav_control/CMakeFiles/uav_control_node.dir/flags.make
-uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o: /home/px/UAV_SDK/src/uav_control/src/command_dispatcher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o -c /home/px/UAV_SDK/src/uav_control/src/command_dispatcher.cpp
+uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o: /home/px4/UAV_SDK/src/uav_control/src/command_dispatcher.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o"
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o -c /home/px4/UAV_SDK/src/uav_control/src/command_dispatcher.cpp
 
 uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.i"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/uav_control/src/command_dispatcher.cpp > CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.i
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px4/UAV_SDK/src/uav_control/src/command_dispatcher.cpp > CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.i
 
 uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.s"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/uav_control/src/command_dispatcher.cpp -o CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.s
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px4/UAV_SDK/src/uav_control/src/command_dispatcher.cpp -o CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.s
 
 uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o: uav_control/CMakeFiles/uav_control_node.dir/flags.make
-uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o: /home/px/UAV_SDK/src/uav_control/src/controller_manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o -c /home/px/UAV_SDK/src/uav_control/src/controller_manager.cpp
+uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o: /home/px4/UAV_SDK/src/uav_control/src/controller_manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o"
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o -c /home/px4/UAV_SDK/src/uav_control/src/controller_manager.cpp
 
 uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.i"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/uav_control/src/controller_manager.cpp > CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.i
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px4/UAV_SDK/src/uav_control/src/controller_manager.cpp > CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.i
 
 uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.s"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/uav_control/src/controller_manager.cpp -o CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.s
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px4/UAV_SDK/src/uav_control/src/controller_manager.cpp -o CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.s
 
 uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o: uav_control/CMakeFiles/uav_control_node.dir/flags.make
-uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o: /home/px/UAV_SDK/src/uav_control/src/setpoint_publisher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o -c /home/px/UAV_SDK/src/uav_control/src/setpoint_publisher.cpp
+uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o: /home/px4/UAV_SDK/src/uav_control/src/setpoint_publisher.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o"
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o -c /home/px4/UAV_SDK/src/uav_control/src/setpoint_publisher.cpp
 
 uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.i"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/uav_control/src/setpoint_publisher.cpp > CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.i
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px4/UAV_SDK/src/uav_control/src/setpoint_publisher.cpp > CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.i
 
 uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.s"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/uav_control/src/setpoint_publisher.cpp -o CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.s
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px4/UAV_SDK/src/uav_control/src/setpoint_publisher.cpp -o CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.s
 
 uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o: uav_control/CMakeFiles/uav_control_node.dir/flags.make
-uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o: /home/px/UAV_SDK/src/uav_control/src/safety_monitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o -c /home/px/UAV_SDK/src/uav_control/src/safety_monitor.cpp
+uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o: /home/px4/UAV_SDK/src/uav_control/src/safety_monitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o"
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o -c /home/px4/UAV_SDK/src/uav_control/src/safety_monitor.cpp
 
 uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.i"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px/UAV_SDK/src/uav_control/src/safety_monitor.cpp > CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.i
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/px4/UAV_SDK/src/uav_control/src/safety_monitor.cpp > CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.i
 
 uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.s"
-	cd /home/px/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px/UAV_SDK/src/uav_control/src/safety_monitor.cpp -o CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.s
+	cd /home/px4/UAV_SDK/build/uav_control && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/px4/UAV_SDK/src/uav_control/src/safety_monitor.cpp -o CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.s
 
 # Object files for target uav_control_node
 uav_control_node_OBJECTS = \
@@ -147,48 +147,48 @@ uav_control_node_OBJECTS = \
 # External object files for target uav_control_node
 uav_control_node_EXTERNAL_OBJECTS =
 
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/build.make
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libtf2_ros.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libactionlib.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libmessage_filters.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libroscpp.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/librosconsole.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/librosconsole_log4cxx.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/librosconsole_backend_interface.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libxmlrpcpp.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libtf2.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libroscpp_serialization.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/librostime.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libcpp_common.so
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/px/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable /home/px/UAV_SDK/devel/lib/uav_control/uav_control_node"
-	cd /home/px/UAV_SDK/build/uav_control && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/uav_control_node.dir/link.txt --verbose=$(VERBOSE)
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/build.make
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libtf2_ros.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libactionlib.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libmessage_filters.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libroscpp.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/librosconsole.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/librosconsole_log4cxx.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/librosconsole_backend_interface.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libxmlrpcpp.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libtf2.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libroscpp_serialization.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/librostime.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /opt/ros/noetic/lib/libcpp_common.so
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable /home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node"
+	cd /home/px4/UAV_SDK/build/uav_control && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/uav_control_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-uav_control/CMakeFiles/uav_control_node.dir/build: /home/px/UAV_SDK/devel/lib/uav_control/uav_control_node
+uav_control/CMakeFiles/uav_control_node.dir/build: /home/px4/UAV_SDK/devel/lib/uav_control/uav_control_node
 
 .PHONY : uav_control/CMakeFiles/uav_control_node.dir/build
 
 uav_control/CMakeFiles/uav_control_node.dir/clean:
-	cd /home/px/UAV_SDK/build/uav_control && $(CMAKE_COMMAND) -P CMakeFiles/uav_control_node.dir/cmake_clean.cmake
+	cd /home/px4/UAV_SDK/build/uav_control && $(CMAKE_COMMAND) -P CMakeFiles/uav_control_node.dir/cmake_clean.cmake
 .PHONY : uav_control/CMakeFiles/uav_control_node.dir/clean
 
 uav_control/CMakeFiles/uav_control_node.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/uav_control /home/px/UAV_SDK/build /home/px/UAV_SDK/build/uav_control /home/px/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/uav_control /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/uav_control /home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uav_control/CMakeFiles/uav_control_node.dir/depend
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 # Utility rule file for mqtt_bridge_gencpp.
 
@@ -63,10 +63,10 @@ mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build: mqtt_bridge_gencpp
 .PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build
 
 mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/clean:
-	cd /home/px/UAV_SDK/build/mqtt_bridge && $(CMAKE_COMMAND) -P CMakeFiles/mqtt_bridge_gencpp.dir/cmake_clean.cmake
+	cd /home/px4/UAV_SDK/build/mqtt_bridge && $(CMAKE_COMMAND) -P CMakeFiles/mqtt_bridge_gencpp.dir/cmake_clean.cmake
 .PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/clean
 
 mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/mqtt_bridge /home/px/UAV_SDK/build /home/px/UAV_SDK/build/mqtt_bridge /home/px/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/mqtt_bridge /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/mqtt_bridge /home/px4/UAV_SDK/build/mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/depend
 

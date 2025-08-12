@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles /home/px/UAV_SDK/build/mqtt_camera_interface/CMakeFiles/progress.marks
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles /home/px4/UAV_SDK/build/mqtt_camera_interface/CMakeFiles/progress.marks
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/clean
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/preinstall
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/preinstall
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/rule
 .PHONY : mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ mqtt_camera_node: mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/rule
 
 # fast build rule for target.
 mqtt_camera_node/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build.make mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build.make mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build
 .PHONY : mqtt_camera_node/fast
 
 src/mqtt_camera_node.o: src/mqtt_camera_node.cpp.o
@@ -188,7 +188,7 @@ src/mqtt_camera_node.o: src/mqtt_camera_node.cpp.o
 
 # target to build an object file
 src/mqtt_camera_node.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build.make mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/src/mqtt_camera_node.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build.make mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/src/mqtt_camera_node.cpp.o
 .PHONY : src/mqtt_camera_node.cpp.o
 
 src/mqtt_camera_node.i: src/mqtt_camera_node.cpp.i
@@ -197,7 +197,7 @@ src/mqtt_camera_node.i: src/mqtt_camera_node.cpp.i
 
 # target to preprocess a source file
 src/mqtt_camera_node.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build.make mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/src/mqtt_camera_node.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build.make mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/src/mqtt_camera_node.cpp.i
 .PHONY : src/mqtt_camera_node.cpp.i
 
 src/mqtt_camera_node.s: src/mqtt_camera_node.cpp.s
@@ -206,7 +206,7 @@ src/mqtt_camera_node.s: src/mqtt_camera_node.cpp.s
 
 # target to generate assembly for a file
 src/mqtt_camera_node.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build.make mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/src/mqtt_camera_node.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/build.make mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir/src/mqtt_camera_node.cpp.s
 .PHONY : src/mqtt_camera_node.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

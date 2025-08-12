@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/px/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/LandCommand.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
 string
 -
 vector
@@ -54,7 +54,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
 string
 -
 vector
@@ -70,7 +70,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
 string
 -
 vector
@@ -86,7 +86,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
 string
 -
 vector
@@ -102,7 +102,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
 string
 -
 vector
@@ -118,7 +118,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
 string
 -
 vector
@@ -152,7 +152,7 @@ uav_msgs/HoverCommand.h
 uav_msgs/SetModeCommand.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
 string
 -
 vector
@@ -168,7 +168,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/src/uav_control/include/uav_control/command_dispatcher.h
+/home/px4/UAV_SDK/src/uav_control/include/uav_control/command_dispatcher.h
 ros/ros.h
 -
 uav_msgs/UAVControlCommand.h
@@ -184,7 +184,7 @@ geometry_msgs/PoseStamped.h
 geometry_msgs/TwistStamped.h
 -
 
-/home/px/UAV_SDK/src/uav_control/include/uav_control/controller_manager.h
+/home/px4/UAV_SDK/src/uav_control/include/uav_control/controller_manager.h
 ros/ros.h
 -
 geometry_msgs/PoseStamped.h
@@ -192,38 +192,50 @@ geometry_msgs/PoseStamped.h
 geometry_msgs/TwistStamped.h
 -
 
-/home/px/UAV_SDK/src/uav_control/include/uav_control/rc_monitor.h
+/home/px4/UAV_SDK/src/uav_control/include/uav_control/rc_monitor.h
 ros/ros.h
 -
 mavros_msgs/RCIn.h
 -
 
-/home/px/UAV_SDK/src/uav_control/include/uav_control/safety_monitor.h
+/home/px4/UAV_SDK/src/uav_control/include/uav_control/safety_monitor.h
 ros/ros.h
 -
 
-/home/px/UAV_SDK/src/uav_control/include/uav_control/setpoint_publisher.h
+/home/px4/UAV_SDK/src/uav_control/include/uav_control/setpoint_publisher.h
 ros/ros.h
 -
 geometry_msgs/PoseStamped.h
 -
 
-/home/px/UAV_SDK/src/uav_control/src/main_node.cpp
+/home/px4/UAV_SDK/src/uav_control/src/command_dispatcher.cpp
+uav_control/command_dispatcher.h
+/home/px4/UAV_SDK/src/uav_control/src/uav_control/command_dispatcher.h
+string
+-
+uav_msgs/UAVControlCommand.h
+-
+
+/home/px4/UAV_SDK/src/uav_control/src/main_node.cpp
 ros/ros.h
 -
 std_msgs/String.h
 -
 uav_control/rc_monitor.h
-/home/px/UAV_SDK/src/uav_control/src/uav_control/rc_monitor.h
+/home/px4/UAV_SDK/src/uav_control/src/uav_control/rc_monitor.h
 uav_control/command_dispatcher.h
-/home/px/UAV_SDK/src/uav_control/src/uav_control/command_dispatcher.h
+/home/px4/UAV_SDK/src/uav_control/src/uav_control/command_dispatcher.h
 uav_control/controller_manager.h
-/home/px/UAV_SDK/src/uav_control/src/uav_control/controller_manager.h
+/home/px4/UAV_SDK/src/uav_control/src/uav_control/controller_manager.h
 uav_control/setpoint_publisher.h
-/home/px/UAV_SDK/src/uav_control/src/uav_control/setpoint_publisher.h
+/home/px4/UAV_SDK/src/uav_control/src/uav_control/setpoint_publisher.h
 uav_control/safety_monitor.h
-/home/px/UAV_SDK/src/uav_control/src/uav_control/safety_monitor.h
+/home/px4/UAV_SDK/src/uav_control/src/uav_control/safety_monitor.h
 uav_msgs/UAVControlCommand.h
+-
+chrono
+-
+ctime
 -
 
 /opt/ros/noetic/include/geometry_msgs/Point.h

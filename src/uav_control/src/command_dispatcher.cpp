@@ -19,6 +19,7 @@ void CommandDispatcher::init(ros::NodeHandle& nh, const std::string& ns) {
 bool CommandDispatcher::execute(const uav_msgs::UAVControlCommand& cmd, std::string& out_reason) {
     try {
         if (cmd.command_type == "takeoff") {
+            ROS_INFO("++++++++++++++++++++++ takeoff ++++++++++++++++++++++");
             return callTakeoff(cmd.takeoff.altitude, cmd.takeoff.yaw);
         }
         if (cmd.command_type == "land") {

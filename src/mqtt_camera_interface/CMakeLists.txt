@@ -37,6 +37,6 @@ add_dependencies(mqtt_camera_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_E
 target_link_libraries(mqtt_camera_node
   ${catkin_LIBRARIES}
   # nlohmann_json::nlohmann_json
-  PahoMqttCpp::paho-mqttpp3-shared
+  PahoMqttCpp::paho-mqttpp3
   # PahoMqttCpp::paho-mqtt3as
 )

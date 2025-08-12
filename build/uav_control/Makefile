@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles /home/px/UAV_SDK/build/uav_control/CMakeFiles/progress.marks
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles /home/px4/UAV_SDK/build/uav_control/CMakeFiles/progress.marks
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/clean
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_node.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_node.dir/rule
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_node.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_node.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/rule
 
 # fast build rule for target.
 uav_control_node/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/build
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/build
 .PHONY : uav_control_node/fast
 
 src/command_dispatcher.o: src/command_dispatcher.cpp.o
@@ -188,7 +188,7 @@ src/command_dispatcher.o: src/command_dispatcher.cpp.o
 
 # target to build an object file
 src/command_dispatcher.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o
 .PHONY : src/command_dispatcher.cpp.o
 
 src/command_dispatcher.i: src/command_dispatcher.cpp.i
@@ -197,7 +197,7 @@ src/command_dispatcher.i: src/command_dispatcher.cpp.i
 
 # target to preprocess a source file
 src/command_dispatcher.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.i
 .PHONY : src/command_dispatcher.cpp.i
 
 src/command_dispatcher.s: src/command_dispatcher.cpp.s
@@ -206,7 +206,7 @@ src/command_dispatcher.s: src/command_dispatcher.cpp.s
 
 # target to generate assembly for a file
 src/command_dispatcher.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.s
 .PHONY : src/command_dispatcher.cpp.s
 
 src/controller_manager.o: src/controller_manager.cpp.o
@@ -215,7 +215,7 @@ src/controller_manager.o: src/controller_manager.cpp.o
 
 # target to build an object file
 src/controller_manager.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o
 .PHONY : src/controller_manager.cpp.o
 
 src/controller_manager.i: src/controller_manager.cpp.i
@@ -224,7 +224,7 @@ src/controller_manager.i: src/controller_manager.cpp.i
 
 # target to preprocess a source file
 src/controller_manager.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.i
 .PHONY : src/controller_manager.cpp.i
 
 src/controller_manager.s: src/controller_manager.cpp.s
@@ -233,7 +233,7 @@ src/controller_manager.s: src/controller_manager.cpp.s
 
 # target to generate assembly for a file
 src/controller_manager.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.s
 .PHONY : src/controller_manager.cpp.s
 
 src/main_node.o: src/main_node.cpp.o
@@ -242,7 +242,7 @@ src/main_node.o: src/main_node.cpp.o
 
 # target to build an object file
 src/main_node.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o
 .PHONY : src/main_node.cpp.o
 
 src/main_node.i: src/main_node.cpp.i
@@ -251,7 +251,7 @@ src/main_node.i: src/main_node.cpp.i
 
 # target to preprocess a source file
 src/main_node.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.i
 .PHONY : src/main_node.cpp.i
 
 src/main_node.s: src/main_node.cpp.s
@@ -260,7 +260,7 @@ src/main_node.s: src/main_node.cpp.s
 
 # target to generate assembly for a file
 src/main_node.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.s
 .PHONY : src/main_node.cpp.s
 
 src/rc_monitor.o: src/rc_monitor.cpp.o
@@ -269,7 +269,7 @@ src/rc_monitor.o: src/rc_monitor.cpp.o
 
 # target to build an object file
 src/rc_monitor.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o
 .PHONY : src/rc_monitor.cpp.o
 
 src/rc_monitor.i: src/rc_monitor.cpp.i
@@ -278,7 +278,7 @@ src/rc_monitor.i: src/rc_monitor.cpp.i
 
 # target to preprocess a source file
 src/rc_monitor.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.i
 .PHONY : src/rc_monitor.cpp.i
 
 src/rc_monitor.s: src/rc_monitor.cpp.s
@@ -287,7 +287,7 @@ src/rc_monitor.s: src/rc_monitor.cpp.s
 
 # target to generate assembly for a file
 src/rc_monitor.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.s
 .PHONY : src/rc_monitor.cpp.s
 
 src/safety_monitor.o: src/safety_monitor.cpp.o
@@ -296,7 +296,7 @@ src/safety_monitor.o: src/safety_monitor.cpp.o
 
 # target to build an object file
 src/safety_monitor.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o
 .PHONY : src/safety_monitor.cpp.o
 
 src/safety_monitor.i: src/safety_monitor.cpp.i
@@ -305,7 +305,7 @@ src/safety_monitor.i: src/safety_monitor.cpp.i
 
 # target to preprocess a source file
 src/safety_monitor.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.i
 .PHONY : src/safety_monitor.cpp.i
 
 src/safety_monitor.s: src/safety_monitor.cpp.s
@@ -314,7 +314,7 @@ src/safety_monitor.s: src/safety_monitor.cpp.s
 
 # target to generate assembly for a file
 src/safety_monitor.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.s
 .PHONY : src/safety_monitor.cpp.s
 
 src/setpoint_publisher.o: src/setpoint_publisher.cpp.o
@@ -323,7 +323,7 @@ src/setpoint_publisher.o: src/setpoint_publisher.cpp.o
 
 # target to build an object file
 src/setpoint_publisher.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o
 .PHONY : src/setpoint_publisher.cpp.o
 
 src/setpoint_publisher.i: src/setpoint_publisher.cpp.i
@@ -332,7 +332,7 @@ src/setpoint_publisher.i: src/setpoint_publisher.cpp.i
 
 # target to preprocess a source file
 src/setpoint_publisher.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.i
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.i
 .PHONY : src/setpoint_publisher.cpp.i
 
 src/setpoint_publisher.s: src/setpoint_publisher.cpp.s
@@ -341,7 +341,7 @@ src/setpoint_publisher.s: src/setpoint_publisher.cpp.s
 
 # target to generate assembly for a file
 src/setpoint_publisher.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.s
+	cd /home/px4/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.s
 .PHONY : src/setpoint_publisher.cpp.s
 
 # Help Target
@@ -387,6 +387,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
