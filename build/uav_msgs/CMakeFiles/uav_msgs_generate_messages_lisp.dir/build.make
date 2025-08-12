@@ -106,15 +106,15 @@ uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp: /home/px4/UAV_SDK/devel/sha
 
 /home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
 /home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg
-/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg
-/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg
-/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg
-/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg
+/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg
 /home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/LandCommand.msg
+/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg
 /home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg
 /home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg
-/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg
+/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg
+/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg
+/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg
+/home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg/UAVControlCommand.lisp: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Lisp code from uav_msgs/UAVControlCommand.msg"
 	cd /home/px4/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/px4/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/share/common-lisp/ros/uav_msgs/msg
 

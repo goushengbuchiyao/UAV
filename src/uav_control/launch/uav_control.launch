@@ -1,9 +1,16 @@
 <launch>
   <arg name="uav_id" default="1"/>
-  
+  <param name="uav_id" value="uav$(arg uav_id)" />
+  <param name="ros_command_topic" value="/mqtt_bridge/uav$(arg uav_id)/ros/uavcontrol/command"/>
+
   <node name="uav_control_node" pkg="uav_control" type="uav_control_node" output="screen">
-    <param name="ros_command_topic" value="/mqtt_ros_bridge/uav$(arg uav_id)/ros/uavcontrol/command"/>
+    <param name="offboard_rate" value="20.0" />
+    <param name="offboard_init_frames" value="100" />
+    <param name="geofence_center_lat" value="0.0" />
+    <param name="geofence_center_lon" value="0.0" />
+    <param name="geofence_radius_m" value="1000.0" />
+    <param name="odom_timeout" value="1.0" />
+    <param name="rc_timeout" value="2.0" />
     <param name="min_battery_pct" value="20.0" />
-    <param name="command_timeout" value="5.0" />
   </node>
 </launch>

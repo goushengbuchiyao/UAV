@@ -87,9 +87,9 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_cpp: /home/px4/UAV_S
 
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUAVState.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUAVState.h: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg
-/home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUAVState.h: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUAVState.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUAVState.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUAVState.h: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVState.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUAVState.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from px_uav_msgs/MultiUAVState.msg"
 	cd /home/px4/UAV_SDK/src/common/px_uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUAVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/include/px_uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
@@ -103,9 +103,9 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_cpp: /home/px4/UAV_S
 
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg
-/home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/UAVControlState.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from px_uav_msgs/UAVControlState.msg"
 	cd /home/px4/UAV_SDK/src/common/px_uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UAVControlState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/include/px_uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
@@ -150,8 +150,8 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_cpp: /home/px4/UAV_S
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUGVState.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUGVState.h: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUGVState.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUGVState.h: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUGVState.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUGVState.h: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/UGVState.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/MultiUGVState.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from px_uav_msgs/MultiUGVState.msg"
 	cd /home/px4/UAV_SDK/src/common/px_uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/MultiUGVState.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/include/px_uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
@@ -166,9 +166,9 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_cpp: /home/px4/UAV_S
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/StationCommand.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
-/home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseStamped.msg
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/StationCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating C++ code from px_uav_msgs/StationCommand.msg"
@@ -176,8 +176,8 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_cpp: /home/px4/UAV_S
 
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/SwarmCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/SwarmCommand.h: /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg
-/home/px4/UAV_SDK/devel/include/px_uav_msgs/SwarmCommand.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/SwarmCommand.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/px4/UAV_SDK/devel/include/px_uav_msgs/SwarmCommand.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/px4/UAV_SDK/devel/include/px_uav_msgs/SwarmCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating C++ code from px_uav_msgs/SwarmCommand.msg"
 	cd /home/px4/UAV_SDK/src/common/px_uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg -Ipx_uav_msgs:/home/px4/UAV_SDK/src/common/px_uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p px_uav_msgs -o /home/px4/UAV_SDK/devel/include/px_uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..

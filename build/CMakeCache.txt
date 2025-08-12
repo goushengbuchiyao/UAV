@@ -528,7 +528,7 @@ gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 image_transport_DIR:PATH=/opt/ros/noetic/share/image_transport/cmake
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/libmessage_filters.so
+lib:FILEPATH=/opt/ros/noetic/lib/libxmlrpcpp.so
 
 //The directory containing a CMake configuration file for libmavconn.
 libmavconn_DIR:PATH=/opt/ros/noetic/share/libmavconn/cmake

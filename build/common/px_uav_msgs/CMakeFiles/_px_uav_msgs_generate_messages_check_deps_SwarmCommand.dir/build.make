@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 include common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_SwarmCommand.dir/progress.make
 
 common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_SwarmCommand:
-	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg geometry_msgs/Point:std_msgs/Header
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/SwarmCommand.msg std_msgs/Header:geometry_msgs/Point
 
 _px_uav_msgs_generate_messages_check_deps_SwarmCommand: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_SwarmCommand
 _px_uav_msgs_generate_messages_check_deps_SwarmCommand: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_SwarmCommand.dir/build.make

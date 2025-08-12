@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/px4/UAV_SDK/devel/setup.sh

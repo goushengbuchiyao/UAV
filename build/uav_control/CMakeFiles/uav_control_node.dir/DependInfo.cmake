@@ -4,12 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/px4/UAV_SDK/src/uav_control/src/command_dispatcher.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/command_dispatcher.cpp.o"
-  "/home/px4/UAV_SDK/src/uav_control/src/controller_manager.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/controller_manager.cpp.o"
-  "/home/px4/UAV_SDK/src/uav_control/src/main_node.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/main_node.cpp.o"
-  "/home/px4/UAV_SDK/src/uav_control/src/rc_monitor.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/rc_monitor.cpp.o"
-  "/home/px4/UAV_SDK/src/uav_control/src/safety_monitor.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/safety_monitor.cpp.o"
-  "/home/px4/UAV_SDK/src/uav_control/src/setpoint_publisher.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/setpoint_publisher.cpp.o"
+  "/home/px4/UAV_SDK/src/uav_control/src/command_executor.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/command_executor.cpp.o"
+  "/home/px4/UAV_SDK/src/uav_control/src/main.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/main.cpp.o"
+  "/home/px4/UAV_SDK/src/uav_control/src/safety_checker.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/safety_checker.cpp.o"
+  "/home/px4/UAV_SDK/src/uav_control/src/uav_control_node.cpp" "/home/px4/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

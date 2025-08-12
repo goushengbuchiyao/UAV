@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 include uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/progress.make
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand:
-	cd /home/px4/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px4/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg uav_msgs/SetModeCommand:uav_msgs/TakeoffCommand:uav_msgs/ReturnToLaunchCommand:std_msgs/Header:uav_msgs/PositionControlNEDCommand:uav_msgs/LandCommand:uav_msgs/VelocityControlNEDCommand:uav_msgs/HoverCommand:uav_msgs/PositionControlGlobalCommand
+	cd /home/px4/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px4/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg uav_msgs/PositionControlGlobalCommand:uav_msgs/LandCommand:uav_msgs/ReturnToLaunchCommand:uav_msgs/VelocityControlNEDCommand:uav_msgs/HoverCommand:uav_msgs/TakeoffCommand:uav_msgs/SetModeCommand:uav_msgs/PositionControlNEDCommand:std_msgs/Header
 
 _uav_msgs_generate_messages_check_deps_UAVControlCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand
 _uav_msgs_generate_messages_check_deps_UAVControlCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/build.make

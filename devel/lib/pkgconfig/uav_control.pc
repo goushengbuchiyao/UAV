@@ -2,7 +2,7 @@ prefix=/home/px4/UAV_SDK/devel
 
 Name: uav_control
 Description: Description of uav_control
-Version: 0.0.0
+Version: 0.1.0
 Cflags: 
 Libs: -L${prefix}/lib 
-Requires: roscpp std_msgs geometry_msgs sensor_msgs mavros_msgs tf2 tf2_ros uav_msgs
+Requires: roscpp std_msgs sensor_msgs nav_msgs geometry_msgs mavros_msgs uav_msgs
