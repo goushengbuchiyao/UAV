@@ -7,15 +7,13 @@ import genpy
 import struct
 
 import genpy
-import std_msgs.msg
 import uav_msgs.msg
 
 class UAVControlCommand(genpy.Message):
-  _md5sum = "2448e53b2e6a9e9d3b0a97d3088e8b0c"
+  _md5sum = "e2c2bd3cd120b68b542da3a74da209fb"
   _type = "uav_msgs/UAVControlCommand"
-  _has_header = True  # flag to mark the presence of a Header object
-  _full_text = """std_msgs/Header header
-
+  _has_header = False  # flag to mark the presence of a Header object
+  _full_text = """
 string command_type
 time timestamp
 int32 target_system
@@ -28,22 +26,6 @@ VelocityControlNEDCommand vel_ned
 ReturnToLaunchCommand rtl
 HoverCommand hover
 SetModeCommand set_mode
-
-================================================================================
-MSG: std_msgs/Header
-# Standard metadata for higher-level stamped data types.
-# This is generally used to communicate timestamped data 
-# in a particular coordinate frame.
-# 
-# sequence ID: consecutively increasing ID 
-uint32 seq
-#Two-integer timestamp that is expressed as:
-# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
-# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
-# time-handling sugar is provided by the client library
-time stamp
-#Frame this data is associated with
-string frame_id
 
 ================================================================================
 MSG: uav_msgs/TakeoffCommand
@@ -86,8 +68,8 @@ string mode
 MSG: uav_msgs/SetModeCommand
 string mode
 """
-  __slots__ = ['header','command_type','timestamp','target_system','takeoff','land','pos_ned','pos_global','vel_ned','rtl','hover','set_mode']
-  _slot_types = ['std_msgs/Header','string','time','int32','uav_msgs/TakeoffCommand','uav_msgs/LandCommand','uav_msgs/PositionControlNEDCommand','uav_msgs/PositionControlGlobalCommand','uav_msgs/VelocityControlNEDCommand','uav_msgs/ReturnToLaunchCommand','uav_msgs/HoverCommand','uav_msgs/SetModeCommand']
+  __slots__ = ['command_type','timestamp','target_system','takeoff','land','pos_ned','pos_global','vel_ned','rtl','hover','set_mode']
+  _slot_types = ['string','time','int32','uav_msgs/TakeoffCommand','uav_msgs/LandCommand','uav_msgs/PositionControlNEDCommand','uav_msgs/PositionControlGlobalCommand','uav_msgs/VelocityControlNEDCommand','uav_msgs/ReturnToLaunchCommand','uav_msgs/HoverCommand','uav_msgs/SetModeCommand']
 
   def __init__(self, *args, **kwds):
     """
@@ -97,7 +79,7 @@ string mode
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,command_type,timestamp,target_system,takeoff,land,pos_ned,pos_global,vel_ned,rtl,hover,set_mode
+       command_type,timestamp,target_system,takeoff,land,pos_ned,pos_global,vel_ned,rtl,hover,set_mode
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -106,8 +88,6 @@ string mode
     if args or kwds:
       super(UAVControlCommand, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.header is None:
-        self.header = std_msgs.msg.Header()
       if self.command_type is None:
         self.command_type = ''
       if self.timestamp is None:
@@ -131,7 +111,6 @@ string mode
       if self.set_mode is None:
         self.set_mode = uav_msgs.msg.SetModeCommand()
     else:
-      self.header = std_msgs.msg.Header()
       self.command_type = ''
       self.timestamp = genpy.Time()
       self.target_system = 0
@@ -156,14 +135,6 @@ string mode
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self
-      buff.write(_get_struct_3I().pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
-      _x = self.header.frame_id
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self.command_type
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -195,8 +166,6 @@ string mode
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
-      if self.header is None:
-        self.header = std_msgs.msg.Header()
       if self.timestamp is None:
         self.timestamp = genpy.Time()
       if self.takeoff is None:
@@ -216,19 +185,6 @@ string mode
       if self.set_mode is None:
         self.set_mode = uav_msgs.msg.SetModeCommand()
       end = 0
-      _x = self
-      start = end
-      end += 12
-      (_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
-      else:
-        self.header.frame_id = str[start:end]
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -273,14 +229,6 @@ string mode
     :param numpy: numpy python module
     """
     try:
-      _x = self
-      buff.write(_get_struct_3I().pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
-      _x = self.header.frame_id
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self.command_type
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -313,8 +261,6 @@ string mode
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
-      if self.header is None:
-        self.header = std_msgs.msg.Header()
       if self.timestamp is None:
         self.timestamp = genpy.Time()
       if self.takeoff is None:
@@ -334,19 +280,6 @@ string mode
       if self.set_mode is None:
         self.set_mode = uav_msgs.msg.SetModeCommand()
       end = 0
-      _x = self
-      start = end
-      end += 12
-      (_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
-      else:
-        self.header.frame_id = str[start:end]
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -393,9 +326,3 @@ def _get_struct_2Ii16d():
     if _struct_2Ii16d is None:
         _struct_2Ii16d = struct.Struct("<2Ii16d")
     return _struct_2Ii16d
-_struct_3I = None
-def _get_struct_3I():
-    global _struct_3I
-    if _struct_3I is None:
-        _struct_3I = struct.Struct("<3I")
-    return _struct_3I

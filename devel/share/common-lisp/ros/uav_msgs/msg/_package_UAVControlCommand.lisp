@@ -1,7 +1,5 @@
 (cl:in-package uav_msgs-msg)
-(cl:export '(HEADER-VAL
-          HEADER
-          COMMAND_TYPE-VAL
+(cl:export '(COMMAND_TYPE-VAL
           COMMAND_TYPE
           TIMESTAMP-VAL
           TIMESTAMP

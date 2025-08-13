@@ -1,16 +1,10 @@
 <launch>
-  <arg name="uav_id" default="1"/>
-  <param name="uav_id" value="uav$(arg uav_id)" />
-  <param name="ros_command_topic" value="/mqtt_bridge/uav$(arg uav_id)/ros/uavcontrol/command"/>
-
-  <node name="uav_control_node" pkg="uav_control" type="uav_control_node" output="screen">
-    <param name="offboard_rate" value="20.0" />
-    <param name="offboard_init_frames" value="100" />
-    <param name="geofence_center_lat" value="0.0" />
-    <param name="geofence_center_lon" value="0.0" />
-    <param name="geofence_radius_m" value="1000.0" />
-    <param name="odom_timeout" value="1.0" />
-    <param name="rc_timeout" value="2.0" />
-    <param name="min_battery_pct" value="20.0" />
-  </node>
+    <arg name="enable_px4_params_load" default="true"/>
+    <arg name="reboot_px4_set_reset_ekf" default="false"/>
+    
+    <node pkg="uav_control" type="uav_control_node" name="uav_control_node" output="screen">
+        <param name="enable_px4_params_load" value="$(arg enable_px4_params_load)"/>
+        <param name="reboot_px4_set_reset_ekf" value="$(arg reboot_px4_set_reset_ekf)"/>
+        <param file="$(find uav_control)/config/px4_params.yaml"/>
+    </node>
 </launch>

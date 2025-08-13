@@ -19,7 +19,6 @@ let VelocityControlNEDCommand = require('./VelocityControlNEDCommand.js');
 let ReturnToLaunchCommand = require('./ReturnToLaunchCommand.js');
 let HoverCommand = require('./HoverCommand.js');
 let SetModeCommand = require('./SetModeCommand.js');
-let std_msgs = _finder('std_msgs');
 
 //-----------------------------------------------------------
 
@@ -27,7 +26,6 @@ class UAVControlCommand {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.header = null;
       this.command_type = null;
       this.timestamp = null;
       this.target_system = null;
@@ -41,12 +39,6 @@ class UAVControlCommand {
       this.set_mode = null;
     }
     else {
-      if (initObj.hasOwnProperty('header')) {
-        this.header = initObj.header
-      }
-      else {
-        this.header = new std_msgs.msg.Header();
-      }
       if (initObj.hasOwnProperty('command_type')) {
         this.command_type = initObj.command_type
       }
@@ -118,8 +110,6 @@ class UAVControlCommand {
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type UAVControlCommand
-    // Serialize message field [header]
-    bufferOffset = std_msgs.msg.Header.serialize(obj.header, buffer, bufferOffset);
     // Serialize message field [command_type]
     bufferOffset = _serializer.string(obj.command_type, buffer, bufferOffset);
     // Serialize message field [timestamp]
@@ -149,8 +139,6 @@ class UAVControlCommand {
     //deserializes a message object of type UAVControlCommand
     let len;
     let data = new UAVControlCommand(null);
-    // Deserialize message field [header]
-    data.header = std_msgs.msg.Header.deserialize(buffer, bufferOffset);
     // Deserialize message field [command_type]
     data.command_type = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [timestamp]
@@ -178,7 +166,6 @@ class UAVControlCommand {
 
   static getMessageSize(object) {
     let length = 0;
-    length += std_msgs.msg.Header.getMessageSize(object.header);
     length += _getByteLength(object.command_type);
     length += HoverCommand.getMessageSize(object.hover);
     length += SetModeCommand.getMessageSize(object.set_mode);
@@ -192,13 +179,12 @@ class UAVControlCommand {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '2448e53b2e6a9e9d3b0a97d3088e8b0c';
+    return 'e2c2bd3cd120b68b542da3a74da209fb';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    std_msgs/Header header
     
     string command_type
     time timestamp
@@ -212,22 +198,6 @@ class UAVControlCommand {
     ReturnToLaunchCommand rtl
     HoverCommand hover
     SetModeCommand set_mode
-    
-    ================================================================================
-    MSG: std_msgs/Header
-    # Standard metadata for higher-level stamped data types.
-    # This is generally used to communicate timestamped data 
-    # in a particular coordinate frame.
-    # 
-    # sequence ID: consecutively increasing ID 
-    uint32 seq
-    #Two-integer timestamp that is expressed as:
-    # * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
-    # * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
-    # time-handling sugar is provided by the client library
-    time stamp
-    #Frame this data is associated with
-    string frame_id
     
     ================================================================================
     MSG: uav_msgs/TakeoffCommand
@@ -279,13 +249,6 @@ class UAVControlCommand {
       msg = {};
     }
     const resolved = new UAVControlCommand(null);
-    if (msg.header !== undefined) {
-      resolved.header = std_msgs.msg.Header.Resolve(msg.header)
-    }
-    else {
-      resolved.header = new std_msgs.msg.Header()
-    }
-
     if (msg.command_type !== undefined) {
       resolved.command_type = msg.command_type;
     }

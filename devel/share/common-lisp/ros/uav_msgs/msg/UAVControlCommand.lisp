@@ -7,12 +7,7 @@
 ;//! \htmlinclude UAVControlCommand.msg.html
 
 (cl:defclass <UAVControlCommand> (roslisp-msg-protocol:ros-message)
-  ((header
-    :reader header
-    :initarg :header
-    :type std_msgs-msg:Header
-    :initform (cl:make-instance 'std_msgs-msg:Header))
-   (command_type
+  ((command_type
     :reader command_type
     :initarg :command_type
     :type cl:string
@@ -77,11 +72,6 @@
   (cl:unless (cl:typep m 'UAVControlCommand)
     (roslisp-msg-protocol:msg-deprecation-warning "using old message class name uav_msgs-msg:<UAVControlCommand> is deprecated: use uav_msgs-msg:UAVControlCommand instead.")))
 
-(cl:ensure-generic-function 'header-val :lambda-list '(m))
-(cl:defmethod header-val ((m <UAVControlCommand>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader uav_msgs-msg:header-val is deprecated.  Use uav_msgs-msg:header instead.")
-  (header m))
-
 (cl:ensure-generic-function 'command_type-val :lambda-list '(m))
 (cl:defmethod command_type-val ((m <UAVControlCommand>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader uav_msgs-msg:command_type-val is deprecated.  Use uav_msgs-msg:command_type instead.")
@@ -138,7 +128,6 @@
   (set_mode m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <UAVControlCommand>) ostream)
   "Serializes a message object of type '<UAVControlCommand>"
-  (roslisp-msg-protocol:serialize (cl:slot-value msg 'header) ostream)
   (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'command_type))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
@@ -172,7 +161,6 @@
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <UAVControlCommand>) istream)
   "Deserializes a message object of type '<UAVControlCommand>"
-  (roslisp-msg-protocol:deserialize (cl:slot-value msg 'header) istream)
     (cl:let ((__ros_str_len 0))
       (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
@@ -215,19 +203,18 @@
   "uav_msgs/UAVControlCommand")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<UAVControlCommand>)))
   "Returns md5sum for a message object of type '<UAVControlCommand>"
-  "2448e53b2e6a9e9d3b0a97d3088e8b0c")
+  "e2c2bd3cd120b68b542da3a74da209fb")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'UAVControlCommand)))
   "Returns md5sum for a message object of type 'UAVControlCommand"
-  "2448e53b2e6a9e9d3b0a97d3088e8b0c")
+  "e2c2bd3cd120b68b542da3a74da209fb")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<UAVControlCommand>)))
   "Returns full string definition for message of type '<UAVControlCommand>"
-  (cl:format cl:nil "std_msgs/Header header~%~%string command_type~%time timestamp~%int32 target_system~%~%TakeoffCommand takeoff~%LandCommand land~%PositionControlNEDCommand pos_ned~%PositionControlGlobalCommand pos_global~%VelocityControlNEDCommand vel_ned~%ReturnToLaunchCommand rtl~%HoverCommand hover~%SetModeCommand set_mode~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: uav_msgs/TakeoffCommand~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/LandCommand~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlNEDCommand~%float64 x~%float64 y~%float64 z~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlGlobalCommand~%float64 latitude~%float64 longitude~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/VelocityControlNEDCommand~%float64 vx~%float64 vy~%float64 vz~%float64 yaw_rate~%~%================================================================================~%MSG: uav_msgs/ReturnToLaunchCommand~%float64 altitude~%~%================================================================================~%MSG: uav_msgs/HoverCommand~%string mode~%================================================================================~%MSG: uav_msgs/SetModeCommand~%string mode~%~%~%"))
+  (cl:format cl:nil "~%string command_type~%time timestamp~%int32 target_system~%~%TakeoffCommand takeoff~%LandCommand land~%PositionControlNEDCommand pos_ned~%PositionControlGlobalCommand pos_global~%VelocityControlNEDCommand vel_ned~%ReturnToLaunchCommand rtl~%HoverCommand hover~%SetModeCommand set_mode~%~%================================================================================~%MSG: uav_msgs/TakeoffCommand~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/LandCommand~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlNEDCommand~%float64 x~%float64 y~%float64 z~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlGlobalCommand~%float64 latitude~%float64 longitude~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/VelocityControlNEDCommand~%float64 vx~%float64 vy~%float64 vz~%float64 yaw_rate~%~%================================================================================~%MSG: uav_msgs/ReturnToLaunchCommand~%float64 altitude~%~%================================================================================~%MSG: uav_msgs/HoverCommand~%string mode~%================================================================================~%MSG: uav_msgs/SetModeCommand~%string mode~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'UAVControlCommand)))
   "Returns full string definition for message of type 'UAVControlCommand"
-  (cl:format cl:nil "std_msgs/Header header~%~%string command_type~%time timestamp~%int32 target_system~%~%TakeoffCommand takeoff~%LandCommand land~%PositionControlNEDCommand pos_ned~%PositionControlGlobalCommand pos_global~%VelocityControlNEDCommand vel_ned~%ReturnToLaunchCommand rtl~%HoverCommand hover~%SetModeCommand set_mode~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: uav_msgs/TakeoffCommand~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/LandCommand~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlNEDCommand~%float64 x~%float64 y~%float64 z~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlGlobalCommand~%float64 latitude~%float64 longitude~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/VelocityControlNEDCommand~%float64 vx~%float64 vy~%float64 vz~%float64 yaw_rate~%~%================================================================================~%MSG: uav_msgs/ReturnToLaunchCommand~%float64 altitude~%~%================================================================================~%MSG: uav_msgs/HoverCommand~%string mode~%================================================================================~%MSG: uav_msgs/SetModeCommand~%string mode~%~%~%"))
+  (cl:format cl:nil "~%string command_type~%time timestamp~%int32 target_system~%~%TakeoffCommand takeoff~%LandCommand land~%PositionControlNEDCommand pos_ned~%PositionControlGlobalCommand pos_global~%VelocityControlNEDCommand vel_ned~%ReturnToLaunchCommand rtl~%HoverCommand hover~%SetModeCommand set_mode~%~%================================================================================~%MSG: uav_msgs/TakeoffCommand~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/LandCommand~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlNEDCommand~%float64 x~%float64 y~%float64 z~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlGlobalCommand~%float64 latitude~%float64 longitude~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/VelocityControlNEDCommand~%float64 vx~%float64 vy~%float64 vz~%float64 yaw_rate~%~%================================================================================~%MSG: uav_msgs/ReturnToLaunchCommand~%float64 altitude~%~%================================================================================~%MSG: uav_msgs/HoverCommand~%string mode~%================================================================================~%MSG: uav_msgs/SetModeCommand~%string mode~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <UAVControlCommand>))
   (cl:+ 0
-     (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
      4 (cl:length (cl:slot-value msg 'command_type))
      8
      4
@@ -243,7 +230,6 @@
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <UAVControlCommand>))
   "Converts a ROS message object to a list"
   (cl:list 'UAVControlCommand
-    (cl:cons ':header (header msg))
     (cl:cons ':command_type (command_type msg))
     (cl:cons ':timestamp (timestamp msg))
     (cl:cons ':target_system (target_system msg))

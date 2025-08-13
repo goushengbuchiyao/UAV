@@ -15,7 +15,6 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
-#include <std_msgs/Header.h>
 #include <uav_msgs/TakeoffCommand.h>
 #include <uav_msgs/LandCommand.h>
 #include <uav_msgs/PositionControlNEDCommand.h>
@@ -33,8 +32,7 @@ struct UAVControlCommand_
   typedef UAVControlCommand_<ContainerAllocator> Type;
 
   UAVControlCommand_()
-    : header()
-    , command_type()
+    : command_type()
     , timestamp()
     , target_system(0)
     , takeoff()
@@ -47,8 +45,7 @@ struct UAVControlCommand_
     , set_mode()  {
     }
   UAVControlCommand_(const ContainerAllocator& _alloc)
-    : header(_alloc)
-    , command_type(_alloc)
+    : command_type(_alloc)
     , timestamp()
     , target_system(0)
     , takeoff(_alloc)
@@ -63,9 +60,6 @@ struct UAVControlCommand_
     }
 
 
-
-   typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
-  _header_type header;
 
    typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _command_type_type;
   _command_type_type command_type;
@@ -129,8 +123,7 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::uav_msgs::UAVControlCommand_<ContainerAllocator1> & lhs, const ::uav_msgs::UAVControlCommand_<ContainerAllocator2> & rhs)
 {
-  return lhs.header == rhs.header &&
-    lhs.command_type == rhs.command_type &&
+  return lhs.command_type == rhs.command_type &&
     lhs.timestamp == rhs.timestamp &&
     lhs.target_system == rhs.target_system &&
     lhs.takeoff == rhs.takeoff &&
@@ -183,12 +176,12 @@ struct IsFixedSize< ::uav_msgs::UAVControlCommand_<ContainerAllocator> const>
 
 template <class ContainerAllocator>
 struct HasHeader< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
 struct HasHeader< ::uav_msgs::UAVControlCommand_<ContainerAllocator> const>
-  : TrueType
+  : FalseType
   { };
 
 
@@ -197,12 +190,12 @@ struct MD5Sum< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "2448e53b2e6a9e9d3b0a97d3088e8b0c";
+    return "e2c2bd3cd120b68b542da3a74da209fb";
   }
 
   static const char* value(const ::uav_msgs::UAVControlCommand_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x2448e53b2e6a9e9dULL;
-  static const uint64_t static_value2 = 0x3b0a97d3088e8b0cULL;
+  static const uint64_t static_value1 = 0xe2c2bd3cd120b68bULL;
+  static const uint64_t static_value2 = 0x542da3a74da209fbULL;
 };
 
 template<class ContainerAllocator>
@@ -221,8 +214,7 @@ struct Definition< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "std_msgs/Header header\n"
-"\n"
+    return "\n"
 "string command_type\n"
 "time timestamp\n"
 "int32 target_system\n"
@@ -235,22 +227,6 @@ struct Definition< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
 "ReturnToLaunchCommand rtl\n"
 "HoverCommand hover\n"
 "SetModeCommand set_mode\n"
-"\n"
-"================================================================================\n"
-"MSG: std_msgs/Header\n"
-"# Standard metadata for higher-level stamped data types.\n"
-"# This is generally used to communicate timestamped data \n"
-"# in a particular coordinate frame.\n"
-"# \n"
-"# sequence ID: consecutively increasing ID \n"
-"uint32 seq\n"
-"#Two-integer timestamp that is expressed as:\n"
-"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
-"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
-"# time-handling sugar is provided by the client library\n"
-"time stamp\n"
-"#Frame this data is associated with\n"
-"string frame_id\n"
 "\n"
 "================================================================================\n"
 "MSG: uav_msgs/TakeoffCommand\n"
@@ -310,7 +286,6 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.header);
       stream.next(m.command_type);
       stream.next(m.timestamp);
       stream.next(m.target_system);
@@ -341,10 +316,6 @@ struct Printer< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::uav_msgs::UAVControlCommand_<ContainerAllocator>& v)
   {
     if (false || !indent.empty())
-      s << std::endl;
-    s << indent << "header: ";
-    Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
-    if (true || !indent.empty())
       s << std::endl;
     s << indent << "command_type: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.command_type);

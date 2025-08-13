@@ -1,51 +1,31 @@
-#ifndef UAV_CONTROL_SAFETY_CHECKER_H
-#define UAV_CONTROL_SAFETY_CHECKER_H
+#pragma once
 
 #include <ros/ros.h>
-#include <sensor_msgs/NavSatFix.h>
-#include <mavros_msgs/RCIn.h>
-#include <mavros_msgs/BatteryStatus.h>
-#include <geometry_msgs/PoseStamped.h>
+
+namespace uav_control {
 
 class SafetyChecker {
 public:
     SafetyChecker(ros::NodeHandle& nh);
 
-    int checkGeofence(double lat, double lon);
-    int checkOdom();
-    int checkRC();
-    int checkBattery();
+    // 起飞前安全检查
+    bool checkPreTakeoff(); 
 
-    void batteryCallback(const mavros_msgs::BatteryStatus::ConstPtr& msg);
-    void gpsCallback(const sensor_msgs::NavSatFix::ConstPtr& msg);
-    void odomCallback(const geometry_msgs::PoseStamped::ConstPtr& msg);
-    void rcCallback(const mavros_msgs::RCIn::ConstPtr& msg);
+    // 飞行中安全检查
+    bool checkInFlight();    
+
+    // 更新状态信息
+    void updateBatteryStatus(float percentage);
+    void updatePosition(double x, double y, double z);
+    void updateRCStatus(bool connected);
 
 private:
-    double haversine(double lat1, double lon1, double lat2, double lon2);
+    float battery_percentage_ = 100.0;
+    double pos_x_, pos_y_, pos_z_;
+    bool rc_connected_ = true;
 
-    ros::NodeHandle nh_;
-    ros::Subscriber battery_sub_;
-    ros::Subscriber gps_sub_;
-    ros::Subscriber odom_sub_;
-    ros::Subscriber rc_sub_;
-
-    mavros_msgs::BatteryStatus last_battery_;
-    sensor_msgs::NavSatFix last_gps_;
-    ros::Time last_odom_time_;
-    ros::Time last_rc_time_;
-
-    // 添加电池状态接收标志
-    bool got_battery_;
-    bool got_gps_;
-    bool got_rc_;
-    bool got_odom_;
-    double geofence_center_lat_;
-    double geofence_center_lon_;
-    double geofence_radius_m_;
-    double min_battery_pct_;
-    double odom_timeout_;
-    double rc_timeout_;
+    // 地理围栏参数
+    double geo_x_min_, geo_x_max_, geo_y_min_, geo_y_max_, geo_z_min_, geo_z_max_;
 };
 
-#endif
+} // namespace uav_control

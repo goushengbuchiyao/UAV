@@ -1,108 +1,71 @@
 #include "uav_control/uav_control_node.h"
 
-UAVControlNode::UAVControlNode(ros::NodeHandle& pnh)
-    : pnh_(pnh), nh_(), safety_checker_(pnh) {
+namespace uav_control {
 
-    std::string cmd_topic;
-    pnh_.param<std::string>("ros_command_topic", cmd_topic, "/mqtt_bridge/uav1/ros/uavcontrol/command");
-    pnh_.param<double>("offboard_rate", offboard_rate_, 20.0);
+UAVControlNode::UAVControlNode(ros::NodeHandle& nh)
+    : nh_(nh),
+      safety_checker_(nh),
+      param_loader_(nh),
+      cmd_executor_(nh) {
 
-    cmd_sub_ = nh_.subscribe(cmd_topic, 10, &UAVControlNode::cmdCallback, this);
+    // 订阅UAVControlCommand
+    cmd_sub_ = nh_.subscribe("/mqtt_ros_bridge/uav1/ros/uavcontrol/command", 10, 
+                             &UAVControlNode::uavControlCmdCallback, this);
+    // 发布状态
+    status_pub_ = nh_.advertise<std_msgs::String>("uav_control/status", 10);
 
-    local_pos_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/mavros/setpoint_position/local", 10);
-    vel_pub_ = nh_.advertise<geometry_msgs::TwistStamped>("/mavros/setpoint_velocity/cmd_vel", 10);
+    // 是否启用PX4参数加载
+    nh_.param("enable_px4_params_load", enable_px4_params_load_, false);
 
-    arming_client_ = nh_.serviceClient<mavros_msgs::CommandBool>("/mavros/cmd/arming");
-    set_mode_client_ = nh_.serviceClient<mavros_msgs::SetMode>("/mavros/set_mode");
-    takeoff_client_ = nh_.serviceClient<mavros_msgs::CommandTOL>("/mavros/cmd/takeoff");
-    land_client_ = nh_.serviceClient<mavros_msgs::CommandTOL>("/mavros/cmd/land");
-
-    ROS_INFO("UAV Control Node initialized");
+    // MAVROS连接检查定时器
+    connection_timer_ = nh_.createTimer(ros::Duration(1.0), 
+                  &UAVControlNode::mavrosConnectionCheck, this);
 }
 
-bool UAVControlNode::performSafetyCheck() {
-    if (safety_checker_.checkGeofence(
-            safety_checker_.last_gps_.latitude,
-            safety_checker_.last_gps_.longitude) != 0) return false;
-    if (safety_checker_.checkOdom() != 0) return false;
-    if (safety_checker_.checkRC() != 0) return false;
-    if (safety_checker_.checkBattery() != 0) return false;
-    return true;
+// 检查MAVROS连接并加载PX4参数
+void UAVControlNode::mavrosConnectionCheck(const ros::TimerEvent&) {
+    if (!mavros_connected_) {
+        ROS_INFO_THROTTLE(5, "等待MAVROS与FCU连接...");
+        // TODO: 实际应订阅 /mavros/state 检查 connected 字段
+        static int retry_count = 0;
+        retry_count++;
+        if (retry_count > 10) {
+            ROS_ERROR("PX4飞控连接失败");
+            ros::shutdown();
+        }
+        mavros_connected_ = true; // 模拟成功
+        if (enable_px4_params_load_) {
+            bool loaded = param_loader_.loadParameters();
+            if (!loaded) {
+                ROS_WARN("PX4参数加载失败，继续初始化");
+            }
+        }
+    }
 }
 
-bool UAVControlNode::arm(bool arm_it) {
-    mavros_msgs::CommandBool arm_cmd;
-    arm_cmd.request.value = arm_it;
-    return arming_client_.call(arm_cmd) && arm_cmd.response.success;
-}
-
-bool UAVControlNode::setMode(const std::string& mode) {
-    mavros_msgs::SetMode mode_cmd;
-    mode_cmd.request.custom_mode = mode;
-    return set_mode_client_.call(mode_cmd) && mode_cmd.response.mode_sent;
-}
-
-bool UAVControlNode::takeoff(double alt, double yaw) {
-    mavros_msgs::CommandTOL cmd;
-    cmd.request.altitude = alt;
-    cmd.request.yaw = yaw;
-    return takeoff_client_.call(cmd) && cmd.response.success;
-}
-
-bool UAVControlNode::land(double yaw) {
-    mavros_msgs::CommandTOL cmd;
-    cmd.request.yaw = yaw;
-    return land_client_.call(cmd) && cmd.response.success;
-}
-
-void UAVControlNode::cmdCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg) {
-    if (!performSafetyCheck()) {
-        ROS_ERROR("Safety check failed, aborting command");
+// UAVControlCommand回调
+void UAVControlNode::uavControlCmdCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg) {
+    if (!safety_checker_.checkInFlight()) {
+        ROS_WARN("飞行中安全检查未通过，拒绝执行命令");
         return;
     }
 
-    ROS_INFO("Executing command: %s", msg->command_type.c_str());
-
-    if (msg->command_type == "takeoff") {
-        setMode("OFFBOARD");
-        arm(true);
-        takeoff(msg->takeoff.altitude, msg->takeoff.yaw);
-    }
-    else if (msg->command_type == "land") {
-        setMode("AUTO.LAND");
-        land(msg->land.yaw);
-    }
-    else if (msg->command_type == "position_control_ned") {
-        geometry_msgs::PoseStamped pose;
-        pose.header.stamp = ros::Time::now();
-        pose.pose.position.x = msg->pos_ned.x;
-        pose.pose.position.y = msg->pos_ned.y;
-        pose.pose.position.z = -msg->pos_ned.z; // NED 下方向为正，这里取反
-        local_pos_pub_.publish(pose);
-    }
-    else if (msg->command_type == "velocity_control_ned") {
-        geometry_msgs::TwistStamped vel;
-        vel.header.stamp = ros::Time::now();
-        vel.twist.linear.x = msg->vel_ned.vx;
-        vel.twist.linear.y = msg->vel_ned.vy;
-        vel.twist.linear.z = msg->vel_ned.vz;
-        vel_pub_.publish(vel);
-    }
-    else if (msg->command_type == "set_mode") {
-        setMode(msg->set_mode.mode);
-    }
-    else if (msg->command_type == "return_to_launch") {
-        setMode("AUTO.RTL");
-    }
-    else if (msg->command_type == "hover") {
-        setMode(msg->hover.mode);
+    if (!cmd_executor_.executeCommand(*msg)) {
+        ROS_ERROR("执行命令失败，切换安全模式");
+        // TODO: 回退安全模式逻辑
     }
 }
 
 void UAVControlNode::run() {
-    ros::Rate rate(offboard_rate_);
-    while (ros::ok()) {
-        ros::spinOnce();
-        rate.sleep();
-    }
+    ros::spin();
+}
+
+} // namespace uav_control
+
+int main(int argc, char** argv) {
+    ros::init(argc, argv, "uav_control_node");
+    ros::NodeHandle nh("~");
+    uav_control::UAVControlNode node(nh);
+    node.run();
+    return 0;
 }

@@ -10,18 +10,15 @@
 
 (in-package "ROS")
 ;;//! \htmlinclude UAVControlCommand.msg.html
-(if (not (find-package "STD_MSGS"))
-  (ros::roseus-add-msgs "std_msgs"))
 
 
 (defclass uav_msgs::UAVControlCommand
   :super ros::object
-  :slots (_header _command_type _timestamp _target_system _takeoff _land _pos_ned _pos_global _vel_ned _rtl _hover _set_mode ))
+  :slots (_command_type _timestamp _target_system _takeoff _land _pos_ned _pos_global _vel_ned _rtl _hover _set_mode ))
 
 (defmethod uav_msgs::UAVControlCommand
   (:init
    (&key
-    ((:header __header) (instance std_msgs::Header :init))
     ((:command_type __command_type) "")
     ((:timestamp __timestamp) (instance ros::time :init))
     ((:target_system __target_system) 0)
@@ -35,7 +32,6 @@
     ((:set_mode __set_mode) (instance uav_msgs::SetModeCommand :init))
     )
    (send-super :init)
-   (setq _header __header)
    (setq _command_type (string __command_type))
    (setq _timestamp __timestamp)
    (setq _target_system (round __target_system))
@@ -48,13 +44,6 @@
    (setq _hover __hover)
    (setq _set_mode __set_mode)
    self)
-  (:header
-   (&rest __header)
-   (if (keywordp (car __header))
-       (send* _header __header)
-     (progn
-       (if __header (setq _header (car __header)))
-       _header)))
   (:command_type
    (&optional __command_type)
    (if __command_type (setq _command_type __command_type)) _command_type)
@@ -123,8 +112,6 @@
   (:serialization-length
    ()
    (+
-    ;; std_msgs/Header _header
-    (send _header :serialization-length)
     ;; string _command_type
     4 (length _command_type)
     ;; time _timestamp
@@ -152,8 +139,6 @@
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; std_msgs/Header _header
-       (send _header :serialize s)
      ;; string _command_type
        (write-long (length _command_type) s) (princ _command_type s)
      ;; time _timestamp
@@ -180,8 +165,6 @@
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; std_msgs/Header _header
-     (send _header :deserialize buf ptr-) (incf ptr- (send _header :serialization-length))
    ;; string _command_type
      (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _command_type (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
    ;; time _timestamp
@@ -208,11 +191,10 @@
    self)
   )
 
-(setf (get uav_msgs::UAVControlCommand :md5sum-) "2448e53b2e6a9e9d3b0a97d3088e8b0c")
+(setf (get uav_msgs::UAVControlCommand :md5sum-) "e2c2bd3cd120b68b542da3a74da209fb")
 (setf (get uav_msgs::UAVControlCommand :datatype-) "uav_msgs/UAVControlCommand")
 (setf (get uav_msgs::UAVControlCommand :definition-)
-      "std_msgs/Header header
-
+      "
 string command_type
 time timestamp
 int32 target_system
@@ -225,22 +207,6 @@ VelocityControlNEDCommand vel_ned
 ReturnToLaunchCommand rtl
 HoverCommand hover
 SetModeCommand set_mode
-
-================================================================================
-MSG: std_msgs/Header
-# Standard metadata for higher-level stamped data types.
-# This is generally used to communicate timestamped data 
-# in a particular coordinate frame.
-# 
-# sequence ID: consecutively increasing ID 
-uint32 seq
-#Two-integer timestamp that is expressed as:
-# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
-# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
-# time-handling sugar is provided by the client library
-time stamp
-#Frame this data is associated with
-string frame_id
 
 ================================================================================
 MSG: uav_msgs/TakeoffCommand
@@ -287,6 +253,6 @@ string mode
 
 
 
-(provide :uav_msgs/UAVControlCommand "2448e53b2e6a9e9d3b0a97d3088e8b0c")
+(provide :uav_msgs/UAVControlCommand "e2c2bd3cd120b68b542da3a74da209fb")
 
 

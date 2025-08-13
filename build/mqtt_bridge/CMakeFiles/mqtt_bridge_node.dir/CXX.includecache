@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/px4/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
+/home/px/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px4/UAV_SDK/devel/include/uav_msgs/LandCommand.h
+/home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
+/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
 string
 -
 vector
@@ -54,7 +54,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
+/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
 string
 -
 vector
@@ -70,7 +70,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px4/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
+/home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
 string
 -
 vector
@@ -86,7 +86,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px4/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
+/home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
 string
 -
 vector
@@ -102,7 +102,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px4/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
+/home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
 string
 -
 vector
@@ -118,7 +118,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
+/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
 string
 -
 vector
@@ -132,8 +132,6 @@ ros/serialization.h
 ros/builtin_message_traits.h
 -
 ros/message_operations.h
--
-std_msgs/Header.h
 -
 uav_msgs/TakeoffCommand.h
 -
@@ -152,7 +150,7 @@ uav_msgs/HoverCommand.h
 uav_msgs/SetModeCommand.h
 -
 
-/home/px4/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
+/home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
 string
 -
 vector
@@ -168,7 +166,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px4/UAV_SDK/src/mqtt_bridge/include/mqtt_client.h
+/home/px/UAV_SDK/src/mqtt_bridge/include/mqtt_client.h
 mqtt/async_client.h
 -
 mqtt/ssl_options.h
@@ -182,7 +180,7 @@ memory
 atomic
 -
 
-/home/px4/UAV_SDK/src/mqtt_bridge/include/mqtt_ros_node.h
+/home/px/UAV_SDK/src/mqtt_bridge/include/mqtt_ros_node.h
 ros/ros.h
 -
 std_msgs/String.h
@@ -194,15 +192,15 @@ string
 memory
 -
 uav_state_collector.h
-/home/px4/UAV_SDK/src/mqtt_bridge/include/uav_state_collector.h
+/home/px/UAV_SDK/src/mqtt_bridge/include/uav_state_collector.h
 
-/home/px4/UAV_SDK/src/mqtt_bridge/include/uav_command_parser.h
+/home/px/UAV_SDK/src/mqtt_bridge/include/uav_command_parser.h
 string
 -
 nlohmann/json.hpp
 -
 
-/home/px4/UAV_SDK/src/mqtt_bridge/include/uav_state_collector.h
+/home/px/UAV_SDK/src/mqtt_bridge/include/uav_state_collector.h
 ros/ros.h
 -
 mavros_msgs/State.h
@@ -222,7 +220,7 @@ nlohmann/json.hpp
 geometry_msgs/QuaternionStamped.h
 -
 
-/home/px4/UAV_SDK/src/mqtt_bridge/src/mqtt_ros_node.cpp
+/home/px/UAV_SDK/src/mqtt_bridge/src/mqtt_ros_node.cpp
 mqtt_ros_node.h
 -
 sstream
@@ -230,11 +228,11 @@ sstream
 ros/console.h
 -
 uav_state_collector.h
-/home/px4/UAV_SDK/src/mqtt_bridge/src/uav_state_collector.h
+/home/px/UAV_SDK/src/mqtt_bridge/src/uav_state_collector.h
 uav_command_parser.h
-/home/px4/UAV_SDK/src/mqtt_bridge/src/uav_command_parser.h
+/home/px/UAV_SDK/src/mqtt_bridge/src/uav_command_parser.h
 uav_msgs/UAVControlCommand.h
-/home/px4/UAV_SDK/src/mqtt_bridge/src/uav_msgs/UAVControlCommand.h
+/home/px/UAV_SDK/src/mqtt_bridge/src/uav_msgs/UAVControlCommand.h
 
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string

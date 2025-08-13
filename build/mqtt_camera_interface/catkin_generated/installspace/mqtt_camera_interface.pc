@@ -1,4 +1,4 @@
-prefix=/home/px4/UAV_SDK/install
+prefix=/home/px/UAV_SDK/install
 
 Name: mqtt_camera_interface
 Description: Description of mqtt_camera_interface

@@ -139,7 +139,7 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
         // ros_cmd.timestamp = cmd.timestamp;
         // ros_cmd.timestamp.nsec = 0;
         ros_cmd.target_system = cmd.target_system;
-
+        
         if (cmd.command_type == "takeoff") {
             ros_cmd.takeoff.altitude = cmd.params["altitude"].get<double>();
             ros_cmd.takeoff.yaw = cmd.params["yaw"].get<double>();
