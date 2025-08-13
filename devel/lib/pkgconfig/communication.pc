@@ -1,8 +1,0 @@
-prefix=/home/px/UAV_SDK/devel
-
-Name: communication
-Description: Description of communication
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

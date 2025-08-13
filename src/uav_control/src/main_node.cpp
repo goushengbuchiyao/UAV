@@ -32,9 +32,8 @@ public:
     void cmdCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg) {
         double now = ros::Time::now().toSec();
         double msg_time = msg->timestamp.sec;
-        ROS_INFO("++++++++++++++++++++++++++++++");
-        ROS_INFO("Received command: type=%s, ts=%.1f, target=%d",
-                 msg->command_type.c_str(), msg_time, msg->target_system);
+        std::cout << "++++++++++++++++++++++" << std::endl;
+        std::cout << "Received command: " << msg << std::endl;
         if (std::abs(now - msg_time) > 10.0) {
             ROS_WARN("Command timestamp too old/new: now=%.1f msg=%.1f", now, msg_time);
             return;

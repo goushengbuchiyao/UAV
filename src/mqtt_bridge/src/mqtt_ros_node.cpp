@@ -47,7 +47,7 @@ bool MQTTROSNode::init() {
                 ROS_INFO("Successfully subscribed to MQTT topic: %s. Waiting for JSON data...", mqtt_subscribe_topic_.c_str());
                 // 设置ROS发布器和订阅器 
                 // ros发布器发布mqtt订阅到的消息
-                mqtt_to_ros_pub_ = nh_.advertise<std_msgs::String>(ros_publish_topic_, 10);
+                mqtt_to_ros_pub_ = nh_.advertise<uav_msgs::UAVControlCommand>(ros_publish_topic_, 10);
                 // ros订阅器订阅mqtt指令执行状态的ros消息，将执行结果反馈给mqtt
                 ros_to_mqtt_sub_ = nh_.subscribe(ros_subscribe_topic_, 10, &MQTTROSNode::handleROSMessage, this);
             }
@@ -138,7 +138,7 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
         ros_cmd.timestamp = uint64_to_ros_time(cmd.timestamp);
         // ros_cmd.timestamp.nsec = 0;
         ros_cmd.target_system = cmd.target_system;
-
+        
         if (cmd.command_type == "takeoff") {
             ros_cmd.takeoff.altitude = cmd.params["altitude"].get<double>();
             ros_cmd.takeoff.yaw = cmd.params["yaw"].get<double>();
@@ -178,8 +178,10 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
             return;
         }
         // ROS_DEBUG("ros_cmd: %s", ros_cmd.c_str());
-        ROS_INFO("ros_cmd.command_type: %s", ros_cmd.command_type.c_str());
-        ROS_INFO_STREAM("ros_cmd: " << ros_cmd);
+        std::cout << "+++++++++++++++" << std::endl;
+        // ROS_INFO("ros_cmd.command_type: %s", ros_cmd.command_type.c_str());
+        // ROS_INFO_STREAM("ros_cmd: " << ros_cmd);
+        std::cout << "ros_cmd: " << ros_cmd << std::endl;
         // ROS_INFO("ros_cmd.timestamp: %d", ros_cmd.timestamp);
         // ROS_INFO("ros_cmd.target_system: %d", ros_cmd.target_system);
         // ROS_INFO("ros_cmd.takeoff.altitude: %f", ros_cmd.takeoff.altitude);

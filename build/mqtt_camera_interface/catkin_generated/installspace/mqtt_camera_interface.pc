@@ -1,8 +1,0 @@
-prefix=/home/px/UAV_SDK/install
-
-Name: mqtt_camera_interface
-Description: Description of mqtt_camera_interface
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -lmqtt_camera_interface
-Requires: roscpp mavros_msgs std_msgs
