@@ -135,7 +135,8 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
     if (parser.parse(payload, cmd, err_msg)) {
         uav_msgs::UAVControlCommand ros_cmd;
         ros_cmd.command_type = cmd.command_type;
-        ros_cmd.timestamp = uint64_to_ros_time(cmd.timestamp);
+        ros_cmd.timestamp = ros::Time(cmd.timestamp);
+        // ros_cmd.timestamp = cmd.timestamp;
         // ros_cmd.timestamp.nsec = 0;
         ros_cmd.target_system = cmd.target_system;
         
@@ -178,10 +179,8 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
             return;
         }
         // ROS_DEBUG("ros_cmd: %s", ros_cmd.c_str());
-        std::cout << "+++++++++++++++" << std::endl;
         // ROS_INFO("ros_cmd.command_type: %s", ros_cmd.command_type.c_str());
-        // ROS_INFO_STREAM("ros_cmd: " << ros_cmd);
-        std::cout << "ros_cmd: " << ros_cmd << std::endl;
+        ROS_INFO_STREAM("ros_cmd: " << ros_cmd);
         // ROS_INFO("ros_cmd.timestamp: %d", ros_cmd.timestamp);
         // ROS_INFO("ros_cmd.target_system: %d", ros_cmd.target_system);
         // ROS_INFO("ros_cmd.takeoff.altitude: %f", ros_cmd.takeoff.altitude);

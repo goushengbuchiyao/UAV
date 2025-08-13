@@ -20,7 +20,7 @@
         <!-- ROS发布主题，发布UAV控制指令 -->
         <param name="topics/ros_publish" value="uav$(arg uav_id)/ros/uavcontrol/command" />
         <!-- ROS订阅主题，接收UAV控制指令 -->
-        <param name="topics/ros_subscribe" value="uav$(arg uav_id)/ros/uavcontrol/command" />
+        <param name="topics/ros_subscribe" value="uav$(arg uav_id)/ros/uavcontrol/command/state" />
         <!-- MQTT发布主题————UAV———state数据发布 -->
         <param name="topics/mqtt_publish" value="uav$(arg uav_id)/mqtt/state" />
     </node>

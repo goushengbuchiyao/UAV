@@ -2,6 +2,8 @@
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <cmath>
+#include <chrono>
+#include <ctime>
 
 UAVStateCollector::UAVStateCollector(ros::NodeHandle& nh) {
     nh.param<std::string>("uav_id", uav_id_, "uav1");
@@ -88,9 +90,10 @@ void UAVStateCollector::gpsStatusCallback(const mavros_msgs::GPSRAW::ConstPtr& m
 }
 
 std::string UAVStateCollector::getFlightModeJson() {
+    
     nlohmann::json j = {
         {"state_type", "flight_mode"},
-        {"timestamp", ros::Time::now().toSec()},
+        {"timestamp", system_timestamp},
         {"target_system", uav_id_},
         {"params", {
             {"mode", flight_mode_},
@@ -102,7 +105,7 @@ std::string UAVStateCollector::getFlightModeJson() {
 std::string UAVStateCollector::getBatteryStatusJson() {
     nlohmann::json j = {
         {"state_type", "battery_status"},
-        {"timestamp", ros::Time::now().toSec()},
+        {"timestamp", system_timestamp},
         {"target_system", uav_id_},
         {"params", {
             {"percentage", battery_percent_},
@@ -117,7 +120,7 @@ std::string UAVStateCollector::getBatteryStatusJson() {
 std::string UAVStateCollector::getGPSPositionJson() {
     nlohmann::json j = {
         {"state_type", "gps_position"},
-        {"timestamp", ros::Time::now().toSec()},
+        {"timestamp", system_timestamp},
         {"target_system", uav_id_},
         {"params", {
             {"latitude", latitude_},
@@ -132,7 +135,7 @@ std::string UAVStateCollector::getGPSPositionJson() {
 std::string UAVStateCollector::getLocalPositionJson() {
     nlohmann::json j = {
         {"state_type", "local_position_enu"},
-        {"timestamp", ros::Time::now().toSec()},
+        {"timestamp", system_timestamp},
         {"target_system", uav_id_},
         {"params", {
             {"x", enu_x_}, {"y", enu_y_}, {"z", enu_z_}
@@ -144,7 +147,7 @@ std::string UAVStateCollector::getLocalPositionJson() {
 std::string UAVStateCollector::getNEDPositionJson() {
     nlohmann::json j = {
         {"state_type", "position_ned"},
-        {"timestamp", ros::Time::now().toSec()},
+        {"timestamp", system_timestamp},
         {"target_system", uav_id_},
         {"params", {
             {"north", ned_x_}, {"east", ned_y_}, {"down", ned_z_}
@@ -156,7 +159,7 @@ std::string UAVStateCollector::getNEDPositionJson() {
 std::string UAVStateCollector::getVelocityJson() {
     nlohmann::json j = {
         {"state_type", "velocity"},
-        {"timestamp", ros::Time::now().toSec()},
+        {"timestamp", system_timestamp},
         {"target_system", uav_id_},
         {"params", {
             {"vx", velocity_x_}, {"vy", velocity_y_}, {"vz", velocity_z_},
@@ -171,7 +174,7 @@ std::string UAVStateCollector::getGPSStatusJson() {
     
     nlohmann::json j = {
         {"state_type", "gps_status"},
-        {"timestamp", ros::Time::now().toSec()},
+        {"timestamp", system_timestamp},
         {"target_system", uav_id_},
         {"params", {
             {"fix_type", fix_type_},
@@ -186,7 +189,7 @@ std::string UAVStateCollector::getGPSStatusJson() {
 std::string UAVStateCollector::getAttitudeJson() {
     nlohmann::json j = {
         {"state_type", "attitude"},
-        {"timestamp", ros::Time::now().toSec()},
+        {"timestamp", system_timestamp},
         {"target_system", uav_id_},
         {"params", {
             {"roll_deg", roll_ * 180.0 / M_PI},
@@ -206,7 +209,7 @@ std::string UAVStateCollector::getStateJson() {
     
     nlohmann::json j;
     j["state_type"] = "uav_state";
-    j["timestamp"] = ros::Time::now().toSec();
+    j["timestamp"] = system_timestamp;
     j["target_system"] = uav_id_;
 
     j["params"] = {

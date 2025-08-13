@@ -202,7 +202,7 @@ bool MQTTClient::subscribe(const std::string& topic, int qos) {
     
     try {
         std::cout << "Subscribing to topic: " << topic << " with QoS " << qos << std::endl;
-        std::cout << "++++++++++++++++++++++" << std::endl;
+        // std::cout << "++++++++++++++++++++++" << std::endl;
         client_->subscribe(topic, qos);
         return true;
     } catch (const mqtt::exception& e) {

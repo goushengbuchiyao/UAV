@@ -1,41 +1,66 @@
 ```mermaid
 flowchart TD
-    subgraph MQTT ROS Bridge
-        A1[MQTT Server] -->|接收 JSON 控制指令| A2[handleMQTTMessage 回调]
-        A2 -->|解析 JSON → UAVControlCommand| A3[ROS 发布 /mqtt_bridge/uavX/ros/uavcontrol/command]
+    %% 初始化阶段
+    subgraph 初始化
+      A1[等待 MAVROS 与 FCU 连接] 
+      A1 -->|连接失败| AF[发布 -PX4飞控连接失败- 消息并退出]
+      A1 -->|连接成功| A1_1{获取launch参数enable_px4_params_load?}
+      A1_1 -- false --> A2[循环写入初始 setpoints 以满足 OFFBOARD 条件]
+      A1_1 -- true --> A1_2[加载PX4参数到飞控]
+      A1_2 --> A1_3{加载成功?}
+      A1_3 -- 是 --> A2
+      A1_3 -- 否 --> AF1[发布 -PX4参数加载失败- 警告，跳过参数加载]
+      AF1 --> A2
+      A2 --> A3[安全检查 - 起飞前]
     end
 
-    subgraph UAV 主控制节点
-        A3 --> B1[cmdCallback 接收 UAVControlCommand]
-
-        B2[RC 遥控监听 /mavros/rc/in] --> B3[RC 输入变化检测]
-        B3 -->|变化| B4[设置 RC override = true]
-
-        B1 --> C1[检测指令是否过期]
-        C1 -->|过期| C2[丢弃指令并警告]
-
-        C1 -->|未过期| C3[检测 RC override 状态]
-        C3 -->|RC override = true| C4[丢弃指令并警告]
-        C3 -->|RC override = false| C5[执行 executeCommand函数]
-
-        C5 -->|takeoff| D1[调用 /mavros/cmd/takeoff]
-        C5 -->|land| D2[调用 /mavros/cmd/land]
-        C5 -->|position_control_ned| D3[发布 ENU 位姿到 /mavros/setpoint_position/local]
-        C5 -->|velocity_control_ned| D4[发布 ENU 速度到 /mavros/setpoint_velocity/cmd_vel]
-        C5 -->|position_control_global| D5[调用 Global Position 控制接口]
-        C5 -->|return_to_launch| D6[调用 /mavros/set_mode AUTO.RTL]
-        C5 -->|hover| D7[调用 /mavros/set_mode AUTO.LOITER]
-        C5 -->|set_mode| D8[调用 /mavros/set_mode 指定模式]
+    %% 起飞前安全检查
+    subgraph 起飞前安全检查
+      A3 --> P1[PX4 参数检查]
+      P1 --> P2[电池健康检查]
+      P2 --> C1{地理围栏检查}
+      C1 -- 超出围栏 --> F1[安全标志=1 中止起飞]
+      C1 -- 正常 --> C2{定位有效性检查}
+      C2 -- Odom 失效 --> F2[安全标志=2 中止起飞]
+      C2 -- 正常 --> C3{遥控器连接检查}
+      C3 -- 断开连接 --> F3[安全标志=3 中止起飞]
+      C3 -- 正常 --> A4[发布几帧 setpoints 后，尝试切换 OFFBOARD 模式 & Arm]
+      A4 --> H1[发布健康状态消息]
     end
 
-    subgraph PX4 飞控
-        D1 --> E1[PX4 执行起飞]
-        D2 --> E2[PX4 执行降落]
-        D3 --> E3[PX4 执行位置控制]
-        D4 --> E4[PX4 执行速度控制]
-        D5 --> E5[PX4 执行全球位置控制]
-        D6 --> E6[PX4 执行返航]
-        D7 --> E7[PX4 悬停]
-        D8 --> E8[PX4 切换模式]
+    %% 云端控制循环
+    subgraph 云端控制循环
+      H1 --> B1[监听 /mqtt_ros_bridge/uav1/ros/uavcontrol/command]
+      B1 --> B2{RC override?}
+      B2 -- 是 --> B3[停止发送 setpoints, 忽略指令, 进入手动模式]
+      B2 -- 否 --> B4[检查指令 timestamp 是否过期]
+      B4 -- 过期 --> B5[丢弃 + 发布超时警告]
+      B4 -- 有效 --> B6[执行 UAVControlCommand 对应的 MAVROS 操作]
+      B6 --> B7{命令类型}
+      B7 -- takeoff/land --> C4[服务调用 + 等待执行确认]
+      B7 -- position_control --> C5[更新 current_setpoint 并保持高频发布]
+      B7 -- velocity_control --> C6[发布 velocity setpoint]
+      B7 -- return/hover/set_mode --> C7[调用 SetMode 切换模式 + 等待确认]
+      B6 --> R1[恢复逻辑: 若前一条指令执行失败, 回退到安全模式]
+    end
+
+    %% 飞行中安全监控
+    subgraph 飞行中安全监控
+      C4 --> E1[安全检查 - 飞行中]
+      C5 --> E1
+      C6 --> E1
+      C7 --> E1
+      E1 --> G1[地理围栏检查]
+      G1 -- 超出围栏 --> E2[执行紧急 RTL / Land / 停止 setpoints]
+      G1 -- 正常 --> G2[定位有效性检查]
+      G2 -- 定位失效 --> E2
+      G2 -- 正常 --> G3[遥控器连接检查]
+      G3 -- RC断开 --> E2
+      G3 -- 正常 --> E3[位置/速度异常检测]
+      E3 -- 异常 --> E2
+      E3 -- 正常 --> E4[链路状态检测]
+      E4 -- 链路丢失 --> E5[触发链路丢失应急（RTL 或悬停）]
+      E4 -- 正常 --> E6[持续发布健康状态消息]
+      E6 --> 云端控制循环
     end
 ```

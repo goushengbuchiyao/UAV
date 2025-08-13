@@ -8,7 +8,7 @@ bool UAVCommandParser::parse(const std::string& json_str, CommandData& cmd_out, 
             return false;
 
         cmd_out.command_type = j.at("command_type").get<std::string>();
-        cmd_out.timestamp = j.at("timestamp").get<uint64_t>();
+        cmd_out.timestamp = j.at("timestamp").get<double>();
         cmd_out.target_system = j.at("target_system").get<int>();
         cmd_out.params = j.at("params");
 

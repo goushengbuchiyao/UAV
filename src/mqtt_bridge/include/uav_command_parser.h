@@ -6,7 +6,7 @@ class UAVCommandParser {
 public:
     struct CommandData {
         std::string command_type;
-        uint64_t timestamp;
+        double timestamp;
         int target_system;
         nlohmann::json params;
     };
