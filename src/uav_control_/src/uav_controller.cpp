@@ -40,6 +40,7 @@ UAV_controller::UAV_controller(ros::NodeHandle &nh) : nh(nh)
     // 从ROS参数服务器获取command模式下的水平加速度，若未设置则默认为2.0
     nh.param<double>("control/COMMAND_MPC_ACC_HOR", COMMAND_MPC_ACC_HOR, 2.0);
     // 【参数】地理围栏
+    
     // 从ROS参数服务器获取地理围栏的边界值，若未设置则使用默认值
     nh.param<float>("geo_fence/x_min", uav_geo_fence.x_min, -100.0);
     nh.param<float>("geo_fence/x_max", uav_geo_fence.x_max, 100.0);
