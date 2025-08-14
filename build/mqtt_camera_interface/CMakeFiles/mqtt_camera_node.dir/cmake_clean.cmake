@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/px/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node"
-  "/home/px/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node.pdb"
+  "/home/px4/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node"
+  "/home/px4/UAV_SDK/devel/lib/mqtt_camera_interface/mqtt_camera_node.pdb"
   "CMakeFiles/mqtt_camera_node.dir/src/mqtt_camera_node.cpp.o"
 )
 

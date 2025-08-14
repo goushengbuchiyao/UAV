@@ -1,12 +1,5 @@
-geo_fence:
-  x_min: -100.0
-  x_max: 100.0
-  y_min: -100.0
-  y_max: 100.0
-  z_min: -0.5
-  z_max: 100.0
-
-takeoff_height: 2.0
-landing_speed: 0.5
-arm_height: 0.2
-max_flight_speed: 5.0
+MPC_XY_CRUISE: 5.0       # 最大水平速度 m/s
+MPC_Z_VEL_MAX_UP: 2.0    # 最大上升速度
+MPC_Z_VEL_MAX_DN: 1.5    # 最大下降速度
+# COM_ARM_AUTH: 1           # 自动解锁允许
+# MIS_TAKEOFF_ALT: 10.0      # 默认起飞高度

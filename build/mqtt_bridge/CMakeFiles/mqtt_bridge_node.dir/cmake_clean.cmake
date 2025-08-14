@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node"
-  "/home/px/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node.pdb"
+  "/home/px4/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node"
+  "/home/px4/UAV_SDK/devel/lib/mqtt_bridge/mqtt_bridge_node.pdb"
   "CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o"
   "CMakeFiles/mqtt_bridge_node.dir/src/mqtt_client.cpp.o"
   "CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o"

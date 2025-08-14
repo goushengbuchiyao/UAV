@@ -1,8 +1,8 @@
-prefix=/home/px/UAV_SDK/devel
+prefix=/home/px4/UAV_SDK/devel
 
 Name: uav_control
 Description: Description of uav_control
-Version: 0.1.0
-Cflags: 
+Version: 0.0.1
+Cflags: -I/home/px4/UAV_SDK/src/uav_control/include
 Libs: -L${prefix}/lib 
-Requires: roscpp std_msgs sensor_msgs nav_msgs geometry_msgs mavros_msgs uav_msgs
+Requires: roscpp std_msgs mavros_msgs uav_msgs geometry_msgs

@@ -1,71 +1,371 @@
 #include "uav_control/uav_control_node.h"
+#include <iostream>
+#include <cmath>
+#include <tf2/LinearMath/Quaternion.h>
+UAVControlNode::UAVControlNode(ros::NodeHandle& nh) : nh_(nh)
+{
+    nh_.param<std::string>("uav_id", uav_id_, "uav1");
+    prefix_ = "/" + uav_id_;
 
-namespace uav_control {
+    // 订阅 MAVROS 话题
+    state_sub_ = nh_.subscribe(prefix_ + "/mavros/state", 10, &UAVControlNode::stateCallback, this);
+    battery_sub_ = nh_.subscribe(prefix_ + "/mavros/battery", 10, &UAVControlNode::batteryCallback, this);
+    gps_sub_ = nh_.subscribe(prefix_ + "/mavros/gpsstatus/gps1/raw", 10, &UAVControlNode::gpsCallback, this);
+    local_pos_sub_ = nh_.subscribe(prefix_ + "/mavros/local_position/pose", 10, &UAVControlNode::localPosCallback, this);
+    velocity_sub_ = nh_.subscribe(prefix_ + "/mavros/local_position/velocity_local", 10, &UAVControlNode::velocityCallback, this);
+    // 订阅 UAVControlCommand 指令
+    cmd_sub_ = nh_.subscribe("/mqtt_ros_bridge/" + prefix_ + "/ros/uavcontrol/command", 10, &UAVControlNode::uavCommandCallback, this);
 
-UAVControlNode::UAVControlNode(ros::NodeHandle& nh)
-    : nh_(nh),
-      safety_checker_(nh),
-      param_loader_(nh),
-      cmd_executor_(nh) {
+    // 初始化 MAVROS 服务
+    arming_client_ = nh_.serviceClient<mavros_msgs::CommandBool>(prefix_ + "/mavros/cmd/arming");
+    set_mode_client_ = nh_.serviceClient<mavros_msgs::SetMode>(prefix_ + "/mavros/set_mode");
+    takeoff_client_ = nh_.serviceClient<mavros_msgs::CommandTOL>(prefix_ + "/mavros/cmd/takeoff");
+    land_client_ = nh_.serviceClient<mavros_msgs::CommandTOL>(prefix_ + "/mavros/cmd/land");
+    
+    // MAVROS 发布器
+    local_pos_pub_ = nh_.advertise<geometry_msgs::PoseStamped>(prefix_ + "/mavros/setpoint_position/local", 10);
+    local_vel_pub_ = nh_.advertise<geometry_msgs::TwistStamped>(prefix_ + "/mavros/setpoint_velocity/cmd_vel", 10);
 
-    // 订阅UAVControlCommand
-    cmd_sub_ = nh_.subscribe("/mqtt_ros_bridge/uav1/ros/uavcontrol/command", 10, 
-                             &UAVControlNode::uavControlCmdCallback, this);
-    // 发布状态
-    status_pub_ = nh_.advertise<std_msgs::String>("uav_control/status", 10);
+    // 地理围栏示例参数
+    nh_.param<double>("fence_min_x", fence_min_x_, -50.0);
+    nh_.param<double>("fence_max_x", fence_max_x_, 50.0);
+    nh_.param<double>("fence_min_y", fence_min_y_, -50.0);
+    nh_.param<double>("fence_max_y", fence_max_y_, 50.0);
+    nh_.param<double>("fence_min_z", fence_min_z_, -1.0);
+    nh_.param<double>("fence_max_z", fence_max_z_, 50.0);
 
-    // 是否启用PX4参数加载
-    nh_.param("enable_px4_params_load", enable_px4_params_load_, false);
+    // 加载 px4 参数
+    loadPX4Params("config/px4_params.yaml");
 
-    // MAVROS连接检查定时器
-    connection_timer_ = nh_.createTimer(ros::Duration(1.0), 
-                  &UAVControlNode::mavrosConnectionCheck, this);
+    ROS_INFO("[%s] UAVControlNode initialized.", uav_id_.c_str());
 }
 
-// 检查MAVROS连接并加载PX4参数
-void UAVControlNode::mavrosConnectionCheck(const ros::TimerEvent&) {
-    if (!mavros_connected_) {
-        ROS_INFO_THROTTLE(5, "等待MAVROS与FCU连接...");
-        // TODO: 实际应订阅 /mavros/state 检查 connected 字段
-        static int retry_count = 0;
-        retry_count++;
-        if (retry_count > 10) {
-            ROS_ERROR("PX4飞控连接失败");
-            ros::shutdown();
-        }
-        mavros_connected_ = true; // 模拟成功
-        if (enable_px4_params_load_) {
-            bool loaded = param_loader_.loadParameters();
-            if (!loaded) {
-                ROS_WARN("PX4参数加载失败，继续初始化");
+void UAVControlNode::run()
+{
+    ros::Rate rate(20.0); // 20Hz
+    ROS_INFO("[%s] Waiting for MAVROS connection...", uav_id_.c_str());
+
+    // 等待与 PX4 通信
+    while (ros::ok())
+    {
+        ros::spinOnce();
+        if(current_state_.connected)
+        {
+            // ROS_INFO("[%s] MAVROS connected to PX4!", uav_id_.c_str());
+            if(local_pose_.pose.position.z >=1 )
+            {
+                if(checkInFlightSafety())
+                {
+                    ROS_INFO("[%s] UAV in flight safety check passed!", uav_id_.c_str());
+                    // break;
+                }
+                else
+                {
+                    ROS_ERROR("[%s] UAV in flight safety check failed!", uav_id_.c_str());
+                    // 进入返航模式
+                    setMode("AUTO.RTL");
+                    // break;
+                }
             }
         }
+        else
+        {
+            ROS_INFO("[%s] MAVROS not connected to PX4!",uav_id_.c_str());
+        }
+        rate.sleep();
+    }
+    ROS_INFO("[%s] MAVROS connected to PX4!", uav_id_.c_str());
+}
+
+// -------------------- 回调函数 --------------------
+void UAVControlNode::stateCallback(const mavros_msgs::State::ConstPtr& msg)
+{
+    // std::lock_guard<std::mutex> lock(state_mutex_);
+    current_state_ = *msg;
+}
+
+void UAVControlNode::batteryCallback(const sensor_msgs::BatteryState::ConstPtr& msg)
+{
+    // std::lock_guard<std::mutex> lock(state_mutex_);
+    battery_ = *msg;
+}
+
+void UAVControlNode::gpsCallback(const mavros_msgs::GPSRAW::ConstPtr& msg)
+{
+    // std::lock_guard<std::mutex> lock(state_mutex_);
+    gps_ = *msg;
+}
+
+void UAVControlNode::localPosCallback(const geometry_msgs::PoseStamped::ConstPtr& msg)
+{
+    // std::lock_guard<std::mutex> lock(state_mutex_);
+    local_pose_ = *msg;
+}
+
+void UAVControlNode::velocityCallback(const geometry_msgs::TwistStamped::ConstPtr& msg)
+{
+    // std::lock_guard<std::mutex> lock(state_mutex_);
+    velocity_ = *msg;
+}
+
+// -------------------- UAVControlCommand 处理 --------------------
+void UAVControlNode::uavCommandCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg)
+{
+    ROS_INFO("[%s] Received UAVControlCommand: %s", uav_id_.c_str(), msg->command_type.c_str());
+    executeCommand(*msg);
+}
+
+// -------------------- 核心执行 --------------------
+void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
+{
+    if(cmd.command_type == "takeoff")
+    {
+        if(!checkPreArmSafety())
+        {
+            ROS_WARN("[%s] Pre-arm safety check failed! Aborting takeoff.", uav_id_.c_str());
+            return;
+        }
+        
+        if(arm())
+        {
+            setMode("AUTO.TAKEOFF");
+            ROS_INFO("[%s] UAV armed, initiating takeoff.", uav_id_.c_str());
+            ROS_INFO("[%s] Takeoff altitude: %.2f, Yaw: %.2f", uav_id_.c_str(), cmd.takeoff.altitude, cmd.takeoff.yaw);
+            takeoff(cmd.takeoff.altitude, cmd.takeoff.yaw);
+
+            // // 起飞后循环飞行中安全检查
+            // ros::Rate rate(10.0);
+            // while (ros::ok())
+            // {
+            //     ros::spinOnce();
+            //     if(!checkInFlightSafety())
+            //     {
+            //         ROS_ERROR("[%s] In-flight safety violated! Initiating emergency RTL.", uav_id_.c_str());
+            //         setMode("AUTO.RTL");
+            //         break;
+            //     }
+            //     rate.sleep();
+            // }
+        }
+        else
+        {
+            ROS_ERROR("[%s] Failed to arm UAV!", uav_id_.c_str());
+        }
+    }
+    else if(cmd.command_type == "land")
+    {
+        land(cmd.land.yaw);
+    }
+    else if(cmd.command_type == "position_control_ned")
+    {
+        sendPositionSetpoint(cmd.pos_ned.x, cmd.pos_ned.y, cmd.pos_ned.z, cmd.pos_ned.yaw);
+    }
+    else if(cmd.command_type == "velocity_control_ned")
+    {
+        sendVelocitySetpoint(cmd.vel_ned.vx, cmd.vel_ned.vy, cmd.vel_ned.vz, cmd.vel_ned.yaw_rate);
+    }
+    else if(cmd.command_type == "set_mode")
+    {
+        setMode(cmd.set_mode.mode);
+    }
+    else if(cmd.command_type == "return_to_launch")
+    {
+        setMode("AUTO.RTL");
+    }
+    else if(cmd.command_type == "hover")
+    {
+        setMode(cmd.hover.mode);
+    }
+    else
+    {
+        ROS_WARN("[%s] Unknown command_type: %s", uav_id_.c_str(), cmd.command_type.c_str());
     }
 }
 
-// UAVControlCommand回调
-void UAVControlNode::uavControlCmdCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg) {
-    if (!safety_checker_.checkInFlight()) {
-        ROS_WARN("飞行中安全检查未通过，拒绝执行命令");
-        return;
+// -------------------- 安全检查 --------------------
+bool UAVControlNode::checkPreArmSafety()
+{
+    std::lock_guard<std::mutex> lock(state_mutex_);
+    if(!current_state_.connected)
+    {
+        ROS_ERROR("[%s] PX4 not connected.", uav_id_.c_str());
+        return false;
     }
 
-    if (!cmd_executor_.executeCommand(*msg)) {
-        ROS_ERROR("执行命令失败，切换安全模式");
-        // TODO: 回退安全模式逻辑
+    if(battery_.percentage < 0.2)
+    {
+        ROS_ERROR("[%s] Battery too low: %.2f%%", uav_id_.c_str(), battery_.percentage*100.0);
+        return false;
+    }
+
+    if(!isInsideFence(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z))
+    {
+        ROS_ERROR("[%s] UAV outside geofence!", uav_id_.c_str());
+        return false;
+    }
+
+    if(gps_.fix_type < 3 || gps_.satellites_visible < 10)
+    {
+        ROS_ERROR("[%s] GPS fix invalid or insufficient satellites: fix=%d, sats=%d", uav_id_.c_str(), gps_.fix_type, gps_.satellites_visible);
+        return false;
+    }
+
+    ROS_INFO("[%s] Pre-arm safety check passed.", uav_id_.c_str());
+    return true;
+}
+
+bool UAVControlNode::checkInFlightSafety()
+{
+    std::lock_guard<std::mutex> lock(state_mutex_);
+    if(!isInsideFence(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z))
+    {
+        ROS_ERROR("[%s] Geofence violation!", uav_id_.c_str());
+        return false;
+    }
+    if(gps_.fix_type < 3 || gps_.satellites_visible < 10)
+    {
+        ROS_ERROR("[%s] GPS lost or insufficient satellites!", uav_id_.c_str());
+        return false;
+    }
+    return true;
+}
+
+bool UAVControlNode::isInsideFence(double x, double y, double z)
+{
+    ROS_INFO("[%s] fence_min_x_: %.2f, fence_max_x_: %.2f, fence_min_y_: %.2f, fence_max_y_: %.2f, fence_min_z_: %.2f, fence_max_z_: %.2f", uav_id_.c_str(), fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_);
+    ROS_INFO("[%s] x: %.2f, y: %.2f, z: %.2f", uav_id_.c_str(), x, y, z);
+    return x >= fence_min_x_ && x <= fence_max_x_ &&
+           y >= fence_min_y_ && y <= fence_max_y_ &&
+           z >= fence_min_z_ && z <= fence_max_z_;
+}
+
+// -------------------- MAVROS 操作 --------------------
+bool UAVControlNode::arm()
+{
+    mavros_msgs::CommandBool srv;
+    srv.request.value = true;
+    if(arming_client_.call(srv) && srv.response.success)
+    {
+        ROS_INFO("[%s] UAV armed successfully.", uav_id_.c_str());
+        return true;
+    }
+    ROS_ERROR("[%s] Arming failed.", uav_id_.c_str());
+    return false;
+}
+
+bool UAVControlNode::setMode(const std::string& mode)
+{
+    mavros_msgs::SetMode srv;
+    srv.request.custom_mode = mode;
+    if(set_mode_client_.call(srv) && srv.response.mode_sent)
+    {
+        ROS_INFO("[%s] Mode set to %s.", uav_id_.c_str(), mode.c_str());
+        return true;
+    }
+    ROS_ERROR("[%s] Failed to set mode %s.", uav_id_.c_str(), mode.c_str());
+    return false;
+}
+
+bool UAVControlNode::takeoff(double altitude, double yaw)
+{
+    mavros_msgs::CommandTOL srv;
+    srv.request.altitude = altitude;
+    srv.request.yaw = yaw;
+    srv.request.latitude = 0;
+    srv.request.longitude = 0;
+    srv.request.min_pitch = 0;
+    srv.request.yaw = yaw;
+    if(takeoff_client_.call(srv) && srv.response.success)
+    {
+        ROS_INFO("[%s] Takeoff command sent successfully.", uav_id_.c_str());
+        return true;
+    }
+    ROS_ERROR("[%s] Takeoff command failed.", uav_id_.c_str());
+    return false;
+}
+
+bool UAVControlNode::land(double yaw)
+{
+    mavros_msgs::CommandTOL srv;
+    srv.request.yaw = yaw;
+    if(land_client_.call(srv) && srv.response.success)
+    {
+        ROS_INFO("[%s] Land command sent successfully.", uav_id_.c_str());
+        return true;
+    }
+    ROS_ERROR("[%s] Land command failed.", uav_id_.c_str());
+    return false;
+}
+
+void UAVControlNode::sendPositionSetpoint(double x, double y, double z, double yaw)
+{
+    geometry_msgs::PoseStamped pose;
+    pose.header.stamp = ros::Time::now();
+    pose.pose.position.x = x;
+    pose.pose.position.y = y;
+    pose.pose.position.z = z;
+
+    // 四元数转换 yaw -> quaternion
+    tf2::Quaternion q;
+    q.setRPY(0, 0, yaw);
+    pose.pose.orientation.x = q.x();
+    pose.pose.orientation.y = q.y();
+    pose.pose.orientation.z = q.z();
+    pose.pose.orientation.w = q.w();
+
+    ros::Rate rate(20);
+    for(int i=0; i<20; ++i) // 循环发布1秒
+    {
+        pose.header.stamp = ros::Time::now();
+        local_pos_pub_.publish(pose);
+        rate.sleep();
     }
 }
 
-void UAVControlNode::run() {
-    ros::spin();
+void UAVControlNode::sendVelocitySetpoint(double vx, double vy, double vz, double yaw_rate)
+{
+    
+    geometry_msgs::TwistStamped vel;
+    vel.header.stamp = ros::Time::now();
+    vel.twist.linear.x = vx;
+    vel.twist.linear.y = vy;
+    vel.twist.linear.z = vz;
+    vel.twist.angular.z = yaw_rate;
+
+    ros::Rate rate(20);
+    for(int i=0; i<20; ++i)
+    {
+        vel.header.stamp = ros::Time::now();
+        local_vel_pub_.publish(vel);
+        rate.sleep();
+    }
 }
 
-} // namespace uav_control
+// -------------------- PX4 参数加载 --------------------
+void UAVControlNode::loadPX4Params(const std::string& yaml_file)
+{
+    try
+    {
+        YAML::Node config = YAML::LoadFile(yaml_file);
+        for (auto it = config.begin(); it != config.end(); ++it)
+        {
+            std::string param_name = it->first.as<std::string>();
+            double param_value = it->second.as<double>();
+            ROS_INFO("[%s] PX4 param %s = %f (load to PX4 service if needed)", uav_id_.c_str(), param_name.c_str(), param_value);
+        }
+    }
+    catch(const std::exception& e)
+    {
+        ROS_WARN("[%s] Failed to load PX4 params: %s", uav_id_.c_str(), e.what());
+    }
+}
 
-int main(int argc, char** argv) {
+// -------------------- main --------------------
+int main(int argc, char** argv)
+{
     ros::init(argc, argv, "uav_control_node");
     ros::NodeHandle nh("~");
-    uav_control::UAVControlNode node(nh);
+    UAVControlNode node(nh);
     node.run();
     return 0;
 }

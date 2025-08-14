@@ -1,8 +1,8 @@
-prefix=/home/px/UAV_SDK/install
+prefix=/home/px4/UAV_SDK/install
 
 Name: uav_control
 Description: Description of uav_control
-Version: 0.1.0
-Cflags: 
+Version: 0.0.1
+Cflags: -I${prefix}/include
 Libs: -L${prefix}/lib 
-Requires: roscpp std_msgs sensor_msgs nav_msgs geometry_msgs mavros_msgs uav_msgs
+Requires: roscpp std_msgs mavros_msgs uav_msgs geometry_msgs

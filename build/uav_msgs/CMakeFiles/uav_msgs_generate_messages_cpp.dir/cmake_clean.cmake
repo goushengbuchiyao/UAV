@@ -1,13 +1,13 @@
 file(REMOVE_RECURSE
-  "/home/px/UAV_SDK/devel/include/uav_msgs/HoverCommand.h"
-  "/home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h"
-  "/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h"
-  "/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h"
-  "/home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h"
-  "/home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h"
-  "/home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h"
-  "/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h"
-  "/home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h"
+  "/home/px4/UAV_SDK/devel/include/uav_msgs/HoverCommand.h"
+  "/home/px4/UAV_SDK/devel/include/uav_msgs/LandCommand.h"
+  "/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h"
+  "/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h"
+  "/home/px4/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h"
+  "/home/px4/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h"
+  "/home/px4/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h"
+  "/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h"
+  "/home/px4/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h"
   "CMakeFiles/uav_msgs_generate_messages_cpp"
 )
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 # Utility rule file for uav_msgs_genlisp.
 
@@ -63,10 +63,10 @@ uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/build: uav_msgs_genlisp
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/build
 
 uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/clean:
-	cd /home/px/UAV_SDK/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uav_msgs_genlisp.dir/cmake_clean.cmake
+	cd /home/px4/UAV_SDK/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uav_msgs_genlisp.dir/cmake_clean.cmake
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/clean
 
 uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/uav_msgs /home/px/UAV_SDK/build/uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/uav_msgs /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/uav_msgs /home/px4/UAV_SDK/build/uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/depend
 
