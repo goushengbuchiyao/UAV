@@ -723,7 +723,7 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/all: common/p
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/all: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVCommand.dir/all
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=61,62,63,64,65,66,67,68,69,70,71,72 "Built target px_uav_msgs_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=62,63,64,65,66,67,68,69,70,71,72,73 "Built target px_uav_msgs_generate_messages_py"
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -774,12 +774,12 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/all: common
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/all: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVCommand.dir/all
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=38,39,40,41,42,43,44,45,46,47,48 "Built target px_uav_msgs_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=38,39,40,41,42,43,44,45,46,47,48,49 "Built target px_uav_msgs_generate_messages_lisp"
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/rule
@@ -2690,7 +2690,7 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_genlisp.dir/all: common/px_uav_msgs/CM
 
 # Build rule for subdir invocation for target.
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 common/px_uav_msgs/CMakeFiles/px_uav_msgs_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_genlisp.dir/rule
@@ -2802,7 +2802,7 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages.dir/all: common/px_u
 
 # Build rule for subdir invocation for target.
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 60
 	$(MAKE) -f CMakeFiles/Makefile2 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages.dir/rule
@@ -2875,7 +2875,7 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/all: comm
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/all: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVCommand.dir/all
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/depend
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=49,50,51,52,53,54,55,56,57,58,59,60 "Built target px_uav_msgs_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=50,51,52,53,54,55,56,57,58,59,60,61 "Built target px_uav_msgs_generate_messages_nodejs"
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3545,7 +3545,7 @@ aruco_detection/CMakeFiles/aruco_landing_controller_once.dir/all: common/px_uav_
 
 # Build rule for subdir invocation for target.
 aruco_detection/CMakeFiles/aruco_landing_controller_once.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 61
 	$(MAKE) -f CMakeFiles/Makefile2 aruco_detection/CMakeFiles/aruco_landing_controller_once.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : aruco_detection/CMakeFiles/aruco_landing_controller_once.dir/rule
@@ -3616,7 +3616,7 @@ aruco_detection/CMakeFiles/aruco_detection_once.dir/all: common/px_uav_msgs/CMak
 
 # Build rule for subdir invocation for target.
 aruco_detection/CMakeFiles/aruco_detection_once.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 61
 	$(MAKE) -f CMakeFiles/Makefile2 aruco_detection/CMakeFiles/aruco_detection_once.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : aruco_detection/CMakeFiles/aruco_detection_once.dir/rule
@@ -3687,7 +3687,7 @@ aruco_detection/CMakeFiles/aruco_detection_nested.dir/all: common/px_uav_msgs/CM
 
 # Build rule for subdir invocation for target.
 aruco_detection/CMakeFiles/aruco_detection_nested.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 61
 	$(MAKE) -f CMakeFiles/Makefile2 aruco_detection/CMakeFiles/aruco_detection_nested.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : aruco_detection/CMakeFiles/aruco_detection_nested.dir/rule
@@ -3758,7 +3758,7 @@ aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/all: common/px_ua
 
 # Build rule for subdir invocation for target.
 aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 61
 	$(MAKE) -f CMakeFiles/Makefile2 aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : aruco_detection/CMakeFiles/aruco_landing_controller_nested.dir/rule
@@ -3962,7 +3962,7 @@ mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/mqtt_bri
 
 # Build rule for subdir invocation for target.
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 63
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 64
 	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/rule
@@ -4793,12 +4793,12 @@ uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all: uav_msgs/CMakeFiles
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_SetModeCommand.dir/all
 	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=86,87,88,89 "Built target uav_msgs_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=85,86,87,88,89 "Built target uav_msgs_generate_messages_lisp"
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule
@@ -4825,7 +4825,7 @@ uav_msgs/CMakeFiles/uav_msgs_geneus.dir/all: uav_msgs/CMakeFiles/uav_msgs_genera
 
 # Build rule for subdir invocation for target.
 uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule
@@ -4856,7 +4856,7 @@ uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/all: uav_msgs/CMakeFiles/uav_
 
 # Build rule for subdir invocation for target.
 uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 26
 	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule
@@ -4964,7 +4964,7 @@ uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/all: uav_msgs/CMakeFiles/uav_msgs_gener
 
 # Build rule for subdir invocation for target.
 uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule
@@ -5103,12 +5103,12 @@ uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all: uav_msgs/CMakeFiles/
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_SetModeCommand.dir/all
 	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/depend
 	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=80,81,82,83,84,85 "Built target uav_msgs_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=80,81,82,83,84 "Built target uav_msgs_generate_messages_eus"
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule
@@ -5193,12 +5193,12 @@ uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all: uav_msgs/CMakeFiles/
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_SetModeCommand.dir/all
 	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/depend
 	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=76,77,78,79 "Built target uav_msgs_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=75,76,77,78,79 "Built target uav_msgs_generate_messages_cpp"
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule
@@ -5252,7 +5252,7 @@ uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/all: uav_msgs/CMakeFiles/uav_msgs_genera
 
 # Build rule for subdir invocation for target.
 uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule
@@ -5274,12 +5274,12 @@ uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/clean:
 uav_control/CMakeFiles/uav_control_node.dir/all:
 	$(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/depend
 	$(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=73,74,75 "Built target uav_control_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=74 "Built target uav_control_node"
 .PHONY : uav_control/CMakeFiles/uav_control_node.dir/all
 
 # Build rule for subdir invocation for target.
 uav_control/CMakeFiles/uav_control_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : uav_control/CMakeFiles/uav_control_node.dir/rule

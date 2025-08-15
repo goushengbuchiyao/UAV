@@ -4,8 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/px/UAV_SDK/src/uav_control/src/command_executor.cpp" "/home/px/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/command_executor.cpp.o"
-  "/home/px/UAV_SDK/src/uav_control/src/safety_checker.cpp" "/home/px/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/safety_checker.cpp.o"
   "/home/px/UAV_SDK/src/uav_control/src/uav_control_node.cpp" "/home/px/UAV_SDK/build/uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

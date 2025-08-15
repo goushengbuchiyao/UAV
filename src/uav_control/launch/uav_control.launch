@@ -2,15 +2,21 @@
     <!-- UAV Control Node Launch -->
     
     <!-- 参数 -->
-    <arg name="uav_id" default="1"/>
+    <arg name="uav_id" default="uav1"/>
     <arg name="loop_rate_hz" default="20.0"/>
     <arg name="enable_px4_params_load" default="true"/>
     <arg name="reboot_px4_set_reset_ekf" default="false"/>
 
     <!-- UAV Control Node -->
-    <node name="uav_control_node" pkg="uav_control" type="uav_control_node" output="screen">
+    <node name="uav_control_node" pkg="uav_control" type="uav_control_node" output="screen" >
         <!-- 参数传入节点 -->
-        <param name="uav_id" value="uav$(arg uav_id)"/>
+        <param name="fence_min_x" value="-50.0"/>
+        <param name="fence_max_x" value="50.0"/>
+        <param name="fence_min_y" value="-50.0"/>
+        <param name="fence_max_y" value="50.0"/>
+        <param name="fence_min_z" value="-1.0"/>
+        <param name="fence_max_z" value="50.0"/>
+        <param name="uav_id" value="$(arg uav_id)"/>
         <param name="loop_rate_hz" value="$(arg loop_rate_hz)"/>
         <param name="enable_px4_params_load" value="$(arg enable_px4_params_load)"/>
         <param name="reboot_px4_set_reset_ekf" value="$(arg reboot_px4_set_reset_ekf)"/>

@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   uav_msgs
   geometry_msgs
 )
+find_package(yaml-cpp REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include
@@ -21,12 +22,11 @@ include_directories(
 
 add_executable(uav_control_node
   src/uav_control_node.cpp
-  src/safety_checker.cpp
-  src/command_executor.cpp
 )
 
 target_link_libraries(uav_control_node
   ${catkin_LIBRARIES}
+  ${YAML_CPP_LIBRARIES}
 )
 
 install(TARGETS uav_control_node

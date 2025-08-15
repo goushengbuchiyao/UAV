@@ -51,6 +51,8 @@ bool MQTTROSNode::init() {
                 // ros订阅器订阅mqtt指令执行状态的ros消息，将执行结果反馈给mqtt
                 ros_to_mqtt_sub_ = nh_.subscribe(ros_subscribe_topic_, 10, &MQTTROSNode::handleROSMessage, this);
             }
+        }else{
+            return false;
         }
        
     }else {

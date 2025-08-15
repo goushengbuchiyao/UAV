@@ -182,60 +182,6 @@ uav_control_node/fast:
 	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/build
 .PHONY : uav_control_node/fast
 
-src/command_executor.o: src/command_executor.cpp.o
-
-.PHONY : src/command_executor.o
-
-# target to build an object file
-src/command_executor.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/command_executor.cpp.o
-.PHONY : src/command_executor.cpp.o
-
-src/command_executor.i: src/command_executor.cpp.i
-
-.PHONY : src/command_executor.i
-
-# target to preprocess a source file
-src/command_executor.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/command_executor.cpp.i
-.PHONY : src/command_executor.cpp.i
-
-src/command_executor.s: src/command_executor.cpp.s
-
-.PHONY : src/command_executor.s
-
-# target to generate assembly for a file
-src/command_executor.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/command_executor.cpp.s
-.PHONY : src/command_executor.cpp.s
-
-src/safety_checker.o: src/safety_checker.cpp.o
-
-.PHONY : src/safety_checker.o
-
-# target to build an object file
-src/safety_checker.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/safety_checker.cpp.o
-.PHONY : src/safety_checker.cpp.o
-
-src/safety_checker.i: src/safety_checker.cpp.i
-
-.PHONY : src/safety_checker.i
-
-# target to preprocess a source file
-src/safety_checker.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/safety_checker.cpp.i
-.PHONY : src/safety_checker.cpp.i
-
-src/safety_checker.s: src/safety_checker.cpp.s
-
-.PHONY : src/safety_checker.s
-
-# target to generate assembly for a file
-src/safety_checker.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/safety_checker.cpp.s
-.PHONY : src/safety_checker.cpp.s
-
 src/uav_control_node.o: src/uav_control_node.cpp.o
 
 .PHONY : src/uav_control_node.o
@@ -277,12 +223,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... uav_control_node"
-	@echo "... src/command_executor.o"
-	@echo "... src/command_executor.i"
-	@echo "... src/command_executor.s"
-	@echo "... src/safety_checker.o"
-	@echo "... src/safety_checker.i"
-	@echo "... src/safety_checker.s"
 	@echo "... src/uav_control_node.o"
 	@echo "... src/uav_control_node.i"
 	@echo "... src/uav_control_node.s"

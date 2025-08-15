@@ -2,103 +2,89 @@
 #define UAV_CONTROL_NODE_H
 
 #include <ros/ros.h>
-#include <ros/package.h>
 #include <std_msgs/String.h>
+#include <geometry_msgs/PoseStamped.h>
+#include <geometry_msgs/TwistStamped.h>
+#include <sensor_msgs/BatteryState.h>
 #include <mavros_msgs/State.h>
+#include <mavros_msgs/GPSRAW.h>
+#include <mavros_msgs/SetMode.h>
+#include <mavros_msgs/CommandBool.h>
+#include <mavros_msgs/CommandTOL.h>
 #include <uav_msgs/UAVControlCommand.h>
+#include <yaml-cpp/yaml.h>
+#include <thread>
+#include <mutex>
 
-#include <map>
-#include <memory>
-#include <string>
-
-// 模块依赖
-#include "command_executor.h"
-#include "safety_checker.h"
-
-/**
- * @brief UAVControlNode 是无人机控制的核心节点
- * - 初始化 MAVROS 连接
- * - 批量下发 PX4 参数（可选）
- * - 接收 UAV 云端指令并执行对应操作
- * - 定时进行安全检查
- */
-class UAVControlNode {
+class UAVControlNode
+{
 public:
-    UAVControlNode(ros::NodeHandle& nh, ros::NodeHandle& nh_private);
-    ~UAVControlNode();
-
-    // 启动主循环
+    UAVControlNode(ros::NodeHandle& nh);
     void run();
 
 private:
-    /**
-     * @brief 初始化 ROS 参数、配置文件、内部变量
-     */
-    void initParams();
-
-    /**
-     * @brief 初始化订阅器
-     */
-    void initSubscribers();
-
-    /**
-     * @brief 初始化发布器
-     */
-    void initPublishers();
-
-    /**
-     * @brief 初始化安全检查和指令执行模块
-     */
-    void initModules();
-
-    /**
-     * @brief 等待与 PX4 FCU 建立连接
-     */
-    void waitForFCUConnection();
-
-    /**
-     * @brief 批量下发 PX4 参数
-     */
-    void loadPX4Params();
-
-    /**
-     * @brief 重启 PX4 并复位 EKF（可选）
-     */
-    void rebootPX4IfNeeded();
-
-    /**
-     * @brief 接收云端 UAV 控制指令的回调
-     */
-    void commandCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg);
-
-    /**
-     * @brief 定时执行安全检测
-     */
-    void performSafetyCheck(const ros::TimerEvent&);
-
-    /**
-     * @brief 接收 MAVROS 状态回调
-     */
-    void stateCallback(const mavros_msgs::State::ConstPtr& msg);
-
-private:
     ros::NodeHandle nh_;
-    ros::NodeHandle nh_private_;
+    std::string uav_id_;
+    std::string prefix_;
 
-    ros::Subscriber command_sub_;
+    // MAVROS Subscribers
     ros::Subscriber state_sub_;
-    ros::Timer safety_check_timer_;
+    ros::Subscriber battery_sub_;
+    ros::Subscriber gps_sub_;
+    ros::Subscriber global_pos_sub_;
+    ros::Subscriber local_pos_sub_;
+    ros::Subscriber velocity_sub_;
 
-    std::shared_ptr<SafetyChecker> safety_checker_;
-    std::shared_ptr<CommandExecutor> command_executor_;
+    // UAVControlCommand Subscriber
+    ros::Subscriber cmd_sub_;
 
-    // 参数
-    bool enable_px4_params_load_;
-    bool reboot_px4_set_reset_ekf_;
-    std::map<std::string, double> px4_params_;
+    // MAVROS Service Clients
+    ros::ServiceClient arming_client_;
+    ros::ServiceClient set_mode_client_;
+    // 抛弃，需要指定海拔高度飞行，否则高度达不到。
+    // ros::ServiceClient takeoff_client_;
+    ros::ServiceClient land_client_;
 
-    // 状态
+    // MAVROS Publishers
+    ros::Publisher local_pos_pub_;
+    ros::Publisher local_vel_pub_;
+
+    // UAV 状态缓存
     mavros_msgs::State current_state_;
+    sensor_msgs::BatteryState battery_;
+    mavros_msgs::GPSRAW gps_;
+    geometry_msgs::PoseStamped local_pose_;
+    geometry_msgs::TwistStamped velocity_;
+
+    // 地理围栏参数
+    double fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_;
+
+    std::mutex state_mutex_;
+
+    // 回调函数
+    void stateCallback(const mavros_msgs::State::ConstPtr& msg);
+    void batteryCallback(const sensor_msgs::BatteryState::ConstPtr& msg);
+    void gpsCallback(const mavros_msgs::GPSRAW::ConstPtr& msg);
+    void localPosCallback(const geometry_msgs::PoseStamped::ConstPtr& msg);
+    void velocityCallback(const geometry_msgs::TwistStamped::ConstPtr& msg);
+    void uavCommandCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg);
+
+    // 核心功能
+    bool checkPreArmSafety();
+    bool checkInFlightSafety();
+    bool isInsideFence(double x, double y, double z);
+    void executeCommand(const uav_msgs::UAVControlCommand& cmd);
+
+    // MAVROS操作
+    bool arm();
+    bool setMode(const std::string& mode);
+    bool takeoff(double altitude, double yaw);
+    bool land(double yaw);
+    void sendPositionSetpoint(double x, double y, double z, double yaw);
+    void sendVelocitySetpoint(double vx, double vy, double vz, double yaw_rate);
+
+    // 参数加载
+    void loadPX4Params(const std::string& yaml_file);
 };
 
-#endif // UAV_CONTROL_NODE_H
+#endif
