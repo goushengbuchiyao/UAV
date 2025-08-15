@@ -13,7 +13,6 @@
   <build_depend>mavros_msgs</build_depend>
   <build_depend>uav_msgs</build_depend>
   <build_depend>geometry_msgs</build_depend>
-
   <exec_depend>roscpp</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>mavros_msgs</exec_depend>

@@ -19,6 +19,8 @@ UAVStateCollector::UAVStateCollector(ros::NodeHandle& nh) {
 
 void UAVStateCollector::stateCallback(const mavros_msgs::State::ConstPtr& msg) {
     flight_mode_ = msg->mode;
+    // std::cout <<" ++++++++++++++++++++++++ " << std::endl;
+    // std::cout << "connected_: " << std::boolalpha << static_cast<bool>(msg->connected) << std::endl;
 }
 
 void UAVStateCollector::batteryCallback(const sensor_msgs::BatteryState::ConstPtr& msg) {

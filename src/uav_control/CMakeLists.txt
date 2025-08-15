@@ -22,7 +22,6 @@ include_directories(
 add_executable(uav_control_node
   src/uav_control_node.cpp
   src/safety_checker.cpp
-  src/px4_param_loader.cpp
   src/command_executor.cpp
 )
 

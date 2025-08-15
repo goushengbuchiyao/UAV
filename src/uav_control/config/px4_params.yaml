@@ -1,12 +1,11 @@
-geo_fence:
-  x_min: -100.0
-  x_max: 100.0
-  y_min: -100.0
-  y_max: 100.0
-  z_min: -0.5
-  z_max: 100.0
+GEO_FENCE:
+  GF_ACTION: 3  # 0: none, 1: warning, 2: hold, 3: RTL, 4: terminate , 5: land 围栏外动作
+  GF_MAX_HOR_DIST: 100.0  # meters 最大半径 距离home水平距离
+  GF_MAX_VER_DIST: 100.0  # meters 垂直距离
 
-takeoff_height: 2.0
-landing_speed: 0.5
-arm_height: 0.2
-max_flight_speed: 5.0
+MIS_TAKEOFF_ALT: 2.0 # 起飞高度
+MPC_LAND_SPEED: 0.3 # m/s 着陆速度
+# MPC_DISARM_ALT: 0.18 # m 解锁高度
+MPC_XY_VEL_MAX: 5.0 # m/s 水平速度
+MPC_Z_VEL_MAX_UP: 2.0 # m/s 垂直速度
+MPC_Z_VEL_MAX_DN: 2.0 # m/s 垂直速度
