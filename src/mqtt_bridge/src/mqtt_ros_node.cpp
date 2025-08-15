@@ -182,13 +182,14 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
         }
         // ROS_DEBUG("ros_cmd: %s", ros_cmd.c_str());
         // ROS_INFO("ros_cmd.command_type: %s", ros_cmd.command_type.c_str());
-        ROS_INFO_STREAM("ros_cmd: " << ros_cmd);
+        // ROS_INFO_STREAM("ros_cmd: " << ros_cmd);
         // ROS_INFO("ros_cmd.timestamp: %d", ros_cmd.timestamp);
         // ROS_INFO("ros_cmd.target_system: %d", ros_cmd.target_system);
         // ROS_INFO("ros_cmd.takeoff.altitude: %f", ros_cmd.takeoff.altitude);
         // ROS_INFO("ros_cmd.takeoff.yaw: %f", ros_cmd.takeoff.yaw);
         // ROS_INFO("ros_cmd.land.yaw: %f", ros_cmd.land.yaw);
         mqtt_to_ros_pub_.publish(ros_cmd);
+        ROS_INFO("Published ROS message %s to MQTT topic %s", cmd.command_type, mqtt_publish_topic_.c_str());
     }
     else {
         ROS_WARN("Invalid command JSON: %s", err_msg.c_str());

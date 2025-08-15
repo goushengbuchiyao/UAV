@@ -27,7 +27,7 @@ void UAVStateCollector::batteryCallback(const sensor_msgs::BatteryState::ConstPt
     battery_percent_ = msg->percentage * 100.0f;
     battery_voltage_ = msg->voltage;
     battery_current_ = msg->current;
-    battery_remaining_capacity_ = static_cast<int>(msg->capacity * msg->percentage);
+    // battery_remaining_capacity_ = static_cast<int>(msg->voltage * msg->percentage);
 }
 
 void UAVStateCollector::globalPosCallback(const sensor_msgs::NavSatFix::ConstPtr& msg) {
@@ -219,7 +219,8 @@ std::string UAVStateCollector::getStateJson() {
         {"battery", {"percentage", battery_percent_},
             {"voltage", battery_voltage_},
             {"current", battery_current_},
-            {"remaining_capacity", battery_remaining_capacity_}},
+            // {"remaining_capacity", battery_remaining_capacity_}
+        },
         {"position", {
             {"latitude", latitude_},
             {"longitude", longitude_},
