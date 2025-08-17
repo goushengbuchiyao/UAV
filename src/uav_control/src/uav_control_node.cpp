@@ -10,6 +10,15 @@ UAVControlNode::UAVControlNode(ros::NodeHandle& nh) : nh_(nh)
     nh_.param<std::string>("uav_id", uav_id_, "uav1");
     prefix_ = "/" + uav_id_;
 
+    // RC检测参数
+    nh_.param<bool>("enable_rc_check", rc_check_enabled_, true);
+    nh_.param<double>("rc_threshold", rc_threshold_, 50.0);
+    // 初始化遥控器更改标志
+    rc_changed_ = false;
+
+    // 订阅RC通道话题
+    rc_sub_ = nh_.subscribe(prefix_ + "/mavros/rc/in", 10, &UAVControlNode::rcCallback, this);
+
     // 订阅 MAVROS 话题
     state_sub_ = nh_.subscribe(prefix_ + "/mavros/state", 10, &UAVControlNode::stateCallback, this);
     battery_sub_ = nh_.subscribe(prefix_ + "/mavros/battery", 10, &UAVControlNode::batteryCallback, this);
@@ -28,7 +37,10 @@ UAVControlNode::UAVControlNode(ros::NodeHandle& nh) : nh_(nh)
     // MAVROS 发布器
     local_pos_pub_ = nh_.advertise<geometry_msgs::PoseStamped>(prefix_ + "/mavros/setpoint_position/local", 10);
     local_vel_pub_ = nh_.advertise<geometry_msgs::TwistStamped>(prefix_ + "/mavros/setpoint_velocity/cmd_vel", 10);
-
+    
+    // ros参数
+    nh_.param<bool>("enable_px4_params_load", enable_px4_params_load_, false);
+    nh_.param<bool>("reboot_px4_set_reset_ekf", reboot_px4_set_reset_ekf_, false);
     // 地理围栏示例参数
     nh_.param<double>("fence_min_x", fence_min_x_, -50.0);
     nh_.param<double>("fence_max_x", fence_max_x_, 50.0);
@@ -38,7 +50,9 @@ UAVControlNode::UAVControlNode(ros::NodeHandle& nh) : nh_(nh)
     nh_.param<double>("fence_max_z", fence_max_z_, 50.0);
 
     // 加载 px4 参数
-    loadPX4Params("config/px4_params.yaml");
+    if (enable_px4_params_load_){
+        loadPX4Params("config/px4_params.yaml");
+    }
 
     ROS_INFO("[%s] UAVControlNode initialized.", uav_id_.c_str());
 }
@@ -55,7 +69,7 @@ void UAVControlNode::run()
         if(current_state_.connected)
         {
             // ROS_INFO("[%s] MAVROS connected to PX4!", uav_id_.c_str());
-            if(local_pose_.pose.position.z >=1 )
+            if(current_state_.armed)
             {
                 if(checkInFlightSafety())
                 {
@@ -121,6 +135,10 @@ void UAVControlNode::uavCommandCallback(const uav_msgs::UAVControlCommand::Const
 // -------------------- 核心执行 --------------------
 void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
 {
+    if (rc_changed_) {
+            ROS_INFO("[%s] RC input detected, stopping position control.", uav_id_.c_str());
+            return;
+        }
     if(cmd.command_type == "takeoff")
     {
         if(!checkPreArmSafety())
@@ -229,6 +247,8 @@ bool UAVControlNode::checkInFlightSafety()
     }
     if(gps_.fix_type < 3 || gps_.satellites_visible < 10)
     {
+        ROS_ERROR("[%s] GPS fix type: %d", uav_id_.c_str(), gps_.fix_type);
+        ROS_ERROR("[%s] GPS satellites_visible: %d", uav_id_.c_str(), gps_.satellites_visible);
         ROS_ERROR("[%s] GPS lost or insufficient satellites!", uav_id_.c_str());
         return false;
     }
@@ -369,8 +389,42 @@ bool UAVControlNode::land(double yaw)
     return false;
 }
 
+// void UAVControlNode::sendPositionSetpoint(double x, double y, double z, double yaw)
+// {
+//     geometry_msgs::PoseStamped pose;
+//     pose.header.stamp = ros::Time::now();
+//     pose.pose.position.x = x;
+//     pose.pose.position.y = y;
+//     pose.pose.position.z = z;
+
+//     // 四元数转换 yaw -> quaternion
+//     tf2::Quaternion q;
+//     q.setRPY(0, 0, yaw);
+//     pose.pose.orientation.x = q.x();
+//     pose.pose.orientation.y = q.y();
+//     pose.pose.orientation.z = q.z();
+//     pose.pose.orientation.w = q.w();
+
+//     ros::Rate rate(20);
+//     for(int i=0; i<20; ++i) // 循环发布1秒
+//     {
+//         pose.header.stamp = ros::Time::now();
+//         local_pos_pub_.publish(pose);
+//         rate.sleep();
+//     }
+// }
 void UAVControlNode::sendPositionSetpoint(double x, double y, double z, double yaw)
 {
+    // 地理围栏安全检查
+    if (x < fence_min_x_ || x > fence_max_x_ || 
+        y < fence_min_y_ || y > fence_max_y_ || 
+        z < fence_min_z_ || z > fence_max_z_)
+    {
+        ROS_WARN("[%s] Target position (%.2f, %.2f, %.2f) out of geofence", 
+                 uav_id_.c_str(), x, y, z);
+        return;
+    }
+
     geometry_msgs::PoseStamped pose;
     pose.header.stamp = ros::Time::now();
     pose.pose.position.x = x;
@@ -385,18 +439,73 @@ void UAVControlNode::sendPositionSetpoint(double x, double y, double z, double y
     pose.pose.orientation.z = q.z();
     pose.pose.orientation.w = q.w();
 
-    ros::Rate rate(20);
-    for(int i=0; i<20; ++i) // 循环发布1秒
+    // 闭环控制参数
+    const double pos_tolerance = 0.2; // 位置容差(米)
+    const int max_attempts = 100;     // 最大尝试次数
+    const double loop_rate = 20.0;    // 发布频率(Hz)
+    ros::Rate rate(loop_rate);
+    int attempts = 0;
+
+    // 基于位置反馈的动态发布
+    while (ros::ok() && attempts < max_attempts)
     {
+        // 计算当前位置与目标位置的距离
+        double dx = local_pose_.pose.position.x - x;
+        double dy = local_pose_.pose.position.y - y;
+        double dz = local_pose_.pose.position.z - z;
+        double distance = sqrt(dx*dx + dy*dy + dz*dz);
+
+        if (distance < pos_tolerance)
+        {
+            ROS_INFO("[%s] Reached target position (attempts: %d)", 
+                     uav_id_.c_str(), attempts);
+            break;
+        }
+
+        // 更新时间戳并发布
         pose.header.stamp = ros::Time::now();
         local_pos_pub_.publish(pose);
+
+        attempts++;
         rate.sleep();
+    }
+
+    if (attempts >= max_attempts)
+    {
+        ROS_WARN("[%s] Failed to reach target position within %d attempts", 
+                 uav_id_.c_str(), max_attempts);
     }
 }
 
+// void UAVControlNode::sendVelocitySetpoint(double vx, double vy, double vz, double yaw_rate)
+// {
+    
+//     geometry_msgs::TwistStamped vel;
+//     vel.header.stamp = ros::Time::now();
+//     vel.twist.linear.x = vx;
+//     vel.twist.linear.y = vy;
+//     vel.twist.linear.z = vz;
+//     vel.twist.angular.z = yaw_rate;
+
+//     ros::Rate rate(20);
+//     for(int i=0; i<20; ++i)
+//     {
+//         vel.header.stamp = ros::Time::now();
+//         local_vel_pub_.publish(vel);
+//         rate.sleep();
+//     }
+// }
 void UAVControlNode::sendVelocitySetpoint(double vx, double vy, double vz, double yaw_rate)
 {
-    
+    // 速度安全限制检查
+    const double max_linear_vel = 3.0;  // 最大线速度(m/s)
+    const double max_angular_vel = 1.0; // 最大角速度(rad/s)
+    vx = (vx > max_linear_vel) ? max_linear_vel : (vx < -max_linear_vel ? -max_linear_vel : vx);
+    vy = (vy > max_linear_vel) ? max_linear_vel : (vy < -max_linear_vel ? -max_linear_vel : vy);
+    vz = (vz > max_linear_vel) ? max_linear_vel : (vz < -max_linear_vel ? -max_linear_vel : vz);
+    yaw_rate = (yaw_rate > max_angular_vel) ? max_angular_vel : (yaw_rate < -max_angular_vel ? -max_angular_vel : yaw_rate);
+
+
     geometry_msgs::TwistStamped vel;
     vel.header.stamp = ros::Time::now();
     vel.twist.linear.x = vx;
@@ -404,15 +513,70 @@ void UAVControlNode::sendVelocitySetpoint(double vx, double vy, double vz, doubl
     vel.twist.linear.z = vz;
     vel.twist.angular.z = yaw_rate;
 
-    ros::Rate rate(20);
-    for(int i=0; i<20; ++i)
+    // 闭环控制参数
+    const double vel_tolerance = 0.1;   // 速度容差
+    const int max_attempts = 50;       // 最大尝试次数
+    const double loop_rate = 20.0;      // 发布频率(Hz)
+    ros::Rate rate(loop_rate);
+    int attempts = 0;
+
+    // 基于速度反馈的动态发布
+    while (ros::ok() && attempts < max_attempts)
     {
+        // 计算速度误差
+        double dvx = velocity_.twist.linear.x - vx;
+        double dvy = velocity_.twist.linear.y - vy;
+        double dvz = velocity_.twist.linear.z - vz;
+        double dyaw = velocity_.twist.angular.z - yaw_rate;
+        double vel_error = sqrt(dvx*dvx + dvy*dvy + dvz*dvz + dyaw*dyaw);
+
+        if (vel_error < vel_tolerance)
+        {
+            ROS_INFO("[%s] Reached target velocity (attempts: %d)", uav_id_.c_str(), attempts);
+            break;
+        }
+
         vel.header.stamp = ros::Time::now();
         local_vel_pub_.publish(vel);
+
+        attempts++;
         rate.sleep();
+    }
+
+    if (attempts >= max_attempts)
+    {
+        ROS_WARN("[%s] Failed to reach target velocity within %d attempts", uav_id_.c_str(), max_attempts);
     }
 }
 
+// -------------------- RC通道回调函数 --------------------
+void UAVControlNode::rcCallback(const mavros_msgs::RCIn::ConstPtr& msg)
+{
+    if (msg->channels.empty() || msg->rssi==255 || !rc_check_enabled_) return;
+    // current_rc_values_.clear();
+    // current_rc_values_ = msg->channels;
+    for (const auto& channel : msg->channels) {
+        current_rc_values_.push_back(static_cast<int>(channel));
+    }
+    // 初始化初始RC值
+    if (initial_rc_values_.empty()) {
+        initial_rc_values_ = current_rc_values_;
+        return;
+    }
+    
+    // 检测RC通道变化
+    for (size_t i = 0; i < current_rc_values_.size() && i < initial_rc_values_.size(); ++i) {
+        if (std::abs(current_rc_values_[i] - initial_rc_values_[i]) > rc_threshold_) {
+            rc_changed_ = true;
+            ROS_WARN("[%s] RC channel %ld changed from %d to %d. Stopping control.", 
+                     uav_id_.c_str(), i+1, initial_rc_values_[i], current_rc_values_[i]);
+            setMode("POSITION"); // 切换到位置模式
+            break;
+        }else{
+            rc_changed_ = false;
+        }
+    }
+}
 // -------------------- PX4 参数加载 --------------------
 void UAVControlNode::loadPX4Params(const std::string& yaml_file)
 {

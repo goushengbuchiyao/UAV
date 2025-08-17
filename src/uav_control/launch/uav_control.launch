@@ -4,7 +4,7 @@
     <!-- 参数 -->
     <arg name="uav_id" default="uav1"/>
     <arg name="loop_rate_hz" default="20.0"/>
-    <arg name="enable_px4_params_load" default="true"/>
+    <arg name="enable_px4_params_load" default="false"/>
     <arg name="reboot_px4_set_reset_ekf" default="false"/>
 
     <!-- UAV Control Node -->
@@ -20,7 +20,8 @@
         <param name="loop_rate_hz" value="$(arg loop_rate_hz)"/>
         <param name="enable_px4_params_load" value="$(arg enable_px4_params_load)"/>
         <param name="reboot_px4_set_reset_ekf" value="$(arg reboot_px4_set_reset_ekf)"/>
-        
+        <param name="enable_rc_check" value="false"/>
+        <param name="rc_threshold" value="50.0"/>
         <!-- 可选 PX4 参数文件加载 -->
         <rosparam file="$(find uav_control)/config/px4_params.yaml" command="load"/>
     </node>

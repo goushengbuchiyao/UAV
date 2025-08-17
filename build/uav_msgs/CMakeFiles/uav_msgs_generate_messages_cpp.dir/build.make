@@ -43,99 +43,99 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 # Utility rule file for uav_msgs_generate_messages_cpp.
 
 # Include the progress variables for this target.
 include uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/progress.make
 
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/LandCommand.h
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
 
 
-/home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from uav_msgs/TakeoffCommand.msg"
-	cd /home/px/UAV_SDK/src/uav_msgs && /home/px/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/px4/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/px4/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from uav_msgs/TakeoffCommand.msg"
+	cd /home/px4/UAV_SDK/src/uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from uav_msgs/LandCommand.msg"
-	cd /home/px/UAV_SDK/src/uav_msgs && /home/px/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/px4/UAV_SDK/devel/include/uav_msgs/LandCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/px4/UAV_SDK/devel/include/uav_msgs/LandCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/LandCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/LandCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from uav_msgs/LandCommand.msg"
+	cd /home/px4/UAV_SDK/src/uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/uav_msgs/msg/LandCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from uav_msgs/PositionControlNEDCommand.msg"
-	cd /home/px/UAV_SDK/src/uav_msgs && /home/px/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from uav_msgs/PositionControlNEDCommand.msg"
+	cd /home/px4/UAV_SDK/src/uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from uav_msgs/PositionControlGlobalCommand.msg"
-	cd /home/px/UAV_SDK/src/uav_msgs && /home/px/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from uav_msgs/PositionControlGlobalCommand.msg"
+	cd /home/px4/UAV_SDK/src/uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from uav_msgs/VelocityControlNEDCommand.msg"
-	cd /home/px/UAV_SDK/src/uav_msgs && /home/px/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/px4/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/px4/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from uav_msgs/VelocityControlNEDCommand.msg"
+	cd /home/px4/UAV_SDK/src/uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from uav_msgs/ReturnToLaunchCommand.msg"
-	cd /home/px/UAV_SDK/src/uav_msgs && /home/px/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/px4/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/px4/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from uav_msgs/ReturnToLaunchCommand.msg"
+	cd /home/px4/UAV_SDK/src/uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/px/UAV_SDK/devel/include/uav_msgs/HoverCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/px/UAV_SDK/devel/include/uav_msgs/HoverCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/HoverCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from uav_msgs/HoverCommand.msg"
-	cd /home/px/UAV_SDK/src/uav_msgs && /home/px/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/px4/UAV_SDK/devel/include/uav_msgs/HoverCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/px4/UAV_SDK/devel/include/uav_msgs/HoverCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/HoverCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from uav_msgs/HoverCommand.msg"
+	cd /home/px4/UAV_SDK/src/uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from uav_msgs/SetModeCommand.msg"
-	cd /home/px/UAV_SDK/src/uav_msgs && /home/px/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/px4/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/px4/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from uav_msgs/SetModeCommand.msg"
+	cd /home/px4/UAV_SDK/src/uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from uav_msgs/UAVControlCommand.msg"
-	cd /home/px/UAV_SDK/src/uav_msgs && /home/px/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/LandCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /home/px4/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px4/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from uav_msgs/UAVControlCommand.msg"
+	cd /home/px4/UAV_SDK/src/uav_msgs && /home/px4/UAV_SDK/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/px4/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg -Iuav_msgs:/home/px4/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/px4/UAV_SDK/devel/include/uav_msgs -e /opt/ros/noetic/share/gencpp/cmake/..
 
 uav_msgs_generate_messages_cpp: uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp
-uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
-uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h
-uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
-uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
-uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
-uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
-uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
-uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
-uav_msgs_generate_messages_cpp: /home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
+uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
+uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/LandCommand.h
+uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
+uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
+uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
+uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
+uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
+uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
+uav_msgs_generate_messages_cpp: /home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
 uav_msgs_generate_messages_cpp: uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build.make
 
 .PHONY : uav_msgs_generate_messages_cpp
@@ -146,10 +146,10 @@ uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build: uav_msgs_generate_
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build
 
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/clean:
-	cd /home/px/UAV_SDK/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uav_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/px4/UAV_SDK/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uav_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/clean
 
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/uav_msgs /home/px/UAV_SDK/build/uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/uav_msgs /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/uav_msgs /home/px4/UAV_SDK/build/uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/depend
 

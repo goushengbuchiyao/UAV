@@ -11,6 +11,7 @@
 #include <mavros_msgs/SetMode.h>
 #include <mavros_msgs/CommandBool.h>
 #include <mavros_msgs/CommandTOL.h>
+#include <mavros_msgs/RCIn.h>
 #include <uav_msgs/UAVControlCommand.h>
 #include <yaml-cpp/yaml.h>
 #include <thread>
@@ -58,9 +59,17 @@ private:
 
     // 地理围栏参数
     double fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_;
-
+    bool enable_px4_params_load_;
+    bool reboot_px4_set_reset_ekf_;
     std::mutex state_mutex_;
 
+    ros::Subscriber rc_sub_;                  // RC通道订阅者
+    bool rc_check_enabled_;                   // RC检测开关
+    std::vector<int> initial_rc_values_;      // 初始RC通道值
+    std::vector<int> current_rc_values_;      // 当前RC通道值
+    bool rc_changed_;                         // RC通道变化标志
+    double rc_threshold_;                     // RC变化检测阈值
+    
     // 回调函数
     void stateCallback(const mavros_msgs::State::ConstPtr& msg);
     void batteryCallback(const sensor_msgs::BatteryState::ConstPtr& msg);
@@ -68,7 +77,7 @@ private:
     void localPosCallback(const geometry_msgs::PoseStamped::ConstPtr& msg);
     void velocityCallback(const geometry_msgs::TwistStamped::ConstPtr& msg);
     void uavCommandCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg);
-
+    void rcCallback(const mavros_msgs::RCIn::ConstPtr& msg); // RC回调函数
     // 核心功能
     bool checkPreArmSafety();
     bool checkInFlightSafety();

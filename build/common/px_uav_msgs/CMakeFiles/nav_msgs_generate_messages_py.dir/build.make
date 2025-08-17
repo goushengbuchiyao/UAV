@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 # Utility rule file for nav_msgs_generate_messages_py.
 
@@ -63,10 +63,10 @@ common/px_uav_msgs/CMakeFiles/nav_msgs_generate_messages_py.dir/build: nav_msgs_
 .PHONY : common/px_uav_msgs/CMakeFiles/nav_msgs_generate_messages_py.dir/build
 
 common/px_uav_msgs/CMakeFiles/nav_msgs_generate_messages_py.dir/clean:
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/nav_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/nav_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : common/px_uav_msgs/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
 
 common/px_uav_msgs/CMakeFiles/nav_msgs_generate_messages_py.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/common/px_uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/common/px_uav_msgs /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/nav_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/common/px_uav_msgs /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/common/px_uav_msgs /home/px4/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/nav_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : common/px_uav_msgs/CMakeFiles/nav_msgs_generate_messages_py.dir/depend
 

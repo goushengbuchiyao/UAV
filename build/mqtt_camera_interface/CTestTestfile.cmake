@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/px/UAV_SDK/src/mqtt_camera_interface
-# Build directory: /home/px/UAV_SDK/build/mqtt_camera_interface
+# Source directory: /home/px4/UAV_SDK/src/mqtt_camera_interface
+# Build directory: /home/px4/UAV_SDK/build/mqtt_camera_interface
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
