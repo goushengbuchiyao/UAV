@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/px4/UAV_SDK/devel/share/roseus/ros/mqtt_bridge/manifest.l"
+  "/home/px/UAV_SDK/devel/share/roseus/ros/mqtt_bridge/manifest.l"
   "CMakeFiles/mqtt_bridge_generate_messages_eus"
 )
 

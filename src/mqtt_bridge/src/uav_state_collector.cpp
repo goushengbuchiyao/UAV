@@ -19,6 +19,7 @@ UAVStateCollector::UAVStateCollector(ros::NodeHandle& nh) {
 
 void UAVStateCollector::stateCallback(const mavros_msgs::State::ConstPtr& msg) {
     flight_mode_ = msg->mode;
+    connection_status_ = msg->connected;
     // std::cout <<" ++++++++++++++++++++++++ " << std::endl;
     // std::cout << "connected_: " << std::boolalpha << static_cast<bool>(msg->connected) << std::endl;
 }
@@ -207,6 +208,11 @@ std::string UAVStateCollector::getAttitudeJson() {
     };
     return j.dump();
 }
+
+bool UAVStateCollector::isConnected() {
+    return connection_status_;
+}
+
 std::string UAVStateCollector::getStateJson() {
     
     nlohmann::json j;

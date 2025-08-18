@@ -7,3 +7,5 @@ from ._SetModeCommand import *
 from ._TakeoffCommand import *
 from ._UAVControlCommand import *
 from ._VelocityControlNEDCommand import *
+from ._Waypoint import *
+from ._WaypointsCommand import *

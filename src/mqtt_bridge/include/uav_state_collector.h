@@ -77,7 +77,7 @@ private:
     std::string uav_id_;
     std::string fix_desc_;
     std::string flight_mode_;
-
+    bool connection_status_ = false;
     std::chrono::system_clock::time_point system_now = std::chrono::system_clock::now();
     double system_timestamp = std::chrono::duration_cast<std::chrono::seconds>(system_now.time_since_epoch()).count();
 

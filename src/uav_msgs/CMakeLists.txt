@@ -18,6 +18,8 @@ add_message_files(
   HoverCommand.msg
   SetModeCommand.msg
   UAVControlCommand.msg
+  WaypointsCommand.msg
+  Waypoint.msg
 )
 
 generate_messages(

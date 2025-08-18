@@ -11,3 +11,4 @@ VelocityControlNEDCommand vel_ned
 ReturnToLaunchCommand rtl
 HoverCommand hover
 SetModeCommand set_mode
+WaypointsCommand waypoints_cmd

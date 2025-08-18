@@ -34,6 +34,16 @@ UAVControlNode::UAVControlNode(ros::NodeHandle& nh) : nh_(nh)
     // takeoff_client_ = nh_.serviceClient<mavros_msgs::CommandTOL>(prefix_ + "/mavros/cmd/takeoff");
     land_client_ = nh_.serviceClient<mavros_msgs::CommandTOL>(prefix_ + "/mavros/cmd/land");
     
+    // 初始化Mission服务客户端
+    mission_clear_client_ = nh_.serviceClient<mavros_msgs::MissionClear>(prefix_ + "/mavros/mission/clear");
+    mission_push_client_ = nh_.serviceClient<mavros_msgs::MissionPush>(prefix_ + "/mavros/mission/push");
+    mission_set_current_client_ = nh_.serviceClient<mavros_msgs::MissionSetCurrent>(prefix_ + "/mavros/mission/set_current");
+    mission_request_list_client_ = nh_.serviceClient<mavros_msgs::MissionRequestList>(prefix_ + "/mavros/mission/request_list");
+    // 添加航点拉取客户端
+    mission_pull_client_ = nh_.serviceClient<mavros_msgs::MissionPull>(prefix_ + "/mavros/mission/pull");
+    // 订阅航点到达话题
+    mission_reached_sub_ = nh_.subscribe(prefix_ + "/mavros/mission/reached", 10, &UAVControlNode::missionReachedCallback, this);
+
     // MAVROS 发布器
     local_pos_pub_ = nh_.advertise<geometry_msgs::PoseStamped>(prefix_ + "/mavros/setpoint_position/local", 10);
     local_vel_pub_ = nh_.advertise<geometry_msgs::TwistStamped>(prefix_ + "/mavros/setpoint_velocity/cmd_vel", 10);
@@ -197,6 +207,38 @@ void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
     else if(cmd.command_type == "hover")
     {
         setMode(cmd.hover.mode);
+    }
+    // 航线规划任务处理
+    else if(cmd.command_type == "set_waypoints")
+    {
+        ROS_INFO("[%s] Received waypoint mission with %ld points", uav_id_.c_str(), cmd.waypoints.size());
+
+        // 1. 清除现有任务
+        if (cmd.params.clear_mission) {
+            if (!clearMission()) {
+                ROS_ERROR("[%s] Failed to clear existing mission", uav_id_.c_str());
+                return;
+            }
+        }
+
+        // 2. 推送新航点
+        if (!pushMission(cmd.waypoints)) {
+            ROS_ERROR("[%s] Failed to push new mission", uav_id_.c_str());
+            return;
+        }
+
+        // 3. 验证航点上传
+        if (!requestMissionCount()) {
+            ROS_WARN("[%s] Could not verify mission count", uav_id_.c_str());
+        }
+
+        // 4. 如果需要立即执行
+        if (cmd.start_immediately) {
+            ROS_INFO("[%s] Starting mission execution", uav_id_.c_str());
+            setCurrentWaypoint(0);
+            setMode("AUTO.MISSION");
+            mission_active_ = true;
+        }
     }
     else
     {
@@ -577,6 +619,71 @@ void UAVControlNode::rcCallback(const mavros_msgs::RCIn::ConstPtr& msg)
         }
     }
 }
+
+// -------------------- 航点任务处理 --------------------
+bool UAVControlNode::clearMission() {
+    mavros_msgs::MissionClear srv;
+    if (mission_clear_client_.call(srv) && srv.response.success) {
+        ROS_INFO("[%s] Mission cleared successfully", uav_id_.c_str());
+        total_waypoints_ = 0;
+        current_waypoint_ = -1;
+        mission_active_ = false;
+        return true;
+    }
+    ROS_ERROR("[%s] Failed to clear mission", uav_id_.c_str());
+    return false;
+}
+
+bool UAVControlNode::pushMission(const std::vector<uav_msgs::Waypoint>& waypoints) {
+    mavros_msgs::MissionPush srv;
+    for (size_t i = 0; i < waypoints.size(); ++i) {
+        mavros_msgs::Waypoint wp;
+        // 从waypoint字段获取参数（修复访问路径）
+        wp.frame = waypoints[i].waypoint.frame;
+        wp.command = waypoints[i].waypoint.command;
+        wp.is_current = waypoints[i].waypoint.is_current;
+        wp.autocontinue = waypoints[i].waypoint.autocontinue;
+        // 补充完整参数映射
+        wp.param1 = waypoints[i].waypoint.param1;
+        wp.param2 = waypoints[i].waypoint.param2;
+        wp.param3 = waypoints[i].waypoint.param3;
+        wp.param4 = waypoints[i].waypoint.param4;
+        wp.x_lat = waypoints[i].waypoint.x_lat;
+        wp.y_long = waypoints[i].waypoint.y_long;
+        wp.z_alt = waypoints[i].waypoint.z_alt;
+        srv.request.waypoints.push_back(wp);
+    }
+
+    if (mission_push_client_.call(srv) && srv.response.success) {
+        ROS_INFO("[%s] Pushed %ld waypoints successfully", uav_id_.c_str(), waypoints.size());
+        total_waypoints_ = waypoints.size();
+        return true;
+    }
+    ROS_ERROR("[%s] Failed to push mission", uav_id_.c_str());
+    return false;
+}
+
+void UAVControlNode::missionReachedCallback(const mavros_msgs::WaypointReached::ConstPtr& msg) {
+    current_waypoint_ = msg->wp_seq;
+    ROS_INFO("[%s] Reached waypoint %d/%d", uav_id_.c_str(), current_waypoint_ + 1, total_waypoints_);
+
+    if (current_waypoint_ + 1 >= total_waypoints_) {
+        ROS_INFO("[%s] Mission completed successfully", uav_id_.c_str());
+        mission_active_ = false;
+        // 任务完成后自动着陆
+        // land(0.0); // 偏航角设为0
+    }
+}
+bool UAVControlNode::requestMissionCount() {
+    mavros_msgs::MissionRequestList srv;
+    if (mission_request_list_client_.call(srv) && srv.response.success) {
+        ROS_INFO("[%s] Requested mission count: %d", uav_id_.c_str(), srv.response.count);
+        return srv.response.count == total_waypoints_;
+    }
+    ROS_ERROR("[%s] Failed to request mission count", uav_id_.c_str());
+    return false;
+}
+
 // -------------------- PX4 参数加载 --------------------
 void UAVControlNode::loadPX4Params(const std::string& yaml_file)
 {

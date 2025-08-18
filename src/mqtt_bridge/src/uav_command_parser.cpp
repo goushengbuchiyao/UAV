@@ -78,6 +78,58 @@ bool UAVCommandParser::validateParams(const std::string& cmd_type, const nlohman
         return require_fields({{"mode", "string"}});
     else if (cmd_type == "set_mode")
         return require_fields({{"mode", "string"}});
+    // 添加航线规划指令验证
+    else if (cmd_type == "waypoint_mission") {
+    // 验证顶层参数
+        if (!params.contains("clear_existing") || !params["clear_existing"].is_boolean()) {
+            err_msg = "Missing or invalid 'clear_existing' boolean";
+            return false;
+        }
+        if (!params.contains("waypoints") || !params["waypoints"].is_array()) {
+            err_msg = "Missing or invalid 'waypoints' array";
+            return false;
+        }
+
+        // 验证每个航点
+        for (size_t i = 0; i < params["waypoints"].size(); ++i) {
+            const auto& wp = params["waypoints"][i];
+            std::vector<std::pair<std::string, std::string>> wp_fields = {
+                {"waypoint_id", "integer"},
+                {"frame", "integer"},
+                {"command", "integer"},
+                {"param1", "number"},
+                {"param2", "number"},
+                {"param3", "number"},
+                {"param4", "number"},
+                {"x_lat", "number"},
+                {"y_long", "number"},
+                {"z_alt", "number"},
+                {"is_current", "boolean"},
+                {"autocontinue", "boolean"}
+            };
+
+            // 验证航点字段
+            for (auto& f : wp_fields) {
+                if (!wp.contains(f.first)) {
+                    err_msg = "Waypoint " + std::to_string(i) + " missing field: " + f.first;
+                    return false;
+                }
+                if (f.second == "integer" && !wp[f.first].is_number_integer()) {
+                    err_msg = "Waypoint " + std::to_string(i) + " invalid type for " + f.first + " (expected integer)";
+                    return false;
+                }
+                if (f.second == "number" && !wp[f.first].is_number()) {
+                    err_msg = "Waypoint " + std::to_string(i) + " invalid type for " + f.first + " (expected number)";
+                    return false;
+                }
+                if (f.second == "boolean" && !wp[f.first].is_boolean()) {
+                    err_msg = "Waypoint " + std::to_string(i) + " invalid type for " + f.first + " (expected boolean)";
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     else {
         err_msg = "Unknown command_type: " + cmd_type;
         return false;

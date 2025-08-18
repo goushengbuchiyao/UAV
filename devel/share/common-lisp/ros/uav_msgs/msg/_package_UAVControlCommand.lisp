@@ -21,4 +21,6 @@
           HOVER
           SET_MODE-VAL
           SET_MODE
+          WAYPOINTS_CMD-VAL
+          WAYPOINTS_CMD
 ))

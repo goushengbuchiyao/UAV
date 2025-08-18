@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 
 # Utility rule file for trajectory_msgs_generate_messages_eus.
 
@@ -63,10 +63,10 @@ simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build: trajectory
 .PHONY : simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
 
 simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean:
-	cd /home/px4/UAV_SDK/build/simulator && $(CMAKE_COMMAND) -P CMakeFiles/trajectory_msgs_generate_messages_eus.dir/cmake_clean.cmake
+	cd /home/px/UAV_SDK/build/simulator && $(CMAKE_COMMAND) -P CMakeFiles/trajectory_msgs_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
 
 simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/depend:
-	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/simulator /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/simulator /home/px4/UAV_SDK/build/simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/simulator /home/px/UAV_SDK/build /home/px/UAV_SDK/build/simulator /home/px/UAV_SDK/build/simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/depend
 

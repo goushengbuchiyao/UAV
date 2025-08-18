@@ -10,7 +10,7 @@ import genpy
 import uav_msgs.msg
 
 class UAVControlCommand(genpy.Message):
-  _md5sum = "e2c2bd3cd120b68b542da3a74da209fb"
+  _md5sum = "53572dae1fc3b49d99d763590ada7f7d"
   _type = "uav_msgs/UAVControlCommand"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """
@@ -26,6 +26,7 @@ VelocityControlNEDCommand vel_ned
 ReturnToLaunchCommand rtl
 HoverCommand hover
 SetModeCommand set_mode
+WaypointsCommand waypoints_cmd
 
 ================================================================================
 MSG: uav_msgs/TakeoffCommand
@@ -67,9 +68,24 @@ string mode
 ================================================================================
 MSG: uav_msgs/SetModeCommand
 string mode
-"""
-  __slots__ = ['command_type','timestamp','target_system','takeoff','land','pos_ned','pos_global','vel_ned','rtl','hover','set_mode']
-  _slot_types = ['string','time','int32','uav_msgs/TakeoffCommand','uav_msgs/LandCommand','uav_msgs/PositionControlNEDCommand','uav_msgs/PositionControlGlobalCommand','uav_msgs/VelocityControlNEDCommand','uav_msgs/ReturnToLaunchCommand','uav_msgs/HoverCommand','uav_msgs/SetModeCommand']
+
+================================================================================
+MSG: uav_msgs/WaypointsCommand
+bool start_immediately     # 是否立即执行航点
+Waypoint[] waypoints       # 航点列表
+================================================================================
+MSG: uav_msgs/Waypoint
+int32 waypoint_id          # 航点ID
+string frame               # 坐标系类型
+string command             # 航点指令类型
+float64 latitude           # 纬度 (度)
+float64 longitude          # 经度 (度)
+float64 altitude           # 高度 (米)
+bool is_current            # 是否为当前航点
+bool autocontinue          # 是否自动继续到下一个航点
+float64 hold_time          # 悬停时间 (秒)"""
+  __slots__ = ['command_type','timestamp','target_system','takeoff','land','pos_ned','pos_global','vel_ned','rtl','hover','set_mode','waypoints_cmd']
+  _slot_types = ['string','time','int32','uav_msgs/TakeoffCommand','uav_msgs/LandCommand','uav_msgs/PositionControlNEDCommand','uav_msgs/PositionControlGlobalCommand','uav_msgs/VelocityControlNEDCommand','uav_msgs/ReturnToLaunchCommand','uav_msgs/HoverCommand','uav_msgs/SetModeCommand','uav_msgs/WaypointsCommand']
 
   def __init__(self, *args, **kwds):
     """
@@ -79,7 +95,7 @@ string mode
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       command_type,timestamp,target_system,takeoff,land,pos_ned,pos_global,vel_ned,rtl,hover,set_mode
+       command_type,timestamp,target_system,takeoff,land,pos_ned,pos_global,vel_ned,rtl,hover,set_mode,waypoints_cmd
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -110,6 +126,8 @@ string mode
         self.hover = uav_msgs.msg.HoverCommand()
       if self.set_mode is None:
         self.set_mode = uav_msgs.msg.SetModeCommand()
+      if self.waypoints_cmd is None:
+        self.waypoints_cmd = uav_msgs.msg.WaypointsCommand()
     else:
       self.command_type = ''
       self.timestamp = genpy.Time()
@@ -122,6 +140,7 @@ string mode
       self.rtl = uav_msgs.msg.ReturnToLaunchCommand()
       self.hover = uav_msgs.msg.HoverCommand()
       self.set_mode = uav_msgs.msg.SetModeCommand()
+      self.waypoints_cmd = uav_msgs.msg.WaypointsCommand()
 
   def _get_types(self):
     """
@@ -155,6 +174,27 @@ string mode
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self.waypoints_cmd.start_immediately
+      buff.write(_get_struct_B().pack(_x))
+      length = len(self.waypoints_cmd.waypoints)
+      buff.write(_struct_I.pack(length))
+      for val1 in self.waypoints_cmd.waypoints:
+        _x = val1.waypoint_id
+        buff.write(_get_struct_i().pack(_x))
+        _x = val1.frame
+        length = len(_x)
+        if python3 or type(_x) == unicode:
+          _x = _x.encode('utf-8')
+          length = len(_x)
+        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+        _x = val1.command
+        length = len(_x)
+        if python3 or type(_x) == unicode:
+          _x = _x.encode('utf-8')
+          length = len(_x)
+        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+        _x = val1
+        buff.write(_get_struct_3d2Bd().pack(_x.latitude, _x.longitude, _x.altitude, _x.is_current, _x.autocontinue, _x.hold_time))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -184,6 +224,8 @@ string mode
         self.hover = uav_msgs.msg.HoverCommand()
       if self.set_mode is None:
         self.set_mode = uav_msgs.msg.SetModeCommand()
+      if self.waypoints_cmd is None:
+        self.waypoints_cmd = uav_msgs.msg.WaypointsCommand()
       end = 0
       start = end
       end += 4
@@ -216,6 +258,44 @@ string mode
         self.set_mode.mode = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.set_mode.mode = str[start:end]
+      start = end
+      end += 1
+      (self.waypoints_cmd.start_immediately,) = _get_struct_B().unpack(str[start:end])
+      self.waypoints_cmd.start_immediately = bool(self.waypoints_cmd.start_immediately)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      self.waypoints_cmd.waypoints = []
+      for i in range(0, length):
+        val1 = uav_msgs.msg.Waypoint()
+        start = end
+        end += 4
+        (val1.waypoint_id,) = _get_struct_i().unpack(str[start:end])
+        start = end
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        start = end
+        end += length
+        if python3:
+          val1.frame = str[start:end].decode('utf-8', 'rosmsg')
+        else:
+          val1.frame = str[start:end]
+        start = end
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        start = end
+        end += length
+        if python3:
+          val1.command = str[start:end].decode('utf-8', 'rosmsg')
+        else:
+          val1.command = str[start:end]
+        _x = val1
+        start = end
+        end += 34
+        (_x.latitude, _x.longitude, _x.altitude, _x.is_current, _x.autocontinue, _x.hold_time,) = _get_struct_3d2Bd().unpack(str[start:end])
+        val1.is_current = bool(val1.is_current)
+        val1.autocontinue = bool(val1.autocontinue)
+        self.waypoints_cmd.waypoints.append(val1)
       self.timestamp.canon()
       return self
     except struct.error as e:
@@ -249,6 +329,27 @@ string mode
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self.waypoints_cmd.start_immediately
+      buff.write(_get_struct_B().pack(_x))
+      length = len(self.waypoints_cmd.waypoints)
+      buff.write(_struct_I.pack(length))
+      for val1 in self.waypoints_cmd.waypoints:
+        _x = val1.waypoint_id
+        buff.write(_get_struct_i().pack(_x))
+        _x = val1.frame
+        length = len(_x)
+        if python3 or type(_x) == unicode:
+          _x = _x.encode('utf-8')
+          length = len(_x)
+        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+        _x = val1.command
+        length = len(_x)
+        if python3 or type(_x) == unicode:
+          _x = _x.encode('utf-8')
+          length = len(_x)
+        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+        _x = val1
+        buff.write(_get_struct_3d2Bd().pack(_x.latitude, _x.longitude, _x.altitude, _x.is_current, _x.autocontinue, _x.hold_time))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -279,6 +380,8 @@ string mode
         self.hover = uav_msgs.msg.HoverCommand()
       if self.set_mode is None:
         self.set_mode = uav_msgs.msg.SetModeCommand()
+      if self.waypoints_cmd is None:
+        self.waypoints_cmd = uav_msgs.msg.WaypointsCommand()
       end = 0
       start = end
       end += 4
@@ -311,6 +414,44 @@ string mode
         self.set_mode.mode = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.set_mode.mode = str[start:end]
+      start = end
+      end += 1
+      (self.waypoints_cmd.start_immediately,) = _get_struct_B().unpack(str[start:end])
+      self.waypoints_cmd.start_immediately = bool(self.waypoints_cmd.start_immediately)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      self.waypoints_cmd.waypoints = []
+      for i in range(0, length):
+        val1 = uav_msgs.msg.Waypoint()
+        start = end
+        end += 4
+        (val1.waypoint_id,) = _get_struct_i().unpack(str[start:end])
+        start = end
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        start = end
+        end += length
+        if python3:
+          val1.frame = str[start:end].decode('utf-8', 'rosmsg')
+        else:
+          val1.frame = str[start:end]
+        start = end
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        start = end
+        end += length
+        if python3:
+          val1.command = str[start:end].decode('utf-8', 'rosmsg')
+        else:
+          val1.command = str[start:end]
+        _x = val1
+        start = end
+        end += 34
+        (_x.latitude, _x.longitude, _x.altitude, _x.is_current, _x.autocontinue, _x.hold_time,) = _get_struct_3d2Bd().unpack(str[start:end])
+        val1.is_current = bool(val1.is_current)
+        val1.autocontinue = bool(val1.autocontinue)
+        self.waypoints_cmd.waypoints.append(val1)
       self.timestamp.canon()
       return self
     except struct.error as e:
@@ -326,3 +467,21 @@ def _get_struct_2Ii16d():
     if _struct_2Ii16d is None:
         _struct_2Ii16d = struct.Struct("<2Ii16d")
     return _struct_2Ii16d
+_struct_3d2Bd = None
+def _get_struct_3d2Bd():
+    global _struct_3d2Bd
+    if _struct_3d2Bd is None:
+        _struct_3d2Bd = struct.Struct("<3d2Bd")
+    return _struct_3d2Bd
+_struct_B = None
+def _get_struct_B():
+    global _struct_B
+    if _struct_B is None:
+        _struct_B = struct.Struct("<B")
+    return _struct_B
+_struct_i = None
+def _get_struct_i():
+    global _struct_i
+    if _struct_i is None:
+        _struct_i = struct.Struct("<i")
+    return _struct_i

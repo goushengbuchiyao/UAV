@@ -23,6 +23,7 @@
 #include <uav_msgs/ReturnToLaunchCommand.h>
 #include <uav_msgs/HoverCommand.h>
 #include <uav_msgs/SetModeCommand.h>
+#include <uav_msgs/WaypointsCommand.h>
 
 namespace uav_msgs
 {
@@ -42,7 +43,8 @@ struct UAVControlCommand_
     , vel_ned()
     , rtl()
     , hover()
-    , set_mode()  {
+    , set_mode()
+    , waypoints_cmd()  {
     }
   UAVControlCommand_(const ContainerAllocator& _alloc)
     : command_type(_alloc)
@@ -55,7 +57,8 @@ struct UAVControlCommand_
     , vel_ned(_alloc)
     , rtl(_alloc)
     , hover(_alloc)
-    , set_mode(_alloc)  {
+    , set_mode(_alloc)
+    , waypoints_cmd(_alloc)  {
   (void)_alloc;
     }
 
@@ -93,6 +96,9 @@ struct UAVControlCommand_
 
    typedef  ::uav_msgs::SetModeCommand_<ContainerAllocator>  _set_mode_type;
   _set_mode_type set_mode;
+
+   typedef  ::uav_msgs::WaypointsCommand_<ContainerAllocator>  _waypoints_cmd_type;
+  _waypoints_cmd_type waypoints_cmd;
 
 
 
@@ -133,7 +139,8 @@ bool operator==(const ::uav_msgs::UAVControlCommand_<ContainerAllocator1> & lhs,
     lhs.vel_ned == rhs.vel_ned &&
     lhs.rtl == rhs.rtl &&
     lhs.hover == rhs.hover &&
-    lhs.set_mode == rhs.set_mode;
+    lhs.set_mode == rhs.set_mode &&
+    lhs.waypoints_cmd == rhs.waypoints_cmd;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -190,12 +197,12 @@ struct MD5Sum< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "e2c2bd3cd120b68b542da3a74da209fb";
+    return "53572dae1fc3b49d99d763590ada7f7d";
   }
 
   static const char* value(const ::uav_msgs::UAVControlCommand_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xe2c2bd3cd120b68bULL;
-  static const uint64_t static_value2 = 0x542da3a74da209fbULL;
+  static const uint64_t static_value1 = 0x53572dae1fc3b49dULL;
+  static const uint64_t static_value2 = 0x99d763590ada7f7dULL;
 };
 
 template<class ContainerAllocator>
@@ -227,6 +234,7 @@ struct Definition< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
 "ReturnToLaunchCommand rtl\n"
 "HoverCommand hover\n"
 "SetModeCommand set_mode\n"
+"WaypointsCommand waypoints_cmd\n"
 "\n"
 "================================================================================\n"
 "MSG: uav_msgs/TakeoffCommand\n"
@@ -268,6 +276,22 @@ struct Definition< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
 "================================================================================\n"
 "MSG: uav_msgs/SetModeCommand\n"
 "string mode\n"
+"\n"
+"================================================================================\n"
+"MSG: uav_msgs/WaypointsCommand\n"
+"bool start_immediately     # 是否立即执行航点\n"
+"Waypoint[] waypoints       # 航点列表\n"
+"================================================================================\n"
+"MSG: uav_msgs/Waypoint\n"
+"int32 waypoint_id          # 航点ID\n"
+"string frame               # 坐标系类型\n"
+"string command             # 航点指令类型\n"
+"float64 latitude           # 纬度 (度)\n"
+"float64 longitude          # 经度 (度)\n"
+"float64 altitude           # 高度 (米)\n"
+"bool is_current            # 是否为当前航点\n"
+"bool autocontinue          # 是否自动继续到下一个航点\n"
+"float64 hold_time          # 悬停时间 (秒)\n"
 ;
   }
 
@@ -297,6 +321,7 @@ namespace serialization
       stream.next(m.rtl);
       stream.next(m.hover);
       stream.next(m.set_mode);
+      stream.next(m.waypoints_cmd);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -359,6 +384,10 @@ struct Printer< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
       s << std::endl;
     s << indent << "set_mode: ";
     Printer< ::uav_msgs::SetModeCommand_<ContainerAllocator> >::stream(s, indent + "  ", v.set_mode);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "waypoints_cmd: ";
+    Printer< ::uav_msgs::WaypointsCommand_<ContainerAllocator> >::stream(s, indent + "  ", v.waypoints_cmd);
   }
 };
 

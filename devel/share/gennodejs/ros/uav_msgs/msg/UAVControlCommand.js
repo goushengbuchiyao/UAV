@@ -19,6 +19,7 @@ let VelocityControlNEDCommand = require('./VelocityControlNEDCommand.js');
 let ReturnToLaunchCommand = require('./ReturnToLaunchCommand.js');
 let HoverCommand = require('./HoverCommand.js');
 let SetModeCommand = require('./SetModeCommand.js');
+let WaypointsCommand = require('./WaypointsCommand.js');
 
 //-----------------------------------------------------------
 
@@ -37,6 +38,7 @@ class UAVControlCommand {
       this.rtl = null;
       this.hover = null;
       this.set_mode = null;
+      this.waypoints_cmd = null;
     }
     else {
       if (initObj.hasOwnProperty('command_type')) {
@@ -105,6 +107,12 @@ class UAVControlCommand {
       else {
         this.set_mode = new SetModeCommand();
       }
+      if (initObj.hasOwnProperty('waypoints_cmd')) {
+        this.waypoints_cmd = initObj.waypoints_cmd
+      }
+      else {
+        this.waypoints_cmd = new WaypointsCommand();
+      }
     }
   }
 
@@ -132,6 +140,8 @@ class UAVControlCommand {
     bufferOffset = HoverCommand.serialize(obj.hover, buffer, bufferOffset);
     // Serialize message field [set_mode]
     bufferOffset = SetModeCommand.serialize(obj.set_mode, buffer, bufferOffset);
+    // Serialize message field [waypoints_cmd]
+    bufferOffset = WaypointsCommand.serialize(obj.waypoints_cmd, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -161,6 +171,8 @@ class UAVControlCommand {
     data.hover = HoverCommand.deserialize(buffer, bufferOffset);
     // Deserialize message field [set_mode]
     data.set_mode = SetModeCommand.deserialize(buffer, bufferOffset);
+    // Deserialize message field [waypoints_cmd]
+    data.waypoints_cmd = WaypointsCommand.deserialize(buffer, bufferOffset);
     return data;
   }
 
@@ -169,6 +181,7 @@ class UAVControlCommand {
     length += _getByteLength(object.command_type);
     length += HoverCommand.getMessageSize(object.hover);
     length += SetModeCommand.getMessageSize(object.set_mode);
+    length += WaypointsCommand.getMessageSize(object.waypoints_cmd);
     return length + 144;
   }
 
@@ -179,7 +192,7 @@ class UAVControlCommand {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'e2c2bd3cd120b68b542da3a74da209fb';
+    return '53572dae1fc3b49d99d763590ada7f7d';
   }
 
   static messageDefinition() {
@@ -198,6 +211,7 @@ class UAVControlCommand {
     ReturnToLaunchCommand rtl
     HoverCommand hover
     SetModeCommand set_mode
+    WaypointsCommand waypoints_cmd
     
     ================================================================================
     MSG: uav_msgs/TakeoffCommand
@@ -240,6 +254,21 @@ class UAVControlCommand {
     MSG: uav_msgs/SetModeCommand
     string mode
     
+    ================================================================================
+    MSG: uav_msgs/WaypointsCommand
+    bool start_immediately     # 是否立即执行航点
+    Waypoint[] waypoints       # 航点列表
+    ================================================================================
+    MSG: uav_msgs/Waypoint
+    int32 waypoint_id          # 航点ID
+    string frame               # 坐标系类型
+    string command             # 航点指令类型
+    float64 latitude           # 纬度 (度)
+    float64 longitude          # 经度 (度)
+    float64 altitude           # 高度 (米)
+    bool is_current            # 是否为当前航点
+    bool autocontinue          # 是否自动继续到下一个航点
+    float64 hold_time          # 悬停时间 (秒)
     `;
   }
 
@@ -324,6 +353,13 @@ class UAVControlCommand {
     }
     else {
       resolved.set_mode = new SetModeCommand()
+    }
+
+    if (msg.waypoints_cmd !== undefined) {
+      resolved.waypoints_cmd = WaypointsCommand.Resolve(msg.waypoints_cmd)
+    }
+    else {
+      resolved.waypoints_cmd = new WaypointsCommand()
     }
 
     return resolved;

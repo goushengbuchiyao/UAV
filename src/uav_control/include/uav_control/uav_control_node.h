@@ -13,6 +13,7 @@
 #include <mavros_msgs/CommandTOL.h>
 #include <mavros_msgs/RCIn.h>
 #include <uav_msgs/UAVControlCommand.h>
+
 #include <yaml-cpp/yaml.h>
 #include <thread>
 #include <mutex>
@@ -57,6 +58,11 @@ private:
     geometry_msgs::PoseStamped local_pose_;
     geometry_msgs::TwistStamped velocity_;
 
+     // 航点任务状态
+    bool mission_active_ = false;
+    int current_waypoint_ = -1;
+    int total_waypoints_ = 0;
+
     // 地理围栏参数
     double fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_;
     bool enable_px4_params_load_;
@@ -83,6 +89,13 @@ private:
     bool checkInFlightSafety();
     bool isInsideFence(double x, double y, double z);
     void executeCommand(const uav_msgs::UAVControlCommand& cmd);
+
+    // 添加航点处理函数
+    bool clearMission();
+    bool pushMission(const std::vector<uav_msgs::Waypoint>& waypoints);
+    bool setCurrentWaypoint(int wp_index);
+    bool requestMissionCount();
+    void missionReachedCallback(const mavros_msgs::WaypointReached::ConstPtr& msg);
 
     // MAVROS操作
     bool arm();

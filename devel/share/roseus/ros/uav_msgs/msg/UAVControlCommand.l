@@ -14,7 +14,7 @@
 
 (defclass uav_msgs::UAVControlCommand
   :super ros::object
-  :slots (_command_type _timestamp _target_system _takeoff _land _pos_ned _pos_global _vel_ned _rtl _hover _set_mode ))
+  :slots (_command_type _timestamp _target_system _takeoff _land _pos_ned _pos_global _vel_ned _rtl _hover _set_mode _waypoints_cmd ))
 
 (defmethod uav_msgs::UAVControlCommand
   (:init
@@ -30,6 +30,7 @@
     ((:rtl __rtl) (instance uav_msgs::ReturnToLaunchCommand :init))
     ((:hover __hover) (instance uav_msgs::HoverCommand :init))
     ((:set_mode __set_mode) (instance uav_msgs::SetModeCommand :init))
+    ((:waypoints_cmd __waypoints_cmd) (instance uav_msgs::WaypointsCommand :init))
     )
    (send-super :init)
    (setq _command_type (string __command_type))
@@ -43,6 +44,7 @@
    (setq _rtl __rtl)
    (setq _hover __hover)
    (setq _set_mode __set_mode)
+   (setq _waypoints_cmd __waypoints_cmd)
    self)
   (:command_type
    (&optional __command_type)
@@ -109,6 +111,13 @@
      (progn
        (if __set_mode (setq _set_mode (car __set_mode)))
        _set_mode)))
+  (:waypoints_cmd
+   (&rest __waypoints_cmd)
+   (if (keywordp (car __waypoints_cmd))
+       (send* _waypoints_cmd __waypoints_cmd)
+     (progn
+       (if __waypoints_cmd (setq _waypoints_cmd (car __waypoints_cmd)))
+       _waypoints_cmd)))
   (:serialization-length
    ()
    (+
@@ -134,6 +143,8 @@
     (send _hover :serialization-length)
     ;; uav_msgs/SetModeCommand _set_mode
     (send _set_mode :serialization-length)
+    ;; uav_msgs/WaypointsCommand _waypoints_cmd
+    (send _waypoints_cmd :serialization-length)
     ))
   (:serialize
    (&optional strm)
@@ -161,6 +172,8 @@
        (send _hover :serialize s)
      ;; uav_msgs/SetModeCommand _set_mode
        (send _set_mode :serialize s)
+     ;; uav_msgs/WaypointsCommand _waypoints_cmd
+       (send _waypoints_cmd :serialize s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -187,11 +200,13 @@
      (send _hover :deserialize buf ptr-) (incf ptr- (send _hover :serialization-length))
    ;; uav_msgs/SetModeCommand _set_mode
      (send _set_mode :deserialize buf ptr-) (incf ptr- (send _set_mode :serialization-length))
+   ;; uav_msgs/WaypointsCommand _waypoints_cmd
+     (send _waypoints_cmd :deserialize buf ptr-) (incf ptr- (send _waypoints_cmd :serialization-length))
    ;;
    self)
   )
 
-(setf (get uav_msgs::UAVControlCommand :md5sum-) "e2c2bd3cd120b68b542da3a74da209fb")
+(setf (get uav_msgs::UAVControlCommand :md5sum-) "53572dae1fc3b49d99d763590ada7f7d")
 (setf (get uav_msgs::UAVControlCommand :datatype-) "uav_msgs/UAVControlCommand")
 (setf (get uav_msgs::UAVControlCommand :definition-)
       "
@@ -207,6 +222,7 @@ VelocityControlNEDCommand vel_ned
 ReturnToLaunchCommand rtl
 HoverCommand hover
 SetModeCommand set_mode
+WaypointsCommand waypoints_cmd
 
 ================================================================================
 MSG: uav_msgs/TakeoffCommand
@@ -249,10 +265,25 @@ string mode
 MSG: uav_msgs/SetModeCommand
 string mode
 
+================================================================================
+MSG: uav_msgs/WaypointsCommand
+bool start_immediately     # 是否立即执行航点
+Waypoint[] waypoints       # 航点列表
+================================================================================
+MSG: uav_msgs/Waypoint
+int32 waypoint_id          # 航点ID
+string frame               # 坐标系类型
+string command             # 航点指令类型
+float64 latitude           # 纬度 (度)
+float64 longitude          # 经度 (度)
+float64 altitude           # 高度 (米)
+bool is_current            # 是否为当前航点
+bool autocontinue          # 是否自动继续到下一个航点
+float64 hold_time          # 悬停时间 (秒)
 ")
 
 
 
-(provide :uav_msgs/UAVControlCommand "e2c2bd3cd120b68b542da3a74da209fb")
+(provide :uav_msgs/UAVControlCommand "53572dae1fc3b49d99d763590ada7f7d")
 
 

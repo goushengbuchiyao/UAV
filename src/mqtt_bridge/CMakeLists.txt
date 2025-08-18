@@ -35,12 +35,13 @@ generate_messages(
   geometry_msgs
   std_msgs
   sensor_msgs
-
+  uav_msgs
+  mavros_msgs
 )
 
 ## Declare a catkin package
 catkin_package(
-  CATKIN_DEPENDS roscpp std_msgs message_runtime geometry_msgs sensor_msgs
+  CATKIN_DEPENDS roscpp std_msgs message_runtime geometry_msgs sensor_msgs uav_msgs mavros_msgs
   DEPENDS PahoMqttCpp OpenSSL
 )
 # set(JSONCPP_INCLUDE_DIR "/usr/include/jsoncpp")
@@ -68,7 +69,7 @@ add_executable(mqtt_bridge_node
 ## Specify libraries to link a library or executable target against
 target_link_libraries(mqtt_bridge_node
   ${catkin_LIBRARIES}
-  PahoMqttCpp::paho-mqttpp3
+  PahoMqttCpp::paho-mqttpp3-shared
   # PahoMqttCpp::paho-mqtt3as
   ${OPENSSL_LIBRARIES}
   ${JSONCPP_LIBRARIES}  

@@ -61,7 +61,12 @@
     :reader set_mode
     :initarg :set_mode
     :type uav_msgs-msg:SetModeCommand
-    :initform (cl:make-instance 'uav_msgs-msg:SetModeCommand)))
+    :initform (cl:make-instance 'uav_msgs-msg:SetModeCommand))
+   (waypoints_cmd
+    :reader waypoints_cmd
+    :initarg :waypoints_cmd
+    :type uav_msgs-msg:WaypointsCommand
+    :initform (cl:make-instance 'uav_msgs-msg:WaypointsCommand)))
 )
 
 (cl:defclass UAVControlCommand (<UAVControlCommand>)
@@ -126,6 +131,11 @@
 (cl:defmethod set_mode-val ((m <UAVControlCommand>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader uav_msgs-msg:set_mode-val is deprecated.  Use uav_msgs-msg:set_mode instead.")
   (set_mode m))
+
+(cl:ensure-generic-function 'waypoints_cmd-val :lambda-list '(m))
+(cl:defmethod waypoints_cmd-val ((m <UAVControlCommand>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader uav_msgs-msg:waypoints_cmd-val is deprecated.  Use uav_msgs-msg:waypoints_cmd instead.")
+  (waypoints_cmd m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <UAVControlCommand>) ostream)
   "Serializes a message object of type '<UAVControlCommand>"
   (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'command_type))))
@@ -158,6 +168,7 @@
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'rtl) ostream)
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'hover) ostream)
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'set_mode) ostream)
+  (roslisp-msg-protocol:serialize (cl:slot-value msg 'waypoints_cmd) ostream)
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <UAVControlCommand>) istream)
   "Deserializes a message object of type '<UAVControlCommand>"
@@ -193,6 +204,7 @@
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'rtl) istream)
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'hover) istream)
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'set_mode) istream)
+  (roslisp-msg-protocol:deserialize (cl:slot-value msg 'waypoints_cmd) istream)
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<UAVControlCommand>)))
@@ -203,16 +215,16 @@
   "uav_msgs/UAVControlCommand")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<UAVControlCommand>)))
   "Returns md5sum for a message object of type '<UAVControlCommand>"
-  "e2c2bd3cd120b68b542da3a74da209fb")
+  "53572dae1fc3b49d99d763590ada7f7d")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'UAVControlCommand)))
   "Returns md5sum for a message object of type 'UAVControlCommand"
-  "e2c2bd3cd120b68b542da3a74da209fb")
+  "53572dae1fc3b49d99d763590ada7f7d")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<UAVControlCommand>)))
   "Returns full string definition for message of type '<UAVControlCommand>"
-  (cl:format cl:nil "~%string command_type~%time timestamp~%int32 target_system~%~%TakeoffCommand takeoff~%LandCommand land~%PositionControlNEDCommand pos_ned~%PositionControlGlobalCommand pos_global~%VelocityControlNEDCommand vel_ned~%ReturnToLaunchCommand rtl~%HoverCommand hover~%SetModeCommand set_mode~%~%================================================================================~%MSG: uav_msgs/TakeoffCommand~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/LandCommand~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlNEDCommand~%float64 x~%float64 y~%float64 z~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlGlobalCommand~%float64 latitude~%float64 longitude~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/VelocityControlNEDCommand~%float64 vx~%float64 vy~%float64 vz~%float64 yaw_rate~%~%================================================================================~%MSG: uav_msgs/ReturnToLaunchCommand~%float64 altitude~%~%================================================================================~%MSG: uav_msgs/HoverCommand~%string mode~%================================================================================~%MSG: uav_msgs/SetModeCommand~%string mode~%~%~%"))
+  (cl:format cl:nil "~%string command_type~%time timestamp~%int32 target_system~%~%TakeoffCommand takeoff~%LandCommand land~%PositionControlNEDCommand pos_ned~%PositionControlGlobalCommand pos_global~%VelocityControlNEDCommand vel_ned~%ReturnToLaunchCommand rtl~%HoverCommand hover~%SetModeCommand set_mode~%WaypointsCommand waypoints_cmd~%~%================================================================================~%MSG: uav_msgs/TakeoffCommand~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/LandCommand~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlNEDCommand~%float64 x~%float64 y~%float64 z~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlGlobalCommand~%float64 latitude~%float64 longitude~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/VelocityControlNEDCommand~%float64 vx~%float64 vy~%float64 vz~%float64 yaw_rate~%~%================================================================================~%MSG: uav_msgs/ReturnToLaunchCommand~%float64 altitude~%~%================================================================================~%MSG: uav_msgs/HoverCommand~%string mode~%================================================================================~%MSG: uav_msgs/SetModeCommand~%string mode~%~%================================================================================~%MSG: uav_msgs/WaypointsCommand~%bool start_immediately     # 是否立即执行航点~%Waypoint[] waypoints       # 航点列表~%================================================================================~%MSG: uav_msgs/Waypoint~%int32 waypoint_id          # 航点ID~%string frame               # 坐标系类型~%string command             # 航点指令类型~%float64 latitude           # 纬度 (度)~%float64 longitude          # 经度 (度)~%float64 altitude           # 高度 (米)~%bool is_current            # 是否为当前航点~%bool autocontinue          # 是否自动继续到下一个航点~%float64 hold_time          # 悬停时间 (秒)~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'UAVControlCommand)))
   "Returns full string definition for message of type 'UAVControlCommand"
-  (cl:format cl:nil "~%string command_type~%time timestamp~%int32 target_system~%~%TakeoffCommand takeoff~%LandCommand land~%PositionControlNEDCommand pos_ned~%PositionControlGlobalCommand pos_global~%VelocityControlNEDCommand vel_ned~%ReturnToLaunchCommand rtl~%HoverCommand hover~%SetModeCommand set_mode~%~%================================================================================~%MSG: uav_msgs/TakeoffCommand~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/LandCommand~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlNEDCommand~%float64 x~%float64 y~%float64 z~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlGlobalCommand~%float64 latitude~%float64 longitude~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/VelocityControlNEDCommand~%float64 vx~%float64 vy~%float64 vz~%float64 yaw_rate~%~%================================================================================~%MSG: uav_msgs/ReturnToLaunchCommand~%float64 altitude~%~%================================================================================~%MSG: uav_msgs/HoverCommand~%string mode~%================================================================================~%MSG: uav_msgs/SetModeCommand~%string mode~%~%~%"))
+  (cl:format cl:nil "~%string command_type~%time timestamp~%int32 target_system~%~%TakeoffCommand takeoff~%LandCommand land~%PositionControlNEDCommand pos_ned~%PositionControlGlobalCommand pos_global~%VelocityControlNEDCommand vel_ned~%ReturnToLaunchCommand rtl~%HoverCommand hover~%SetModeCommand set_mode~%WaypointsCommand waypoints_cmd~%~%================================================================================~%MSG: uav_msgs/TakeoffCommand~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/LandCommand~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlNEDCommand~%float64 x~%float64 y~%float64 z~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/PositionControlGlobalCommand~%float64 latitude~%float64 longitude~%float64 altitude~%float64 yaw~%~%================================================================================~%MSG: uav_msgs/VelocityControlNEDCommand~%float64 vx~%float64 vy~%float64 vz~%float64 yaw_rate~%~%================================================================================~%MSG: uav_msgs/ReturnToLaunchCommand~%float64 altitude~%~%================================================================================~%MSG: uav_msgs/HoverCommand~%string mode~%================================================================================~%MSG: uav_msgs/SetModeCommand~%string mode~%~%================================================================================~%MSG: uav_msgs/WaypointsCommand~%bool start_immediately     # 是否立即执行航点~%Waypoint[] waypoints       # 航点列表~%================================================================================~%MSG: uav_msgs/Waypoint~%int32 waypoint_id          # 航点ID~%string frame               # 坐标系类型~%string command             # 航点指令类型~%float64 latitude           # 纬度 (度)~%float64 longitude          # 经度 (度)~%float64 altitude           # 高度 (米)~%bool is_current            # 是否为当前航点~%bool autocontinue          # 是否自动继续到下一个航点~%float64 hold_time          # 悬停时间 (秒)~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <UAVControlCommand>))
   (cl:+ 0
      4 (cl:length (cl:slot-value msg 'command_type))
@@ -226,6 +238,7 @@
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'rtl))
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'hover))
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'set_mode))
+     (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'waypoints_cmd))
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <UAVControlCommand>))
   "Converts a ROS message object to a list"
@@ -241,4 +254,5 @@
     (cl:cons ':rtl (rtl msg))
     (cl:cons ':hover (hover msg))
     (cl:cons ':set_mode (set_mode msg))
+    (cl:cons ':waypoints_cmd (waypoints_cmd msg))
 ))

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 
 # Utility rule file for _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 include uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/progress.make
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand:
-	cd /home/px4/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px4/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg 
+	cd /home/px/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg 
 
 _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand
 _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build.make
@@ -67,10 +67,10 @@ uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCom
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/clean:
-	cd /home/px4/UAV_SDK/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/cmake_clean.cmake
+	cd /home/px/UAV_SDK/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/cmake_clean.cmake
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/clean
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/depend:
-	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/uav_msgs /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/uav_msgs /home/px4/UAV_SDK/build/uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/uav_msgs /home/px/UAV_SDK/build/uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/depend
 

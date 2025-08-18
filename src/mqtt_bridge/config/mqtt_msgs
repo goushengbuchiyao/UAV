@@ -1,0 +1,270 @@
+3.航线规划控制指令示例
+顶层参数格式
+{
+  "command_type": "控制指令类型",
+  "timestamp": 1620000000,
+  "target_system": 1,     
+  "params": {
+    "clear_existing": true，
+"waypoints":[
+]
+  }
+}
+
+
+参数名称	参数类型	参数描述
+timestamp	int	指令发送时间戳（单位：秒），用于记录指令生成时间，确保时序一致性
+target_system	int	目标系统 ID，对应文档中system_id参数（默认值 1），指定指令作用的无人机系统
+clear_existing	bool	上传新任务前清除现有任务，true 表示清除
+waypoints	array	航点列表，包含多个航点信息，包括起飞点、途径点、定时悬停点、无限悬停点、着陆点/返航点等。
+params	object	航线任务的详细参数集合，包含航点列表、任务模式等核心配置（对应文档中航线规划全流程）
+3.1 途经点（MAV_CMD_NAV_WAYPOINT）
+{
+  "command_type": "waypoint_mission",
+  "timestamp": 1620000000,
+  "target_system": 1,
+  "params": {
+    "clear_existing": true,
+    "waypoints": [
+      {
+        "waypoint_id": 0, //航点id
+        "frame": 3,  // 推荐：MAV_FRAME_GLOBAL_RELATIVE_ALT（全局相对高度）
+        "command": 16,  // MAV_CMD_NAV_WAYPOINT（途经点指令）
+        "param1": 2.0,  // 停留时间（秒），航点停留逻辑
+        "param2": 0.0,  // 空速（米/秒），0表示使用飞控默认值
+        "param3": 3.0,  // 到达半径（米），无人机进入该半径即视为到达
+        "param4": 0.0,  // 无特殊含义（设为0）
+        "x_lat": 30.5928,  // 纬度（示例格式）
+        "y_long": 114.3055,  // 经度
+        "z_alt": 10.0,  // 相对高度（米，高度定义）
+        "is_current": true,  // 首个航点设为当前
+        "autocontinue": true  // 自动进入下一航点
+      }
+    ],
+  }
+}
+
+参数名称	参数类型	参数描述
+waypoint_id	int	航点id号
+frame	int	坐标系，3 表示 MAV_FRAME_GLOBAL_RELATIVE_ALT（全局相对高度）
+command	int	航点指令，16 表示 MAV_CMD_NAV_WAYPOINT（途经点）
+param1	float	停留时间（秒），此处设置为 2 秒
+param2	float	飞行空速（米 / 秒），此处设置为 5 米 / 秒
+param3	float	到达半径（米），无人机进入该半径范围即视为到达航点，此处为 3 米
+param4	float	无实际含义，固定为 0.0
+x_lat	double	航点纬度（度），示例值 30.5928
+y_long	double	航点经度（度），示例值 114.3055
+z_alt	double	航点相对高度（米），相对于起飞点，此处为 10 米
+is_current	bool	是否为当前航点，true 表示该航点为任务起始点
+autocontinue	bool	是否自动进入下一航点，true 表示自动续接
+
+
+
+3.2着陆点（MAV_CMD_NAV_LAND）
+
+{
+  "command_type": "waypoint_mission",
+  "timestamp": 1620000001,
+  "target_system": 1,
+  "params": {
+    "clear_existing": true,
+    "waypoints": [
+      {
+"waypoint_id": 0, //航点id
+        "frame": 3,  // 同推荐坐标系
+        "command": 21,  // MAV_CMD_NAV_LAND（着陆指令）
+        "param1": 1.0,  // 下降速率（米/秒），控制着陆平稳性
+        "param2": 2.0,  // 着陆精度半径（米），允许的误差范围
+        "param3": 0.0,  // 无特殊含义
+        "param4": 0.0,  // 无特殊含义
+        "x_lat": 30.5925,  // 着陆点纬度
+        "y_long": 114.3050,  // 着陆点经度
+        "z_alt": 0.0,  // 着陆高度（地面，着陆逻辑）
+        "is_current": false,  // 非首个航点
+        "autocontinue": false  // 最后一个航点无需继续
+      }
+    ],
+    
+   
+  }}
+
+参数名称	参数类型	参数描述
+waypoint_id	int	航点id号
+frame	int	坐标系，3 表示 MAV_FRAME_GLOBAL_RELATIVE_ALT
+command	int	航点指令，21 表示 MAV_CMD_NAV_LAND（着陆点）
+param1	float	着陆下降速率（米 / 秒），此处设置为 1.5 米 / 秒
+param2	float	着陆精度半径（米），允许的着陆误差范围，此处为 2 米
+param3	float	无实际含义，固定为 0.0
+param4	float	无实际含义，固定为 0.0
+x_lat	double	着陆点纬度（度），示例值 30.5925
+y_long	double	着陆点经度（度），示例值 114.3050
+z_alt	double	着陆高度（米），0 表示地面高度
+is_current	bool	是否为当前航点，false 表示非起始点
+autocontinue	bool	是否自动进入下一航点，false 表示该点为终点
+
+3.3起飞点（MAV_CMD_NAV_TAKEOFF）
+
+{
+  "command_type": "waypoint_mission",
+  "timestamp": 1620000002,
+  "target_system": 1,
+  "params": {
+    "clear_existing": true,
+    "waypoints": [
+      {
+"waypoint_id": 0, //航点id
+        "frame": 3,  // 同推荐坐标系
+        "command": 22,  // MAV_CMD_NAV_TAKEOFF（起飞指令）
+        "param1": 10.0,  // 最小起飞俯仰角（度），确保平稳起飞
+        "param2": 0.0,  // 无特殊含义
+        "param3": 0.0,  // 起飞航向角（度），0表示沿当前航向
+        "param4": 0.0,  // 无特殊含义
+        "x_lat": 30.5927,  // 起飞点纬度（通常为当前位置）
+        "y_long": 114.3054,  // 起飞点经度
+        "z_alt": 5.0,  // 起飞至5米高度（起飞准备逻辑）
+        "is_current": true,  // 优先执行起飞
+        "autocontinue": true  // 起飞后自动进入下一航点
+      }
+    ],
+    
+    
+  }}
+
+参数名称	参数类型	参数描述
+waypoint_id	int	航点id号
+frame	int	坐标系，3 表示 MAV_FRAME_GLOBAL_RELATIVE_ALT
+command	int	航点指令，22 表示 MAV_CMD_NAV_TAKEOFF（起飞点）
+param1	float	最小起飞俯仰角（度），此处设置为 10 度，确保平稳起飞
+param2	float	无实际含义，固定为 0.0
+param3	float	起飞航向角（度），0 表示沿当前机头方向起飞
+param4	float	无实际含义，固定为 0.0
+x_lat	double	起飞点纬度（度），示例值 30.5927（通常为当前位置）
+y_long	double	起飞点经度（度），示例值 114.3054
+z_alt	double	起飞目标高度（米），相对于地面，此处为 5 米
+is_current	bool	是否为当前航点，true 表示该点为起飞起始点
+autocontinue	bool	是否自动进入下一航点，true 表示起飞后执行后续航点
+
+3.4 无限悬停点（MAV_CMD_NAV_LOITER_UNLIM）
+{
+  "command_type": "waypoint_mission",
+  "timestamp": 1620000003,
+  "target_system": 1,
+  "params": {
+    "clear_existing": false,
+    "waypoints": [
+      {
+"waypoint_id": 0, //航点id
+        "frame": 3,
+        "command": 23,
+        "param1": 0.0,
+        "param2": 0.0,
+        "param3": 0.0,
+        "param4": 0.0,
+        "x_lat": 30.5926,
+        "y_long": 114.3053,
+        "z_alt": 8.0,
+        "is_current": false,
+        "autocontinue": true
+      }
+    ]
+  }
+}
+
+
+参数名称	参数类型	参数描述
+waypoint_id	int	航点id号
+frame	int	坐标系，3 表示 MAV_FRAME_GLOBAL_RELATIVE_ALT
+command	int	航点指令，23 表示 MAV_CMD_NAV_LOITER_UNLIM（无限悬停）
+param1	float	无实际含义，固定为 0.0
+param2	float	无实际含义，固定为 0.0
+param3	float	无实际含义，固定为 0.0
+param4	float	无实际含义，固定为 0.0
+x_lat	double	悬停点纬度（度），示例值 30.5926
+y_long	double	悬停点经度（度），示例值 114.3053
+z_alt	double	悬停高度（米），相对于起飞点，此处为 8 米
+is_current	bool	是否为当前航点，false 表示非起始点
+autocontinue	bool	是否自动进入下一航点，true 表示收到新指令后继续
+
+3.5 定时悬停点（MAV_CMD_NAV_LOITER_TIME）
+
+{
+  "command_type": "waypoint_mission",
+  "timestamp": 1620000004,
+  "target_system": 1,
+  "params": {
+    "clear_existing": false,
+    "waypoints": [
+      {
+"waypoint_id": 0, //航点id
+        "frame": 3,
+        "command": 24,
+        "param1": 10.0,
+        "param2": 0.0,
+        "param3": 0.0,
+        "param4": 0.0,
+        "x_lat": 30.5929,
+        "y_long": 114.3056,
+        "z_alt": 10.0,
+        "is_current": false,
+        "autocontinue": true
+      }
+    ],
+    "mission_mode": "AUTO.MISSION",
+    "arm_required": true
+  }
+}
+
+参数名称	参数类型	参数描述
+waypoint_id	int	航点id号
+frame	int	坐标系，3 表示 MAV_FRAME_GLOBAL_RELATIVE_ALT
+command	int	航点指令，24 表示 MAV_CMD_NAV_LOITER_TIME（定时悬停）
+param1	float	悬停时间（秒），此处设置为 10 秒
+param2	float	无实际含义，固定为 0.0
+param3	float	无实际含义，固定为 0.0
+param4	float	无实际含义，固定为 0.0
+x_lat	double	悬停点纬度（度），示例值 30.5929
+y_long	double	悬停点经度（度），示例值 114.3056
+z_alt	double	悬停高度（米），相对于起飞点，此处为 10 米
+is_current	bool	是否为当前航点，false 表示非起始点
+autocontinue	bool	是否自动进入下一航点，true 表示悬停结束后继续
+
+3.6 返航点（MAV_CMD_NAV_RETURN_TO_LAUNCH）
+
+{
+  "command_type": "waypoint_mission",
+  "timestamp": 1620000005,
+  "target_system": 1,
+  "params": {
+    "clear_existing": false,
+    "waypoints": [
+      {
+"waypoint_id": 0, //航点id
+        "frame": 3,
+        "command": 25,
+        "param1": 0.0,
+        "param2": 0.0,
+        "param3": 0.0,
+        "param4": 0.0,
+        "x_lat": 0.0,
+        "y_long": 0.0,
+        "z_alt": 0.0,
+        "is_current": false,
+        "autocontinue": false
+      }
+    ]
+  }
+}
+
+参数名称	参数类型	参数描述
+waypoint_id	int	航点id号
+frame	int	坐标系，3 表示 MAV_FRAME_GLOBAL_RELATIVE_ALT
+command	int	航点指令，25 表示 MAV_CMD_NAV_RETURN_TO_LAUNCH（返航）
+param1	float	无实际含义，固定为 0.0
+param2	float	无实际含义，固定为 0.0
+param3	float	无实际含义，固定为 0.0
+param4	float	无实际含义，固定为 0.0
+x_lat	double	无实际含义（自动返回起飞点），固定为 0.0
+y_long	double	无实际含义（自动返回起飞点），固定为 0.0
+z_alt	double	无实际含义（按默认高度返航），固定为 0.0
+is_current	bool	是否为当前航点，false 表示非起始点
+autocontinue	bool	是否自动进入下一航点，false 表示返航为终点

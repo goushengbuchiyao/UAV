@@ -68,9 +68,21 @@ void MQTTROSNode::run() {
     while (ros::ok()) {
         ros::spinOnce();
         // 发布 UAV 状态到 MQTT 状态数据一直发送，不依赖于命令
-        if (mqtt_client_ && mqtt_client_->isConnected()) {
-            std::string json_state = uav_collector_->getStateJson();
-            mqtt_client_->publish(mqtt_publish_topic_, json_state);
+        if (mqtt_client_ && mqtt_client_->isConnected() ) {
+            if (uav_collector_->isConnected())
+            {
+                std::string json_state = uav_collector_->getStateJson();
+                mqtt_client_->publish(mqtt_publish_topic_, json_state);
+            }
+            else
+            {
+                ROS_WARN_THROTTLE(10, "UAV not connected, skipping state publish.");
+            }
+            
+        }
+        else
+        {
+            ROS_WARN_THROTTLE(10, "MQTT not connected, skipping state publish.");
         }
         rate.sleep();
     }
@@ -176,6 +188,31 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
         else if (cmd.command_type == "set_mode") {
             ros_cmd.set_mode.mode = cmd.params["mode"].get<std::string>();
         }
+         // 添加航线规划指令处理
+        else if (cmd.command_type == "waypoint_mission") {
+            // 解析清除现有任务标志
+            ros_cmd.waypoints_cmd.start_immediately = cmd.params["clear_existing"].get<bool>();
+
+            // 解析航点列表
+            auto waypoints_json = cmd.params["waypoints"];
+            for (size_t i = 0; i < waypoints_json.size(); ++i) {
+                auto wp = waypoints_json[i];
+                uav_msgs::Waypoint waypoint;
+                waypoint.waypoint_id = wp["waypoint_id"].get<int>();
+                waypoint.frame = std::to_string(wp["frame"].get<int>()); // 转换为字符串以匹配现有消息定义
+                waypoint.command = std::to_string(wp["command"].get<int>());
+                waypoint.latitude = wp["x_lat"].get<double>();
+                waypoint.longitude = wp["y_long"].get<double>();
+                waypoint.altitude = wp["z_alt"].get<double>();
+                waypoint.is_current = wp["is_current"].get<bool>();
+                waypoint.autocontinue = wp["autocontinue"].get<bool>();
+                waypoint.param1 = wp["param1"].get<double>(); 
+                waypoint.param2 = wp["param2"].get<double>();
+                waypoint.param3 = wp["param3"].get<double>();
+                waypoint.param4 = wp["param4"].get<double>();
+                ros_cmd.waypoints_cmd.waypoints.push_back(waypoint);
+            }
+        }
         else {
             ROS_WARN("Unknown command type: %s", cmd.command_type.c_str());
             return;
@@ -189,7 +226,7 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
         // ROS_INFO("ros_cmd.takeoff.yaw: %f", ros_cmd.takeoff.yaw);
         // ROS_INFO("ros_cmd.land.yaw: %f", ros_cmd.land.yaw);
         mqtt_to_ros_pub_.publish(ros_cmd);
-        ROS_INFO("Published ROS message %s to MQTT topic %s", cmd.command_type, mqtt_publish_topic_.c_str());
+        ROS_INFO("Published ROS message %s to ROS topic %s", cmd.command_type, ros_publish_topic_.c_str());
     }
     else {
         ROS_WARN("Invalid command JSON: %s", err_msg.c_str());

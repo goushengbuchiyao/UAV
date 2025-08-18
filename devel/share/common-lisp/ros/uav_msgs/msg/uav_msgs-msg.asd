@@ -22,4 +22,8 @@
     (:file "_package_UAVControlCommand" :depends-on ("_package"))
     (:file "VelocityControlNEDCommand" :depends-on ("_package_VelocityControlNEDCommand"))
     (:file "_package_VelocityControlNEDCommand" :depends-on ("_package"))
+    (:file "Waypoint" :depends-on ("_package_Waypoint"))
+    (:file "_package_Waypoint" :depends-on ("_package"))
+    (:file "WaypointsCommand" :depends-on ("_package_WaypointsCommand"))
+    (:file "_package_WaypointsCommand" :depends-on ("_package"))
   ))

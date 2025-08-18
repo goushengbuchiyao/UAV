@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles /home/px4/UAV_SDK/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles /home/px/UAV_SDK/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px4/UAV_SDK/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -2014,19 +2014,6 @@ uav_msgs_genpy/fast:
 .PHONY : uav_msgs_genpy/fast
 
 #=============================================================================
-# Target rules for targets named uav_msgs_generate_messages_py
-
-# Build rule for target.
-uav_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages_py
-.PHONY : uav_msgs_generate_messages_py
-
-# fast build rule for target.
-uav_msgs_generate_messages_py/fast:
-	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build
-.PHONY : uav_msgs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named uav_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -2064,6 +2051,32 @@ uav_msgs_geneus: cmake_check_build_system
 uav_msgs_geneus/fast:
 	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_geneus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_geneus.dir/build
 .PHONY : uav_msgs_geneus/fast
+
+#=============================================================================
+# Target rules for targets named uav_msgs_generate_messages_eus
+
+# Build rule for target.
+uav_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages_eus
+.PHONY : uav_msgs_generate_messages_eus
+
+# fast build rule for target.
+uav_msgs_generate_messages_eus/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build
+.PHONY : uav_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named uav_msgs_gencpp
+
+# Build rule for target.
+uav_msgs_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_gencpp
+.PHONY : uav_msgs_gencpp
+
+# fast build rule for target.
+uav_msgs_gencpp/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build
+.PHONY : uav_msgs_gencpp/fast
 
 #=============================================================================
 # Target rules for targets named uav_msgs_generate_messages
@@ -2183,19 +2196,6 @@ _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand/fast:
 .PHONY : _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand/fast
 
 #=============================================================================
-# Target rules for targets named uav_msgs_generate_messages_eus
-
-# Build rule for target.
-uav_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages_eus
-.PHONY : uav_msgs_generate_messages_eus
-
-# fast build rule for target.
-uav_msgs_generate_messages_eus/fast:
-	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build
-.PHONY : uav_msgs_generate_messages_eus/fast
-
-#=============================================================================
 # Target rules for targets named _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand
 
 # Build rule for target.
@@ -2207,6 +2207,32 @@ _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand: cmake_check_bu
 _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand/fast:
 	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build
 .PHONY : _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand/fast
+
+#=============================================================================
+# Target rules for targets named uav_msgs_generate_messages_py
+
+# Build rule for target.
+uav_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_generate_messages_py
+.PHONY : uav_msgs_generate_messages_py
+
+# fast build rule for target.
+uav_msgs_generate_messages_py/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build
+.PHONY : uav_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_WaypointsCommand
+
+# Build rule for target.
+_uav_msgs_generate_messages_check_deps_WaypointsCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_WaypointsCommand
+.PHONY : _uav_msgs_generate_messages_check_deps_WaypointsCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_WaypointsCommand/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_WaypointsCommand/fast
 
 #=============================================================================
 # Target rules for targets named _uav_msgs_generate_messages_check_deps_HoverCommand
@@ -2248,17 +2274,17 @@ _uav_msgs_generate_messages_check_deps_SetModeCommand/fast:
 .PHONY : _uav_msgs_generate_messages_check_deps_SetModeCommand/fast
 
 #=============================================================================
-# Target rules for targets named uav_msgs_gencpp
+# Target rules for targets named _uav_msgs_generate_messages_check_deps_Waypoint
 
 # Build rule for target.
-uav_msgs_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uav_msgs_gencpp
-.PHONY : uav_msgs_gencpp
+_uav_msgs_generate_messages_check_deps_Waypoint: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _uav_msgs_generate_messages_check_deps_Waypoint
+.PHONY : _uav_msgs_generate_messages_check_deps_Waypoint
 
 # fast build rule for target.
-uav_msgs_gencpp/fast:
-	$(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build
-.PHONY : uav_msgs_gencpp/fast
+_uav_msgs_generate_messages_check_deps_Waypoint/fast:
+	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_Waypoint/fast
 
 #=============================================================================
 # Target rules for targets named uav_control_node
@@ -2428,10 +2454,11 @@ help:
 	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... uav_msgs_genpy"
-	@echo "... uav_msgs_generate_messages_py"
 	@echo "... uav_msgs_generate_messages_nodejs"
 	@echo "... uav_msgs_generate_messages_lisp"
 	@echo "... uav_msgs_geneus"
+	@echo "... uav_msgs_generate_messages_eus"
+	@echo "... uav_msgs_gencpp"
 	@echo "... uav_msgs_generate_messages"
 	@echo "... _uav_msgs_generate_messages_check_deps_UAVControlCommand"
 	@echo "... _uav_msgs_generate_messages_check_deps_TakeoffCommand"
@@ -2441,12 +2468,13 @@ help:
 	@echo "... _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand"
 	@echo "... _uav_msgs_generate_messages_check_deps_LandCommand"
 	@echo "... _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand"
-	@echo "... uav_msgs_generate_messages_eus"
 	@echo "... _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand"
+	@echo "... uav_msgs_generate_messages_py"
+	@echo "... _uav_msgs_generate_messages_check_deps_WaypointsCommand"
 	@echo "... _uav_msgs_generate_messages_check_deps_HoverCommand"
 	@echo "... uav_msgs_generate_messages_cpp"
 	@echo "... _uav_msgs_generate_messages_check_deps_SetModeCommand"
-	@echo "... uav_msgs_gencpp"
+	@echo "... _uav_msgs_generate_messages_check_deps_Waypoint"
 	@echo "... uav_control_node"
 .PHONY : help
 
