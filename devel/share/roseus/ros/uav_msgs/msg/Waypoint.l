@@ -10,84 +10,41 @@
 
 (in-package "ROS")
 ;;//! \htmlinclude Waypoint.msg.html
+(if (not (find-package "MAVROS_MSGS"))
+  (ros::roseus-add-msgs "mavros_msgs"))
 
 
 (defclass uav_msgs::Waypoint
   :super ros::object
-  :slots (_waypoint_id _frame _command _latitude _longitude _altitude _is_current _autocontinue _hold_time ))
+  :slots (_waypoint_id _waypoint ))
 
 (defmethod uav_msgs::Waypoint
   (:init
    (&key
     ((:waypoint_id __waypoint_id) 0)
-    ((:frame __frame) "")
-    ((:command __command) "")
-    ((:latitude __latitude) 0.0)
-    ((:longitude __longitude) 0.0)
-    ((:altitude __altitude) 0.0)
-    ((:is_current __is_current) nil)
-    ((:autocontinue __autocontinue) nil)
-    ((:hold_time __hold_time) 0.0)
+    ((:waypoint __waypoint) (instance mavros_msgs::Waypoint :init))
     )
    (send-super :init)
    (setq _waypoint_id (round __waypoint_id))
-   (setq _frame (string __frame))
-   (setq _command (string __command))
-   (setq _latitude (float __latitude))
-   (setq _longitude (float __longitude))
-   (setq _altitude (float __altitude))
-   (setq _is_current __is_current)
-   (setq _autocontinue __autocontinue)
-   (setq _hold_time (float __hold_time))
+   (setq _waypoint __waypoint)
    self)
   (:waypoint_id
    (&optional __waypoint_id)
    (if __waypoint_id (setq _waypoint_id __waypoint_id)) _waypoint_id)
-  (:frame
-   (&optional __frame)
-   (if __frame (setq _frame __frame)) _frame)
-  (:command
-   (&optional __command)
-   (if __command (setq _command __command)) _command)
-  (:latitude
-   (&optional __latitude)
-   (if __latitude (setq _latitude __latitude)) _latitude)
-  (:longitude
-   (&optional __longitude)
-   (if __longitude (setq _longitude __longitude)) _longitude)
-  (:altitude
-   (&optional __altitude)
-   (if __altitude (setq _altitude __altitude)) _altitude)
-  (:is_current
-   (&optional (__is_current :null))
-   (if (not (eq __is_current :null)) (setq _is_current __is_current)) _is_current)
-  (:autocontinue
-   (&optional (__autocontinue :null))
-   (if (not (eq __autocontinue :null)) (setq _autocontinue __autocontinue)) _autocontinue)
-  (:hold_time
-   (&optional __hold_time)
-   (if __hold_time (setq _hold_time __hold_time)) _hold_time)
+  (:waypoint
+   (&rest __waypoint)
+   (if (keywordp (car __waypoint))
+       (send* _waypoint __waypoint)
+     (progn
+       (if __waypoint (setq _waypoint (car __waypoint)))
+       _waypoint)))
   (:serialization-length
    ()
    (+
     ;; int32 _waypoint_id
     4
-    ;; string _frame
-    4 (length _frame)
-    ;; string _command
-    4 (length _command)
-    ;; float64 _latitude
-    8
-    ;; float64 _longitude
-    8
-    ;; float64 _altitude
-    8
-    ;; bool _is_current
-    1
-    ;; bool _autocontinue
-    1
-    ;; float64 _hold_time
-    8
+    ;; mavros_msgs/Waypoint _waypoint
+    (send _waypoint :serialization-length)
     ))
   (:serialize
    (&optional strm)
@@ -95,64 +52,78 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; int32 _waypoint_id
        (write-long _waypoint_id s)
-     ;; string _frame
-       (write-long (length _frame) s) (princ _frame s)
-     ;; string _command
-       (write-long (length _command) s) (princ _command s)
-     ;; float64 _latitude
-       (sys::poke _latitude (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _longitude
-       (sys::poke _longitude (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _altitude
-       (sys::poke _altitude (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; bool _is_current
-       (if _is_current (write-byte -1 s) (write-byte 0 s))
-     ;; bool _autocontinue
-       (if _autocontinue (write-byte -1 s) (write-byte 0 s))
-     ;; float64 _hold_time
-       (sys::poke _hold_time (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; mavros_msgs/Waypoint _waypoint
+       (send _waypoint :serialize s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
    ;; int32 _waypoint_id
      (setq _waypoint_id (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; string _frame
-     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _frame (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
-   ;; string _command
-     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _command (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
-   ;; float64 _latitude
-     (setq _latitude (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _longitude
-     (setq _longitude (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _altitude
-     (setq _altitude (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; bool _is_current
-     (setq _is_current (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
-   ;; bool _autocontinue
-     (setq _autocontinue (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
-   ;; float64 _hold_time
-     (setq _hold_time (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; mavros_msgs/Waypoint _waypoint
+     (send _waypoint :deserialize buf ptr-) (incf ptr- (send _waypoint :serialization-length))
    ;;
    self)
   )
 
-(setf (get uav_msgs::Waypoint :md5sum-) "d3f2cf73442657b7c4a745798b838c76")
+(setf (get uav_msgs::Waypoint :md5sum-) "a6f99f03f8a3405b686baeb3a31c59e9")
 (setf (get uav_msgs::Waypoint :datatype-) "uav_msgs/Waypoint")
 (setf (get uav_msgs::Waypoint :definition-)
-      "int32 waypoint_id          # 航点ID
-string frame               # 坐标系类型
-string command             # 航点指令类型
-float64 latitude           # 纬度 (度)
-float64 longitude          # 经度 (度)
-float64 altitude           # 高度 (米)
-bool is_current            # 是否为当前航点
-bool autocontinue          # 是否自动继续到下一个航点
-float64 hold_time          # 悬停时间 (秒)
+      "int32 waypoint_id
+mavros_msgs/Waypoint waypoint
+
+================================================================================
+MSG: mavros_msgs/Waypoint
+# Waypoint.msg
+#
+# ROS representation of MAVLink MISSION_ITEM
+# See mavlink documentation
+
+
+
+# see enum MAV_FRAME
+uint8 frame
+uint8 FRAME_GLOBAL = 0
+uint8 FRAME_LOCAL_NED = 1
+uint8 FRAME_MISSION = 2
+uint8 FRAME_GLOBAL_REL_ALT = 3
+uint8 FRAME_LOCAL_ENU = 4
+uint8 FRAME_GLOBAL_INT = 5
+uint8 FRAME_GLOBAL_RELATIVE_ALT_INT = 6
+uint8 FRAME_LOCAL_OFFSET_NED = 7
+uint8 FRAME_BODY_NED = 8
+uint8 FRAME_BODY_OFFSET_NED = 9
+uint8 FRAME_GLOBAL_TERRAIN_ALT = 10
+uint8 FRAME_GLOBAL_TERRAIN_ALT_INT = 11
+uint8 FRAME_BODY_FRD = 12
+uint8 FRAME_RESERVED_13 = 13
+uint8 FRAME_RESERVED_14 = 14
+uint8 FRAME_RESERVED_15 = 15
+uint8 FRAME_RESERVED_16 = 16
+uint8 FRAME_RESERVED_17 = 17
+uint8 FRAME_RESERVED_18 = 18
+uint8 FRAME_RESERVED_19 = 19
+uint8 FRAME_LOCAL_FRD = 20
+uint8 FRAME_LOCAL_FLU = 21
+
+# see enum MAV_CMD and CommandCode.msg
+uint16 command
+
+bool is_current
+bool autocontinue
+# meaning of this params described in enum MAV_CMD
+float32 param1
+float32 param2
+float32 param3
+float32 param4
+float64 x_lat
+float64 y_long
+float64 z_alt
+
 ")
 
 
 
-(provide :uav_msgs/Waypoint "d3f2cf73442657b7c4a745798b838c76")
+(provide :uav_msgs/Waypoint "a6f99f03f8a3405b686baeb3a31c59e9")
 
 

@@ -1637,227 +1637,6 @@ aruco_detection_generate_messages/fast:
 .PHONY : aruco_detection_generate_messages/fast
 
 #=============================================================================
-# Target rules for targets named mqtt_bridge_genpy
-
-# Build rule for target.
-mqtt_bridge_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_genpy
-.PHONY : mqtt_bridge_genpy
-
-# fast build rule for target.
-mqtt_bridge_genpy/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/build
-.PHONY : mqtt_bridge_genpy/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_gennodejs
-
-# Build rule for target.
-mqtt_bridge_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_gennodejs
-.PHONY : mqtt_bridge_gennodejs
-
-# fast build rule for target.
-mqtt_bridge_gennodejs/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/build
-.PHONY : mqtt_bridge_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_cpp
-
-# Build rule for target.
-tf_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_cpp
-.PHONY : tf_generate_messages_cpp
-
-# fast build rule for target.
-tf_generate_messages_cpp/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_node
-
-# Build rule for target.
-mqtt_bridge_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_node
-.PHONY : mqtt_bridge_node
-
-# fast build rule for target.
-mqtt_bridge_node/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build
-.PHONY : mqtt_bridge_node/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_nodejs
-
-# Build rule for target.
-tf_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_nodejs
-.PHONY : tf_generate_messages_nodejs
-
-# fast build rule for target.
-tf_generate_messages_nodejs/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build
-.PHONY : tf_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_genlisp
-
-# Build rule for target.
-mqtt_bridge_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_genlisp
-.PHONY : mqtt_bridge_genlisp
-
-# fast build rule for target.
-mqtt_bridge_genlisp/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/build
-.PHONY : mqtt_bridge_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_generate_messages_py
-
-# Build rule for target.
-mqtt_bridge_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_py
-.PHONY : mqtt_bridge_generate_messages_py
-
-# fast build rule for target.
-mqtt_bridge_generate_messages_py/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/build
-.PHONY : mqtt_bridge_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_eus
-
-# Build rule for target.
-tf_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_eus
-.PHONY : tf_generate_messages_eus
-
-# fast build rule for target.
-tf_generate_messages_eus/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build
-.PHONY : tf_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_py
-
-# Build rule for target.
-tf_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_py
-.PHONY : tf_generate_messages_py
-
-# fast build rule for target.
-tf_generate_messages_py/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_gencpp
-
-# Build rule for target.
-mqtt_bridge_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_gencpp
-.PHONY : mqtt_bridge_gencpp
-
-# fast build rule for target.
-mqtt_bridge_gencpp/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build
-.PHONY : mqtt_bridge_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named tf_generate_messages_lisp
-
-# Build rule for target.
-tf_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_lisp
-.PHONY : tf_generate_messages_lisp
-
-# fast build rule for target.
-tf_generate_messages_lisp/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_generate_messages_lisp
-
-# Build rule for target.
-mqtt_bridge_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_lisp
-.PHONY : mqtt_bridge_generate_messages_lisp
-
-# fast build rule for target.
-mqtt_bridge_generate_messages_lisp/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/build
-.PHONY : mqtt_bridge_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_generate_messages
-
-# Build rule for target.
-mqtt_bridge_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages
-.PHONY : mqtt_bridge_generate_messages
-
-# fast build rule for target.
-mqtt_bridge_generate_messages/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/build
-.PHONY : mqtt_bridge_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_generate_messages_cpp
-
-# Build rule for target.
-mqtt_bridge_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_cpp
-.PHONY : mqtt_bridge_generate_messages_cpp
-
-# fast build rule for target.
-mqtt_bridge_generate_messages_cpp/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/build
-.PHONY : mqtt_bridge_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_generate_messages_eus
-
-# Build rule for target.
-mqtt_bridge_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_eus
-.PHONY : mqtt_bridge_generate_messages_eus
-
-# fast build rule for target.
-mqtt_bridge_generate_messages_eus/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/build
-.PHONY : mqtt_bridge_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_geneus
-
-# Build rule for target.
-mqtt_bridge_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_geneus
-.PHONY : mqtt_bridge_geneus
-
-# fast build rule for target.
-mqtt_bridge_geneus/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/build
-.PHONY : mqtt_bridge_geneus/fast
-
-#=============================================================================
-# Target rules for targets named mqtt_bridge_generate_messages_nodejs
-
-# Build rule for target.
-mqtt_bridge_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_generate_messages_nodejs
-.PHONY : mqtt_bridge_generate_messages_nodejs
-
-# fast build rule for target.
-mqtt_bridge_generate_messages_nodejs/fast:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/build
-.PHONY : mqtt_bridge_generate_messages_nodejs/fast
-
-#=============================================================================
 # Target rules for targets named mqtt_camera_node
 
 # Build rule for target.
@@ -2287,6 +2066,84 @@ _uav_msgs_generate_messages_check_deps_Waypoint/fast:
 .PHONY : _uav_msgs_generate_messages_check_deps_Waypoint/fast
 
 #=============================================================================
+# Target rules for targets named mqtt_bridge_node
+
+# Build rule for target.
+mqtt_bridge_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge_node
+.PHONY : mqtt_bridge_node
+
+# fast build rule for target.
+mqtt_bridge_node/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build
+.PHONY : mqtt_bridge_node/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_py
+
+# Build rule for target.
+tf_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_py
+.PHONY : tf_generate_messages_py
+
+# fast build rule for target.
+tf_generate_messages_py/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build
+.PHONY : tf_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_nodejs
+
+# Build rule for target.
+tf_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_nodejs
+.PHONY : tf_generate_messages_nodejs
+
+# fast build rule for target.
+tf_generate_messages_nodejs/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build
+.PHONY : tf_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_lisp
+
+# Build rule for target.
+tf_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_lisp
+.PHONY : tf_generate_messages_lisp
+
+# fast build rule for target.
+tf_generate_messages_lisp/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build
+.PHONY : tf_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_eus
+
+# Build rule for target.
+tf_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_eus
+.PHONY : tf_generate_messages_eus
+
+# fast build rule for target.
+tf_generate_messages_eus/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build
+.PHONY : tf_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named tf_generate_messages_cpp
+
+# Build rule for target.
+tf_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_generate_messages_cpp
+.PHONY : tf_generate_messages_cpp
+
+# fast build rule for target.
+tf_generate_messages_cpp/fast:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build
+.PHONY : tf_generate_messages_cpp/fast
+
+#=============================================================================
 # Target rules for targets named uav_control_node
 
 # Build rule for target.
@@ -2425,23 +2282,6 @@ help:
 	@echo "... aruco_detection_nested"
 	@echo "... aruco_landing_controller_nested"
 	@echo "... aruco_detection_generate_messages"
-	@echo "... mqtt_bridge_genpy"
-	@echo "... mqtt_bridge_gennodejs"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... mqtt_bridge_node"
-	@echo "... tf_generate_messages_nodejs"
-	@echo "... mqtt_bridge_genlisp"
-	@echo "... mqtt_bridge_generate_messages_py"
-	@echo "... tf_generate_messages_eus"
-	@echo "... tf_generate_messages_py"
-	@echo "... mqtt_bridge_gencpp"
-	@echo "... tf_generate_messages_lisp"
-	@echo "... mqtt_bridge_generate_messages_lisp"
-	@echo "... mqtt_bridge_generate_messages"
-	@echo "... mqtt_bridge_generate_messages_cpp"
-	@echo "... mqtt_bridge_generate_messages_eus"
-	@echo "... mqtt_bridge_geneus"
-	@echo "... mqtt_bridge_generate_messages_nodejs"
 	@echo "... mqtt_camera_node"
 	@echo "... diagnostic_msgs_generate_messages_cpp"
 	@echo "... diagnostic_msgs_generate_messages_eus"
@@ -2475,6 +2315,12 @@ help:
 	@echo "... uav_msgs_generate_messages_cpp"
 	@echo "... _uav_msgs_generate_messages_check_deps_SetModeCommand"
 	@echo "... _uav_msgs_generate_messages_check_deps_Waypoint"
+	@echo "... mqtt_bridge_node"
+	@echo "... tf_generate_messages_py"
+	@echo "... tf_generate_messages_nodejs"
+	@echo "... tf_generate_messages_lisp"
+	@echo "... tf_generate_messages_eus"
+	@echo "... tf_generate_messages_cpp"
 	@echo "... uav_control_node"
 .PHONY : help
 

@@ -11,7 +11,13 @@
 #include <mavros_msgs/SetMode.h>
 #include <mavros_msgs/CommandBool.h>
 #include <mavros_msgs/CommandTOL.h>
+#include <mavros_msgs/CommandLong.h>
 #include <mavros_msgs/RCIn.h>
+#include <mavros_msgs/WaypointClear.h>
+#include <mavros_msgs/WaypointReached.h>
+#include <mavros_msgs/WaypointPush.h>
+#include <mavros_msgs/WaypointSetCurrent.h>
+#include <mavros_msgs/WaypointPull.h>
 #include <uav_msgs/UAVControlCommand.h>
 
 #include <yaml-cpp/yaml.h>
@@ -47,6 +53,13 @@ private:
     // ros::ServiceClient takeoff_client_;
     ros::ServiceClient land_client_;
 
+    // Mission Service Clients
+    ros::ServiceClient mission_clear_client_;
+    ros::ServiceClient mission_push_client_;
+    ros::ServiceClient mission_set_current_client_;
+    ros::ServiceClient mission_pull_client_;
+    ros::Subscriber mission_reached_sub_;
+
     // MAVROS Publishers
     ros::Publisher local_pos_pub_;
     ros::Publisher local_vel_pub_;
@@ -65,6 +78,9 @@ private:
 
     // 地理围栏参数
     double fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_;
+
+    // Mission verification methods
+    bool verifyMissionPull();
     bool enable_px4_params_load_;
     bool reboot_px4_set_reset_ekf_;
     std::mutex state_mutex_;

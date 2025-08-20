@@ -1,6 +1,6 @@
 (cl:in-package uav_msgs-msg)
-(cl:export '(START_IMMEDIATELY-VAL
-          START_IMMEDIATELY
+(cl:export '(CLEAR_EXISTING-VAL
+          CLEAR_EXISTING
           WAYPOINTS-VAL
           WAYPOINTS
 ))

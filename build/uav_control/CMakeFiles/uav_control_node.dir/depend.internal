@@ -34,6 +34,9 @@ uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o
  /opt/ros/noetic/include/mavros_msgs/CommandBool.h
  /opt/ros/noetic/include/mavros_msgs/CommandBoolRequest.h
  /opt/ros/noetic/include/mavros_msgs/CommandBoolResponse.h
+ /opt/ros/noetic/include/mavros_msgs/CommandLong.h
+ /opt/ros/noetic/include/mavros_msgs/CommandLongRequest.h
+ /opt/ros/noetic/include/mavros_msgs/CommandLongResponse.h
  /opt/ros/noetic/include/mavros_msgs/CommandTOL.h
  /opt/ros/noetic/include/mavros_msgs/CommandTOLRequest.h
  /opt/ros/noetic/include/mavros_msgs/CommandTOLResponse.h
@@ -43,6 +46,20 @@ uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o
  /opt/ros/noetic/include/mavros_msgs/SetModeRequest.h
  /opt/ros/noetic/include/mavros_msgs/SetModeResponse.h
  /opt/ros/noetic/include/mavros_msgs/State.h
+ /opt/ros/noetic/include/mavros_msgs/Waypoint.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointClear.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointClearRequest.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointClearResponse.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointPull.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointPullRequest.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointPullResponse.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointPush.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointPushRequest.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointPushResponse.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointReached.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointSetCurrent.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointSetCurrentRequest.h
+ /opt/ros/noetic/include/mavros_msgs/WaypointSetCurrentResponse.h
  /opt/ros/noetic/include/ros/advertise_options.h
  /opt/ros/noetic/include/ros/advertise_service_options.h
  /opt/ros/noetic/include/ros/assert.h

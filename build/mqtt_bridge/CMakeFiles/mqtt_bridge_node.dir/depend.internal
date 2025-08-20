@@ -16,8 +16,6 @@ mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o
  /opt/ros/noetic/include/geometry_msgs/Vector3.h
  /opt/ros/noetic/include/mavros_msgs/GPSRAW.h
  /opt/ros/noetic/include/mavros_msgs/State.h
- /opt/ros/noetic/include/mavros_msgs/Waypoint.h
- /opt/ros/noetic/include/mavros_msgs/WaypointList.h
  /opt/ros/noetic/include/ros/advertise_options.h
  /opt/ros/noetic/include/ros/advertise_service_options.h
  /opt/ros/noetic/include/ros/assert.h
@@ -112,7 +110,6 @@ mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o
  /opt/ros/noetic/include/mavros_msgs/GPSRAW.h
  /opt/ros/noetic/include/mavros_msgs/State.h
  /opt/ros/noetic/include/mavros_msgs/Waypoint.h
- /opt/ros/noetic/include/mavros_msgs/WaypointList.h
  /opt/ros/noetic/include/ros/advertise_options.h
  /opt/ros/noetic/include/ros/advertise_service_options.h
  /opt/ros/noetic/include/ros/assert.h
@@ -179,23 +176,6 @@ mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o
  /home/px/UAV_SDK/src/mqtt_bridge/include/uav_command_parser.h
  /home/px/UAV_SDK/src/mqtt_bridge/src/uav_command_parser.cpp
- /opt/ros/noetic/include/mavros_msgs/Waypoint.h
- /opt/ros/noetic/include/mavros_msgs/WaypointList.h
- /opt/ros/noetic/include/ros/builtin_message_traits.h
- /opt/ros/noetic/include/ros/datatypes.h
- /opt/ros/noetic/include/ros/duration.h
- /opt/ros/noetic/include/ros/exception.h
- /opt/ros/noetic/include/ros/macros.h
- /opt/ros/noetic/include/ros/message_forward.h
- /opt/ros/noetic/include/ros/message_operations.h
- /opt/ros/noetic/include/ros/message_traits.h
- /opt/ros/noetic/include/ros/platform.h
- /opt/ros/noetic/include/ros/roscpp_serialization_macros.h
- /opt/ros/noetic/include/ros/rostime_decl.h
- /opt/ros/noetic/include/ros/serialization.h
- /opt/ros/noetic/include/ros/serialized_message.h
- /opt/ros/noetic/include/ros/time.h
- /opt/ros/noetic/include/ros/types.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_collector.cpp.o
  /home/px/UAV_SDK/src/mqtt_bridge/include/uav_state_collector.h
  /home/px/UAV_SDK/src/mqtt_bridge/src/uav_state_collector.cpp

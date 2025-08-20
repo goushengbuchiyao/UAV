@@ -19,15 +19,15 @@ class WaypointsCommand {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.start_immediately = null;
+      this.clear_existing = null;
       this.waypoints = null;
     }
     else {
-      if (initObj.hasOwnProperty('start_immediately')) {
-        this.start_immediately = initObj.start_immediately
+      if (initObj.hasOwnProperty('clear_existing')) {
+        this.clear_existing = initObj.clear_existing
       }
       else {
-        this.start_immediately = false;
+        this.clear_existing = false;
       }
       if (initObj.hasOwnProperty('waypoints')) {
         this.waypoints = initObj.waypoints
@@ -40,8 +40,8 @@ class WaypointsCommand {
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type WaypointsCommand
-    // Serialize message field [start_immediately]
-    bufferOffset = _serializer.bool(obj.start_immediately, buffer, bufferOffset);
+    // Serialize message field [clear_existing]
+    bufferOffset = _serializer.bool(obj.clear_existing, buffer, bufferOffset);
     // Serialize message field [waypoints]
     // Serialize the length for message field [waypoints]
     bufferOffset = _serializer.uint32(obj.waypoints.length, buffer, bufferOffset);
@@ -55,8 +55,8 @@ class WaypointsCommand {
     //deserializes a message object of type WaypointsCommand
     let len;
     let data = new WaypointsCommand(null);
-    // Deserialize message field [start_immediately]
-    data.start_immediately = _deserializer.bool(buffer, bufferOffset);
+    // Deserialize message field [clear_existing]
+    data.clear_existing = _deserializer.bool(buffer, bufferOffset);
     // Deserialize message field [waypoints]
     // Deserialize array length for message field [waypoints]
     len = _deserializer.uint32(buffer, bufferOffset);
@@ -69,9 +69,7 @@ class WaypointsCommand {
 
   static getMessageSize(object) {
     let length = 0;
-    object.waypoints.forEach((val) => {
-      length += Waypoint.getMessageSize(val);
-    });
+    length += 49 * object.waypoints.length;
     return length + 5;
   }
 
@@ -82,25 +80,67 @@ class WaypointsCommand {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'dca3761828b95042e94f1dee6fa350dd';
+    return '64dffdfd8bd5405e375d970e627fb6dc';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    bool start_immediately     # 是否立即执行航点
+    bool clear_existing      #是否清除存在航线
     Waypoint[] waypoints       # 航点列表
     ================================================================================
     MSG: uav_msgs/Waypoint
-    int32 waypoint_id          # 航点ID
-    string frame               # 坐标系类型
-    string command             # 航点指令类型
-    float64 latitude           # 纬度 (度)
-    float64 longitude          # 经度 (度)
-    float64 altitude           # 高度 (米)
-    bool is_current            # 是否为当前航点
-    bool autocontinue          # 是否自动继续到下一个航点
-    float64 hold_time          # 悬停时间 (秒)
+    int32 waypoint_id
+    mavros_msgs/Waypoint waypoint
+    
+    ================================================================================
+    MSG: mavros_msgs/Waypoint
+    # Waypoint.msg
+    #
+    # ROS representation of MAVLink MISSION_ITEM
+    # See mavlink documentation
+    
+    
+    
+    # see enum MAV_FRAME
+    uint8 frame
+    uint8 FRAME_GLOBAL = 0
+    uint8 FRAME_LOCAL_NED = 1
+    uint8 FRAME_MISSION = 2
+    uint8 FRAME_GLOBAL_REL_ALT = 3
+    uint8 FRAME_LOCAL_ENU = 4
+    uint8 FRAME_GLOBAL_INT = 5
+    uint8 FRAME_GLOBAL_RELATIVE_ALT_INT = 6
+    uint8 FRAME_LOCAL_OFFSET_NED = 7
+    uint8 FRAME_BODY_NED = 8
+    uint8 FRAME_BODY_OFFSET_NED = 9
+    uint8 FRAME_GLOBAL_TERRAIN_ALT = 10
+    uint8 FRAME_GLOBAL_TERRAIN_ALT_INT = 11
+    uint8 FRAME_BODY_FRD = 12
+    uint8 FRAME_RESERVED_13 = 13
+    uint8 FRAME_RESERVED_14 = 14
+    uint8 FRAME_RESERVED_15 = 15
+    uint8 FRAME_RESERVED_16 = 16
+    uint8 FRAME_RESERVED_17 = 17
+    uint8 FRAME_RESERVED_18 = 18
+    uint8 FRAME_RESERVED_19 = 19
+    uint8 FRAME_LOCAL_FRD = 20
+    uint8 FRAME_LOCAL_FLU = 21
+    
+    # see enum MAV_CMD and CommandCode.msg
+    uint16 command
+    
+    bool is_current
+    bool autocontinue
+    # meaning of this params described in enum MAV_CMD
+    float32 param1
+    float32 param2
+    float32 param3
+    float32 param4
+    float64 x_lat
+    float64 y_long
+    float64 z_alt
+    
     `;
   }
 
@@ -110,11 +150,11 @@ class WaypointsCommand {
       msg = {};
     }
     const resolved = new WaypointsCommand(null);
-    if (msg.start_immediately !== undefined) {
-      resolved.start_immediately = msg.start_immediately;
+    if (msg.clear_existing !== undefined) {
+      resolved.clear_existing = msg.clear_existing;
     }
     else {
-      resolved.start_immediately = false
+      resolved.clear_existing = false
     }
 
     if (msg.waypoints !== undefined) {

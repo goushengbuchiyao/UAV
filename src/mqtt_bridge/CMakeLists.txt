@@ -10,7 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   message_generation
   sensor_msgs
-  px_uav_msgs
+  uav_msgs
   mavros_msgs
   tf
 )
@@ -30,18 +30,19 @@ find_package(nlohmann_json REQUIRED)
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  geometry_msgs
-  std_msgs
-  sensor_msgs
-  uav_msgs
-  mavros_msgs
-)
+# 移除generate_messages避免目标冲突
+# generate_messages(
+#   DEPENDENCIES
+#   geometry_msgs
+#   std_msgs
+#   sensor_msgs
+#   uav_msgs
+#   mavros_msgs
+# )
 
 ## Declare a catkin package
 catkin_package(
-  CATKIN_DEPENDS roscpp std_msgs message_runtime geometry_msgs sensor_msgs uav_msgs mavros_msgs
+  CATKIN_DEPENDS roscpp std_msgs message_runtime geometry_msgs sensor_msgs uav_msgs mavros_msgs 
   DEPENDS PahoMqttCpp OpenSSL
 )
 # set(JSONCPP_INCLUDE_DIR "/usr/include/jsoncpp")
@@ -54,6 +55,7 @@ include_directories(
   ${JSONCPP_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
 )
+
 add_executable(mqtt_bridge_node
   src/main.cpp
   src/mqtt_ros_node.cpp
@@ -78,4 +80,3 @@ target_link_libraries(mqtt_bridge_node
 
 ## Add cmake target dependencies of the executable
 add_dependencies(mqtt_bridge_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-

@@ -2,7 +2,8 @@
 (cl:in-package :asdf)
 
 (defsystem "uav_msgs-msg"
-  :depends-on (:roslisp-msg-protocol :roslisp-utils )
+  :depends-on (:roslisp-msg-protocol :roslisp-utils :mavros_msgs-msg
+)
   :components ((:file "_package")
     (:file "HoverCommand" :depends-on ("_package_HoverCommand"))
     (:file "_package_HoverCommand" :depends-on ("_package"))

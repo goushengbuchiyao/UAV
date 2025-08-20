@@ -5,9 +5,12 @@
 ;;  FROM /home/px/UAV_SDK/src/uav_msgs/package.xml (0.1.0)
 ;; USING /opt/ros/noetic/lib/python3/dist-packages/geneus/geneus_main.py /opt/ros/noetic/share/geneus/package.xml (3.0.0)
 ;;
+(ros::load-ros-package "geographic_msgs")
 (ros::load-ros-package "geometry_msgs")
+(ros::load-ros-package "mavros_msgs")
 (ros::load-ros-package "roscpp")
 (ros::load-ros-package "rosgraph_msgs")
 (ros::load-ros-package "sensor_msgs")
 (ros::load-ros-package "std_msgs")
+(ros::load-ros-package "uuid_msgs")
 (ros::load-ros-package "uav_msgs")

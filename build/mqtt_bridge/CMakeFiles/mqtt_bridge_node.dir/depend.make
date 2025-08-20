@@ -15,8 +15,6 @@ mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /opt/ros/noetic/incl
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /opt/ros/noetic/include/geometry_msgs/Vector3.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /opt/ros/noetic/include/mavros_msgs/GPSRAW.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /opt/ros/noetic/include/mavros_msgs/State.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /opt/ros/noetic/include/mavros_msgs/Waypoint.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /opt/ros/noetic/include/mavros_msgs/WaypointList.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /opt/ros/noetic/include/ros/advertise_options.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /opt/ros/noetic/include/ros/advertise_service_options.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/main.cpp.o: /opt/ros/noetic/include/ros/assert.h
@@ -111,7 +109,6 @@ mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /opt/ros/no
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/GPSRAW.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/State.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/Waypoint.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/WaypointList.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /opt/ros/noetic/include/ros/advertise_options.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /opt/ros/noetic/include/ros/advertise_service_options.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /opt/ros/noetic/include/ros/assert.h
@@ -178,23 +175,6 @@ mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/mqtt_ros_node.cpp.o: /opt/ros/no
 
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /home/px/UAV_SDK/src/mqtt_bridge/include/uav_command_parser.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /home/px/UAV_SDK/src/mqtt_bridge/src/uav_command_parser.cpp
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/mavros_msgs/Waypoint.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/mavros_msgs/WaypointList.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/builtin_message_traits.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/datatypes.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/duration.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/exception.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/macros.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/message_forward.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/message_operations.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/message_traits.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/platform.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/roscpp_serialization_macros.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/rostime_decl.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/serialization.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/serialized_message.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/time.h
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_command_parser.cpp.o: /opt/ros/noetic/include/ros/types.h
 
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_collector.cpp.o: /home/px/UAV_SDK/src/mqtt_bridge/include/uav_state_collector.h
 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/src/uav_state_collector.cpp.o: /home/px/UAV_SDK/src/mqtt_bridge/src/uav_state_collector.cpp

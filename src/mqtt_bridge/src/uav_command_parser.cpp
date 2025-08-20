@@ -97,17 +97,24 @@ bool UAVCommandParser::validateParams(const std::string& cmd_type, const nlohman
                 {"waypoint_id", "integer"},
                 {"frame", "integer"},
                 {"command", "integer"},
-                {"param1", "number"},
-                {"param2", "number"},
-                {"param3", "number"},
-                {"param4", "number"},
-                {"x_lat", "number"},
-                {"y_long", "number"},
-                {"z_alt", "number"},
+                {"param1", "double"},
+                {"param2", "double"},
+                {"param3", "double"},
+                {"param4", "double"},
+                {"x_lat", "double"},
+                {"y_long", "double"},
+                {"z_alt", "double"},
                 {"is_current", "boolean"},
                 {"autocontinue", "boolean"}
             };
-
+            if (!wp.is_object()) {
+                err_msg = "Waypoint " + std::to_string(i) + " is not an object";
+                return false;
+            }
+            if (wp.size() < 10) {
+                err_msg = "Waypoint " + std::to_string(i) + " has insufficient fields";
+                return false;
+            }
             // 验证航点字段
             for (auto& f : wp_fields) {
                 if (!wp.contains(f.first)) {

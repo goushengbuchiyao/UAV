@@ -191,7 +191,7 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
          // 添加航线规划指令处理
         else if (cmd.command_type == "waypoint_mission") {
             // 解析清除现有任务标志
-            ros_cmd.waypoints_cmd.start_immediately = cmd.params["clear_existing"].get<bool>();
+            ros_cmd.waypoints_cmd.clear_existing = cmd.params["clear_existing"].get<bool>();
 
             // 解析航点列表
             auto waypoints_json = cmd.params["waypoints"];
@@ -199,17 +199,17 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
                 auto wp = waypoints_json[i];
                 uav_msgs::Waypoint waypoint;
                 waypoint.waypoint_id = wp["waypoint_id"].get<int>();
-                waypoint.frame = std::to_string(wp["frame"].get<int>()); // 转换为字符串以匹配现有消息定义
-                waypoint.command = std::to_string(wp["command"].get<int>());
-                waypoint.latitude = wp["x_lat"].get<double>();
-                waypoint.longitude = wp["y_long"].get<double>();
-                waypoint.altitude = wp["z_alt"].get<double>();
-                waypoint.is_current = wp["is_current"].get<bool>();
-                waypoint.autocontinue = wp["autocontinue"].get<bool>();
-                waypoint.param1 = wp["param1"].get<double>(); 
-                waypoint.param2 = wp["param2"].get<double>();
-                waypoint.param3 = wp["param3"].get<double>();
-                waypoint.param4 = wp["param4"].get<double>();
+                waypoint.waypoint.frame = wp["frame"].get<int>(); // 转换为字符串以匹配现有消息定义
+                waypoint.waypoint.command = wp["command"].get<int>();
+                waypoint.waypoint.x_lat = wp["x_lat"].get<double>();
+                waypoint.waypoint.y_long = wp["y_long"].get<double>();
+                waypoint.waypoint.z_alt = wp["z_alt"].get<double>();
+                waypoint.waypoint.is_current = wp["is_current"].get<bool>();
+                waypoint.waypoint.autocontinue = wp["autocontinue"].get<bool>();
+                waypoint.waypoint.param1 = wp["param1"].get<double>(); 
+                waypoint.waypoint.param2 = wp["param2"].get<double>();
+                waypoint.waypoint.param3 = wp["param3"].get<double>();
+                waypoint.waypoint.param4 = wp["param4"].get<double>();
                 ros_cmd.waypoints_cmd.waypoints.push_back(waypoint);
             }
         }

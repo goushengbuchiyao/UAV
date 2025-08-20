@@ -25,19 +25,19 @@ struct WaypointsCommand_
   typedef WaypointsCommand_<ContainerAllocator> Type;
 
   WaypointsCommand_()
-    : start_immediately(false)
+    : clear_existing(false)
     , waypoints()  {
     }
   WaypointsCommand_(const ContainerAllocator& _alloc)
-    : start_immediately(false)
+    : clear_existing(false)
     , waypoints(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef uint8_t _start_immediately_type;
-  _start_immediately_type start_immediately;
+   typedef uint8_t _clear_existing_type;
+  _clear_existing_type clear_existing;
 
    typedef std::vector< ::uav_msgs::Waypoint_<ContainerAllocator> , typename std::allocator_traits<ContainerAllocator>::template rebind_alloc< ::uav_msgs::Waypoint_<ContainerAllocator> >> _waypoints_type;
   _waypoints_type waypoints;
@@ -71,7 +71,7 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::uav_msgs::WaypointsCommand_<ContainerAllocator1> & lhs, const ::uav_msgs::WaypointsCommand_<ContainerAllocator2> & rhs)
 {
-  return lhs.start_immediately == rhs.start_immediately &&
+  return lhs.clear_existing == rhs.clear_existing &&
     lhs.waypoints == rhs.waypoints;
 }
 
@@ -129,12 +129,12 @@ struct MD5Sum< ::uav_msgs::WaypointsCommand_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "dca3761828b95042e94f1dee6fa350dd";
+    return "64dffdfd8bd5405e375d970e627fb6dc";
   }
 
   static const char* value(const ::uav_msgs::WaypointsCommand_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xdca3761828b95042ULL;
-  static const uint64_t static_value2 = 0xe94f1dee6fa350ddULL;
+  static const uint64_t static_value1 = 0x64dffdfd8bd5405eULL;
+  static const uint64_t static_value2 = 0x375d970e627fb6dcULL;
 };
 
 template<class ContainerAllocator>
@@ -153,19 +153,60 @@ struct Definition< ::uav_msgs::WaypointsCommand_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "bool start_immediately     # 是否立即执行航点\n"
+    return "bool clear_existing      #是否清除存在航线\n"
 "Waypoint[] waypoints       # 航点列表\n"
 "================================================================================\n"
 "MSG: uav_msgs/Waypoint\n"
-"int32 waypoint_id          # 航点ID\n"
-"string frame               # 坐标系类型\n"
-"string command             # 航点指令类型\n"
-"float64 latitude           # 纬度 (度)\n"
-"float64 longitude          # 经度 (度)\n"
-"float64 altitude           # 高度 (米)\n"
-"bool is_current            # 是否为当前航点\n"
-"bool autocontinue          # 是否自动继续到下一个航点\n"
-"float64 hold_time          # 悬停时间 (秒)\n"
+"int32 waypoint_id\n"
+"mavros_msgs/Waypoint waypoint\n"
+"\n"
+"================================================================================\n"
+"MSG: mavros_msgs/Waypoint\n"
+"# Waypoint.msg\n"
+"#\n"
+"# ROS representation of MAVLink MISSION_ITEM\n"
+"# See mavlink documentation\n"
+"\n"
+"\n"
+"\n"
+"# see enum MAV_FRAME\n"
+"uint8 frame\n"
+"uint8 FRAME_GLOBAL = 0\n"
+"uint8 FRAME_LOCAL_NED = 1\n"
+"uint8 FRAME_MISSION = 2\n"
+"uint8 FRAME_GLOBAL_REL_ALT = 3\n"
+"uint8 FRAME_LOCAL_ENU = 4\n"
+"uint8 FRAME_GLOBAL_INT = 5\n"
+"uint8 FRAME_GLOBAL_RELATIVE_ALT_INT = 6\n"
+"uint8 FRAME_LOCAL_OFFSET_NED = 7\n"
+"uint8 FRAME_BODY_NED = 8\n"
+"uint8 FRAME_BODY_OFFSET_NED = 9\n"
+"uint8 FRAME_GLOBAL_TERRAIN_ALT = 10\n"
+"uint8 FRAME_GLOBAL_TERRAIN_ALT_INT = 11\n"
+"uint8 FRAME_BODY_FRD = 12\n"
+"uint8 FRAME_RESERVED_13 = 13\n"
+"uint8 FRAME_RESERVED_14 = 14\n"
+"uint8 FRAME_RESERVED_15 = 15\n"
+"uint8 FRAME_RESERVED_16 = 16\n"
+"uint8 FRAME_RESERVED_17 = 17\n"
+"uint8 FRAME_RESERVED_18 = 18\n"
+"uint8 FRAME_RESERVED_19 = 19\n"
+"uint8 FRAME_LOCAL_FRD = 20\n"
+"uint8 FRAME_LOCAL_FLU = 21\n"
+"\n"
+"# see enum MAV_CMD and CommandCode.msg\n"
+"uint16 command\n"
+"\n"
+"bool is_current\n"
+"bool autocontinue\n"
+"# meaning of this params described in enum MAV_CMD\n"
+"float32 param1\n"
+"float32 param2\n"
+"float32 param3\n"
+"float32 param4\n"
+"float64 x_lat\n"
+"float64 y_long\n"
+"float64 z_alt\n"
 ;
   }
 
@@ -184,7 +225,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.start_immediately);
+      stream.next(m.clear_existing);
       stream.next(m.waypoints);
     }
 
@@ -206,8 +247,8 @@ struct Printer< ::uav_msgs::WaypointsCommand_<ContainerAllocator> >
   {
     if (false || !indent.empty())
       s << std::endl;
-    s << indent << "start_immediately: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.start_immediately);
+    s << indent << "clear_existing: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.clear_existing);
     if (true || !indent.empty())
       s << std::endl;
     s << indent << "waypoints: ";

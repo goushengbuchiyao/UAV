@@ -57,10 +57,10 @@ all: gtest/all
 all: common/px_uav_msgs/all
 all: aruco_detection/all
 all: communication/all
-all: mqtt_bridge/all
 all: mqtt_camera_interface/all
 all: simulator/all
 all: uav_msgs/all
+all: mqtt_bridge/all
 all: uav_control/all
 
 .PHONY : all
@@ -70,10 +70,10 @@ preinstall: gtest/preinstall
 preinstall: common/px_uav_msgs/preinstall
 preinstall: aruco_detection/preinstall
 preinstall: communication/preinstall
-preinstall: mqtt_bridge/preinstall
 preinstall: mqtt_camera_interface/preinstall
 preinstall: simulator/preinstall
 preinstall: uav_msgs/preinstall
+preinstall: mqtt_bridge/preinstall
 preinstall: uav_control/preinstall
 
 .PHONY : preinstall
@@ -88,10 +88,10 @@ clean: gtest/clean
 clean: common/px_uav_msgs/clean
 clean: aruco_detection/clean
 clean: communication/clean
-clean: mqtt_bridge/clean
 clean: mqtt_camera_interface/clean
 clean: simulator/clean
 clean: uav_msgs/clean
+clean: mqtt_bridge/clean
 clean: uav_control/clean
 
 .PHONY : clean
@@ -318,7 +318,6 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 
 # Recursive "all" directory target.
 mqtt_bridge/all: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all
-mqtt_bridge/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/all
 
 .PHONY : mqtt_bridge/all
 
@@ -328,23 +327,12 @@ mqtt_bridge/preinstall:
 .PHONY : mqtt_bridge/preinstall
 
 # Recursive "clean" directory target.
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean
 mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/clean
 mqtt_bridge/clean: mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/clean
+mqtt_bridge/clean: mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/clean
 mqtt_bridge/clean: mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/clean
-mqtt_bridge/clean: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/clean
+mqtt_bridge/clean: mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/clean
+mqtt_bridge/clean: mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean
 
 .PHONY : mqtt_bridge/clean
 
@@ -725,12 +713,12 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/all: common/p
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/all: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVCommand.dir/all
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/depend
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=59,60,61,62,63,64,65,66,67,68,69 "Built target px_uav_msgs_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=58,59,60,61,62,63,64,65,66,67,68,69 "Built target px_uav_msgs_generate_messages_py"
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/rule
@@ -1048,7 +1036,7 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_gennodejs.dir/all: common/px_uav_msgs/
 
 # Build rule for subdir invocation for target.
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 common/px_uav_msgs/CMakeFiles/px_uav_msgs_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_gennodejs.dir/rule
@@ -1912,7 +1900,7 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_genpy.dir/all: common/px_uav_msgs/CMak
 
 # Build rule for subdir invocation for target.
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 common/px_uav_msgs/CMakeFiles/px_uav_msgs_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_genpy.dir/rule
@@ -2877,12 +2865,12 @@ common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/all: comm
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/all: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_UAVCommand.dir/all
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/depend
 	$(MAKE) -f common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/build.make common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=47,48,49,50,51,52,53,54,55,56,57,58 "Built target px_uav_msgs_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=47,48,49,50,51,52,53,54,55,56,57 "Built target px_uav_msgs_generate_messages_nodejs"
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
 .PHONY : common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/rule
@@ -3803,548 +3791,6 @@ aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/clean:
 .PHONY : aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/clean
 
 #=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_genpy"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_genpy: mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/rule
-
-.PHONY : mqtt_bridge_genpy
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_genpy.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_gennodejs"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_gennodejs: mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/rule
-
-.PHONY : mqtt_bridge_gennodejs
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_gennodejs.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/all:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_cpp"
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_cpp: mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/rule
-
-.PHONY : tf_generate_messages_cpp
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/px_uav_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=9,10,11 "Built target mqtt_bridge_node"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 60
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_node: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/rule
-
-.PHONY : mqtt_bridge_node
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/all:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_nodejs"
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_nodejs: mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-
-.PHONY : tf_generate_messages_nodejs
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_genlisp"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_genlisp: mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/rule
-
-.PHONY : mqtt_bridge_genlisp
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_genlisp.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_generate_messages_py"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_generate_messages_py: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/rule
-
-.PHONY : mqtt_bridge_generate_messages_py
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/all:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_eus"
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_eus: mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-.PHONY : tf_generate_messages_eus
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/all:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_py"
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_py: mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/rule
-
-.PHONY : tf_generate_messages_py
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_gencpp"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_gencpp: mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/rule
-
-.PHONY : mqtt_bridge_gencpp
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_gencpp.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/all:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_lisp"
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_lisp: mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/rule
-
-.PHONY : tf_generate_messages_lisp
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_generate_messages_lisp"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_generate_messages_lisp: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/rule
-
-.PHONY : mqtt_bridge_generate_messages_lisp
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_py.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_lisp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_generate_messages"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_generate_messages: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/rule
-
-.PHONY : mqtt_bridge_generate_messages
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_generate_messages_cpp"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_generate_messages_cpp: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/rule
-
-.PHONY : mqtt_bridge_generate_messages_cpp
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_cpp.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_generate_messages_eus"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_generate_messages_eus: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/rule
-
-.PHONY : mqtt_bridge_generate_messages_eus
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/all: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_eus.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_geneus"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_geneus: mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/rule
-
-.PHONY : mqtt_bridge_geneus
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_geneus.dir/clean
-
-#=============================================================================
-# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir
-
-# All Build rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/depend
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target mqtt_bridge_generate_messages_nodejs"
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-mqtt_bridge_generate_messages_nodejs: mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/rule
-
-.PHONY : mqtt_bridge_generate_messages_nodejs
-
-# clean rule for target.
-mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/clean
-.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_generate_messages_nodejs.dir/clean
-
-#=============================================================================
 # Target rules for target mqtt_camera_interface/CMakeFiles/mqtt_camera_node.dir
 
 # All Build rule for target.
@@ -4712,6 +4158,8 @@ uav_msgs/CMakeFiles/uav_msgs_genpy.dir/clean:
 
 # All Build rule for target.
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/all
@@ -4750,6 +4198,8 @@ uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/clean:
 
 # All Build rule for target.
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/all
@@ -4814,7 +4264,9 @@ uav_msgs/CMakeFiles/uav_msgs_geneus.dir/clean:
 # Target rules for target uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_eus.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/all
@@ -5154,6 +4606,8 @@ uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCom
 
 # All Build rule for target.
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/all
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_py.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/all
@@ -5246,6 +4700,8 @@ uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/clea
 
 # All Build rule for target.
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/all
 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/all
@@ -5332,6 +4788,232 @@ _uav_msgs_generate_messages_check_deps_Waypoint: uav_msgs/CMakeFiles/_uav_msgs_g
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/clean:
 	$(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/clean
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/clean
+
+#=============================================================================
+# Target rules for target mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir
+
+# All Build rule for target.
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/uuid_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/mavros_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: common/px_uav_msgs/CMakeFiles/geographic_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/all
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all: mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/all
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/depend
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=9,10,11 "Built target mqtt_bridge_node"
+.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all
+
+# Build rule for subdir invocation for target.
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 33
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/rule
+
+# Convenience name for target.
+mqtt_bridge_node: mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/rule
+
+.PHONY : mqtt_bridge_node
+
+# clean rule for target.
+mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/clean:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/build.make mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/clean
+.PHONY : mqtt_bridge/CMakeFiles/mqtt_bridge_node.dir/clean
+
+#=============================================================================
+# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir
+
+# All Build rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/all:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/depend
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_py"
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_py: mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/rule
+
+.PHONY : tf_generate_messages_py
+
+# clean rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/clean:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/clean
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir
+
+# All Build rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/all:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/depend
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_nodejs"
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_nodejs: mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+
+.PHONY : tf_generate_messages_nodejs
+
+# clean rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/clean
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir
+
+# All Build rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/all:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/depend
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_lisp"
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_lisp: mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/rule
+
+.PHONY : tf_generate_messages_lisp
+
+# clean rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/clean:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/clean
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir
+
+# All Build rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/all:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/depend
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_eus"
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_eus: mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/rule
+
+.PHONY : tf_generate_messages_eus
+
+# clean rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/clean:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/clean
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir
+
+# All Build rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/all:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/depend
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num= "Built target tf_generate_messages_cpp"
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_cpp: mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/rule
+
+.PHONY : tf_generate_messages_cpp
+
+# clean rule for target.
+mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean:
+	$(MAKE) -f mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build.make mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean
+.PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean
 
 #=============================================================================
 # Target rules for target uav_control/CMakeFiles/uav_control_node.dir

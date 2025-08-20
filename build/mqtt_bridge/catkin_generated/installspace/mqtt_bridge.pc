@@ -5,4 +5,4 @@ Description: Description of mqtt_bridge
 Version: 0.1.0
 Cflags: 
 Libs: -L${prefix}/lib 
-Requires: roscpp std_msgs message_runtime geometry_msgs sensor_msgs
+Requires: roscpp std_msgs message_runtime geometry_msgs sensor_msgs uav_msgs mavros_msgs

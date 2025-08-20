@@ -6,26 +6,69 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
+import mavros_msgs.msg
 import uav_msgs.msg
 
 class WaypointsCommand(genpy.Message):
-  _md5sum = "dca3761828b95042e94f1dee6fa350dd"
+  _md5sum = "64dffdfd8bd5405e375d970e627fb6dc"
   _type = "uav_msgs/WaypointsCommand"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """bool start_immediately     # 是否立即执行航点
+  _full_text = """bool clear_existing      #是否清除存在航线
 Waypoint[] waypoints       # 航点列表
 ================================================================================
 MSG: uav_msgs/Waypoint
-int32 waypoint_id          # 航点ID
-string frame               # 坐标系类型
-string command             # 航点指令类型
-float64 latitude           # 纬度 (度)
-float64 longitude          # 经度 (度)
-float64 altitude           # 高度 (米)
-bool is_current            # 是否为当前航点
-bool autocontinue          # 是否自动继续到下一个航点
-float64 hold_time          # 悬停时间 (秒)"""
-  __slots__ = ['start_immediately','waypoints']
+int32 waypoint_id
+mavros_msgs/Waypoint waypoint
+
+================================================================================
+MSG: mavros_msgs/Waypoint
+# Waypoint.msg
+#
+# ROS representation of MAVLink MISSION_ITEM
+# See mavlink documentation
+
+
+
+# see enum MAV_FRAME
+uint8 frame
+uint8 FRAME_GLOBAL = 0
+uint8 FRAME_LOCAL_NED = 1
+uint8 FRAME_MISSION = 2
+uint8 FRAME_GLOBAL_REL_ALT = 3
+uint8 FRAME_LOCAL_ENU = 4
+uint8 FRAME_GLOBAL_INT = 5
+uint8 FRAME_GLOBAL_RELATIVE_ALT_INT = 6
+uint8 FRAME_LOCAL_OFFSET_NED = 7
+uint8 FRAME_BODY_NED = 8
+uint8 FRAME_BODY_OFFSET_NED = 9
+uint8 FRAME_GLOBAL_TERRAIN_ALT = 10
+uint8 FRAME_GLOBAL_TERRAIN_ALT_INT = 11
+uint8 FRAME_BODY_FRD = 12
+uint8 FRAME_RESERVED_13 = 13
+uint8 FRAME_RESERVED_14 = 14
+uint8 FRAME_RESERVED_15 = 15
+uint8 FRAME_RESERVED_16 = 16
+uint8 FRAME_RESERVED_17 = 17
+uint8 FRAME_RESERVED_18 = 18
+uint8 FRAME_RESERVED_19 = 19
+uint8 FRAME_LOCAL_FRD = 20
+uint8 FRAME_LOCAL_FLU = 21
+
+# see enum MAV_CMD and CommandCode.msg
+uint16 command
+
+bool is_current
+bool autocontinue
+# meaning of this params described in enum MAV_CMD
+float32 param1
+float32 param2
+float32 param3
+float32 param4
+float64 x_lat
+float64 y_long
+float64 z_alt
+"""
+  __slots__ = ['clear_existing','waypoints']
   _slot_types = ['bool','uav_msgs/Waypoint[]']
 
   def __init__(self, *args, **kwds):
@@ -36,7 +79,7 @@ float64 hold_time          # 悬停时间 (秒)"""
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       start_immediately,waypoints
+       clear_existing,waypoints
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -45,12 +88,12 @@ float64 hold_time          # 悬停时间 (秒)"""
     if args or kwds:
       super(WaypointsCommand, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.start_immediately is None:
-        self.start_immediately = False
+      if self.clear_existing is None:
+        self.clear_existing = False
       if self.waypoints is None:
         self.waypoints = []
     else:
-      self.start_immediately = False
+      self.clear_existing = False
       self.waypoints = []
 
   def _get_types(self):
@@ -65,27 +108,16 @@ float64 hold_time          # 悬停时间 (秒)"""
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.start_immediately
+      _x = self.clear_existing
       buff.write(_get_struct_B().pack(_x))
       length = len(self.waypoints)
       buff.write(_struct_I.pack(length))
       for val1 in self.waypoints:
         _x = val1.waypoint_id
         buff.write(_get_struct_i().pack(_x))
-        _x = val1.frame
-        length = len(_x)
-        if python3 or type(_x) == unicode:
-          _x = _x.encode('utf-8')
-          length = len(_x)
-        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-        _x = val1.command
-        length = len(_x)
-        if python3 or type(_x) == unicode:
-          _x = _x.encode('utf-8')
-          length = len(_x)
-        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-        _x = val1
-        buff.write(_get_struct_3d2Bd().pack(_x.latitude, _x.longitude, _x.altitude, _x.is_current, _x.autocontinue, _x.hold_time))
+        _v1 = val1.waypoint
+        _x = _v1
+        buff.write(_get_struct_BH2B4f3d().pack(_x.frame, _x.command, _x.is_current, _x.autocontinue, _x.param1, _x.param2, _x.param3, _x.param4, _x.x_lat, _x.y_long, _x.z_alt))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -102,8 +134,8 @@ float64 hold_time          # 悬停时间 (秒)"""
       end = 0
       start = end
       end += 1
-      (self.start_immediately,) = _get_struct_B().unpack(str[start:end])
-      self.start_immediately = bool(self.start_immediately)
+      (self.clear_existing,) = _get_struct_B().unpack(str[start:end])
+      self.clear_existing = bool(self.clear_existing)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -113,30 +145,13 @@ float64 hold_time          # 悬停时间 (秒)"""
         start = end
         end += 4
         (val1.waypoint_id,) = _get_struct_i().unpack(str[start:end])
+        _v2 = val1.waypoint
+        _x = _v2
         start = end
-        end += 4
-        (length,) = _struct_I.unpack(str[start:end])
-        start = end
-        end += length
-        if python3:
-          val1.frame = str[start:end].decode('utf-8', 'rosmsg')
-        else:
-          val1.frame = str[start:end]
-        start = end
-        end += 4
-        (length,) = _struct_I.unpack(str[start:end])
-        start = end
-        end += length
-        if python3:
-          val1.command = str[start:end].decode('utf-8', 'rosmsg')
-        else:
-          val1.command = str[start:end]
-        _x = val1
-        start = end
-        end += 34
-        (_x.latitude, _x.longitude, _x.altitude, _x.is_current, _x.autocontinue, _x.hold_time,) = _get_struct_3d2Bd().unpack(str[start:end])
-        val1.is_current = bool(val1.is_current)
-        val1.autocontinue = bool(val1.autocontinue)
+        end += 45
+        (_x.frame, _x.command, _x.is_current, _x.autocontinue, _x.param1, _x.param2, _x.param3, _x.param4, _x.x_lat, _x.y_long, _x.z_alt,) = _get_struct_BH2B4f3d().unpack(str[start:end])
+        _v2.is_current = bool(_v2.is_current)
+        _v2.autocontinue = bool(_v2.autocontinue)
         self.waypoints.append(val1)
       return self
     except struct.error as e:
@@ -150,27 +165,16 @@ float64 hold_time          # 悬停时间 (秒)"""
     :param numpy: numpy python module
     """
     try:
-      _x = self.start_immediately
+      _x = self.clear_existing
       buff.write(_get_struct_B().pack(_x))
       length = len(self.waypoints)
       buff.write(_struct_I.pack(length))
       for val1 in self.waypoints:
         _x = val1.waypoint_id
         buff.write(_get_struct_i().pack(_x))
-        _x = val1.frame
-        length = len(_x)
-        if python3 or type(_x) == unicode:
-          _x = _x.encode('utf-8')
-          length = len(_x)
-        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-        _x = val1.command
-        length = len(_x)
-        if python3 or type(_x) == unicode:
-          _x = _x.encode('utf-8')
-          length = len(_x)
-        buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-        _x = val1
-        buff.write(_get_struct_3d2Bd().pack(_x.latitude, _x.longitude, _x.altitude, _x.is_current, _x.autocontinue, _x.hold_time))
+        _v3 = val1.waypoint
+        _x = _v3
+        buff.write(_get_struct_BH2B4f3d().pack(_x.frame, _x.command, _x.is_current, _x.autocontinue, _x.param1, _x.param2, _x.param3, _x.param4, _x.x_lat, _x.y_long, _x.z_alt))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -188,8 +192,8 @@ float64 hold_time          # 悬停时间 (秒)"""
       end = 0
       start = end
       end += 1
-      (self.start_immediately,) = _get_struct_B().unpack(str[start:end])
-      self.start_immediately = bool(self.start_immediately)
+      (self.clear_existing,) = _get_struct_B().unpack(str[start:end])
+      self.clear_existing = bool(self.clear_existing)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -199,30 +203,13 @@ float64 hold_time          # 悬停时间 (秒)"""
         start = end
         end += 4
         (val1.waypoint_id,) = _get_struct_i().unpack(str[start:end])
+        _v4 = val1.waypoint
+        _x = _v4
         start = end
-        end += 4
-        (length,) = _struct_I.unpack(str[start:end])
-        start = end
-        end += length
-        if python3:
-          val1.frame = str[start:end].decode('utf-8', 'rosmsg')
-        else:
-          val1.frame = str[start:end]
-        start = end
-        end += 4
-        (length,) = _struct_I.unpack(str[start:end])
-        start = end
-        end += length
-        if python3:
-          val1.command = str[start:end].decode('utf-8', 'rosmsg')
-        else:
-          val1.command = str[start:end]
-        _x = val1
-        start = end
-        end += 34
-        (_x.latitude, _x.longitude, _x.altitude, _x.is_current, _x.autocontinue, _x.hold_time,) = _get_struct_3d2Bd().unpack(str[start:end])
-        val1.is_current = bool(val1.is_current)
-        val1.autocontinue = bool(val1.autocontinue)
+        end += 45
+        (_x.frame, _x.command, _x.is_current, _x.autocontinue, _x.param1, _x.param2, _x.param3, _x.param4, _x.x_lat, _x.y_long, _x.z_alt,) = _get_struct_BH2B4f3d().unpack(str[start:end])
+        _v4.is_current = bool(_v4.is_current)
+        _v4.autocontinue = bool(_v4.autocontinue)
         self.waypoints.append(val1)
       return self
     except struct.error as e:
@@ -232,18 +219,18 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_3d2Bd = None
-def _get_struct_3d2Bd():
-    global _struct_3d2Bd
-    if _struct_3d2Bd is None:
-        _struct_3d2Bd = struct.Struct("<3d2Bd")
-    return _struct_3d2Bd
 _struct_B = None
 def _get_struct_B():
     global _struct_B
     if _struct_B is None:
         _struct_B = struct.Struct("<B")
     return _struct_B
+_struct_BH2B4f3d = None
+def _get_struct_BH2B4f3d():
+    global _struct_BH2B4f3d
+    if _struct_BH2B4f3d is None:
+        _struct_BH2B4f3d = struct.Struct("<BH2B4f3d")
+    return _struct_BH2B4f3d
 _struct_i = None
 def _get_struct_i():
     global _struct_i

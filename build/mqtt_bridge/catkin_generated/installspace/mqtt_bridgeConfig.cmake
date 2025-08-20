@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/px/UAV_SDK/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/px/UAV_SDK/install/lib;/home/px/UAV_SDK/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -179,7 +179,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(mqtt_bridge_EXPORTED_TARGETS "mqtt_bridge_generate_messages_cpp;mqtt_bridge_generate_messages_eus;mqtt_bridge_generate_messages_lisp;mqtt_bridge_generate_messages_nodejs;mqtt_bridge_generate_messages_py")
+set(mqtt_bridge_EXPORTED_TARGETS "")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${mqtt_bridge_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -187,7 +187,7 @@ foreach(t ${mqtt_bridge_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "roscpp;std_msgs;message_runtime;geometry_msgs;sensor_msgs")
+set(depends "roscpp;std_msgs;message_runtime;geometry_msgs;sensor_msgs;uav_msgs;mavros_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -216,7 +216,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(mqtt_bridge_EXPORTED_TARGETS ${${mqtt_bridge_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "mqtt_bridge-msg-extras.cmake")
+set(pkg_cfg_extras "")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${mqtt_bridge_DIR}/${extra})

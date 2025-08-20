@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <mavros_msgs/Waypoint.h>
 
 namespace uav_msgs
 {
@@ -25,25 +26,11 @@ struct Waypoint_
 
   Waypoint_()
     : waypoint_id(0)
-    , frame()
-    , command()
-    , latitude(0.0)
-    , longitude(0.0)
-    , altitude(0.0)
-    , is_current(false)
-    , autocontinue(false)
-    , hold_time(0.0)  {
+    , waypoint()  {
     }
   Waypoint_(const ContainerAllocator& _alloc)
     : waypoint_id(0)
-    , frame(_alloc)
-    , command(_alloc)
-    , latitude(0.0)
-    , longitude(0.0)
-    , altitude(0.0)
-    , is_current(false)
-    , autocontinue(false)
-    , hold_time(0.0)  {
+    , waypoint(_alloc)  {
   (void)_alloc;
     }
 
@@ -52,29 +39,8 @@ struct Waypoint_
    typedef int32_t _waypoint_id_type;
   _waypoint_id_type waypoint_id;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _frame_type;
-  _frame_type frame;
-
-   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _command_type;
-  _command_type command;
-
-   typedef double _latitude_type;
-  _latitude_type latitude;
-
-   typedef double _longitude_type;
-  _longitude_type longitude;
-
-   typedef double _altitude_type;
-  _altitude_type altitude;
-
-   typedef uint8_t _is_current_type;
-  _is_current_type is_current;
-
-   typedef uint8_t _autocontinue_type;
-  _autocontinue_type autocontinue;
-
-   typedef double _hold_time_type;
-  _hold_time_type hold_time;
+   typedef  ::mavros_msgs::Waypoint_<ContainerAllocator>  _waypoint_type;
+  _waypoint_type waypoint;
 
 
 
@@ -106,14 +72,7 @@ template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::uav_msgs::Waypoint_<ContainerAllocator1> & lhs, const ::uav_msgs::Waypoint_<ContainerAllocator2> & rhs)
 {
   return lhs.waypoint_id == rhs.waypoint_id &&
-    lhs.frame == rhs.frame &&
-    lhs.command == rhs.command &&
-    lhs.latitude == rhs.latitude &&
-    lhs.longitude == rhs.longitude &&
-    lhs.altitude == rhs.altitude &&
-    lhs.is_current == rhs.is_current &&
-    lhs.autocontinue == rhs.autocontinue &&
-    lhs.hold_time == rhs.hold_time;
+    lhs.waypoint == rhs.waypoint;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -146,12 +105,12 @@ struct IsMessage< ::uav_msgs::Waypoint_<ContainerAllocator> const>
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::uav_msgs::Waypoint_<ContainerAllocator> >
-  : FalseType
+  : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::uav_msgs::Waypoint_<ContainerAllocator> const>
-  : FalseType
+  : TrueType
   { };
 
 template <class ContainerAllocator>
@@ -170,12 +129,12 @@ struct MD5Sum< ::uav_msgs::Waypoint_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "d3f2cf73442657b7c4a745798b838c76";
+    return "a6f99f03f8a3405b686baeb3a31c59e9";
   }
 
   static const char* value(const ::uav_msgs::Waypoint_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xd3f2cf73442657b7ULL;
-  static const uint64_t static_value2 = 0xc4a745798b838c76ULL;
+  static const uint64_t static_value1 = 0xa6f99f03f8a3405bULL;
+  static const uint64_t static_value2 = 0x686baeb3a31c59e9ULL;
 };
 
 template<class ContainerAllocator>
@@ -194,15 +153,56 @@ struct Definition< ::uav_msgs::Waypoint_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int32 waypoint_id          # 航点ID\n"
-"string frame               # 坐标系类型\n"
-"string command             # 航点指令类型\n"
-"float64 latitude           # 纬度 (度)\n"
-"float64 longitude          # 经度 (度)\n"
-"float64 altitude           # 高度 (米)\n"
-"bool is_current            # 是否为当前航点\n"
-"bool autocontinue          # 是否自动继续到下一个航点\n"
-"float64 hold_time          # 悬停时间 (秒)\n"
+    return "int32 waypoint_id\n"
+"mavros_msgs/Waypoint waypoint\n"
+"\n"
+"================================================================================\n"
+"MSG: mavros_msgs/Waypoint\n"
+"# Waypoint.msg\n"
+"#\n"
+"# ROS representation of MAVLink MISSION_ITEM\n"
+"# See mavlink documentation\n"
+"\n"
+"\n"
+"\n"
+"# see enum MAV_FRAME\n"
+"uint8 frame\n"
+"uint8 FRAME_GLOBAL = 0\n"
+"uint8 FRAME_LOCAL_NED = 1\n"
+"uint8 FRAME_MISSION = 2\n"
+"uint8 FRAME_GLOBAL_REL_ALT = 3\n"
+"uint8 FRAME_LOCAL_ENU = 4\n"
+"uint8 FRAME_GLOBAL_INT = 5\n"
+"uint8 FRAME_GLOBAL_RELATIVE_ALT_INT = 6\n"
+"uint8 FRAME_LOCAL_OFFSET_NED = 7\n"
+"uint8 FRAME_BODY_NED = 8\n"
+"uint8 FRAME_BODY_OFFSET_NED = 9\n"
+"uint8 FRAME_GLOBAL_TERRAIN_ALT = 10\n"
+"uint8 FRAME_GLOBAL_TERRAIN_ALT_INT = 11\n"
+"uint8 FRAME_BODY_FRD = 12\n"
+"uint8 FRAME_RESERVED_13 = 13\n"
+"uint8 FRAME_RESERVED_14 = 14\n"
+"uint8 FRAME_RESERVED_15 = 15\n"
+"uint8 FRAME_RESERVED_16 = 16\n"
+"uint8 FRAME_RESERVED_17 = 17\n"
+"uint8 FRAME_RESERVED_18 = 18\n"
+"uint8 FRAME_RESERVED_19 = 19\n"
+"uint8 FRAME_LOCAL_FRD = 20\n"
+"uint8 FRAME_LOCAL_FLU = 21\n"
+"\n"
+"# see enum MAV_CMD and CommandCode.msg\n"
+"uint16 command\n"
+"\n"
+"bool is_current\n"
+"bool autocontinue\n"
+"# meaning of this params described in enum MAV_CMD\n"
+"float32 param1\n"
+"float32 param2\n"
+"float32 param3\n"
+"float32 param4\n"
+"float64 x_lat\n"
+"float64 y_long\n"
+"float64 z_alt\n"
 ;
   }
 
@@ -222,14 +222,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.waypoint_id);
-      stream.next(m.frame);
-      stream.next(m.command);
-      stream.next(m.latitude);
-      stream.next(m.longitude);
-      stream.next(m.altitude);
-      stream.next(m.is_current);
-      stream.next(m.autocontinue);
-      stream.next(m.hold_time);
+      stream.next(m.waypoint);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -254,36 +247,8 @@ struct Printer< ::uav_msgs::Waypoint_<ContainerAllocator> >
     Printer<int32_t>::stream(s, indent + "  ", v.waypoint_id);
     if (true || !indent.empty())
       s << std::endl;
-    s << indent << "frame: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.frame);
-    if (true || !indent.empty())
-      s << std::endl;
-    s << indent << "command: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.command);
-    if (true || !indent.empty())
-      s << std::endl;
-    s << indent << "latitude: ";
-    Printer<double>::stream(s, indent + "  ", v.latitude);
-    if (true || !indent.empty())
-      s << std::endl;
-    s << indent << "longitude: ";
-    Printer<double>::stream(s, indent + "  ", v.longitude);
-    if (true || !indent.empty())
-      s << std::endl;
-    s << indent << "altitude: ";
-    Printer<double>::stream(s, indent + "  ", v.altitude);
-    if (true || !indent.empty())
-      s << std::endl;
-    s << indent << "is_current: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.is_current);
-    if (true || !indent.empty())
-      s << std::endl;
-    s << indent << "autocontinue: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.autocontinue);
-    if (true || !indent.empty())
-      s << std::endl;
-    s << indent << "hold_time: ";
-    Printer<double>::stream(s, indent + "  ", v.hold_time);
+    s << indent << "waypoint: ";
+    Printer< ::mavros_msgs::Waypoint_<ContainerAllocator> >::stream(s, indent + "  ", v.waypoint);
   }
 };
 

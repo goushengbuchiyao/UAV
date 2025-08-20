@@ -14,6 +14,7 @@
 //     explicit UAVStateCollector(ros::NodeHandle& nh);
 
 //     std::string getStateJson();
+//     bool isConnected();
 
 // private:
 //     // 回调函数
@@ -62,6 +63,7 @@ public:
     std::string getGPSStatusJson();
     std::string getAttitudeJson();
     std::string getStateJson();
+    bool isConnected();
 
 private:
     void stateCallback(const mavros_msgs::State::ConstPtr& msg);
