@@ -94,6 +94,11 @@ void UAVControlNode::run()
                     // break;
                 }
             }
+            else
+            {
+                setMode("POSCTL");
+                ROS_INFO("[%s] UAV not armed, ready for commands.", uav_id_.c_str());
+            }
         }
         else
         {
@@ -242,7 +247,7 @@ void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
     }
     else
     {
-        setMode("Position");
+        setMode("POSCTL");
         ROS_WARN("[%s] Unknown command_type: %s", uav_id_.c_str(), cmd.command_type.c_str());
     }
 }
