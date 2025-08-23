@@ -10,10 +10,11 @@ import mavros_msgs.msg
 import uav_msgs.msg
 
 class WaypointsCommand(genpy.Message):
-  _md5sum = "64dffdfd8bd5405e375d970e627fb6dc"
+  _md5sum = "3a60269c5c8ce3371b60f6f24bd4757b"
   _type = "uav_msgs/WaypointsCommand"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """bool clear_existing      #是否清除存在航线
+bool start_immediately   # 是否立即执行
 Waypoint[] waypoints       # 航点列表
 ================================================================================
 MSG: uav_msgs/Waypoint
@@ -68,8 +69,8 @@ float64 x_lat
 float64 y_long
 float64 z_alt
 """
-  __slots__ = ['clear_existing','waypoints']
-  _slot_types = ['bool','uav_msgs/Waypoint[]']
+  __slots__ = ['clear_existing','start_immediately','waypoints']
+  _slot_types = ['bool','bool','uav_msgs/Waypoint[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -79,7 +80,7 @@ float64 z_alt
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       clear_existing,waypoints
+       clear_existing,start_immediately,waypoints
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -90,10 +91,13 @@ float64 z_alt
       # message fields cannot be None, assign default values for those that are
       if self.clear_existing is None:
         self.clear_existing = False
+      if self.start_immediately is None:
+        self.start_immediately = False
       if self.waypoints is None:
         self.waypoints = []
     else:
       self.clear_existing = False
+      self.start_immediately = False
       self.waypoints = []
 
   def _get_types(self):
@@ -108,8 +112,8 @@ float64 z_alt
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.clear_existing
-      buff.write(_get_struct_B().pack(_x))
+      _x = self
+      buff.write(_get_struct_2B().pack(_x.clear_existing, _x.start_immediately))
       length = len(self.waypoints)
       buff.write(_struct_I.pack(length))
       for val1 in self.waypoints:
@@ -132,10 +136,12 @@ float64 z_alt
       if self.waypoints is None:
         self.waypoints = None
       end = 0
+      _x = self
       start = end
-      end += 1
-      (self.clear_existing,) = _get_struct_B().unpack(str[start:end])
+      end += 2
+      (_x.clear_existing, _x.start_immediately,) = _get_struct_2B().unpack(str[start:end])
       self.clear_existing = bool(self.clear_existing)
+      self.start_immediately = bool(self.start_immediately)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -165,8 +171,8 @@ float64 z_alt
     :param numpy: numpy python module
     """
     try:
-      _x = self.clear_existing
-      buff.write(_get_struct_B().pack(_x))
+      _x = self
+      buff.write(_get_struct_2B().pack(_x.clear_existing, _x.start_immediately))
       length = len(self.waypoints)
       buff.write(_struct_I.pack(length))
       for val1 in self.waypoints:
@@ -190,10 +196,12 @@ float64 z_alt
       if self.waypoints is None:
         self.waypoints = None
       end = 0
+      _x = self
       start = end
-      end += 1
-      (self.clear_existing,) = _get_struct_B().unpack(str[start:end])
+      end += 2
+      (_x.clear_existing, _x.start_immediately,) = _get_struct_2B().unpack(str[start:end])
       self.clear_existing = bool(self.clear_existing)
+      self.start_immediately = bool(self.start_immediately)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -219,12 +227,12 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_B = None
-def _get_struct_B():
-    global _struct_B
-    if _struct_B is None:
-        _struct_B = struct.Struct("<B")
-    return _struct_B
+_struct_2B = None
+def _get_struct_2B():
+    global _struct_2B
+    if _struct_2B is None:
+        _struct_2B = struct.Struct("<2B")
+    return _struct_2B
 _struct_BH2B4f3d = None
 def _get_struct_BH2B4f3d():
     global _struct_BH2B4f3d

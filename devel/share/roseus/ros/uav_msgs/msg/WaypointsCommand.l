@@ -14,21 +14,26 @@
 
 (defclass uav_msgs::WaypointsCommand
   :super ros::object
-  :slots (_clear_existing _waypoints ))
+  :slots (_clear_existing _start_immediately _waypoints ))
 
 (defmethod uav_msgs::WaypointsCommand
   (:init
    (&key
     ((:clear_existing __clear_existing) nil)
+    ((:start_immediately __start_immediately) nil)
     ((:waypoints __waypoints) ())
     )
    (send-super :init)
    (setq _clear_existing __clear_existing)
+   (setq _start_immediately __start_immediately)
    (setq _waypoints __waypoints)
    self)
   (:clear_existing
    (&optional (__clear_existing :null))
    (if (not (eq __clear_existing :null)) (setq _clear_existing __clear_existing)) _clear_existing)
+  (:start_immediately
+   (&optional (__start_immediately :null))
+   (if (not (eq __start_immediately :null)) (setq _start_immediately __start_immediately)) _start_immediately)
   (:waypoints
    (&rest __waypoints)
    (if (keywordp (car __waypoints))
@@ -41,6 +46,8 @@
    (+
     ;; bool _clear_existing
     1
+    ;; bool _start_immediately
+    1
     ;; uav_msgs/Waypoint[] _waypoints
     (apply #'+ (send-all _waypoints :serialization-length)) 4
     ))
@@ -50,6 +57,8 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; bool _clear_existing
        (if _clear_existing (write-byte -1 s) (write-byte 0 s))
+     ;; bool _start_immediately
+       (if _start_immediately (write-byte -1 s) (write-byte 0 s))
      ;; uav_msgs/Waypoint[] _waypoints
      (write-long (length _waypoints) s)
      (dolist (elem _waypoints)
@@ -61,6 +70,8 @@
    (buf &optional (ptr- 0))
    ;; bool _clear_existing
      (setq _clear_existing (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
+   ;; bool _start_immediately
+     (setq _start_immediately (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
    ;; uav_msgs/Waypoint[] _waypoints
    (let (n)
      (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
@@ -72,10 +83,11 @@
    self)
   )
 
-(setf (get uav_msgs::WaypointsCommand :md5sum-) "64dffdfd8bd5405e375d970e627fb6dc")
+(setf (get uav_msgs::WaypointsCommand :md5sum-) "3a60269c5c8ce3371b60f6f24bd4757b")
 (setf (get uav_msgs::WaypointsCommand :datatype-) "uav_msgs/WaypointsCommand")
 (setf (get uav_msgs::WaypointsCommand :definition-)
       "bool clear_existing      #是否清除存在航线
+bool start_immediately   # 是否立即执行
 Waypoint[] waypoints       # 航点列表
 ================================================================================
 MSG: uav_msgs/Waypoint
@@ -134,6 +146,6 @@ float64 z_alt
 
 
 
-(provide :uav_msgs/WaypointsCommand "64dffdfd8bd5405e375d970e627fb6dc")
+(provide :uav_msgs/WaypointsCommand "3a60269c5c8ce3371b60f6f24bd4757b")
 
 

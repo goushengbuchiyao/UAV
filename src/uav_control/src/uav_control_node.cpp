@@ -83,22 +83,22 @@ void UAVControlNode::run()
             {
                 if(checkInFlightSafety())
                 {
-                    ROS_INFO("[%s] UAV in flight safety check passed!", uav_id_.c_str());
+                    // ROS_INFO("[%s] UAV in flight safety check passed!", uav_id_.c_str());
                     // break;
                 }
                 else
                 {
-                    ROS_ERROR("[%s] UAV in flight safety check failed!", uav_id_.c_str());
+                    // ROS_ERROR("[%s] UAV in flight safety check failed!", uav_id_.c_str());
                     // 进入返航模式
                     setMode("AUTO.RTL");
                     // break;
                 }
             }
-            else
-            {
-                setMode("POSCTL");
-                ROS_INFO("[%s] UAV not armed, ready for commands.", uav_id_.c_str());
-            }
+            // else
+            // {
+            //     setMode("POSCTL");
+            //     ROS_INFO("[%s] UAV not armed, ready for commands.", uav_id_.c_str());
+            // }
         }
         else
         {
@@ -106,7 +106,7 @@ void UAVControlNode::run()
         }
         rate.sleep();
     }
-    ROS_INFO("[%s] MAVROS connected to PX4!", uav_id_.c_str());
+    // ROS_INFO("[%s] MAVROS connected to PX4!", uav_id_.c_str());
 }
 
 // -------------------- 回调函数 --------------------
@@ -192,6 +192,7 @@ void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
     else if(cmd.command_type == "land")
     {
         land(cmd.land.yaw);
+        setMode("POSCTL");
     }
     else if(cmd.command_type == "position_control_ned")
     {
@@ -238,12 +239,27 @@ void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
         // }
 
         // 4. 如果需要立即执行
-        // if (cmd.start_immediately) {
-        ROS_INFO("[%s] Starting mission execution", uav_id_.c_str());
-        // setCurrentWaypoint(0);
-        setMode("AUTO.MISSION");
-        mission_active_ = true;
-        // }
+        if (cmd.waypoints_cmd.start_immediately) {
+            // 检查是否已武装
+            if (!current_state_.armed) {
+                if (!arm()) {
+                    ROS_ERROR("[%s] UAV is not armed and failed to arm, aborting mission start", uav_id_.c_str());
+                    return;
+                }
+            }
+             // 设置当前航点为第一个
+            if (!setCurrentWaypoint(0)) {
+                ROS_ERROR("[%s] Failed to set current waypoint, aborting mission start", uav_id_.c_str());
+                return;
+            }
+                    // 切换到AUTO.MISSION模式
+            if (!setMode("AUTO.MISSION")) {
+                ROS_ERROR("[%s] Failed to set AUTO.MISSION mode", uav_id_.c_str());
+                return;
+            }
+
+            mission_active_ = true;
+        }
     }
     else
     {
@@ -617,7 +633,7 @@ void UAVControlNode::rcCallback(const mavros_msgs::RCIn::ConstPtr& msg)
             rc_changed_ = true;
             ROS_WARN("[%s] RC channel %ld changed from %d to %d. Stopping control.", 
                      uav_id_.c_str(), i+1, initial_rc_values_[i], current_rc_values_[i]);
-            setMode("POSITION"); // 切换到位置模式
+            setMode("POSCTL"); // 切换到位置模式
             break;
         }else{
             rc_changed_ = false;
@@ -701,6 +717,17 @@ bool UAVControlNode::verifyMissionPull() {
         return srv.response.wp_received == total_waypoints_;
     }
     ROS_ERROR("[%s] Failed to pull mission", uav_id_.c_str());
+    return false;
+}
+// 设置当前航点
+bool UAVControlNode::setCurrentWaypoint(int wp_index) {
+    mavros_msgs::WaypointSetCurrent srv;
+    srv.request.wp_seq = wp_index;
+    if (mission_set_current_client_.call(srv) && srv.response.success) {
+        ROS_INFO("[%s] Set current waypoint to %d", uav_id_.c_str(), wp_index);
+        return true;
+    }
+    ROS_ERROR("[%s] Failed to set current waypoint to %d", uav_id_.c_str(), wp_index);
     return false;
 }
 // -------------------- PX4 参数加载 --------------------

@@ -89,6 +89,10 @@ bool UAVCommandParser::validateParams(const std::string& cmd_type, const nlohman
             err_msg = "Missing or invalid 'waypoints' array";
             return false;
         }
+        if (!params.contains("start_immediately") || !params["start_immediately"].is_boolean()) {
+            err_msg = "Missing or invalid 'start_immediately' boolean";
+            return false;
+        }
 
         // 验证每个航点
         for (size_t i = 0; i < params["waypoints"].size(); ++i) {

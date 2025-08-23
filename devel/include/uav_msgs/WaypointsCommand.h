@@ -26,10 +26,12 @@ struct WaypointsCommand_
 
   WaypointsCommand_()
     : clear_existing(false)
+    , start_immediately(false)
     , waypoints()  {
     }
   WaypointsCommand_(const ContainerAllocator& _alloc)
     : clear_existing(false)
+    , start_immediately(false)
     , waypoints(_alloc)  {
   (void)_alloc;
     }
@@ -38,6 +40,9 @@ struct WaypointsCommand_
 
    typedef uint8_t _clear_existing_type;
   _clear_existing_type clear_existing;
+
+   typedef uint8_t _start_immediately_type;
+  _start_immediately_type start_immediately;
 
    typedef std::vector< ::uav_msgs::Waypoint_<ContainerAllocator> , typename std::allocator_traits<ContainerAllocator>::template rebind_alloc< ::uav_msgs::Waypoint_<ContainerAllocator> >> _waypoints_type;
   _waypoints_type waypoints;
@@ -72,6 +77,7 @@ template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::uav_msgs::WaypointsCommand_<ContainerAllocator1> & lhs, const ::uav_msgs::WaypointsCommand_<ContainerAllocator2> & rhs)
 {
   return lhs.clear_existing == rhs.clear_existing &&
+    lhs.start_immediately == rhs.start_immediately &&
     lhs.waypoints == rhs.waypoints;
 }
 
@@ -129,12 +135,12 @@ struct MD5Sum< ::uav_msgs::WaypointsCommand_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "64dffdfd8bd5405e375d970e627fb6dc";
+    return "3a60269c5c8ce3371b60f6f24bd4757b";
   }
 
   static const char* value(const ::uav_msgs::WaypointsCommand_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x64dffdfd8bd5405eULL;
-  static const uint64_t static_value2 = 0x375d970e627fb6dcULL;
+  static const uint64_t static_value1 = 0x3a60269c5c8ce337ULL;
+  static const uint64_t static_value2 = 0x1b60f6f24bd4757bULL;
 };
 
 template<class ContainerAllocator>
@@ -154,6 +160,7 @@ struct Definition< ::uav_msgs::WaypointsCommand_<ContainerAllocator> >
   static const char* value()
   {
     return "bool clear_existing      #是否清除存在航线\n"
+"bool start_immediately   # 是否立即执行\n"
 "Waypoint[] waypoints       # 航点列表\n"
 "================================================================================\n"
 "MSG: uav_msgs/Waypoint\n"
@@ -226,6 +233,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.clear_existing);
+      stream.next(m.start_immediately);
       stream.next(m.waypoints);
     }
 
@@ -249,6 +257,10 @@ struct Printer< ::uav_msgs::WaypointsCommand_<ContainerAllocator> >
       s << std::endl;
     s << indent << "clear_existing: ";
     Printer<uint8_t>::stream(s, indent + "  ", v.clear_existing);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "start_immediately: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.start_immediately);
     if (true || !indent.empty())
       s << std::endl;
     s << indent << "waypoints: ";

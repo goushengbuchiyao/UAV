@@ -272,6 +272,10 @@ uav_command_parser.h
 uav_msgs/UAVControlCommand.h
 /home/px/UAV_SDK/src/mqtt_bridge/src/uav_msgs/UAVControlCommand.h
 
+/home/px/UAV_SDK/src/mqtt_bridge/src/uav_command_parser.cpp
+uav_command_parser.h
+/home/px/UAV_SDK/src/mqtt_bridge/src/uav_command_parser.h
+
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string
 -

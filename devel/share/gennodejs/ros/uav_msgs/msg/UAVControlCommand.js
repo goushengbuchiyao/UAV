@@ -192,7 +192,7 @@ class UAVControlCommand {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'f1644fc0af173323746f79d8eb46fbc4';
+    return '80f68b10d6d278d3c7cd1482a1a62cc7';
   }
 
   static messageDefinition() {
@@ -257,6 +257,7 @@ class UAVControlCommand {
     ================================================================================
     MSG: uav_msgs/WaypointsCommand
     bool clear_existing      #是否清除存在航线
+    bool start_immediately   # 是否立即执行
     Waypoint[] waypoints       # 航点列表
     ================================================================================
     MSG: uav_msgs/Waypoint

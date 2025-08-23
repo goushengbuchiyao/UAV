@@ -206,7 +206,7 @@
    self)
   )
 
-(setf (get uav_msgs::UAVControlCommand :md5sum-) "f1644fc0af173323746f79d8eb46fbc4")
+(setf (get uav_msgs::UAVControlCommand :md5sum-) "80f68b10d6d278d3c7cd1482a1a62cc7")
 (setf (get uav_msgs::UAVControlCommand :datatype-) "uav_msgs/UAVControlCommand")
 (setf (get uav_msgs::UAVControlCommand :definition-)
       "
@@ -268,6 +268,7 @@ string mode
 ================================================================================
 MSG: uav_msgs/WaypointsCommand
 bool clear_existing      #是否清除存在航线
+bool start_immediately   # 是否立即执行
 Waypoint[] waypoints       # 航点列表
 ================================================================================
 MSG: uav_msgs/Waypoint
@@ -326,6 +327,6 @@ float64 z_alt
 
 
 
-(provide :uav_msgs/UAVControlCommand "f1644fc0af173323746f79d8eb46fbc4")
+(provide :uav_msgs/UAVControlCommand "80f68b10d6d278d3c7cd1482a1a62cc7")
 
 

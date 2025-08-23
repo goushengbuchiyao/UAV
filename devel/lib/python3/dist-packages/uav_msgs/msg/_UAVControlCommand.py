@@ -11,7 +11,7 @@ import mavros_msgs.msg
 import uav_msgs.msg
 
 class UAVControlCommand(genpy.Message):
-  _md5sum = "f1644fc0af173323746f79d8eb46fbc4"
+  _md5sum = "80f68b10d6d278d3c7cd1482a1a62cc7"
   _type = "uav_msgs/UAVControlCommand"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """
@@ -73,6 +73,7 @@ string mode
 ================================================================================
 MSG: uav_msgs/WaypointsCommand
 bool clear_existing      #是否清除存在航线
+bool start_immediately   # 是否立即执行
 Waypoint[] waypoints       # 航点列表
 ================================================================================
 MSG: uav_msgs/Waypoint
@@ -217,8 +218,8 @@ float64 z_alt
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-      _x = self.waypoints_cmd.clear_existing
-      buff.write(_get_struct_B().pack(_x))
+      _x = self
+      buff.write(_get_struct_2B().pack(_x.waypoints_cmd.clear_existing, _x.waypoints_cmd.start_immediately))
       length = len(self.waypoints_cmd.waypoints)
       buff.write(_struct_I.pack(length))
       for val1 in self.waypoints_cmd.waypoints:
@@ -290,10 +291,12 @@ float64 z_alt
         self.set_mode.mode = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.set_mode.mode = str[start:end]
+      _x = self
       start = end
-      end += 1
-      (self.waypoints_cmd.clear_existing,) = _get_struct_B().unpack(str[start:end])
+      end += 2
+      (_x.waypoints_cmd.clear_existing, _x.waypoints_cmd.start_immediately,) = _get_struct_2B().unpack(str[start:end])
       self.waypoints_cmd.clear_existing = bool(self.waypoints_cmd.clear_existing)
+      self.waypoints_cmd.start_immediately = bool(self.waypoints_cmd.start_immediately)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -344,8 +347,8 @@ float64 z_alt
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-      _x = self.waypoints_cmd.clear_existing
-      buff.write(_get_struct_B().pack(_x))
+      _x = self
+      buff.write(_get_struct_2B().pack(_x.waypoints_cmd.clear_existing, _x.waypoints_cmd.start_immediately))
       length = len(self.waypoints_cmd.waypoints)
       buff.write(_struct_I.pack(length))
       for val1 in self.waypoints_cmd.waypoints:
@@ -418,10 +421,12 @@ float64 z_alt
         self.set_mode.mode = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.set_mode.mode = str[start:end]
+      _x = self
       start = end
-      end += 1
-      (self.waypoints_cmd.clear_existing,) = _get_struct_B().unpack(str[start:end])
+      end += 2
+      (_x.waypoints_cmd.clear_existing, _x.waypoints_cmd.start_immediately,) = _get_struct_2B().unpack(str[start:end])
       self.waypoints_cmd.clear_existing = bool(self.waypoints_cmd.clear_existing)
+      self.waypoints_cmd.start_immediately = bool(self.waypoints_cmd.start_immediately)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -448,18 +453,18 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
+_struct_2B = None
+def _get_struct_2B():
+    global _struct_2B
+    if _struct_2B is None:
+        _struct_2B = struct.Struct("<2B")
+    return _struct_2B
 _struct_2Ii16d = None
 def _get_struct_2Ii16d():
     global _struct_2Ii16d
     if _struct_2Ii16d is None:
         _struct_2Ii16d = struct.Struct("<2Ii16d")
     return _struct_2Ii16d
-_struct_B = None
-def _get_struct_B():
-    global _struct_B
-    if _struct_B is None:
-        _struct_B = struct.Struct("<B")
-    return _struct_B
 _struct_BH2B4f3d = None
 def _get_struct_BH2B4f3d():
     global _struct_BH2B4f3d

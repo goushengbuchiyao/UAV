@@ -192,7 +192,8 @@ void MQTTROSNode::handleMQTTMessage(const std::string& topic, const std::string&
         else if (cmd.command_type == "waypoint_mission") {
             // 解析清除现有任务标志
             ros_cmd.waypoints_cmd.clear_existing = cmd.params["clear_existing"].get<bool>();
-
+            // 解析立即执行标志
+            ros_cmd.waypoints_cmd.start_immediately = cmd.params["start_immediately"].get<bool>();
             // 解析航点列表
             auto waypoints_json = cmd.params["waypoints"];
             for (size_t i = 0; i < waypoints_json.size(); ++i) {

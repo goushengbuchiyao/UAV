@@ -197,12 +197,12 @@ struct MD5Sum< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "f1644fc0af173323746f79d8eb46fbc4";
+    return "80f68b10d6d278d3c7cd1482a1a62cc7";
   }
 
   static const char* value(const ::uav_msgs::UAVControlCommand_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xf1644fc0af173323ULL;
-  static const uint64_t static_value2 = 0x746f79d8eb46fbc4ULL;
+  static const uint64_t static_value1 = 0x80f68b10d6d278d3ULL;
+  static const uint64_t static_value2 = 0xc7cd1482a1a62cc7ULL;
 };
 
 template<class ContainerAllocator>
@@ -280,6 +280,7 @@ struct Definition< ::uav_msgs::UAVControlCommand_<ContainerAllocator> >
 "================================================================================\n"
 "MSG: uav_msgs/WaypointsCommand\n"
 "bool clear_existing      #是否清除存在航线\n"
+"bool start_immediately   # 是否立即执行\n"
 "Waypoint[] waypoints       # 航点列表\n"
 "================================================================================\n"
 "MSG: uav_msgs/Waypoint\n"

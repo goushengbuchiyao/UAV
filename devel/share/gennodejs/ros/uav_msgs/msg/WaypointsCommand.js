@@ -20,6 +20,7 @@ class WaypointsCommand {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.clear_existing = null;
+      this.start_immediately = null;
       this.waypoints = null;
     }
     else {
@@ -28,6 +29,12 @@ class WaypointsCommand {
       }
       else {
         this.clear_existing = false;
+      }
+      if (initObj.hasOwnProperty('start_immediately')) {
+        this.start_immediately = initObj.start_immediately
+      }
+      else {
+        this.start_immediately = false;
       }
       if (initObj.hasOwnProperty('waypoints')) {
         this.waypoints = initObj.waypoints
@@ -42,6 +49,8 @@ class WaypointsCommand {
     // Serializes a message object of type WaypointsCommand
     // Serialize message field [clear_existing]
     bufferOffset = _serializer.bool(obj.clear_existing, buffer, bufferOffset);
+    // Serialize message field [start_immediately]
+    bufferOffset = _serializer.bool(obj.start_immediately, buffer, bufferOffset);
     // Serialize message field [waypoints]
     // Serialize the length for message field [waypoints]
     bufferOffset = _serializer.uint32(obj.waypoints.length, buffer, bufferOffset);
@@ -57,6 +66,8 @@ class WaypointsCommand {
     let data = new WaypointsCommand(null);
     // Deserialize message field [clear_existing]
     data.clear_existing = _deserializer.bool(buffer, bufferOffset);
+    // Deserialize message field [start_immediately]
+    data.start_immediately = _deserializer.bool(buffer, bufferOffset);
     // Deserialize message field [waypoints]
     // Deserialize array length for message field [waypoints]
     len = _deserializer.uint32(buffer, bufferOffset);
@@ -70,7 +81,7 @@ class WaypointsCommand {
   static getMessageSize(object) {
     let length = 0;
     length += 49 * object.waypoints.length;
-    return length + 5;
+    return length + 6;
   }
 
   static datatype() {
@@ -80,13 +91,14 @@ class WaypointsCommand {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '64dffdfd8bd5405e375d970e627fb6dc';
+    return '3a60269c5c8ce3371b60f6f24bd4757b';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     bool clear_existing      #是否清除存在航线
+    bool start_immediately   # 是否立即执行
     Waypoint[] waypoints       # 航点列表
     ================================================================================
     MSG: uav_msgs/Waypoint
@@ -155,6 +167,13 @@ class WaypointsCommand {
     }
     else {
       resolved.clear_existing = false
+    }
+
+    if (msg.start_immediately !== undefined) {
+      resolved.start_immediately = msg.start_immediately;
+    }
+    else {
+      resolved.start_immediately = false
     }
 
     if (msg.waypoints !== undefined) {
