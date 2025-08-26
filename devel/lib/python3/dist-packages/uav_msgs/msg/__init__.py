@@ -2,9 +2,12 @@ from ._HoverCommand import *
 from ._LandCommand import *
 from ._PositionControlGlobalCommand import *
 from ._PositionControlNEDCommand import *
+from ._ROI import *
 from ._ReturnToLaunchCommand import *
 from ._SetModeCommand import *
 from ._TakeoffCommand import *
+from ._Target import *
+from ._TargetsInFrame import *
 from ._UAVControlCommand import *
 from ._VelocityControlNEDCommand import *
 from ._Waypoint import *

@@ -3,6 +3,7 @@
 
 (defsystem "uav_msgs-msg"
   :depends-on (:roslisp-msg-protocol :roslisp-utils :mavros_msgs-msg
+               :std_msgs-msg
 )
   :components ((:file "_package")
     (:file "HoverCommand" :depends-on ("_package_HoverCommand"))
@@ -13,12 +14,18 @@
     (:file "_package_PositionControlGlobalCommand" :depends-on ("_package"))
     (:file "PositionControlNEDCommand" :depends-on ("_package_PositionControlNEDCommand"))
     (:file "_package_PositionControlNEDCommand" :depends-on ("_package"))
+    (:file "ROI" :depends-on ("_package_ROI"))
+    (:file "_package_ROI" :depends-on ("_package"))
     (:file "ReturnToLaunchCommand" :depends-on ("_package_ReturnToLaunchCommand"))
     (:file "_package_ReturnToLaunchCommand" :depends-on ("_package"))
     (:file "SetModeCommand" :depends-on ("_package_SetModeCommand"))
     (:file "_package_SetModeCommand" :depends-on ("_package"))
     (:file "TakeoffCommand" :depends-on ("_package_TakeoffCommand"))
     (:file "_package_TakeoffCommand" :depends-on ("_package"))
+    (:file "Target" :depends-on ("_package_Target"))
+    (:file "_package_Target" :depends-on ("_package"))
+    (:file "TargetsInFrame" :depends-on ("_package_TargetsInFrame"))
+    (:file "_package_TargetsInFrame" :depends-on ("_package"))
     (:file "UAVControlCommand" :depends-on ("_package_UAVControlCommand"))
     (:file "_package_UAVControlCommand" :depends-on ("_package"))
     (:file "VelocityControlNEDCommand" :depends-on ("_package_VelocityControlNEDCommand"))

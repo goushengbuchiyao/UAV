@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "uav_msgs: 11 messages, 0 services")
+message(STATUS "uav_msgs: 14 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Imavros_msgs:/opt/ros/noetic/share/mavros_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg;-Igeographic_msgs:/opt/ros/noetic/share/geographic_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg;-Iuuid_msgs:/opt/ros/noetic/share/uuid_msgs/cmake/../msg")
 
@@ -59,17 +59,32 @@ add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg" NAME_WE)
 add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg" "uav_msgs/LandCommand:uav_msgs/WaypointsCommand:uav_msgs/PositionControlGlobalCommand:uav_msgs/PositionControlNEDCommand:mavros_msgs/Waypoint:uav_msgs/VelocityControlNEDCommand:uav_msgs/ReturnToLaunchCommand:uav_msgs/Waypoint:uav_msgs/SetModeCommand:uav_msgs/HoverCommand:uav_msgs/TakeoffCommand"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg" "uav_msgs/PositionControlGlobalCommand:uav_msgs/LandCommand:uav_msgs/HoverCommand:uav_msgs/TakeoffCommand:uav_msgs/PositionControlNEDCommand:uav_msgs/Waypoint:uav_msgs/VelocityControlNEDCommand:uav_msgs/ReturnToLaunchCommand:uav_msgs/WaypointsCommand:mavros_msgs/Waypoint:uav_msgs/SetModeCommand"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg" NAME_WE)
 add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg" "mavros_msgs/Waypoint:uav_msgs/Waypoint"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg" "uav_msgs/Waypoint:mavros_msgs/Waypoint"
 )
 
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg" NAME_WE)
 add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg" "mavros_msgs/Waypoint"
+)
+
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg" NAME_WE)
+add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg" ""
+)
+
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg" NAME_WE)
+add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg" "std_msgs/Header:uav_msgs/Target:uav_msgs/ROI"
+)
+
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg" NAME_WE)
+add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg" ""
 )
 
 #
@@ -129,19 +144,37 @@ _generate_msg_cpp(uav_msgs
 _generate_msg_cpp(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_cpp(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_cpp(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_cpp(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_cpp(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_cpp(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uav_msgs
 )
 
@@ -180,6 +213,12 @@ add_dependencies(uav_msgs_generate_messages_cpp _uav_msgs_generate_messages_chec
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_cpp _uav_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_cpp _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_cpp _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_cpp _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_cpp _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -242,19 +281,37 @@ _generate_msg_eus(uav_msgs
 _generate_msg_eus(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_eus(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_eus(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_eus(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_eus(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_eus(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uav_msgs
 )
 
@@ -293,6 +350,12 @@ add_dependencies(uav_msgs_generate_messages_eus _uav_msgs_generate_messages_chec
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_eus _uav_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_eus _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_eus _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_eus _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_eus _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -355,19 +418,37 @@ _generate_msg_lisp(uav_msgs
 _generate_msg_lisp(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_lisp(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_lisp(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_lisp(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_lisp(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_lisp(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uav_msgs
 )
 
@@ -406,6 +487,12 @@ add_dependencies(uav_msgs_generate_messages_lisp _uav_msgs_generate_messages_che
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_lisp _uav_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_lisp _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_lisp _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_lisp _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_lisp _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -468,19 +555,37 @@ _generate_msg_nodejs(uav_msgs
 _generate_msg_nodejs(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_nodejs(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_nodejs(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_nodejs(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_nodejs(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_nodejs(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uav_msgs
 )
 
@@ -519,6 +624,12 @@ add_dependencies(uav_msgs_generate_messages_nodejs _uav_msgs_generate_messages_c
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_nodejs _uav_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_nodejs _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_nodejs _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_nodejs _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_nodejs _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -581,19 +692,37 @@ _generate_msg_py(uav_msgs
 _generate_msg_py(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg"
   "${MSG_I_FLAGS}"
-  "/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_py(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_py(uav_msgs
   "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/mavros_msgs/cmake/../msg/Waypoint.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_py(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_py(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs
+)
+_generate_msg_py(uav_msgs
+  "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs
 )
 
@@ -632,6 +761,12 @@ add_dependencies(uav_msgs_generate_messages_py _uav_msgs_generate_messages_check
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_py _uav_msgs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_py _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_py _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg" NAME_WE)
+add_dependencies(uav_msgs_generate_messages_py _uav_msgs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_py _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

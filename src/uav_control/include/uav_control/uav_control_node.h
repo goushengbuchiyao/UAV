@@ -19,6 +19,7 @@
 #include <mavros_msgs/WaypointSetCurrent.h>
 #include <mavros_msgs/WaypointPull.h>
 #include <uav_msgs/UAVControlCommand.h>
+#include <uav_msgs/TargetsInFrame.h>
 
 #include <yaml-cpp/yaml.h>
 #include <thread>
@@ -71,10 +72,25 @@ private:
     geometry_msgs::PoseStamped local_pose_;
     geometry_msgs::TwistStamped velocity_;
 
-     // 航点任务状态
+    // 二维码降落位姿
+    ros::Subscriber aruco_pose_sub_;
+    geometry_msgs::PoseStamped current_pose_;
+    uav_msgs::TargetsInFrame aruco_pose_;
+
+    bool outer_marker_found_;
+    bool inner_marker_found_;
+
+    // // 降落参数
+    // const double DESCENT_STEP_OUT;
+    // const double DESCENT_STEP_IN;
+    // const double MIN_ALTITUDE;
+    // const double HOVER_ALTITUDE;
+
+    // 航点任务状态
     bool mission_active_ = false;
     int current_waypoint_ = -1;
     int total_waypoints_ = 0;
+
 
     // 地理围栏参数
     double fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_;
@@ -92,6 +108,18 @@ private:
     bool rc_changed_;                         // RC通道变化标志
     double rc_threshold_;                     // RC变化检测阈值
     
+    // 二维码引导降落
+    // 降落参数
+    const double DESCENT_STEP_OUT = 0.1;
+    const double DESCENT_STEP_IN = 0.05;
+    const double MIN_ALTITUDE = 0.1;
+    const double HOVER_ALTITUDE = 0.5;
+    bool use_aruco_landing_;
+    bool aruco_landing_active_;
+    void handleOuterMarker();
+    void handleInnerMarker();
+    // 二维码降落位姿
+    void arucoPoseCallback(const uav_msgs::TargetsInFrame::ConstPtr& msg);
     // 回调函数
     void stateCallback(const mavros_msgs::State::ConstPtr& msg);
     void batteryCallback(const sensor_msgs::BatteryState::ConstPtr& msg);

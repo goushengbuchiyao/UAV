@@ -5,9 +5,12 @@ uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
+uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/ROI.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
+uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/Target.h
+uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/TargetsInFrame.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /home/px/UAV_SDK/devel/include/uav_msgs/Waypoint.h

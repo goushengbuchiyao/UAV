@@ -50,6 +50,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg"
     "/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg"
     "/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
+    "/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg"
+    "/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg"
+    "/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
     )
 endif()
 

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg"
+messages_str = "/home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg;/home/px/UAV_SDK/src/uav_msgs/msg/Target.msg;/home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg;/home/px/UAV_SDK/src/uav_msgs/msg/ROI.msg"
 services_str = ""
 pkg_name = "uav_msgs"
 dependencies_str = "std_msgs;mavros_msgs;geometry_msgs"

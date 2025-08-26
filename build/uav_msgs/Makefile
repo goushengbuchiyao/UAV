@@ -68,37 +68,17 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target install
 install: preinstall
@@ -123,17 +103,37 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,304 +168,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_genpy.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_genpy.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_genpy.dir/rule
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/rule
 
 # Convenience name for target.
-uav_msgs_genpy: uav_msgs/CMakeFiles/uav_msgs_genpy.dir/rule
+_uav_msgs_generate_messages_check_deps_Waypoint: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/rule
 
-.PHONY : uav_msgs_genpy
+.PHONY : _uav_msgs_generate_messages_check_deps_Waypoint
 
 # fast build rule for target.
-uav_msgs_genpy/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_genpy.dir/build.make uav_msgs/CMakeFiles/uav_msgs_genpy.dir/build
-.PHONY : uav_msgs_genpy/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-uav_msgs_generate_messages_nodejs: uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : uav_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-uav_msgs_generate_messages_nodejs/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/build
-.PHONY : uav_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-uav_msgs_generate_messages_lisp: uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : uav_msgs_generate_messages_lisp
-
-# fast build rule for target.
-uav_msgs_generate_messages_lisp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/build
-.PHONY : uav_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule
-
-# Convenience name for target.
-uav_msgs_geneus: uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule
-
-.PHONY : uav_msgs_geneus
-
-# fast build rule for target.
-uav_msgs_geneus/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_geneus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_geneus.dir/build
-.PHONY : uav_msgs_geneus/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-uav_msgs_generate_messages_eus: uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule
-
-.PHONY : uav_msgs_generate_messages_eus
-
-# fast build rule for target.
-uav_msgs_generate_messages_eus/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build
-.PHONY : uav_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule
-
-# Convenience name for target.
-uav_msgs_gencpp: uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule
-
-.PHONY : uav_msgs_gencpp
-
-# fast build rule for target.
-uav_msgs_gencpp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build
-.PHONY : uav_msgs_gencpp/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule
-
-# Convenience name for target.
-uav_msgs_generate_messages: uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule
-
-.PHONY : uav_msgs_generate_messages
-
-# fast build rule for target.
-uav_msgs_generate_messages/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/build
-.PHONY : uav_msgs_generate_messages/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/rule
-
-# Convenience name for target.
-_uav_msgs_generate_messages_check_deps_UAVControlCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/rule
-
-.PHONY : _uav_msgs_generate_messages_check_deps_UAVControlCommand
-
-# fast build rule for target.
-_uav_msgs_generate_messages_check_deps_UAVControlCommand/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_UAVControlCommand/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/rule
-
-# Convenience name for target.
-_uav_msgs_generate_messages_check_deps_TakeoffCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/rule
-
-.PHONY : _uav_msgs_generate_messages_check_deps_TakeoffCommand
-
-# fast build rule for target.
-_uav_msgs_generate_messages_check_deps_TakeoffCommand/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_TakeoffCommand/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/rule
-
-# Convenience name for target.
-uav_msgs_gennodejs: uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/rule
-
-.PHONY : uav_msgs_gennodejs
-
-# fast build rule for target.
-uav_msgs_gennodejs/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/build.make uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/build
-.PHONY : uav_msgs_gennodejs/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule
-
-# Convenience name for target.
-uav_msgs_genlisp: uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule
-
-.PHONY : uav_msgs_genlisp
-
-# fast build rule for target.
-uav_msgs_genlisp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/build
-.PHONY : uav_msgs_genlisp/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/rule
-
-# Convenience name for target.
-_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/rule
-
-.PHONY : _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand
-
-# fast build rule for target.
-_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/rule
-
-# Convenience name for target.
-_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/rule
-
-.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand
-
-# fast build rule for target.
-_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/rule
-
-# Convenience name for target.
-_uav_msgs_generate_messages_check_deps_LandCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/rule
-
-.PHONY : _uav_msgs_generate_messages_check_deps_LandCommand
-
-# fast build rule for target.
-_uav_msgs_generate_messages_check_deps_LandCommand/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_LandCommand/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/rule
-
-# Convenience name for target.
-_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/rule
-
-.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand
-
-# fast build rule for target.
-_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/rule
-
-# Convenience name for target.
-_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/rule
-
-.PHONY : _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand
-
-# fast build rule for target.
-_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-uav_msgs_generate_messages_py: uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/rule
-
-.PHONY : uav_msgs_generate_messages_py
-
-# fast build rule for target.
-uav_msgs_generate_messages_py/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build
-.PHONY : uav_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/rule
-
-# Convenience name for target.
-_uav_msgs_generate_messages_check_deps_WaypointsCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/rule
-
-.PHONY : _uav_msgs_generate_messages_check_deps_WaypointsCommand
-
-# fast build rule for target.
-_uav_msgs_generate_messages_check_deps_WaypointsCommand/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_WaypointsCommand/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/rule
-
-# Convenience name for target.
-_uav_msgs_generate_messages_check_deps_HoverCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/rule
-
-.PHONY : _uav_msgs_generate_messages_check_deps_HoverCommand
-
-# fast build rule for target.
-_uav_msgs_generate_messages_check_deps_HoverCommand/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_HoverCommand/fast
-
-# Convenience name for target.
-uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule
-.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-uav_msgs_generate_messages_cpp: uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : uav_msgs_generate_messages_cpp
-
-# fast build rule for target.
-uav_msgs_generate_messages_cpp/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build
-.PHONY : uav_msgs_generate_messages_cpp/fast
+_uav_msgs_generate_messages_check_deps_Waypoint/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_Waypoint/fast
 
 # Convenience name for target.
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_SetModeCommand.dir/rule:
@@ -483,19 +198,349 @@ _uav_msgs_generate_messages_check_deps_SetModeCommand/fast:
 .PHONY : _uav_msgs_generate_messages_check_deps_SetModeCommand/fast
 
 # Convenience name for target.
-uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/rule
-.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/rule
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-_uav_msgs_generate_messages_check_deps_Waypoint: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/rule
+uav_msgs_generate_messages_cpp: uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : _uav_msgs_generate_messages_check_deps_Waypoint
+.PHONY : uav_msgs_generate_messages_cpp
 
 # fast build rule for target.
-_uav_msgs_generate_messages_check_deps_Waypoint/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build
-.PHONY : _uav_msgs_generate_messages_check_deps_Waypoint/fast
+uav_msgs_generate_messages_cpp/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_cpp.dir/build
+.PHONY : uav_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_HoverCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_HoverCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_HoverCommand/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_HoverCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_HoverCommand/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_WaypointsCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_WaypointsCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_WaypointsCommand/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_WaypointsCommand/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+uav_msgs_generate_messages_py: uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/rule
+
+.PHONY : uav_msgs_generate_messages_py
+
+# fast build rule for target.
+uav_msgs_generate_messages_py/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build
+.PHONY : uav_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_LandCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_LandCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_LandCommand/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_LandCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_LandCommand/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_PositionControlNEDCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_TargetsInFrame: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_TargetsInFrame
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_TargetsInFrame/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_TargetsInFrame/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ROI.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ROI.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ROI.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_ROI: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ROI.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_ROI
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_ROI/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ROI.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_ROI.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_ROI/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule
+
+# Convenience name for target.
+uav_msgs_genlisp: uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/rule
+
+.PHONY : uav_msgs_genlisp
+
+# fast build rule for target.
+uav_msgs_genlisp/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_genlisp.dir/build
+.PHONY : uav_msgs_genlisp/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/rule
+
+# Convenience name for target.
+uav_msgs_gennodejs: uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/rule
+
+.PHONY : uav_msgs_gennodejs
+
+# fast build rule for target.
+uav_msgs_gennodejs/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/build.make uav_msgs/CMakeFiles/uav_msgs_gennodejs.dir/build
+.PHONY : uav_msgs_gennodejs/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_TakeoffCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_TakeoffCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_TakeoffCommand/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TakeoffCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_TakeoffCommand/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_UAVControlCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_UAVControlCommand
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_UAVControlCommand/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_UAVControlCommand/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule
+
+# Convenience name for target.
+uav_msgs_generate_messages: uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/rule
+
+.PHONY : uav_msgs_generate_messages
+
+# fast build rule for target.
+uav_msgs_generate_messages/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages.dir/build
+.PHONY : uav_msgs_generate_messages/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule
+
+# Convenience name for target.
+uav_msgs_gencpp: uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/rule
+
+.PHONY : uav_msgs_gencpp
+
+# fast build rule for target.
+uav_msgs_gencpp/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_gencpp.dir/build
+.PHONY : uav_msgs_gencpp/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule
+
+# Convenience name for target.
+uav_msgs_geneus: uav_msgs/CMakeFiles/uav_msgs_geneus.dir/rule
+
+.PHONY : uav_msgs_geneus
+
+# fast build rule for target.
+uav_msgs_geneus/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_geneus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_geneus.dir/build
+.PHONY : uav_msgs_geneus/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Target.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Target.dir/rule
+.PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Target.dir/rule
+
+# Convenience name for target.
+_uav_msgs_generate_messages_check_deps_Target: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Target.dir/rule
+
+.PHONY : _uav_msgs_generate_messages_check_deps_Target
+
+# fast build rule for target.
+_uav_msgs_generate_messages_check_deps_Target/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Target.dir/build.make uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Target.dir/build
+.PHONY : _uav_msgs_generate_messages_check_deps_Target/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+uav_msgs_generate_messages_lisp: uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : uav_msgs_generate_messages_lisp
+
+# fast build rule for target.
+uav_msgs_generate_messages_lisp/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_lisp.dir/build
+.PHONY : uav_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+uav_msgs_generate_messages_nodejs: uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : uav_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+uav_msgs_generate_messages_nodejs/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_nodejs.dir/build
+.PHONY : uav_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_genpy.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_genpy.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_genpy.dir/rule
+
+# Convenience name for target.
+uav_msgs_genpy: uav_msgs/CMakeFiles/uav_msgs_genpy.dir/rule
+
+.PHONY : uav_msgs_genpy
+
+# fast build rule for target.
+uav_msgs_genpy/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_genpy.dir/build.make uav_msgs/CMakeFiles/uav_msgs_genpy.dir/build
+.PHONY : uav_msgs_genpy/fast
+
+# Convenience name for target.
+uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule
+.PHONY : uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+uav_msgs_generate_messages_eus: uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/rule
+
+.PHONY : uav_msgs_generate_messages_eus
+
+# fast build rule for target.
+uav_msgs_generate_messages_eus/fast:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build.make uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus.dir/build
+.PHONY : uav_msgs_generate_messages_eus/fast
 
 # Help Target
 help:
@@ -504,34 +549,37 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... install"
-	@echo "... uav_msgs_genpy"
-	@echo "... uav_msgs_generate_messages_nodejs"
-	@echo "... uav_msgs_generate_messages_lisp"
-	@echo "... uav_msgs_geneus"
-	@echo "... test"
-	@echo "... uav_msgs_generate_messages_eus"
-	@echo "... uav_msgs_gencpp"
-	@echo "... uav_msgs_generate_messages"
-	@echo "... _uav_msgs_generate_messages_check_deps_UAVControlCommand"
-	@echo "... _uav_msgs_generate_messages_check_deps_TakeoffCommand"
-	@echo "... uav_msgs_gennodejs"
-	@echo "... uav_msgs_genlisp"
-	@echo "... _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand"
 	@echo "... install/local"
-	@echo "... _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand"
-	@echo "... _uav_msgs_generate_messages_check_deps_LandCommand"
-	@echo "... _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand"
-	@echo "... _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand"
-	@echo "... uav_msgs_generate_messages_py"
-	@echo "... _uav_msgs_generate_messages_check_deps_WaypointsCommand"
-	@echo "... _uav_msgs_generate_messages_check_deps_HoverCommand"
-	@echo "... uav_msgs_generate_messages_cpp"
-	@echo "... _uav_msgs_generate_messages_check_deps_SetModeCommand"
 	@echo "... _uav_msgs_generate_messages_check_deps_Waypoint"
+	@echo "... _uav_msgs_generate_messages_check_deps_SetModeCommand"
+	@echo "... uav_msgs_generate_messages_cpp"
+	@echo "... _uav_msgs_generate_messages_check_deps_HoverCommand"
+	@echo "... install"
+	@echo "... _uav_msgs_generate_messages_check_deps_WaypointsCommand"
+	@echo "... uav_msgs_generate_messages_py"
+	@echo "... _uav_msgs_generate_messages_check_deps_VelocityControlNEDCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_PositionControlGlobalCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_LandCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_PositionControlNEDCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_ReturnToLaunchCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_TargetsInFrame"
+	@echo "... _uav_msgs_generate_messages_check_deps_ROI"
+	@echo "... uav_msgs_genlisp"
+	@echo "... uav_msgs_gennodejs"
+	@echo "... _uav_msgs_generate_messages_check_deps_TakeoffCommand"
+	@echo "... _uav_msgs_generate_messages_check_deps_UAVControlCommand"
+	@echo "... uav_msgs_generate_messages"
+	@echo "... uav_msgs_gencpp"
+	@echo "... test"
+	@echo "... uav_msgs_geneus"
+	@echo "... _uav_msgs_generate_messages_check_deps_Target"
+	@echo "... uav_msgs_generate_messages_lisp"
+	@echo "... uav_msgs_generate_messages_nodejs"
+	@echo "... uav_msgs_genpy"
+	@echo "... edit_cache"
+	@echo "... uav_msgs_generate_messages_eus"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
 .PHONY : help
 
 

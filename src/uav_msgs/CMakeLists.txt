@@ -23,6 +23,9 @@ add_message_files(
   UAVControlCommand.msg
   WaypointsCommand.msg
   Waypoint.msg
+  Target.msg 
+  TargetsInFrame.msg 
+  ROI.msg
 )
 
 generate_messages(

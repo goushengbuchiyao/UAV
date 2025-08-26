@@ -22,6 +22,9 @@
         <param name="reboot_px4_set_reset_ekf" value="$(arg reboot_px4_set_reset_ekf)"/>
         <param name="enable_rc_check" value="false"/>
         <param name="rc_threshold" value="50.0"/>
+
+        <param name="use_aruco_landing" value="true"/>
+        <param name="aruco_landing_active" value="false"/>
         <!-- 可选 PX4 参数文件加载 -->
         <rosparam file="$(find uav_control)/config/px4_params.yaml" command="load"/>
     </node>
