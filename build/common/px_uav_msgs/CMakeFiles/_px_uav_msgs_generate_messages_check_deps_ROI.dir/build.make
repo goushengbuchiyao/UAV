@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 # Utility rule file for _px_uav_msgs_generate_messages_check_deps_ROI.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 include common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/progress.make
 
 common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI:
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg 
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py px_uav_msgs /home/px4/UAV_SDK/src/common/px_uav_msgs/msg/ROI.msg 
 
 _px_uav_msgs_generate_messages_check_deps_ROI: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI
 _px_uav_msgs_generate_messages_check_deps_ROI: common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/build.make
@@ -67,10 +67,10 @@ common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/
 .PHONY : common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/build
 
 common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/clean:
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/cmake_clean.cmake
+	cd /home/px4/UAV_SDK/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/cmake_clean.cmake
 .PHONY : common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/clean
 
 common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/common/px_uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/common/px_uav_msgs /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/common/px_uav_msgs /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/common/px_uav_msgs /home/px4/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : common/px_uav_msgs/CMakeFiles/_px_uav_msgs_generate_messages_check_deps_ROI.dir/depend
 

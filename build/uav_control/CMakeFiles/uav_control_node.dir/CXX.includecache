@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/px/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/HoverCommand.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/LandCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/LandCommand.h
 string
 -
 vector
@@ -38,7 +38,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlGlobalCommand.h
 string
 -
 vector
@@ -54,7 +54,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/PositionControlNEDCommand.h
 string
 -
 vector
@@ -70,7 +70,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/ROI.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/ROI.h
 string
 -
 vector
@@ -86,7 +86,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/ReturnToLaunchCommand.h
 string
 -
 vector
@@ -102,7 +102,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/SetModeCommand.h
 string
 -
 vector
@@ -118,7 +118,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/TakeoffCommand.h
 string
 -
 vector
@@ -134,7 +134,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/Target.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/Target.h
 string
 -
 vector
@@ -150,7 +150,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/TargetsInFrame.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/TargetsInFrame.h
 string
 -
 vector
@@ -172,7 +172,7 @@ uav_msgs/Target.h
 uav_msgs/ROI.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/UAVControlCommand.h
 string
 -
 vector
@@ -206,7 +206,7 @@ uav_msgs/SetModeCommand.h
 uav_msgs/WaypointsCommand.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
 string
 -
 vector
@@ -222,7 +222,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/Waypoint.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/Waypoint.h
 string
 -
 vector
@@ -240,7 +240,7 @@ ros/message_operations.h
 mavros_msgs/Waypoint.h
 -
 
-/home/px/UAV_SDK/devel/include/uav_msgs/WaypointsCommand.h
+/home/px4/UAV_SDK/devel/include/uav_msgs/WaypointsCommand.h
 string
 -
 vector
@@ -258,7 +258,7 @@ ros/message_operations.h
 uav_msgs/Waypoint.h
 -
 
-/home/px/UAV_SDK/src/uav_control/include/uav_control/uav_control_node.h
+/home/px4/UAV_SDK/src/uav_control/include/uav_control/uav_control_node.h
 ros/ros.h
 -
 std_msgs/String.h
@@ -304,9 +304,9 @@ thread
 mutex
 -
 
-/home/px/UAV_SDK/src/uav_control/src/uav_control_node.cpp
+/home/px4/UAV_SDK/src/uav_control/src/uav_control_node.cpp
 uav_control/uav_control_node.h
-/home/px/UAV_SDK/src/uav_control/src/uav_control/uav_control_node.h
+/home/px4/UAV_SDK/src/uav_control/src/uav_control/uav_control_node.h
 iostream
 -
 cmath

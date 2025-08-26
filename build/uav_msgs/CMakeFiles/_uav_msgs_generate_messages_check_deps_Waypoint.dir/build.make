@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px4/UAV_SDK/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px4/UAV_SDK/build
 
 # Utility rule file for _uav_msgs_generate_messages_check_deps_Waypoint.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 include uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/progress.make
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint:
-	cd /home/px/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg mavros_msgs/Waypoint
+	cd /home/px4/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px4/UAV_SDK/src/uav_msgs/msg/Waypoint.msg mavros_msgs/Waypoint
 
 _uav_msgs_generate_messages_check_deps_Waypoint: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint
 _uav_msgs_generate_messages_check_deps_Waypoint: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build.make
@@ -67,10 +67,10 @@ uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build: _
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/build
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/clean:
-	cd /home/px/UAV_SDK/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/cmake_clean.cmake
+	cd /home/px4/UAV_SDK/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/cmake_clean.cmake
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/clean
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/uav_msgs /home/px/UAV_SDK/build/uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px4/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px4/UAV_SDK/src /home/px4/UAV_SDK/src/uav_msgs /home/px4/UAV_SDK/build /home/px4/UAV_SDK/build/uav_msgs /home/px4/UAV_SDK/build/uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_Waypoint.dir/depend
 

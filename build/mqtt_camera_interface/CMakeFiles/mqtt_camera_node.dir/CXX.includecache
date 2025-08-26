@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/px/UAV_SDK/src/mqtt_camera_interface/src/mqtt_camera_node.cpp
+/home/px4/UAV_SDK/src/mqtt_camera_interface/src/mqtt_camera_node.cpp
 ros/ros.h
 -
 mavros_msgs/CommandLong.h

@@ -110,7 +110,7 @@ private:
     
     // 二维码引导降落
     // 降落参数
-    const double DESCENT_STEP_OUT = 0.1;
+    const double DESCENT_STEP_OUT = 0.3;
     const double DESCENT_STEP_IN = 0.05;
     const double MIN_ALTITUDE = 0.1;
     const double HOVER_ALTITUDE = 0.5;
