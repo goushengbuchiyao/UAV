@@ -80,11 +80,6 @@ private:
     bool outer_marker_found_;
     bool inner_marker_found_;
 
-    // // 降落参数
-    // const double DESCENT_STEP_OUT;
-    // const double DESCENT_STEP_IN;
-    // const double MIN_ALTITUDE;
-    // const double HOVER_ALTITUDE;
 
     // 航点任务状态
     bool mission_active_ = false;
@@ -110,8 +105,8 @@ private:
     
     // 二维码引导降落
     // 降落参数
-    const double DESCENT_STEP_OUT = 0.1;
-    const double DESCENT_STEP_IN = 0.05;
+    const double DESCENT_STEP_OUT = 0.2;
+    const double DESCENT_STEP_IN = 0.1;
     const double MIN_ALTITUDE = 0.1;
     const double HOVER_ALTITUDE = 0.5;
     bool use_aruco_landing_;

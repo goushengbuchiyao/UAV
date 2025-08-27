@@ -10,7 +10,7 @@
         <param name="mqtt/ca_path" value="$(find mqtt_bridge)/config/emqxsl-ca.crt" />
         
         <param name="mqtt/username" value="px_uav" />
-        <param name="mqtt/password" value="123456" />
+        <param name="mqtt/password" value="WCNM1111!" />
         <param name="mqtt/port" value="8883" />
         <param name="mqtt/reconnect_interval" value="5000" /> <!-- 重连间隔(毫秒) -->
         

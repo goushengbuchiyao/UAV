@@ -161,12 +161,7 @@ void UAVControlNode::arucoPoseCallback(const uav_msgs::TargetsInFrame::ConstPtr&
         }
 }
 void UAVControlNode::handleOuterMarker() {
-        // 切换到 OFFBOARD 模式
-        if (current_state_.mode != "OFFBOARD") {
-            if (!setMode("OFFBOARD")) {
-                return;
-            }
-        }
+       
 
         // 找到外层标记的目标位置
         for (const auto& target : aruco_pose_.targets) {
@@ -174,7 +169,7 @@ void UAVControlNode::handleOuterMarker() {
             if (target.tracked_id == 18) {
                 double target_x = target.px;
                 double target_y = target.py;
-                double target_z = current_pose_.pose.position.z;
+                double target_z = local_pose_.pose.position.z;
                 
                 target_z -= DESCENT_STEP_OUT;
                 if (target_z < HOVER_ALTITUDE) {
@@ -183,45 +178,41 @@ void UAVControlNode::handleOuterMarker() {
                 ROS_INFO("===========================landing-first=============================");
                 ROS_INFO("Descending to height: %.2f", target_z);
                 ROS_INFO("Current UAV Pose: (%.2f, %.2f, %.2f)",
-                            current_pose_.pose.position.x,
-                            current_pose_.pose.position.y,
-                            current_pose_.pose.position.z);
+                            local_pose_.pose.position.x,
+                            local_pose_.pose.position.y,
+                            local_pose_.pose.position.z);
                 ROS_INFO("Target ArUco Pose: (%.2f, %.2f, %.2f)",
                             target_x, target_y, target_z);
                 // 发送位置设定点
                 sendPositionSetpoint(target_x, target_y, target_z, 0.0);
                 ros::spinOnce();
-                ros::Rate(20).sleep();
+                // ros::Rate(20).sleep();
             }
         }
     }
+    
 void UAVControlNode::handleInnerMarker() {
-        // 切换到 OFFBOARD 模式
-        if (current_state_.mode != "OFFBOARD") {
-            if (!setMode("OFFBOARD")) {
-                return;
-            }
-        }
 
         // 找到内层标记的目标位置
         for (const auto& target : aruco_pose_.targets) {
             if (target.tracked_id == 1) {
 
-                double target_z = current_pose_.pose.position.z;
-                target_z -= DESCENT_STEP_IN;
-                if(target_z >= MIN_ALTITUDE) {
+                double target_z = local_pose_.pose.position.z;
+                
+                if(target_z > MIN_ALTITUDE) {
+                    target_z -= DESCENT_STEP_IN;
                     ROS_INFO("===========================landing-second=============================");
                     ROS_INFO("Descending to height: %.2f", target_z);
                     ROS_INFO("Current UAV Pose: (%.2f, %.2f, %.2f)",
-                            current_pose_.pose.position.x,
-                            current_pose_.pose.position.y,
-                            current_pose_.pose.position.z);
+                            local_pose_.pose.position.x,
+                            local_pose_.pose.position.y,
+                            local_pose_.pose.position.z);
                     ROS_INFO("Target ArUco Pose: (%.2f, %.2f, %.2f)",
                             target.px, target.py, target_z);
                     sendPositionSetpoint(target.px, target.py, target_z, 0.0);
                     
                     ros::spinOnce();
-                    ros::Rate(10).sleep();
+                    // ros::Rate(20).sleep();
                 }
                 if (target_z<=0.1){
                     // 切换到 LAND 模式
@@ -229,6 +220,7 @@ void UAVControlNode::handleInnerMarker() {
                         ROS_INFO("Switched to AUTO.LAND mode");
                     } else {
                         ROS_ERROR("Failed to switch to AUTO.LAND mode");
+                        sendVelocitySetpoint(0.0, 0.0, -0.2, 0.0); // 慢速下降
                         arm();
                     }
                     // break;
@@ -308,26 +300,63 @@ void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
     }
     else if(cmd.command_type == "return_to_launch")
     {
-        if (setMode("AUTO.RTL") && current_state_.mode == "AUTO.RTL" && use_aruco_landing_)
+        // if (setMode("AUTO.RTL") && local_pose_.pose.position.z > 10.0){
+
+        // }
+         // 增加模式确认延迟
+        // ros::Rate check_rate(10);
+        // int mode_check_count = 0;
+        while (ros::ok() && local_pose_.pose.position.z > 6.0) {
+            ROS_INFO("[%s] Initiating RTL, current altitude: %.2f", uav_id_.c_str(), local_pose_.pose.position.z);
+            setMode("AUTO.RTL");
+            ros::spinOnce();
+            // mode_check_count++;
+        }
+        if ( current_state_.mode == "AUTO.RTL" && use_aruco_landing_ )
         {
+            ROS_INFO("[%s] RTL mode set, preparing for ArUco landing.", uav_id_.c_str());
             aruco_landing_active_ = true;
-            if (local_pose_.pose.position.z <= 10.0)
-            {
-                // 进入二维码引导降落
+            // 发送初始悬停指令（关键！切换前必须先发指令）
+            ros::Time start_time = ros::Time::now();
+            ros::Rate control_rate(20.0);
+            while (ros::Time::now() - start_time < ros::Duration(1.0)) {
+                sendPositionSetpoint(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z, 0.0);
+                ros::spinOnce();
+                control_rate.sleep();
+            }
+            while (ros::ok()) {
+                ros::spinOnce();
+                // 进入二维码引导降落0
+                // 切换到 OFFBOARD 模式
+                if (current_state_.mode != "OFFBOARD") {
+                   setMode("OFFBOARD");
+                }
+
+
                 if (inner_marker_found_) {
                     handleInnerMarker();
                 } else if (outer_marker_found_) {
                     handleOuterMarker();
-                } else {
+                }
+                else {
                     // 未检测到标记，保持当前位置悬停
                     ROS_INFO("[%s] No ArUco markers detected, hovering in place.", uav_id_.c_str());
-                    setMode("POSCTL");
+                }
+                control_rate.sleep(); 
+                // 如果无人机已降落，退出循环
+                if (current_state_.mode == "AUTO.LAND") {
+                    break;
+                }
+                
+                if (current_state_.armed == false) {
+                    break;
                 }
             }
             
+            
             ROS_INFO("[%s] RTL mode set, ArUco landing active.", uav_id_.c_str());
         }
-        else if (setMode("AUTO.RTL"))
+        else 
         {
             ROS_INFO("[%s] RTL mode set.", uav_id_.c_str());
         }
@@ -444,8 +473,8 @@ bool UAVControlNode::checkInFlightSafety()
 
 bool UAVControlNode::isInsideFence(double x, double y, double z)
 {
-    ROS_INFO("[%s] fence_min_x_: %.2f, fence_max_x_: %.2f, fence_min_y_: %.2f, fence_max_y_: %.2f, fence_min_z_: %.2f, fence_max_z_: %.2f", uav_id_.c_str(), fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_);
-    ROS_INFO("[%s] x: %.2f, y: %.2f, z: %.2f", uav_id_.c_str(), x, y, z);
+    // ROS_INFO("[%s] fence_min_x_: %.2f, fence_max_x_: %.2f, fence_min_y_: %.2f, fence_max_y_: %.2f, fence_min_z_: %.2f, fence_max_z_: %.2f", uav_id_.c_str(), fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_);
+    // ROS_INFO("[%s] x: %.2f, y: %.2f, z: %.2f", uav_id_.c_str(), x, y, z);
     return x >= fence_min_x_ && x <= fence_max_x_ &&
            y >= fence_min_y_ && y <= fence_max_y_ &&
            z >= fence_min_z_ && z <= fence_max_z_;
@@ -627,8 +656,8 @@ void UAVControlNode::sendPositionSetpoint(double x, double y, double z, double y
     pose.pose.orientation.w = q.w();
 
     // 闭环控制参数
-    const double pos_tolerance = 0.2; // 位置容差(米)
-    const int max_attempts = 100;     // 最大尝试次数
+    const double pos_tolerance = 0.05; // 位置容差(米)
+    const int max_attempts = 25;     // 最大尝试次数
     const double loop_rate = 20.0;    // 发布频率(Hz)
     ros::Rate rate(loop_rate);
     int attempts = 0;
@@ -818,7 +847,7 @@ void UAVControlNode::missionReachedCallback(const mavros_msgs::WaypointReached::
         ROS_INFO("[%s] Mission completed successfully", uav_id_.c_str());
         mission_active_ = false;
         // 任务完成后自动着陆
-        land(0.0); // 偏航角设为0
+        // land(0.0); // 偏航角设为0
     }
 }
 

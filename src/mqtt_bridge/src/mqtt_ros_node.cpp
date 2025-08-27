@@ -68,7 +68,7 @@ void MQTTROSNode::run() {
     while (ros::ok()) {
         ros::spinOnce();
         // 发布 UAV 状态到 MQTT 状态数据一直发送，不依赖于命令
-        if (mqtt_client_ && mqtt_client_->isConnected() ) {
+        if (mqtt_client_->isConnected() ) {
             if (uav_collector_->isConnected())
             {
                 std::string json_state = uav_collector_->getStateJson();
