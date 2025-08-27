@@ -80,11 +80,6 @@ private:
     bool outer_marker_found_;
     bool inner_marker_found_;
 
-    // // 降落参数
-    // const double DESCENT_STEP_OUT;
-    // const double DESCENT_STEP_IN;
-    // const double MIN_ALTITUDE;
-    // const double HOVER_ALTITUDE;
 
     // 航点任务状态
     bool mission_active_ = false;
@@ -110,17 +105,19 @@ private:
     
     // 二维码引导降落
     // 降落参数
-    const double DESCENT_STEP_OUT = 0.3;
-    const double DESCENT_STEP_IN = 0.05;
+    const double DESCENT_STEP_OUT = 0.2;
+    const double DESCENT_STEP_IN = 0.1;
     const double MIN_ALTITUDE = 0.1;
     const double HOVER_ALTITUDE = 0.5;
     bool use_aruco_landing_;
     bool aruco_landing_active_;
     void handleOuterMarker();
     void handleInnerMarker();
-    // 二维码降落位姿
-    void arucoPoseCallback(const uav_msgs::TargetsInFrame::ConstPtr& msg);
+    // 返航
+    void RTL_Aruco_land();
     // 回调函数
+    // 二维码降落位姿回调
+    void arucoPoseCallback(const uav_msgs::TargetsInFrame::ConstPtr& msg);
     void stateCallback(const mavros_msgs::State::ConstPtr& msg);
     void batteryCallback(const sensor_msgs::BatteryState::ConstPtr& msg);
     void gpsCallback(const mavros_msgs::GPSRAW::ConstPtr& msg);
