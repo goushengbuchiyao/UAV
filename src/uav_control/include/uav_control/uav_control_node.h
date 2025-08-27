@@ -113,9 +113,11 @@ private:
     bool aruco_landing_active_;
     void handleOuterMarker();
     void handleInnerMarker();
-    // 二维码降落位姿
-    void arucoPoseCallback(const uav_msgs::TargetsInFrame::ConstPtr& msg);
+    // 返航
+    void RTL_Aruco_land();
     // 回调函数
+    // 二维码降落位姿回调
+    void arucoPoseCallback(const uav_msgs::TargetsInFrame::ConstPtr& msg);
     void stateCallback(const mavros_msgs::State::ConstPtr& msg);
     void batteryCallback(const sensor_msgs::BatteryState::ConstPtr& msg);
     void gpsCallback(const mavros_msgs::GPSRAW::ConstPtr& msg);
