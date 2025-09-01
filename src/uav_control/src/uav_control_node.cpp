@@ -15,9 +15,9 @@ UAVControlNode::UAVControlNode(ros::NodeHandle& nh) : nh_(nh)
     nh_.param<double>("rc_threshold", rc_threshold_, 50.0);
     // 初始化遥控器更改标志
     rc_changed_ = false;
-
+    
     // 订阅RC通道话题
-    rc_sub_ = nh_.subscribe(prefix_ + "/mavros/rc/in", 10, &UAVControlNode::rcCallback, this);
+    // rc_sub_ = nh_.subscribe(prefix_ + "/mavros/rc/in", 10, &UAVControlNode::rcCallback, this);
 
     // 订阅 MAVROS 话题
     state_sub_ = nh_.subscribe(prefix_ + "/mavros/state", 10, &UAVControlNode::stateCallback, this);
@@ -243,7 +243,7 @@ void UAVControlNode::uavCommandCallback(const uav_msgs::UAVControlCommand::Const
 void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
 {
     if (rc_changed_) {
-            ROS_INFO("[%s] RC input detected, stopping position control.", uav_id_.c_str());
+            ROS_INFO("[%s] RC input detected, stopping offboard control.", uav_id_.c_str());
             return;
         }
     if(cmd.command_type == "takeoff")
@@ -300,72 +300,10 @@ void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
     }
     else if(cmd.command_type == "return_to_launch")
     {
-        // if (setMode("AUTO.RTL") && local_pose_.pose.position.z > 10.0){
-
-        // }
-         // 增加模式确认延迟
-        // ros::Rate check_rate(10);
-        // int mode_check_count = 0;
         // 返航二维码引导降落
         RTL_Aruco_land();  
         setMode("POSCTL");
 
-        // while (ros::ok() && local_pose_.pose.position.z > 6.0) {
-        //     ROS_INFO("[%s] Initiating RTL, current altitude: %.2f", uav_id_.c_str(), local_pose_.pose.position.z);
-        //     setMode("AUTO.RTL");
-        //     ros::spinOnce();
-        //     // mode_check_count++;
-        // }
-        // if ( current_state_.mode == "AUTO.RTL" && use_aruco_landing_ )
-        // {
-        //     ROS_INFO("[%s] RTL mode set, preparing for ArUco landing.", uav_id_.c_str());
-        //     aruco_landing_active_ = true;
-        //     // 发送初始悬停指令（关键！切换前必须先发指令）
-        //     ros::Time start_time = ros::Time::now();
-        //     ros::Rate control_rate(20.0);
-        //     while (ros::Time::now() - start_time < ros::Duration(1.0)) {
-        //         sendPositionSetpoint(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z, 0.0);
-        //         ros::spinOnce();
-        //         control_rate.sleep();
-        //     }
-        //     while (ros::ok()) {
-        //         ros::spinOnce();
-        //         // 进入二维码引导降落0
-        //         // 切换到 OFFBOARD 模式
-        //         if (current_state_.mode != "OFFBOARD") {
-        //            setMode("OFFBOARD");
-        //         }
-
-
-        //         if (inner_marker_found_) {
-        //             handleInnerMarker();
-        //         } else if (outer_marker_found_) {
-        //             handleOuterMarker();
-        //         }
-        //         else {
-        //             // 未检测到标记，保持当前位置悬停
-        //             ROS_INFO("[%s] No ArUco markers detected, hovering in place.", uav_id_.c_str());
-        //         }
-        //         control_rate.sleep(); 
-        //         // 如果无人机已降落，退出循环
-        //         if (current_state_.mode == "AUTO.LAND") {
-        //             break;
-        //         }
-                
-        //         if (current_state_.armed == false) {
-        //             break;
-        //         }
-        //     }
-            
-            
-        //     ROS_INFO("[%s] RTL mode set, ArUco landing active.", uav_id_.c_str());
-        // }
-        // else 
-        // {
-        //     ROS_INFO("[%s] RTL mode set.", uav_id_.c_str());
-        // }
-        
-        // setMode("POSCTL");
     }
     else if(cmd.command_type == "hover")
     {
@@ -517,6 +455,13 @@ bool UAVControlNode::checkPreArmSafety()
 
 bool UAVControlNode::checkInFlightSafety()
 {
+    // 检查RC输入
+    if (rc_input_.isChannelChanged())
+    {
+        rc_changed_ = true;
+        ROS_WARN("[%s] RC input detected, disabling offboard control.", uav_id_.c_str());
+    }
+    ();
     std::lock_guard<std::mutex> lock(state_mutex_);
     if(!isInsideFence(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z))
     {
@@ -827,34 +772,50 @@ void UAVControlNode::sendVelocitySetpoint(double vx, double vy, double vz, doubl
     }
 }
 
-// -------------------- RC通道回调函数 --------------------
-void UAVControlNode::rcCallback(const mavros_msgs::RCIn::ConstPtr& msg)
-{
-    if (msg->channels.empty() || msg->rssi==255 || !rc_check_enabled_) return;
-    // current_rc_values_.clear();
-    // current_rc_values_ = msg->channels;
-    for (const auto& channel : msg->channels) {
-        current_rc_values_.push_back(static_cast<int>(channel));
-    }
-    // 初始化初始RC值
-    if (initial_rc_values_.empty()) {
-        initial_rc_values_ = current_rc_values_;
-        return;
-    }
-    
-    // 检测RC通道变化
-    for (size_t i = 0; i < current_rc_values_.size() && i < initial_rc_values_.size(); ++i) {
-        if (std::abs(current_rc_values_[i] - initial_rc_values_[i]) > rc_threshold_) {
+// -------------------- RC通道检测 --------------------
+void UAVControlNode::checkRCInput()
+{    
+        // 检查通道变化
+        if (rc_input_.isChannelChanged()) {
             rc_changed_ = true;
-            ROS_WARN("[%s] RC channel %ld changed from %d to %d. Stopping control.", 
-                     uav_id_.c_str(), i+1, initial_rc_values_[i], current_rc_values_[i]);
-            setMode("POSCTL"); // 切换到位置模式
-            break;
-        }else{
+            ROS_WARN("RC input changed, stopping offboard control.");
+            ROS_INFO("Roll channel changed significantly");
+        } else {
             rc_changed_ = false;
         }
-    }
+        
+        // 检查RC信号有效性
+        if (!rc_input_.isRCSignalValid()) {
+            ROS_WARN("RC signal lost!");
+        }
 }
+// void UAVControlNode::rcCallback(const mavros_msgs::RCIn::ConstPtr& msg)
+// {
+//     if (msg->channels.empty() || msg->rssi==255 || !rc_check_enabled_) return;
+//     // current_rc_values_.clear();
+//     // current_rc_values_ = msg->channels;
+//     for (const auto& channel : msg->channels) {
+//         current_rc_values_.push_back(static_cast<int>(channel));
+//     }
+//     // 初始化初始RC值
+//     if (initial_rc_values_.empty()) {
+//         initial_rc_values_ = current_rc_values_;
+//         return;
+//     }
+    
+//     // 检测RC通道变化
+//     for (size_t i = 0; i < current_rc_values_.size() && i < initial_rc_values_.size(); ++i) {
+//         if (std::abs(current_rc_values_[i] - initial_rc_values_[i]) > rc_threshold_) {
+//             rc_changed_ = true;
+//             ROS_WARN("[%s] RC channel %ld changed from %d to %d. Stopping control.", 
+//                      uav_id_.c_str(), i+1, initial_rc_values_[i], current_rc_values_[i]);
+//             setMode("POSCTL"); // 切换到位置模式
+//             break;
+//         }else{
+//             rc_changed_ = false;
+//         }
+//     }
+// }
 
 // -------------------- 航点任务处理 --------------------
 // -------------------- 清除航点任务 --------------------
@@ -970,6 +931,8 @@ int main(int argc, char** argv)
     ros::init(argc, argv, "uav_control_node");
     ros::NodeHandle nh("~");
     UAVControlNode node(nh);
+    RCInput rc_input_;
+    rc_input_.initialize(nh);
     node.run();
 
     return 0;

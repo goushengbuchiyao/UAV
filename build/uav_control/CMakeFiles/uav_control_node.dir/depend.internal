@@ -16,6 +16,7 @@ uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o
  /home/px/UAV_SDK/devel/include/uav_msgs/VelocityControlNEDCommand.h
  /home/px/UAV_SDK/devel/include/uav_msgs/Waypoint.h
  /home/px/UAV_SDK/devel/include/uav_msgs/WaypointsCommand.h
+ /home/px/UAV_SDK/src/uav_control/include/uav_control/rc_input.h
  /home/px/UAV_SDK/src/uav_control/include/uav_control/uav_control_node.h
  /home/px/UAV_SDK/src/uav_control/src/uav_control_node.cpp
  /opt/ros/noetic/include/geometry_msgs/Point.h

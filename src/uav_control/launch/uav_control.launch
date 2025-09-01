@@ -7,6 +7,12 @@
     <arg name="enable_px4_params_load" default="false"/>
     <arg name="reboot_px4_set_reset_ekf" default="false"/>
 
+    <!-- RC输入相关参数 -->
+    <arg name="rc_dead_zone" default="0.05"/>
+    <arg name="rc_max_channel_value" default="2000.0"/>
+    <arg name="rc_min_channel_value" default="1000.0"/>
+    <arg name="rc_center_channel_value" default="1500.0"/>
+
     <!-- UAV Control Node -->
     <node name="uav_control_node" pkg="uav_control" type="uav_control_node" output="screen" >
         <!-- 参数传入节点 -->
@@ -23,6 +29,13 @@
         <param name="enable_rc_check" value="false"/>
         <param name="rc_threshold" value="50.0"/>
 
+        <!-- RC输入相关参数 -->
+        <!-- <param name="rc_dead_zone" value="$(arg rc_dead_zone)"/>
+        <param name="rc_max_channel_value" value="$(arg rc_max_channel_value)"/>
+        <param name="rc_min_channel_value" value="$(arg rc_min_channel_value)"/>
+        <param name="rc_center_channel_value" value="$(arg rc_center_channel_value)"/> -->
+        <param name="rc_threshold" value="30.0"/>
+        <!-- aruco 降落相关参数 -->
         <param name="use_aruco_landing" value="true"/>
         <param name="aruco_landing_active" value="false"/>
         <!-- 可选 PX4 参数文件加载 -->

@@ -258,6 +258,14 @@ ros/message_operations.h
 uav_msgs/Waypoint.h
 -
 
+/home/px/UAV_SDK/src/uav_control/include/uav_control/rc_input.h
+ros/ros.h
+-
+mavros_msgs/RCIn.h
+-
+mutex
+-
+
 /home/px/UAV_SDK/src/uav_control/include/uav_control/uav_control_node.h
 ros/ros.h
 -
@@ -303,6 +311,8 @@ thread
 -
 mutex
 -
+uav_control/rc_input.h
+/home/px/UAV_SDK/src/uav_control/include/uav_control/uav_control/rc_input.h
 
 /home/px/UAV_SDK/src/uav_control/src/uav_control_node.cpp
 uav_control/uav_control_node.h

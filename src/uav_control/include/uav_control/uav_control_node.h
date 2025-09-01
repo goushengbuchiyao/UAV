@@ -25,6 +25,7 @@
 #include <thread>
 #include <mutex>
 
+#include "uav_control/rc_input.h"
 class UAVControlNode
 {
 public:
@@ -124,7 +125,7 @@ private:
     void localPosCallback(const geometry_msgs::PoseStamped::ConstPtr& msg);
     void velocityCallback(const geometry_msgs::TwistStamped::ConstPtr& msg);
     void uavCommandCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg);
-    void rcCallback(const mavros_msgs::RCIn::ConstPtr& msg); // RC回调函数
+    // void rcCallback(const mavros_msgs::RCIn::ConstPtr& msg); // RC回调函数
     // 核心功能
     bool checkPreArmSafety();
     bool checkInFlightSafety();
