@@ -385,7 +385,7 @@ void UAVControlNode::RTL_Aruco_land()
             }
             while (ros::ok()) {
                 ros::spinOnce();
-                // 进入二维码引导降落0
+                // 进入二维码引导降落
                 // 切换到 OFFBOARD 模式
                 if (current_state_.mode != "OFFBOARD") {
                    setMode("OFFBOARD");
@@ -402,22 +402,17 @@ void UAVControlNode::RTL_Aruco_land()
                 }
                 control_rate.sleep(); 
                 // 如果无人机已降落，退出循环
-                if (current_state_.mode == "AUTO.LAND") {
-                    return true;
-                }
                 
-                if (current_state_.armed == false) {
-                    return true;
+                if (current_state_.mode == "AUTO.LAND" || current_state_.armed == false) {
+                    ROS_INFO("[%s] ArUco landing finish.", uav_id_.c_str());
                 }
             }
-            
             
             ROS_INFO("[%s] RTL mode set, ArUco landing active.", uav_id_.c_str());
         }
         else 
         {
             ROS_INFO("[%s] RTL mode set.", uav_id_.c_str());
-            return false;
         }
         
 }
@@ -455,14 +450,14 @@ bool UAVControlNode::checkPreArmSafety()
 
 bool UAVControlNode::checkInFlightSafety()
 {
+    std::lock_guard<std::mutex> lock(state_mutex_);
     // 检查RC输入
     if (rc_input_.isChannelChanged())
     {
         rc_changed_ = true;
         ROS_WARN("[%s] RC input detected, disabling offboard control.", uav_id_.c_str());
     }
-    ();
-    std::lock_guard<std::mutex> lock(state_mutex_);
+    
     if(!isInsideFence(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z))
     {
         ROS_ERROR("[%s] Geofence violation!", uav_id_.c_str());
@@ -480,6 +475,8 @@ bool UAVControlNode::checkInFlightSafety()
 
 bool UAVControlNode::isInsideFence(double x, double y, double z)
 {
+    // ROS_INFO("[%s] fence_min_x_: %.2f, fence_max_x_: %.2f, fence_min_y_: %.2f, fence_max_y_: %.2f, fence_min_z_: %.2f, fence_max_z_: %.2f", uav_id_.c_str(), fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_);
+    // ROS_INFO("[%s] x: %.2f, y: %.2f, z: %.2f", uav_id_.c_str(), x, y, z);
     // ROS_INFO("[%s] fence_min_x_: %.2f, fence_max_x_: %.2f, fence_min_y_: %.2f, fence_max_y_: %.2f, fence_min_z_: %.2f, fence_max_z_: %.2f", uav_id_.c_str(), fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_);
     // ROS_INFO("[%s] x: %.2f, y: %.2f, z: %.2f", uav_id_.c_str(), x, y, z);
     return x >= fence_min_x_ && x <= fence_max_x_ &&
@@ -773,22 +770,22 @@ void UAVControlNode::sendVelocitySetpoint(double vx, double vy, double vz, doubl
 }
 
 // -------------------- RC通道检测 --------------------
-void UAVControlNode::checkRCInput()
-{    
-        // 检查通道变化
-        if (rc_input_.isChannelChanged()) {
-            rc_changed_ = true;
-            ROS_WARN("RC input changed, stopping offboard control.");
-            ROS_INFO("Roll channel changed significantly");
-        } else {
-            rc_changed_ = false;
-        }
+// void UAVControlNode::checkRCInput()
+// {    
+//         // 检查通道变化
+//         if (rc_input_.isChannelChanged()) {
+//             rc_changed_ = true;
+//             ROS_WARN("RC input changed, stopping offboard control.");
+//             ROS_INFO("Roll channel changed significantly");
+//         } else {
+//             rc_changed_ = false;
+//         }
         
-        // 检查RC信号有效性
-        if (!rc_input_.isRCSignalValid()) {
-            ROS_WARN("RC signal lost!");
-        }
-}
+//         // 检查RC信号有效性
+//         if (!rc_input_.isRCSignalValid()) {
+//             ROS_WARN("RC signal lost!");
+//         }
+// }
 // void UAVControlNode::rcCallback(const mavros_msgs::RCIn::ConstPtr& msg)
 // {
 //     if (msg->channels.empty() || msg->rssi==255 || !rc_check_enabled_) return;

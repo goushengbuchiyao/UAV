@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<launch>
+<!-- Gazebo configs -->
+       <arg name="gui" default="true"/>
+       <arg name="debug" default="false"/>
+       <arg name="verbose" default="false"/>
+       <arg name="paused" default="false"/>
+       <arg name="use_sim_time" default="true"/>
+       <!--arg name="headless" default="false"/-->
+
+    <!-- Gazebo 世界 -->
+    <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/hitl_iris.world"/>
+
+    <!-- 启动 Gazebo -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="verbose" value="$(arg verbose)"/>
+        <arg name="world_name" value="$(arg world)"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    </include>
+
+<!-- Spawn vehicle model -->
+     <arg name="x" default="0.0"/>
+     <arg name="y" default="0.0"/>
+     <arg name="z" default="0.4"/>
+     <arg name="R" default="0"/>
+     <arg name="P" default="0"/>
+     <arg name="Y" default="0.0"/>
+     <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/iris_hitl_fpv_cam_flow/iris_hitl_fpv_cam_flow.sdf"/>
+     <arg name="model" default="iris_hitl"/>
+     <node name="$(anon vehicle_spawn)" pkg="gazebo_ros" type="spawn_model" output="screen"
+         args="-sdf -file $(arg sdf) -model $(arg model) -x $(arg x) -y $(arg y) -z $(arg z)">
+            <!-- <param name="wait_for_gazebo" value="true" /> -->
+     </node>
+
+    <!-- 加载 iris_hitl 模型 -->
+    <!-- <node name="spawn_iris" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-sdf -file $(find mavlink_sitl_gazebo)/models/iris_hitl/iris_hitl.sdf -model iris -x 0 -y 0 -z 0.2" /> -->
+
+    <!-- MAVROS，连接 Pixhawk6C -->
+    <group ns="uav1">
+        <include file="$(find mavros)/launch/px4.launch">
+            <arg name="fcu_url" default="/dev/ttyUSB0:921600" />
+            <!-- <arg name="gcs_url" value="udp://@14550"/> -->
+            <arg name="pluginlists_yaml" value="$(find px4)/launch/mavros_config.yaml"/>
+        </include>
+    </group>
+</launch>

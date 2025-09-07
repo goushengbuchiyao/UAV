@@ -16,7 +16,7 @@ RCInput::~RCInput() {
 
 void RCInput::initialize(ros::NodeHandle& nh) {
     // 订阅MAVROS的RC输入话题
-    nh_.param<std::string>("uav_id", uav_id_, "uav1");
+    nh.param<std::string>("uav_id", uav_id_, "uav1");
     prefix_ = "/" + uav_id_;
     
     // // 从参数服务器加载RC相关参数，使用默认值作为回退
@@ -24,7 +24,7 @@ void RCInput::initialize(ros::NodeHandle& nh) {
     // nh_.param<double>("rc_max_channel_value", max_channel_value_, 2000.0);
     // nh_.param<double>("rc_min_channel_value", min_channel_value_, 1000.0);
     // nh_.param<double>("rc_center_channel_value", center_channel_value_, 1000.0);
-    nh_.param<double>("rc_threshold", rc_threshold_, 30.0);
+    nh.param<double>("rc_threshold", rc_threshold_, 30.0);
     rc_subscriber_ = nh.subscribe<mavros_msgs::RCIn>(
         prefix_ + "/mavros/rc/in", 10, &RCInput::rcCallback, this);
     
@@ -107,25 +107,6 @@ void RCInput::rcCallback(const mavros_msgs::RCIn::ConstPtr& msg) {
     
 }
 
-int RCInput::getChannelRaw(int channel) const {
-    if (channel < 1 || channel > 4) {
-        ROS_WARN("Invalid RC channel: %d (must be 1-4)", channel);
-        return 1500;  // 返回中心值作为默认值
-    }
-    
-    std::lock_guard<std::mutex> lock(rc_mutex_);
-    return channels_[channel - 1];
-}
-
-double RCInput::getChannelNormalized(int channel) const {
-    if (channel < 1 || channel > 4) {
-        ROS_WARN("Invalid RC channel: %d (must be 1-4)", channel);
-        return 0.0;
-    }
-    
-    std::lock_guard<std::mutex> lock(rc_mutex_);
-    return channels_normalized_[channel - 1];
-}
 
 bool RCInput::isChannelChanged() const {
     std::lock_guard<std::mutex> lock(rc_mutex_);
@@ -147,20 +128,5 @@ bool RCInput::isChannelChanged() const {
     return false;
 }
 
-ros::Time RCInput::getLastReceiveTime() const {
-    std::lock_guard<std::mutex> lock(rc_mutex_);
-    return last_receive_time_;
-}
 
-bool RCInput::isRCSignalValid() const {
-    std::lock_guard<std::mutex> lock(rc_mutex_);
-    // 检查是否在过去的0.5秒内收到过RC数据
-    return (ros::Time::now() - last_receive_time_).toSec() < 0.5;
-}
 
-bool RCInput::hasNewData() {
-    std::lock_guard<std::mutex> lock(rc_mutex_);
-    bool result = new_data_flag_;
-    new_data_flag_ = false;  // 重置标志
-    return result;
-}

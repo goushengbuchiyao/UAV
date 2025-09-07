@@ -182,6 +182,33 @@ uav_control_node/fast:
 	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/build
 .PHONY : uav_control_node/fast
 
+src/rc_input.o: src/rc_input.cpp.o
+
+.PHONY : src/rc_input.o
+
+# target to build an object file
+src/rc_input.cpp.o:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_input.cpp.o
+.PHONY : src/rc_input.cpp.o
+
+src/rc_input.i: src/rc_input.cpp.i
+
+.PHONY : src/rc_input.i
+
+# target to preprocess a source file
+src/rc_input.cpp.i:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_input.cpp.i
+.PHONY : src/rc_input.cpp.i
+
+src/rc_input.s: src/rc_input.cpp.s
+
+.PHONY : src/rc_input.s
+
+# target to generate assembly for a file
+src/rc_input.cpp.s:
+	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_input.cpp.s
+.PHONY : src/rc_input.cpp.s
+
 src/uav_control_node.o: src/uav_control_node.cpp.o
 
 .PHONY : src/uav_control_node.o
@@ -223,6 +250,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... uav_control_node"
+	@echo "... src/rc_input.o"
+	@echo "... src/rc_input.i"
+	@echo "... src/rc_input.s"
 	@echo "... src/uav_control_node.o"
 	@echo "... src/uav_control_node.i"
 	@echo "... src/uav_control_node.s"

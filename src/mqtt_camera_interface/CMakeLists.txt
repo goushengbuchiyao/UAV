@@ -26,7 +26,7 @@ include_directories(
 )
 
 catkin_package(
-  INCLUDE_DIRS include
+  # INCLUDE_DIRS include
   LIBRARIES mqtt_camera_interface
   CATKIN_DEPENDS roscpp mavros_msgs std_msgs
 )

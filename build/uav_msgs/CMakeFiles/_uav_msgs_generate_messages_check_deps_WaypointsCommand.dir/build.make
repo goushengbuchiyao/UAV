@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 include uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/progress.make
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand:
-	cd /home/px/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg uav_msgs/Waypoint:mavros_msgs/Waypoint
+	cd /home/px/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg mavros_msgs/Waypoint:uav_msgs/Waypoint
 
 _uav_msgs_generate_messages_check_deps_WaypointsCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand
 _uav_msgs_generate_messages_check_deps_WaypointsCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_WaypointsCommand.dir/build.make

@@ -60,7 +60,6 @@ private:
      * @param msg RC输入消息
      */
     void rcCallback(const mavros_msgs::RCIn::ConstPtr& msg);
-    
     ros::Subscriber rc_subscriber_;      // RC输入订阅者
     mutable std::mutex rc_mutex_;        // 互斥锁保护共享数据
     
@@ -75,7 +74,8 @@ private:
     double rc_threshold_;                   // 通道变化检测阈值
     bool first_rc_channel_value_;        // 是否已接收到第一组RC数据
     std::string prefix_;                 // ROS命名空间前缀
-    
+    std::string uav_id_;
+
     ros::Time last_receive_time_;        // 最后一次接收RC数据的时间戳
     bool new_data_flag_;                 // 新数据标志位
 };

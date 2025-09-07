@@ -112,24 +112,24 @@ uav_msgs/CMakeFiles/uav_msgs_generate_messages_eus: /home/px/UAV_SDK/devel/share
 
 /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/HoverCommand.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/TakeoffCommand.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlNEDCommand.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/PositionControlGlobalCommand.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /opt/ros/noetic/share/mavros_msgs/msg/Waypoint.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/LandCommand.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/VelocityControlNEDCommand.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/ReturnToLaunchCommand.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /opt/ros/noetic/share/mavros_msgs/msg/Waypoint.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/UAVControlCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/SetModeCommand.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from uav_msgs/UAVControlCommand.msg"
 	cd /home/px/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Imavros_msgs:/opt/ros/noetic/share/mavros_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Igeographic_msgs:/opt/ros/noetic/share/geographic_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Iuuid_msgs:/opt/ros/noetic/share/uuid_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg
 
 /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/WaypointsCommand.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/WaypointsCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg
-/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/WaypointsCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg
 /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/WaypointsCommand.l: /opt/ros/noetic/share/mavros_msgs/msg/Waypoint.msg
+/home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg/WaypointsCommand.l: /home/px/UAV_SDK/src/uav_msgs/msg/Waypoint.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/px/UAV_SDK/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating EusLisp code from uav_msgs/WaypointsCommand.msg"
 	cd /home/px/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/px/UAV_SDK/src/uav_msgs/msg/WaypointsCommand.msg -Iuav_msgs:/home/px/UAV_SDK/src/uav_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Imavros_msgs:/opt/ros/noetic/share/mavros_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Igeographic_msgs:/opt/ros/noetic/share/geographic_msgs/cmake/../msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Iuuid_msgs:/opt/ros/noetic/share/uuid_msgs/cmake/../msg -p uav_msgs -o /home/px/UAV_SDK/devel/share/roseus/ros/uav_msgs/msg
 

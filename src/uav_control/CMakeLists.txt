@@ -22,6 +22,7 @@ include_directories(
 
 add_executable(uav_control_node
   src/uav_control_node.cpp
+  src/rc_input.cpp
 )
 
 target_link_libraries(uav_control_node
