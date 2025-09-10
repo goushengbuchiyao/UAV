@@ -2,6 +2,7 @@
 #define UAV_CONTROL_NODE_H
 
 #include <ros/ros.h>
+#include <std_msgs/Float64.h>
 #include <std_msgs/String.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/TwistStamped.h>
@@ -13,6 +14,7 @@
 #include <mavros_msgs/CommandTOL.h>
 #include <mavros_msgs/CommandLong.h>
 #include <mavros_msgs/RCIn.h>
+#include <mavros_msgs/ExtendedState.h>
 #include <mavros_msgs/WaypointClear.h>
 #include <mavros_msgs/WaypointReached.h>
 #include <mavros_msgs/WaypointPush.h>
@@ -36,7 +38,7 @@ private:
     ros::NodeHandle nh_;
     std::string uav_id_;
     std::string prefix_;
-
+    
     // MAVROS Subscribers
     ros::Subscriber state_sub_;
     ros::Subscriber battery_sub_;
@@ -44,6 +46,9 @@ private:
     ros::Subscriber global_pos_sub_;
     ros::Subscriber local_pos_sub_;
     ros::Subscriber velocity_sub_;
+    ros::Subscriber alt_sub_;
+    ros::Subscriber extended_state_sub_;
+    double rel_alt_;
 
     // UAVControlCommand Subscriber
     ros::Subscriber cmd_sub_;
@@ -97,12 +102,13 @@ private:
     bool reboot_px4_set_reset_ekf_;
     std::mutex state_mutex_;
 
-    ros::Subscriber rc_sub_;                  // RC通道订阅者
+    RCInput rc_input_;
+    // ros::Subscriber rc_sub_;                  // RC通道订阅者
     bool rc_check_enabled_;                   // RC检测开关
-    std::vector<int> initial_rc_values_;      // 初始RC通道值
-    std::vector<int> current_rc_values_;      // 当前RC通道值
+    // std::vector<int> initial_rc_values_;      // 初始RC通道值
+    // std::vector<int> current_rc_values_;      // 当前RC通道值
     bool rc_changed_;                         // RC通道变化标志
-    double rc_threshold_;                     // RC变化检测阈值
+    // double rc_threshold_;                     // RC变化检测阈值
     
     // 二维码引导降落
     // 降落参数
@@ -110,10 +116,13 @@ private:
     const double DESCENT_STEP_IN = 0.1;
     const double MIN_ALTITUDE = 0.1;
     const double HOVER_ALTITUDE = 0.5;
+    bool marker_found_;
     bool use_aruco_landing_;
     bool aruco_landing_active_;
     void handleOuterMarker();
     void handleInnerMarker();
+    mavros_msgs::ExtendedState extended_state_;
+    void extendedStateCallback(const mavros_msgs::ExtendedState::ConstPtr& msg);
     // 返航
     void RTL_Aruco_land();
     // 回调函数
@@ -125,12 +134,14 @@ private:
     void localPosCallback(const geometry_msgs::PoseStamped::ConstPtr& msg);
     void velocityCallback(const geometry_msgs::TwistStamped::ConstPtr& msg);
     void uavCommandCallback(const uav_msgs::UAVControlCommand::ConstPtr& msg);
+    void altCallback(const std_msgs::Float64::ConstPtr &msg);
     // void rcCallback(const mavros_msgs::RCIn::ConstPtr& msg); // RC回调函数
     // 核心功能
     bool checkPreArmSafety();
     bool checkInFlightSafety();
     bool isInsideFence(double x, double y, double z);
     void executeCommand(const uav_msgs::UAVControlCommand& cmd);
+    
 
     // 添加航点处理函数
     bool clearMission();

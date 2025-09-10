@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 include uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/progress.make
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame:
-	cd /home/px/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg std_msgs/Header:uav_msgs/Target:uav_msgs/ROI
+	cd /home/px/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px/UAV_SDK/src/uav_msgs/msg/TargetsInFrame.msg uav_msgs/ROI:uav_msgs/Target:std_msgs/Header
 
 _uav_msgs_generate_messages_check_deps_TargetsInFrame: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame
 _uav_msgs_generate_messages_check_deps_TargetsInFrame: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_TargetsInFrame.dir/build.make

@@ -56,7 +56,7 @@ public:
         innerMarkerLength = config["innerMarkerLength"].as<float>();
 
         // 订阅图像话题
-        image_sub_ = it_.subscribe("/iris/usb_cam/image_raw", 1, &ARQRDetector::imageCallback, this);
+        image_sub_ = it_.subscribe("/iris_hitl/usb_cam/image_raw", 1, &ARQRDetector::imageCallback, this);
         // 发布检测结果图像话题
         image_pub_ = it_.advertise("/ar_qr_detection/result", 1);
         // 初始化机体系坐标发布器

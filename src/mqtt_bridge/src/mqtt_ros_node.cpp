@@ -65,10 +65,18 @@ bool MQTTROSNode::init() {
 
 void MQTTROSNode::run() {
     ros::Rate rate(2); // 2Hz 发布
+    // wait for FCU connection
+    
+     while(ros::ok() && !uav_collector_->isConnected()){
+        ros::spinOnce();
+        rate.sleep();
+    }
+    
     while (ros::ok()) {
         ros::spinOnce();
         // 发布 UAV 状态到 MQTT 状态数据一直发送，不依赖于命令
         if (mqtt_client_->isConnected() ) {
+            
             if (uav_collector_->isConnected())
             {
                 std::string json_state = uav_collector_->getStateJson();

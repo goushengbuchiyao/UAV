@@ -20,8 +20,8 @@
         <param name="fence_max_x" value="50.0"/>
         <param name="fence_min_y" value="-50.0"/>
         <param name="fence_max_y" value="50.0"/>
-        <param name="fence_min_z" value="-1.0"/>
-        <param name="fence_max_z" value="50.0"/>
+        <!-- <param name="fence_min_z" value="-5.0"/> -->
+        <param name="fence_max_z" value="120.0"/>
         <param name="uav_id" value="$(arg uav_id)"/>
         <param name="loop_rate_hz" value="$(arg loop_rate_hz)"/>
         <param name="enable_px4_params_load" value="$(arg enable_px4_params_load)"/>
@@ -34,7 +34,7 @@
         <param name="rc_max_channel_value" value="$(arg rc_max_channel_value)"/>
         <param name="rc_min_channel_value" value="$(arg rc_min_channel_value)"/>
         <param name="rc_center_channel_value" value="$(arg rc_center_channel_value)"/> -->
-        <param name="rc_threshold" value="30.0"/>
+        <!-- <param name="rc_threshold" value="30.0"/> -->
         <!-- aruco 降落相关参数 -->
         <param name="use_aruco_landing" value="true"/>
         <param name="aruco_landing_active" value="false"/>

@@ -12,7 +12,8 @@ UAVControlNode::UAVControlNode(ros::NodeHandle& nh) : nh_(nh)
 
     // RC检测参数
     nh_.param<bool>("enable_rc_check", rc_check_enabled_, true);
-    nh_.param<double>("rc_threshold", rc_threshold_, 50.0);
+    // nh_.param<double>("rc_threshold", rc_threshold_, 50.0);
+    rc_input_.initialize(nh);
     // 初始化遥控器更改标志
     rc_changed_ = false;
     
@@ -24,7 +25,10 @@ UAVControlNode::UAVControlNode(ros::NodeHandle& nh) : nh_(nh)
     battery_sub_ = nh_.subscribe(prefix_ + "/mavros/battery", 10, &UAVControlNode::batteryCallback, this);
     gps_sub_ = nh_.subscribe(prefix_ + "/mavros/gpsstatus/gps1/raw", 10, &UAVControlNode::gpsCallback, this);
     local_pos_sub_ = nh_.subscribe(prefix_ + "/mavros/local_position/pose", 10, &UAVControlNode::localPosCallback, this);
+    // 高度位置修改为/uav1/mavros/global_position/rel_alt话题数据
+    alt_sub_ = nh_.subscribe(prefix_ + "/mavros/global_position/rel_alt", 10, &UAVControlNode::altCallback, this);
     velocity_sub_ = nh_.subscribe(prefix_ + "/mavros/local_position/velocity_local", 10, &UAVControlNode::velocityCallback, this);
+    extended_state_sub_ = nh_.subscribe(prefix_ + "/mavros/extended_state", 10, &UAVControlNode::extendedStateCallback, this);
     // 订阅 UAVControlCommand 指令
     cmd_sub_ = nh_.subscribe("/mqtt_ros_bridge/" + prefix_ + "/ros/uavcontrol/command", 10, &UAVControlNode::uavCommandCallback, this);
 
@@ -78,8 +82,12 @@ void UAVControlNode::run()
 {
     ros::Rate rate(20.0); // 20Hz
     ROS_INFO("[%s] Waiting for MAVROS connection...", uav_id_.c_str());
+    // wait for FCU connection
+     while(ros::ok() && !current_state_.connected){
+        ros::spinOnce();
+        rate.sleep();
+    }
 
-    // 等待与 PX4 通信
     while (ros::ok())
     {
         ros::spinOnce();
@@ -97,7 +105,10 @@ void UAVControlNode::run()
                 {
                     // ROS_ERROR("[%s] UAV in flight safety check failed!", uav_id_.c_str());
                     // 进入返航模式
-                    setMode("AUTO.RTL");
+                    ROS_INFO("[%s safety check in flight] UAV armed but failed safety check, initiating RTL with ArUco landing if markers are detected.", uav_id_.c_str());
+                    RTL_Aruco_land();
+                    
+                    // setMode("POSCTL");
                     // break;
                 }
             }
@@ -146,19 +157,39 @@ void UAVControlNode::velocityCallback(const geometry_msgs::TwistStamped::ConstPt
     // std::lock_guard<std::mutex> lock(state_mutex_);
     velocity_ = *msg;
 }
+void UAVControlNode::altCallback(const std_msgs::Float64::ConstPtr &msg) {
+        rel_alt_ = double(msg->data);
+}
+
+void UAVControlNode::extendedStateCallback(const mavros_msgs::ExtendedState::ConstPtr& msg) {
+    extended_state_ = *msg;
+}
+
 void UAVControlNode::arucoPoseCallback(const uav_msgs::TargetsInFrame::ConstPtr& msg) {
         aruco_pose_ = *msg;
         outer_marker_found_ = false;
         inner_marker_found_ = false;
-
+        // 检查是否找到目标
         for (const auto& target : aruco_pose_.targets) {
             if (target.tracked_id == 18) {
                 outer_marker_found_ = true;
+                // inner_marker_found_ = false;
             } else if (target.tracked_id == 1) {
                 inner_marker_found_ = true;
                 outer_marker_found_ = false;
             }
         }
+        if (outer_marker_found_ || inner_marker_found_)
+        {
+            marker_found_ = true;
+            ROS_INFO_THROTTLE(2, "Outer marker detected.");
+        }
+        else
+        {
+            marker_found_ = false;
+            ROS_INFO_THROTTLE(5, "No relevant ArUco markers detected.");
+        }
+        
 }
 void UAVControlNode::handleOuterMarker() {
        
@@ -199,32 +230,22 @@ void UAVControlNode::handleInnerMarker() {
 
                 double target_z = local_pose_.pose.position.z;
                 
-                if(target_z > MIN_ALTITUDE) {
-                    target_z -= DESCENT_STEP_IN;
-                    ROS_INFO("===========================landing-second=============================");
-                    ROS_INFO("Descending to height: %.2f", target_z);
-                    ROS_INFO("Current UAV Pose: (%.2f, %.2f, %.2f)",
+                
+                target_z -= DESCENT_STEP_IN;
+                ROS_INFO("===========================landing-second=============================");
+                ROS_INFO("Descending to height: %.2f", target_z);
+                ROS_INFO("Current UAV Pose: (%.2f, %.2f, %.2f)",
                             local_pose_.pose.position.x,
                             local_pose_.pose.position.y,
                             local_pose_.pose.position.z);
-                    ROS_INFO("Target ArUco Pose: (%.2f, %.2f, %.2f)",
+                ROS_INFO("Target ArUco Pose: (%.2f, %.2f, %.2f)",
                             target.px, target.py, target_z);
-                    sendPositionSetpoint(target.px, target.py, target_z, 0.0);
+                sendPositionSetpoint(target.px, target.py, target_z, 0.0);
                     
-                    ros::spinOnce();
-                    // ros::Rate(20).sleep();
-                }
-                if (target_z<=0.1){
-                    // 切换到 LAND 模式
-                    if (setMode("AUTO.LAND")) {
-                        ROS_INFO("Switched to AUTO.LAND mode");
-                    } else {
-                        ROS_ERROR("Failed to switch to AUTO.LAND mode");
-                        sendVelocitySetpoint(0.0, 0.0, -0.2, 0.0); // 慢速下降
-                        arm();
-                    }
-                    // break;
-                }
+                ros::spinOnce();
+                // ros::Rate(20).sleep();
+                
+                
                 
                 
                 
@@ -301,6 +322,7 @@ void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
     else if(cmd.command_type == "return_to_launch")
     {
         // 返航二维码引导降落
+        ROS_INFO("[%s return_to_launch] Initiating RTL with ArUco landing if markers are detected.", uav_id_.c_str());
         RTL_Aruco_land();  
         setMode("POSCTL");
 
@@ -365,57 +387,164 @@ void UAVControlNode::executeCommand(const uav_msgs::UAVControlCommand& cmd)
 void UAVControlNode::RTL_Aruco_land()
 {
     // 返航
-    while (ros::ok() && local_pose_.pose.position.z > 6.0) {
-            ROS_INFO("[%s] Initiating RTL, current altitude: %.2f", uav_id_.c_str(), local_pose_.pose.position.z);
-            setMode("AUTO.RTL");
+    setMode("AUTO.RTL");
+    ROS_INFO("[%s] current altitude rel: %.2f", uav_id_.c_str(), rel_alt_);
+    
+    // 等待无人机下降到6米以下
+    while (ros::ok() && rel_alt_ > 6.0) {
+        ROS_INFO("[%s] Initiating RTL, current altitude NED: %.2f", uav_id_.c_str(), local_pose_.pose.position.z);
+        ROS_INFO("[%s] current altitude rel: %.2f", uav_id_.c_str(), rel_alt_);
+        ros::spinOnce();
+    }
+    
+    // 只有当满足所有条件时才尝试二维码引导降落
+    if (use_aruco_landing_ && marker_found_ && rel_alt_ < 6.0)
+    {
+        ROS_INFO("[%s] RTL mode set, preparing for ArUco landing.", uav_id_.c_str());
+        aruco_landing_active_ = true;
+        
+        // 1. 先切换到POSCTL模式作为过渡
+        bool posctl_set = false;
+        int posctl_attempts = 0;
+        while (ros::ok() && !posctl_set && posctl_attempts < 10) {
+            posctl_set = setMode("POSCTL");
             ros::spinOnce();
-            // mode_check_count++;
+            ros::Duration(0.2).sleep();
+            posctl_attempts++;
         }
-        if ( current_state_.mode == "AUTO.RTL" && use_aruco_landing_ )
-        {
-            ROS_INFO("[%s] RTL mode set, preparing for ArUco landing.", uav_id_.c_str());
-            aruco_landing_active_ = true;
-            // 发送初始悬停指令（关键！切换前必须先发指令）
-            ros::Time start_time = ros::Time::now();
-            ros::Rate control_rate(20.0);
-            while (ros::Time::now() - start_time < ros::Duration(1.0)) {
-                sendPositionSetpoint(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z, 0.0);
-                ros::spinOnce();
-                control_rate.sleep();
+        
+        if (!posctl_set) {
+            ROS_ERROR("[%s] Failed to switch to POSCTL mode, aborting ArUco landing", uav_id_.c_str());
+            return;
+        }
+        
+        // 2. 发送稳定的悬停指令至少2秒
+        ROS_INFO("[%s] Sending hover commands before OFFBOARD mode", uav_id_.c_str());
+        ros::Time start_time = ros::Time::now();
+        ros::Rate control_rate(20.0);
+        while (ros::Time::now() - start_time < ros::Duration(2.0)) {
+            sendPositionSetpoint(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z, 0.0);
+            ros::spinOnce();
+            control_rate.sleep();
+        }
+        
+        // // 3. 切换到OFFBOARD模式，带重试机制
+        // bool offboard_set = false;
+        // int offboard_attempts = 0;
+        // while (ros::ok() && !offboard_set && offboard_attempts < 10) {
+        //     sendPositionSetpoint(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z, 0.0);
+        //     offboard_set = setMode("OFFBOARD");
+        //     ros::spinOnce();
+        //     control_rate.sleep();
+        //     offboard_attempts++;
+        // }
+        
+        // if (!offboard_set) {
+        //     ROS_ERROR("[%s] Failed to switch to OFFBOARD mode after %d attempts", uav_id_.c_str(), offboard_attempts);
+        //     // 尝试回到POSCTL模式作为安全回退
+        //     setMode("POSCTL");
+        //     return;
+        // }
+        ros::Time last_request = ros::Time::now();
+        // 4. 成功切换到OFFBOARD模式后，进行二维码引导降落
+        while (ros::ok()) {
+            ros::spinOnce();
+            if( current_state_.mode != "OFFBOARD" &&
+            (ros::Time::now() - last_request > ros::Duration(5.0))){
+                last_request = ros::Time::now();
+                setMode("OFFBOARD");
             }
-            while (ros::ok()) {
-                ros::spinOnce();
-                // 进入二维码引导降落
-                // 切换到 OFFBOARD 模式
-                if (current_state_.mode != "OFFBOARD") {
-                   setMode("OFFBOARD");
-                }
+            
+            // 持续发送位置指令以保持OFFBOARD模式
 
+            if (marker_found_)
+            {
                 if (inner_marker_found_) {
                     handleInnerMarker();
                 } else if (outer_marker_found_) {
                     handleOuterMarker();
-                }
-                else {
-                    // 未检测到标记，保持当前位置悬停
-                    ROS_INFO("[%s] No ArUco markers detected, hovering in place.", uav_id_.c_str());
-                }
-                control_rate.sleep(); 
-                // 如果无人机已降落，退出循环
-                
-                if (current_state_.mode == "AUTO.LAND" || current_state_.armed == false) {
-                    ROS_INFO("[%s] ArUco landing finish.", uav_id_.c_str());
-                }
+                } 
             }
+
             
-            ROS_INFO("[%s] RTL mode set, ArUco landing active.", uav_id_.c_str());
-        }
-        else 
-        {
-            ROS_INFO("[%s] RTL mode set.", uav_id_.c_str());
+            if (extended_state_.landed_state == mavros_msgs::ExtendedState::LANDED_STATE_ON_GROUND) {
+                ROS_INFO("[%s] UAV landed, disarming...", uav_id_.c_str());
+                setMode("AUTO.LAND");
+           
+            }
+            control_rate.sleep();
+            
+            // 如果无人机已降落，退出循环
+            if (current_state_.mode == "AUTO.LAND" || current_state_.armed == false) {
+                ROS_INFO("[%s] ArUco landing finish.", uav_id_.c_str());
+                break;
+            }
         }
         
+        ROS_INFO("[%s] ArUco landing procedure completed.", uav_id_.c_str());
+    }
+    else 
+    {
+        ROS_INFO("[%s] RTL mode set, ArUco landing conditions not met.", uav_id_.c_str());
+    }
 }
+// void UAVControlNode::RTL_Aruco_land()
+// {
+//     // 返航
+//     setMode("AUTO.RTL");
+//     ROS_INFO("[%s] current altitude rel: %.2f", uav_id_.c_str(), rel_alt_);
+//     while (ros::ok() && rel_alt_ > 6.0) {
+//         ROS_INFO("[%s] Initiating RTL, current altitude NED: %.2f", uav_id_.c_str(), local_pose_.pose.position.z);
+//         ROS_INFO("[%s] current altitude rel: %.2f", uav_id_.c_str(), rel_alt_);
+//         // 等待无人机降落
+//         ros::spinOnce();
+//         // mode_check_count++;
+//     }
+//         if (use_aruco_landing_ && marker_found_ && rel_alt_ < 6.0)
+//         {
+//             ROS_INFO("[%s] RTL mode set, preparing for ArUco landing.", uav_id_.c_str());
+//             aruco_landing_active_ = true;
+//             // 发送初始悬停指令（关键！切换前必须先发指令）
+//             ros::Time start_time = ros::Time::now();
+//             ros::Rate control_rate(20.0);
+//             while (ros::Time::now() - start_time < ros::Duration(1.0)) {
+//                 sendPositionSetpoint(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z, 0.0);
+//                 ros::spinOnce();
+//                 control_rate.sleep();
+//             }
+//             while (ros::ok()) {
+//                 ros::spinOnce();
+//                 // 进入二维码引导降落
+//                 // 切换到 OFFBOARD 模式
+//                 if (current_state_.mode != "OFFBOARD") {
+//                    setMode("OFFBOARD");
+//                 }
+
+//                 if (inner_marker_found_) {
+//                     handleInnerMarker();
+//                 } else if (outer_marker_found_) {
+//                     handleOuterMarker();
+//                 }
+//                 else {
+//                     // 未检测到标记，保持当前位置悬停
+//                     ROS_INFO("[%s] No ArUco markers detected, hovering in place.", uav_id_.c_str());
+//                 }
+//                 control_rate.sleep(); 
+//                 // 如果无人机已降落，退出循环
+                
+//                 if (current_state_.mode == "AUTO.LAND" || current_state_.armed == false) {
+//                     ROS_INFO("[%s] ArUco landing finish.", uav_id_.c_str());
+//                 }
+//             }
+            
+//             ROS_INFO("[%s] RTL mode set, ArUco landing active.", uav_id_.c_str());
+//         }
+//         else 
+//         {
+//             ROS_INFO("[%s] RTL mode set.", uav_id_.c_str());
+//         }
+        
+// }
 // -------------------- 安全检查 --------------------
 bool UAVControlNode::checkPreArmSafety()
 {
@@ -452,7 +581,7 @@ bool UAVControlNode::checkInFlightSafety()
 {
     std::lock_guard<std::mutex> lock(state_mutex_);
     // 检查RC输入
-    if (rc_input_.isChannelChanged())
+    if (rc_check_enabled_ && rc_input_.isChannelChanged())
     {
         rc_changed_ = true;
         ROS_WARN("[%s] RC input detected, disabling offboard control.", uav_id_.c_str());
@@ -460,7 +589,7 @@ bool UAVControlNode::checkInFlightSafety()
     
     if(!isInsideFence(local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z))
     {
-        ROS_ERROR("[%s] Geofence violation!", uav_id_.c_str());
+        ROS_ERROR("[%s] Geofence violation! x: %.2f, y: %.2f, z: %.2f", uav_id_.c_str(), local_pose_.pose.position.x, local_pose_.pose.position.y, local_pose_.pose.position.z);
         return false;
     }
     if(gps_.fix_type < 3 || gps_.satellites_visible < 10)
@@ -480,8 +609,9 @@ bool UAVControlNode::isInsideFence(double x, double y, double z)
     // ROS_INFO("[%s] fence_min_x_: %.2f, fence_max_x_: %.2f, fence_min_y_: %.2f, fence_max_y_: %.2f, fence_min_z_: %.2f, fence_max_z_: %.2f", uav_id_.c_str(), fence_min_x_, fence_max_x_, fence_min_y_, fence_max_y_, fence_min_z_, fence_max_z_);
     // ROS_INFO("[%s] x: %.2f, y: %.2f, z: %.2f", uav_id_.c_str(), x, y, z);
     return x >= fence_min_x_ && x <= fence_max_x_ &&
-           y >= fence_min_y_ && y <= fence_max_y_ &&
-           z >= fence_min_z_ && z <= fence_max_z_;
+           y >= fence_min_y_ && y <= fence_max_y_ && z <= fence_max_z_;
+        //    z >= fence_min_z_ && z <= fence_max_z_;
+        
 }
 
 // -------------------- MAVROS 操作 --------------------
@@ -638,7 +768,7 @@ void UAVControlNode::sendPositionSetpoint(double x, double y, double z, double y
     // 地理围栏安全检查
     if (x < fence_min_x_ || x > fence_max_x_ || 
         y < fence_min_y_ || y > fence_max_y_ || 
-        z < fence_min_z_ || z > fence_max_z_)
+        rel_alt_ > fence_max_z_)
     {
         ROS_WARN("[%s] Target position (%.2f, %.2f, %.2f) out of geofence", 
                  uav_id_.c_str(), x, y, z);
@@ -928,8 +1058,6 @@ int main(int argc, char** argv)
     ros::init(argc, argv, "uav_control_node");
     ros::NodeHandle nh("~");
     UAVControlNode node(nh);
-    RCInput rc_input_;
-    rc_input_.initialize(nh);
     node.run();
 
     return 0;

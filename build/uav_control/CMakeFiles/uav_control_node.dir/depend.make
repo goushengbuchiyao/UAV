@@ -106,6 +106,7 @@ uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/CommandTOL.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/CommandTOLRequest.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/CommandTOLResponse.h
+uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/ExtendedState.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/GPSRAW.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/RCIn.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/mavros_msgs/SetMode.h
@@ -183,6 +184,7 @@ uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/ros/wall_timer_options.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/rosconsole/macros_generated.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/sensor_msgs/BatteryState.h
+uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/std_msgs/Float64.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/std_msgs/Header.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/std_msgs/String.h
 uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/Matrix3x3.h
