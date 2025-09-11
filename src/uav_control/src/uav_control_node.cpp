@@ -158,7 +158,7 @@ void UAVControlNode::velocityCallback(const geometry_msgs::TwistStamped::ConstPt
     velocity_ = *msg;
 }
 void UAVControlNode::altCallback(const std_msgs::Float64::ConstPtr &msg) {
-        rel_alt_ = double(msg->data);
+    rel_alt_ = double(msg->data);
 }
 
 void UAVControlNode::extendedStateCallback(const mavros_msgs::ExtendedState::ConstPtr& msg) {
@@ -244,11 +244,6 @@ void UAVControlNode::handleInnerMarker() {
                     
                 ros::spinOnce();
                 // ros::Rate(20).sleep();
-                
-                
-                
-                
-                
             }
         }
     }
@@ -456,7 +451,13 @@ void UAVControlNode::RTL_Aruco_land()
             }
             
             // 持续发送位置指令以保持OFFBOARD模式
-
+            
+            ROS_INFO("[%s] marker_found_: %d", uav_id_.c_str(), marker_found_);
+            ROS_INFO("[%s] inner_marker_found_: %d", uav_id_.c_str(),inner_marker_found_);
+            ROS_INFO("[%s] outer_marker_found_: %d", uav_id_.c_str(),outer_marker_found_);
+            ROS_INFO("[%s] current altitude rel: %.2f", uav_id_.c_str(), rel_alt_);
+            ROS_INFO("[%s] current altitude NED: %.2f", uav_id_.c_str(), local_pose_.pose.position.z);
+            
             if (marker_found_)
             {
                 if (inner_marker_found_) {

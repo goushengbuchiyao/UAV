@@ -234,7 +234,7 @@ public:
             }
 
             // 发布机体系坐标消息
-            if (outerMarkerFound || innerMarkerFound) {
+            if (outerMarkerFound || innerMarkerFound || ids.size() != 0) {
                 aruco_land_pub_.publish(aruco_land_msg);
                 // 发布处理后的图像
                 image_pub_.publish(cv_ptr->toImageMsg());
