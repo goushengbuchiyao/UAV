@@ -240,8 +240,9 @@ void UAVControlNode::handleInnerMarker() {
                             local_pose_.pose.position.z);
                 ROS_INFO("Target ArUco Pose: (%.2f, %.2f, %.2f)",
                             target.px, target.py, target_z);
+                
                 sendPositionSetpoint(target.px, target.py, target_z, 0.0);
-                    
+                
                 ros::spinOnce();
                 // ros::Rate(20).sleep();
             }
@@ -466,12 +467,12 @@ void UAVControlNode::RTL_Aruco_land()
                     handleOuterMarker();
                 } 
             }
-
             
+            ROS_INFO("extended_state_.landed_state: %d", extended_state_.landed_state);
             if (extended_state_.landed_state == mavros_msgs::ExtendedState::LANDED_STATE_ON_GROUND) {
                 ROS_INFO("[%s] UAV landed, disarming...", uav_id_.c_str());
                 setMode("AUTO.LAND");
-           
+                
             }
             control_rate.sleep();
             
