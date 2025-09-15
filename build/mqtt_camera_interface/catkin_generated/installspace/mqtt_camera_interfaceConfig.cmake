@@ -67,14 +67,14 @@ set(mqtt_camera_interface_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(mqtt_camera_interface_SOURCE_PREFIX /home/px/UAV_SDK/src/mqtt_camera_interface)
-  set(mqtt_camera_interface_DEVEL_PREFIX /home/px/UAV_SDK/devel)
+  set(mqtt_camera_interface_SOURCE_PREFIX /home/px/UAV/src/mqtt_camera_interface)
+  set(mqtt_camera_interface_DEVEL_PREFIX /home/px/UAV/devel)
   set(mqtt_camera_interface_INSTALL_PREFIX "")
   set(mqtt_camera_interface_PREFIX ${mqtt_camera_interface_DEVEL_PREFIX})
 else()
   set(mqtt_camera_interface_SOURCE_PREFIX "")
   set(mqtt_camera_interface_DEVEL_PREFIX "")
-  set(mqtt_camera_interface_INSTALL_PREFIX /home/px/UAV_SDK/install)
+  set(mqtt_camera_interface_INSTALL_PREFIX /home/px/UAV/install)
   set(mqtt_camera_interface_PREFIX ${mqtt_camera_interface_INSTALL_PREFIX})
 endif()
 
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/px/UAV_SDK/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/px/UAV/install/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

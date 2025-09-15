@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles /home/px/UAV_SDK/build/uav_control/CMakeFiles/progress.marks
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	cd /home/px/UAV/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV/build/CMakeFiles /home/px/UAV/build/uav_control/CMakeFiles/progress.marks
+	cd /home/px/UAV/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/clean
+	cd /home/px/UAV/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
+	cd /home/px/UAV/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
+	cd /home/px/UAV/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/px/UAV/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 uav_control/CMakeFiles/uav_control_node.dir/rule:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_node.dir/rule
+	cd /home/px/UAV/build && $(MAKE) -f CMakeFiles/Makefile2 uav_control/CMakeFiles/uav_control_node.dir/rule
 .PHONY : uav_control/CMakeFiles/uav_control_node.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ uav_control_node: uav_control/CMakeFiles/uav_control_node.dir/rule
 
 # fast build rule for target.
 uav_control_node/fast:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/build
+	cd /home/px/UAV/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/build
 .PHONY : uav_control_node/fast
 
 src/rc_input.o: src/rc_input.cpp.o
@@ -188,7 +188,7 @@ src/rc_input.o: src/rc_input.cpp.o
 
 # target to build an object file
 src/rc_input.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_input.cpp.o
+	cd /home/px/UAV/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_input.cpp.o
 .PHONY : src/rc_input.cpp.o
 
 src/rc_input.i: src/rc_input.cpp.i
@@ -197,7 +197,7 @@ src/rc_input.i: src/rc_input.cpp.i
 
 # target to preprocess a source file
 src/rc_input.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_input.cpp.i
+	cd /home/px/UAV/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_input.cpp.i
 .PHONY : src/rc_input.cpp.i
 
 src/rc_input.s: src/rc_input.cpp.s
@@ -206,7 +206,7 @@ src/rc_input.s: src/rc_input.cpp.s
 
 # target to generate assembly for a file
 src/rc_input.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_input.cpp.s
+	cd /home/px/UAV/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/rc_input.cpp.s
 .PHONY : src/rc_input.cpp.s
 
 src/uav_control_node.o: src/uav_control_node.cpp.o
@@ -215,7 +215,7 @@ src/uav_control_node.o: src/uav_control_node.cpp.o
 
 # target to build an object file
 src/uav_control_node.cpp.o:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o
+	cd /home/px/UAV/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.o
 .PHONY : src/uav_control_node.cpp.o
 
 src/uav_control_node.i: src/uav_control_node.cpp.i
@@ -224,7 +224,7 @@ src/uav_control_node.i: src/uav_control_node.cpp.i
 
 # target to preprocess a source file
 src/uav_control_node.cpp.i:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.i
+	cd /home/px/UAV/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.i
 .PHONY : src/uav_control_node.cpp.i
 
 src/uav_control_node.s: src/uav_control_node.cpp.s
@@ -233,7 +233,7 @@ src/uav_control_node.s: src/uav_control_node.cpp.s
 
 # target to generate assembly for a file
 src/uav_control_node.cpp.s:
-	cd /home/px/UAV_SDK/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.s
+	cd /home/px/UAV/build && $(MAKE) -f uav_control/CMakeFiles/uav_control_node.dir/build.make uav_control/CMakeFiles/uav_control_node.dir/src/uav_control_node.cpp.s
 .PHONY : src/uav_control_node.cpp.s
 
 # Help Target
@@ -267,6 +267,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/px/UAV/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

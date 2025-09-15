@@ -56,7 +56,7 @@ public:
         innerMarkerLength = config["innerMarkerLength"].as<float>();
 
         // 订阅图像话题
-        image_sub_ = it_.subscribe("/iris_hitl/usb_cam/image_raw", 1, &ARQRDetector::imageCallback, this);
+        image_sub_ = it_.subscribe("/iris/usb_cam/image_raw", 1, &ARQRDetector::imageCallback, this);
         // 发布检测结果图像话题
         image_pub_ = it_.advertise("/ar_qr_detection/result", 1);
         // 初始化机体系坐标发布器
@@ -140,10 +140,8 @@ public:
             // 检测 ArUco 标记
             cv::aruco::detectMarkers(cv_ptr->image, dictionary_, corners, ids, parameters);
 
-            if (ids.empty()){
-                ROS_INFO("No arucos are deteted!!!");
-                image_pub_.publish(cv_ptr->toImageMsg());
-            }else{
+            
+            
                 
             std::vector<cv::Vec3d> out_rvecs, out_tvecs, in_rvecs, in_tvecs;
 
@@ -235,13 +233,17 @@ public:
             }
 
             // 发布机体系坐标消息
-            if (outerMarkerFound || innerMarkerFound) {
-                aruco_land_pub_.publish(aruco_land_msg);
-                
-            }else{
+            if (ids.empty())
+            {
                 aruco_land_msg.targets.clear();
                 aruco_land_pub_.publish(aruco_land_msg);
+            }else if  (outerMarkerFound || innerMarkerFound) {
+                aruco_land_pub_.publish(aruco_land_msg);
+                
             }
+            
+            
+            
             // 发布处理后的图像
                 image_pub_.publish(cv_ptr->toImageMsg());
 
@@ -250,7 +252,7 @@ public:
                 cv::resizeWindow("AR QR Detection Result", 800, 600);
                 cv::imshow("AR QR Detection Result", cv_ptr->image);
                 cv::waitKey(1); // 等待 1 毫秒，用于处理窗口事件
-            }
+            
 
         } catch (cv_bridge::Exception& e) {
             ROS_ERROR("cv_bridge exception: %s", e.what());

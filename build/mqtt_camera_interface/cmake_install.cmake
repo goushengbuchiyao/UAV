@@ -1,8 +1,8 @@
-# Install script for directory: /home/px/UAV_SDK/src/mqtt_camera_interface
+# Install script for directory: /home/px/UAV/src/mqtt_camera_interface
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/px/UAV_SDK/install")
+  set(CMAKE_INSTALL_PREFIX "/home/px/UAV/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px/UAV_SDK/build/mqtt_camera_interface/catkin_generated/installspace/mqtt_camera_interface.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px/UAV/build/mqtt_camera_interface/catkin_generated/installspace/mqtt_camera_interface.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mqtt_camera_interface/cmake" TYPE FILE FILES
-    "/home/px/UAV_SDK/build/mqtt_camera_interface/catkin_generated/installspace/mqtt_camera_interfaceConfig.cmake"
-    "/home/px/UAV_SDK/build/mqtt_camera_interface/catkin_generated/installspace/mqtt_camera_interfaceConfig-version.cmake"
+    "/home/px/UAV/build/mqtt_camera_interface/catkin_generated/installspace/mqtt_camera_interfaceConfig.cmake"
+    "/home/px/UAV/build/mqtt_camera_interface/catkin_generated/installspace/mqtt_camera_interfaceConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mqtt_camera_interface" TYPE FILE FILES "/home/px/UAV_SDK/src/mqtt_camera_interface/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mqtt_camera_interface" TYPE FILE FILES "/home/px/UAV/src/mqtt_camera_interface/package.xml")
 endif()
 

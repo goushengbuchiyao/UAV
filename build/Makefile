@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles /home/px/UAV_SDK/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV/build/CMakeFiles /home/px/UAV/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV_SDK/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/px/UAV/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -1650,136 +1650,6 @@ mqtt_camera_node/fast:
 .PHONY : mqtt_camera_node/fast
 
 #=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_cpp
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_cpp
-.PHONY : diagnostic_msgs_generate_messages_cpp
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir/build
-.PHONY : diagnostic_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_eus
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_eus
-.PHONY : diagnostic_msgs_generate_messages_eus
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_eus/fast:
-	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_eus.dir/build
-.PHONY : diagnostic_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_nodejs
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_nodejs
-.PHONY : diagnostic_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_nodejs.dir/build
-.PHONY : diagnostic_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_nodejs
-
-# Build rule for target.
-trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_lisp
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_lisp
-.PHONY : diagnostic_msgs_generate_messages_lisp
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir/build
-.PHONY : diagnostic_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named diagnostic_msgs_generate_messages_py
-
-# Build rule for target.
-diagnostic_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 diagnostic_msgs_generate_messages_py
-.PHONY : diagnostic_msgs_generate_messages_py
-
-# fast build rule for target.
-diagnostic_msgs_generate_messages_py/fast:
-	$(MAKE) -f simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build.make simulator/CMakeFiles/diagnostic_msgs_generate_messages_py.dir/build
-.PHONY : diagnostic_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_cpp
-
-# Build rule for target.
-trajectory_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_cpp
-.PHONY : trajectory_msgs_generate_messages_cpp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
-.PHONY : trajectory_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_eus
-
-# Build rule for target.
-trajectory_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_eus
-.PHONY : trajectory_msgs_generate_messages_eus
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_lisp
-
-# Build rule for target.
-trajectory_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_lisp
-.PHONY : trajectory_msgs_generate_messages_lisp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
-.PHONY : trajectory_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_py
-
-# Build rule for target.
-trajectory_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_py
-.PHONY : trajectory_msgs_generate_messages_py
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	$(MAKE) -f simulator/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make simulator/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named _uav_msgs_generate_messages_check_deps_Waypoint
 
 # Build rule for target.
@@ -2322,16 +2192,6 @@ help:
 	@echo "... aruco_landing_controller_nested"
 	@echo "... aruco_detection_generate_messages"
 	@echo "... mqtt_camera_node"
-	@echo "... diagnostic_msgs_generate_messages_cpp"
-	@echo "... diagnostic_msgs_generate_messages_eus"
-	@echo "... diagnostic_msgs_generate_messages_nodejs"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
-	@echo "... diagnostic_msgs_generate_messages_lisp"
-	@echo "... diagnostic_msgs_generate_messages_py"
-	@echo "... trajectory_msgs_generate_messages_cpp"
-	@echo "... trajectory_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... _uav_msgs_generate_messages_check_deps_Waypoint"
 	@echo "... _uav_msgs_generate_messages_check_deps_SetModeCommand"
 	@echo "... uav_msgs_generate_messages_cpp"

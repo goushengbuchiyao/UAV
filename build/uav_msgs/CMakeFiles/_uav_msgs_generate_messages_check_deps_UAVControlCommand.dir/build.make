@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV/build
 
 # Utility rule file for _uav_msgs_generate_messages_check_deps_UAVControlCommand.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
 include uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/progress.make
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand:
-	cd /home/px/UAV_SDK/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px/UAV_SDK/src/uav_msgs/msg/UAVControlCommand.msg uav_msgs/PositionControlNEDCommand:uav_msgs/VelocityControlNEDCommand:mavros_msgs/Waypoint:uav_msgs/Waypoint:uav_msgs/HoverCommand:uav_msgs/LandCommand:uav_msgs/ReturnToLaunchCommand:uav_msgs/PositionControlGlobalCommand:uav_msgs/WaypointsCommand:uav_msgs/TakeoffCommand:uav_msgs/SetModeCommand
+	cd /home/px/UAV/build/uav_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py uav_msgs /home/px/UAV/src/uav_msgs/msg/UAVControlCommand.msg uav_msgs/LandCommand:uav_msgs/PositionControlNEDCommand:uav_msgs/Waypoint:uav_msgs/VelocityControlNEDCommand:uav_msgs/HoverCommand:uav_msgs/SetModeCommand:uav_msgs/PositionControlGlobalCommand:uav_msgs/ReturnToLaunchCommand:mavros_msgs/Waypoint:uav_msgs/TakeoffCommand:uav_msgs/WaypointsCommand
 
 _uav_msgs_generate_messages_check_deps_UAVControlCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand
 _uav_msgs_generate_messages_check_deps_UAVControlCommand: uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/build.make
@@ -67,10 +67,10 @@ uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/build
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/clean:
-	cd /home/px/UAV_SDK/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/cmake_clean.cmake
+	cd /home/px/UAV/build/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/cmake_clean.cmake
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/clean
 
 uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/uav_msgs /home/px/UAV_SDK/build/uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px/UAV/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV/src /home/px/UAV/src/uav_msgs /home/px/UAV/build /home/px/UAV/build/uav_msgs /home/px/UAV/build/uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : uav_msgs/CMakeFiles/_uav_msgs_generate_messages_check_deps_UAVControlCommand.dir/depend
 

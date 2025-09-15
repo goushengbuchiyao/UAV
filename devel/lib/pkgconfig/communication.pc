@@ -1,4 +1,4 @@
-prefix=/home/px/UAV_SDK/devel
+prefix=/home/px/UAV/devel
 
 Name: communication
 Description: Description of communication

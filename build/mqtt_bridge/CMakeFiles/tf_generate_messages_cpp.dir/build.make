@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV/build
 
 # Utility rule file for tf_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build: tf_generate_messages_
 .PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/build
 
 mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean:
-	cd /home/px/UAV_SDK/build/mqtt_bridge && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/px/UAV/build/mqtt_bridge && $(CMAKE_COMMAND) -P CMakeFiles/tf_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/clean
 
 mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/mqtt_bridge /home/px/UAV_SDK/build /home/px/UAV_SDK/build/mqtt_bridge /home/px/UAV_SDK/build/mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px/UAV/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV/src /home/px/UAV/src/mqtt_bridge /home/px/UAV/build /home/px/UAV/build/mqtt_bridge /home/px/UAV/build/mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : mqtt_bridge/CMakeFiles/tf_generate_messages_cpp.dir/depend
 

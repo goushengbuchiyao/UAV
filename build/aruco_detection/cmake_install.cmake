@@ -1,8 +1,8 @@
-# Install script for directory: /home/px/UAV_SDK/src/aruco_detection
+# Install script for directory: /home/px/UAV/src/aruco_detection
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/px/UAV_SDK/install")
+  set(CMAKE_INSTALL_PREFIX "/home/px/UAV/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,25 +38,25 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detection/cmake" TYPE FILE FILES "/home/px/UAV_SDK/build/aruco_detection/catkin_generated/installspace/aruco_detection-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detection/cmake" TYPE FILE FILES "/home/px/UAV/build/aruco_detection/catkin_generated/installspace/aruco_detection-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px/UAV_SDK/build/aruco_detection/catkin_generated/installspace/aruco_detection.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/px/UAV/build/aruco_detection/catkin_generated/installspace/aruco_detection.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detection/cmake" TYPE FILE FILES "/home/px/UAV_SDK/build/aruco_detection/catkin_generated/installspace/aruco_detection-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detection/cmake" TYPE FILE FILES "/home/px/UAV/build/aruco_detection/catkin_generated/installspace/aruco_detection-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detection/cmake" TYPE FILE FILES
-    "/home/px/UAV_SDK/build/aruco_detection/catkin_generated/installspace/aruco_detectionConfig.cmake"
-    "/home/px/UAV_SDK/build/aruco_detection/catkin_generated/installspace/aruco_detectionConfig-version.cmake"
+    "/home/px/UAV/build/aruco_detection/catkin_generated/installspace/aruco_detectionConfig.cmake"
+    "/home/px/UAV/build/aruco_detection/catkin_generated/installspace/aruco_detectionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detection" TYPE FILE FILES "/home/px/UAV_SDK/src/aruco_detection/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detection" TYPE FILE FILES "/home/px/UAV/src/aruco_detection/package.xml")
 endif()
 

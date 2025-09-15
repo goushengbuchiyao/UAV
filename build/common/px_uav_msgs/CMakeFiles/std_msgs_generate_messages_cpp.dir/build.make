@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV/build
 
 # Utility rule file for std_msgs_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build: std_msgs
 .PHONY : common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 
 common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	cd /home/px/UAV_SDK/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/px/UAV/build/common/px_uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/common/px_uav_msgs /home/px/UAV_SDK/build /home/px/UAV_SDK/build/common/px_uav_msgs /home/px/UAV_SDK/build/common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px/UAV/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV/src /home/px/UAV/src/common/px_uav_msgs /home/px/UAV/build /home/px/UAV/build/common/px_uav_msgs /home/px/UAV/build/common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : common/px_uav_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 

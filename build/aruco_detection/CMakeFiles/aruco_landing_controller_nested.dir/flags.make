@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++17
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"aruco_detection\"
 
-CXX_INCLUDES = -I/home/px/UAV_SDK/src/aruco_detection/include -I/home/px/UAV_SDK/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 
+CXX_INCLUDES = -I/home/px/UAV/src/aruco_detection/include -I/home/px/UAV/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 
 

@@ -1,4 +1,4 @@
-prefix=/home/px/UAV_SDK/install
+prefix=/home/px/UAV/install
 
 Name: aruco_detection
 Description: Description of aruco_detection

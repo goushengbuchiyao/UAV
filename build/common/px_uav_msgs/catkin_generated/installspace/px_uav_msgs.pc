@@ -1,4 +1,4 @@
-prefix=/home/px/UAV_SDK/install
+prefix=/home/px/UAV/install
 
 Name: px_uav_msgs
 Description: Description of px_uav_msgs

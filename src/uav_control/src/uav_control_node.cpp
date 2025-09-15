@@ -466,21 +466,20 @@ void UAVControlNode::RTL_Aruco_land()
                 } else if (outer_marker_found_) {
                     handleOuterMarker();
                 } 
+                // 需要添加定高激光模块，高度位置不准。
+            }else if (rel_alt_ < 0.2 && fabs(velocity_.twist.linear.z) < 0.1) {
+                ROS_INFO("Landing detected: Alt=%.2f, Vz=%.2f", rel_alt_, velocity_.twist.linear.z);
+                setMode("AUTO.LAND");
             }
             
             ROS_INFO("extended_state_.landed_state: %d", extended_state_.landed_state);
-            if (extended_state_.landed_state == mavros_msgs::ExtendedState::LANDED_STATE_ON_GROUND) {
-                ROS_INFO("[%s] UAV landed, disarming...", uav_id_.c_str());
-                setMode("AUTO.LAND");
-                
-            }
-            control_rate.sleep();
-            
             // 如果无人机已降落，退出循环
-            if (current_state_.mode == "AUTO.LAND" || current_state_.armed == false) {
+            if (extended_state_.landed_state == mavros_msgs::ExtendedState::LANDED_STATE_ON_GROUND || current_state_.armed == false) {
                 ROS_INFO("[%s] ArUco landing finish.", uav_id_.c_str());
                 break;
             }
+
+            control_rate.sleep();
         }
         
         ROS_INFO("[%s] ArUco landing procedure completed.", uav_id_.c_str());

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/px/UAV_SDK/src
+CMAKE_SOURCE_DIR = /home/px/UAV/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/px/UAV_SDK/build
+CMAKE_BINARY_DIR = /home/px/UAV/build
 
 # Utility rule file for aruco_detection_generate_messages.
 
@@ -63,10 +63,10 @@ aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/build: aruco_de
 .PHONY : aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/build
 
 aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/clean:
-	cd /home/px/UAV_SDK/build/aruco_detection && $(CMAKE_COMMAND) -P CMakeFiles/aruco_detection_generate_messages.dir/cmake_clean.cmake
+	cd /home/px/UAV/build/aruco_detection && $(CMAKE_COMMAND) -P CMakeFiles/aruco_detection_generate_messages.dir/cmake_clean.cmake
 .PHONY : aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/clean
 
 aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/depend:
-	cd /home/px/UAV_SDK/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV_SDK/src /home/px/UAV_SDK/src/aruco_detection /home/px/UAV_SDK/build /home/px/UAV_SDK/build/aruco_detection /home/px/UAV_SDK/build/aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/px/UAV/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/px/UAV/src /home/px/UAV/src/aruco_detection /home/px/UAV/build /home/px/UAV/build/aruco_detection /home/px/UAV/build/aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : aruco_detection/CMakeFiles/aruco_detection_generate_messages.dir/depend
 
